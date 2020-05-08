@@ -1,241 +1,1061 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>C-Based Toolchain Hardening - OWASP Cheat Sheet Series</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "C-Based Toolchain Hardening";
-    var mkdocs_page_input_path = "cheatsheets/C-Based_Toolchain_Hardening.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> OWASP Cheat Sheet Series</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.5">
+    
+    
+      
+        <title>C-Based Toolchain Hardening</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.df84b5fe.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-header-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../IndexASVS/">Index ASVS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../IndexProactiveControls/">Index Proactive Controls</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Index Alphabetical</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Cheatsheets</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../AJAX_Security_Cheat_Sheet/">AJAX Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Abuse_Case_Cheat_Sheet/">Abuse Case Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Access_Control_Cheat_Sheet/">Access Control Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Attack_Surface_Analysis_Cheat_Sheet/">Attack Surface Analysis Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Authentication_Cheat_Sheet/">Authentication Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Authorization_Testing_Automation/">Authorization Testing Automation</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Bean_Validation_Cheat_Sheet/">Bean Validation Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">C-Based Toolchain Hardening</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../C-Based_Toolchain_Hardening_Cheat_Sheet/">C-Based Toolchain Hardening Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/">Choosing and Using Security Questions Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Clickjacking_Defense_Cheat_Sheet/">Clickjacking Defense Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Content_Security_Policy_Cheat_Sheet/">Content Security Policy Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Credential_Stuffing_Prevention_Cheat_Sheet/">Credential Stuffing Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/">Cross-Site Request Forgery Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/">Cross Site Scripting Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cryptographic_Storage_Cheat_Sheet/">Cryptographic Storage Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../DOM_based_XSS_Prevention_Cheat_Sheet/">DOM based XSS Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Database_Security_Cheat_Sheet/">Database Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Denial_of_Service_Cheat_Sheet/">Denial of Service Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Deserialization_Cheat_Sheet/">Deserialization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Security_Cheat_Sheet/">Docker Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../DotNet_Security_Cheat_Sheet/">DotNet Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Error_Handling_Cheat_Sheet/">Error Handling Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../File_Upload_Cheat_Sheet/">File Upload Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Forgot_Password_Cheat_Sheet/">Forgot Password Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../HTML5_Security_Cheat_Sheet/">HTML5 Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../HTTP_Strict_Transport_Security_Cheat_Sheet/">HTTP Strict Transport Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet/">Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet_in_Java/">Injection Prevention Cheat Sheet in Java</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Input_Validation_Cheat_Sheet/">Input Validation Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/">Insecure Direct Object Reference Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../JAAS_Cheat_Sheet/">JAAS Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../JSON_Web_Token_Cheat_Sheet_for_Java/">JSON Web Token Cheat Sheet for Java</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Key_Management_Cheat_Sheet/">Key Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../LDAP_Injection_Prevention_Cheat_Sheet/">LDAP Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Logging_Cheat_Sheet/">Logging Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Mass_Assignment_Cheat_Sheet/">Mass Assignment Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/">Microservices based Security Arch Doc Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Multifactor_Authentication_Cheat_Sheet/">Multifactor Authentication Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Nodejs_security_cheat_sheet/">Nodejs security cheat sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../OS_Command_Injection_Defense_Cheat_Sheet/">OS Command Injection Defense Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../PHP_Configuration_Cheat_Sheet/">PHP Configuration Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Password_Storage_Cheat_Sheet/">Password Storage Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Pinning_Cheat_Sheet/">Pinning Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Query_Parameterization_Cheat_Sheet/">Query Parameterization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../REST_Assessment_Cheat_Sheet/">REST Assessment Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../REST_Security_Cheat_Sheet/">REST Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Ruby_on_Rails_Cheatsheet/">Ruby on Rails Cheatsheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../SAML_Security_Cheat_Sheet/">SAML Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../SQL_Injection_Prevention_Cheat_Sheet/">SQL Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/">Securing Cascading Style Sheets Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/">Server Side Request Forgery Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Session_Management_Cheat_Sheet/">Session Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../TLS_Cipher_String_Cheat_Sheet/">TLS Cipher String Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Third_Party_Javascript_Management_Cheat_Sheet/">Third Party Javascript Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Threat_Modeling_Cheat_Sheet/">Threat Modeling Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Transaction_Authorization_Cheat_Sheet/">Transaction Authorization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Transport_Layer_Protection_Cheat_Sheet/">Transport Layer Protection Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/">Unvalidated Redirects and Forwards Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../User_Privacy_Protection_Cheat_Sheet/">User Privacy Protection Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Virtual_Patching_Cheat_Sheet/">Virtual Patching Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerability_Disclosure_Cheat_Sheet/">Vulnerability Disclosure Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerable_Dependency_Management_Cheat_Sheet/">Vulnerable Dependency Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Web_Service_Security_Cheat_Sheet/">Web Service Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../XML_External_Entity_Prevention_Cheat_Sheet/">XML External Entity Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../XML_Security_Cheat_Sheet/">XML Security Cheat Sheet</a>
-                    </li>
-                </ul>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              C-Based Toolchain Hardening
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">OWASP Cheat Sheet Series</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Cheatsheets &raquo;</li>
-        
-      
-    
-    <li>C-Based Toolchain Hardening</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
+  </div>
 </div>
-          <div role="main">
-            <div class="section">
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexASVS/" title="Index ASVS" class="md-nav__link">
+      Index ASVS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexProactiveControls/" title="Index Proactive Controls" class="md-nav__link">
+      Index Proactive Controls
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../glossary/" title="Index Alphabetical" class="md-nav__link">
+      Index Alphabetical
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Cheatsheets
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Cheatsheets" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Cheatsheets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security Cheat Sheet" class="md-nav__link">
+      AJAX Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
+      Abuse Case Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
+      Access Control Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
+      Attack Surface Analysis Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
+      Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-nav__link">
+      Authorization Testing Automation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-nav__link">
+      Bean Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="C-Based Toolchain Hardening" class="md-nav__link md-nav__link--active">
+      C-Based Toolchain Hardening
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
+      C-Based Toolchain Hardening Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
+      Choosing and Using Security Questions Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
+      Clickjacking Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
+      Content Security Policy Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
+      Credential Stuffing Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Cross-Site Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
+      Cross Site Scripting Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
+      Cryptographic Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
+      DOM based XSS Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
+      Database Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
+      Denial of Service Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
+      Deserialization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
+      Docker Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security Cheat Sheet" class="md-nav__link">
+      DotNet Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
+      Error Handling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
+      File Upload Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
+      Forgot Password Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
+      HTML5 Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
+      HTTP Strict Transport Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
+      Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
+      Input Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
+      Insecure Direct Object Reference Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-nav__link">
+      JAAS Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
+      Key Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
+      LDAP Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
+      Logging Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
+      Mass Assignment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
+      Microservices based Security Arch Doc Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
+      Multifactor Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
+      Nodejs security cheat sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
+      OS Command Injection Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
+      PHP Configuration Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
+      Password Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
+      Pinning Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
+      Query Parameterization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
+      REST Assessment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
+      REST Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
+      Ruby on Rails Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
+      SAML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
+      SQL Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
+      Securing Cascading Style Sheets Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Server Side Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
+      Session Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
+      TLS Cipher String Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
+      Third Party Javascript Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
+      Threat Modeling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
+      Transaction Authorization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
+      Transport Layer Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
+      Unvalidated Redirects and Forwards Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
+      User Privacy Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
+      Virtual Patching Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
+      Vulnerability Disclosure Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
+      Vulnerable Dependency Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
+      Web Service Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
+      XML External Entity Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
+      XML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                
+                  
+                
+                
                 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>C-Based Toolchain Hardening is a treatment of project settings that will help you deliver reliable and secure code when using C, C++ and Objective C languages in a number of development environments. This article will examine Microsoft and GCC toolchains for the C, C++ and Objective C languages. It will guide you through the steps you should take to create executables with firmer defensive postures and increased integration with the available platform security. Effectively configuring the toolchain also means your project will enjoy a number of benefits during development, including enhanced warnings and static analysis, and self-debugging code.</p>
 <p>There are four areas to be examined when hardening the toolchain: configuration, preprocessor, compiler, and linker. Nearly all areas are overlooked or neglected when setting up a project. The neglect appears to be pandemic, and it applies to nearly all projects including Auto-configured projects, Makefile-based, Eclipse-based, Visual Studio-based, and Xcode-based. Its important to address the gaps at configuration and build time because its difficult to impossible to <a href="https://sourceware.org/ml/binutils/2012-03/msg00309.html">add hardening on a distributed executable after the fact</a> on some platforms.</p>
@@ -258,8 +1078,9 @@
 <p>Debug builds are where developers spend most of their time when vetting problems, so this build should concentrate forces and tools or be a 'force multiplier'. Though many do not realize, debug code is more highly valued than release code because its adorned with additional instrumentation. The debug instrumentation will cause a program to become nearly "self-debugging", and help you catch mistakes such as bad parameters, failed API calls, and memory problems.</p>
 <p>Self-debugging code reduces your time during trouble shooting and debugging. Reducing time under the debugger means you have more time for development and feature requests. If code is checked in without debug instrumentation, it should be fixed by adding instrumentation or rejected.</p>
 <p>For GCC, optimizations and debug symbolication are controlled through two switches: <code>-O</code> and <code>-g</code>. You should use the following as part of your <code>CFLAGS</code> and <code>CXXFLAGS</code> for a minimal debug session:</p>
-<pre><code class="text">-O0 -g3 -ggdb
-</code></pre>
+<div class="codehilite"><pre><span></span><code>-O0 -g3 -ggdb
+</code></pre></div>
+
 
 <p><code>-O0</code> turns off optimizations and <code>-g3</code> ensures maximum debug information is available. You may need to use <code>-O1</code> so some analysis is performed. Otherwise, your debug build will be missing a number of warnings not present in release builds. <code>-g3</code> ensures maximum debugging information is available for the debug session, including symbolic constants and <code>#defines</code>. <code>-ggdb</code> includes extensions to help with a debug session under GDB. For completeness, Jan Krachtovil stated <code>-ggdb</code> currently has no effect in a private email.</p>
 <p>Release builds should also consider the configuration pair of <code>-mfunction-return=thunk</code> and <code>-mindirect-branch=thunk</code>. These are the "Reptoline" fix which is an indirect branch used to thwart speculative execution CPU vulnerabilities such as Spectre and Meltdown. The CPU cannot tell what code to <code>speculatively</code> execute because it is an indirect (as opposed to a direct) branch. This is an extra layer of indirection, like calling a pointer through a pointer.</p>
@@ -269,8 +1090,9 @@
 <h3 id="release-builds">Release Builds<a class="headerlink" href="#release-builds" title="Permanent link">&para;</a></h3>
 <p>Release builds are what your customer receives. They are meant to be run on production hardware and servers, and they should be reliable, secure, and efficient. A stable release build is the product of the hard work and effort during development.</p>
 <p>For release builds, you should use the following as part of <code>CFLAGS</code> and <code>CXXFLAGS</code> for release builds:</p>
-<pre><code class="text">-On -g2
-</code></pre>
+<div class="codehilite"><pre><span></span><code>-On -g2
+</code></pre></div>
+
 
 <p><code>-O</code><em><code>n</code></em> sets optimizations for speed or size (for example, <code>-Os</code> or <code>-O2</code>), and <code>-g2</code> ensure debugging information is created.</p>
 <p>Debugging information should be stripped and retained in case of symbolication for a crash report from the field. While not desired, debug information can be left in place without a performance penalty. See <em><a href="https://gcc.gnu.org/ml/gcc-help/2005-03/msg00032.html">How does the gcc -g option affect performance?</a></em> for details.</p>
@@ -280,8 +1102,9 @@
 <h3 id="test-builds">Test Builds<a class="headerlink" href="#test-builds" title="Permanent link">&para;</a></h3>
 <p>Test builds are used to provide heuristic validation by way of positive and negative test suites. Under a test configuration, all interfaces are tested to ensure they perform to specification and satisfaction. "Satisfaction" is subjective, but it should include no crashing and no trashing of your memory arena, even when faced with negative tests.</p>
 <p>Because all interfaces are tested (and not just the public ones), your <code>CFLAGS</code> and <code>CXXFLAGS</code> should include:</p>
-<pre><code class="text">-Dprotected=public -Dprivate=public
-</code></pre>
+<div class="codehilite"><pre><span></span><code>-Dprotected=public -Dprivate=public
+</code></pre></div>
+
 
 <p>You should also change <code>__attribute__</code> <code>((visibility</code> <code>("hidden")))</code> to <code>__attribute__</code> <code>((visibility</code> <code>("default")))</code>.</p>
 <p>Nearly everyone gets a positive test right, so no more needs to be said. The negative self tests are much more interesting, and you should concentrate on trying to make your program fail so you can verify its fails gracefully. Remember, a bad guy is not going to be courteous when he attempts to cause your program to fail. And its your project that takes egg on the face by way of a bug report or guest appearance on <a href="https://nmap.org/mailman/listinfo/fulldisclosure">Full Disclosure</a> or <a href="https://www.securityfocus.com/archive">Bugtraq</a> - not <code>&lt;some library&gt;</code> you included.</p>
@@ -290,10 +1113,11 @@
 <p>When using auto configuration tools, there are a few files of interest worth mentioning. The files are part of the auto tools chain and include <code>m4</code> and the various <code>*.in</code>, <code>*.ac</code> (autoconf), and <code>*.am</code> (automake) files. At times, you will have to open them, or the resulting makefiles, to tune the "stock" configuration.</p>
 <p>There are three downsides to the command line configuration tools in the toolchain: (1) they often ignore user requests, (2) they cannot create configurations, and (3) security is often not a goal.</p>
 <p>To demonstrate the first issue, confider your project with the following: <code>configure</code> <code>CFLAGS="-Wall</code> <code>-fPIE"</code> <code>CXXFLAGS="-Wall</code> <code>-fPIE"</code> <code>LDFLAGS="-pie"</code>. You will probably find the auto tools ignored your request, which means the command below will not produce expected results. As a work around, you will have to open an <code>m4</code> scripts, <code>Makefile.in</code> or <code>Makefile.am</code> and fix the configuration.</p>
-<pre><code class="bash">$ configure CFLAGS=&quot;-Wall -Wextra -Wconversion -fPIE -Wno-unused-parameter
-    -Wformat=2 -Wformat-security -fstack-protector-all -Wstrict-overflow&quot;
-    LDFLAGS=&quot;-pie -z,noexecstack -z,noexecheap -z,relro -z,now&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$ configure <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-Wall -Wextra -Wconversion -fPIE -Wno-unused-parameter</span>
+<span class="s2">    -Wformat=2 -Wformat-security -fstack-protector-all -Wstrict-overflow&quot;</span>
+    <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-pie -z,noexecstack -z,noexecheap -z,relro -z,now&quot;</span>
+</code></pre></div>
+
 
 <p>For the second point, you will probably be disappointed to learn <a href="https://lists.gnu.org/archive/html/automake/2012-12/msg00019.html">Automake does not support the concept of configurations</a>. Its not entirely Autoconf's or Automake's fault - <em>Make</em> and its inability to detect changes is the underlying problem. Specifically, <em>Make</em> only <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/make.html">checks modification times of prerequisites and targets</a>, and does not check things like <code>CFLAGS</code> and <code>CXXFLAGS</code>. The net effect is you will not receive expected results when you issue <code>make</code> <code>debug</code> and then <code>make</code> <code>test</code> or <code>make</code> <code>release</code>.</p>
 <p>Finally, you will probably be disappointed to learn tools such as Autoconf and Automake miss many security related opportunities and ship insecure out of the box. There are a number of compiler switches and linker flags that improve the defensive posture of a program, but they are not 'on' by default. Tools like Autoconf - which are supposed to handle this situation - often provides setting to serve the lowest of all denominators.</p>
@@ -301,7 +1125,7 @@
 <h2 id="makefiles">Makefiles<a class="headerlink" href="#makefiles" title="Permanent link">&para;</a></h2>
 <p>Make is one of the earliest build systems dating back to the 1970s. Its available on Linux, Mac OS X and Unix, so you will frequently encounter projects using it. Unfortunately, Make has a number of short comings (<em><a href="https://embeddedartistry.com/blog/2017/04/10/recursive-make-considered-harmful/">Recursive Make Considered Harmful</a></em> and <em><a href="https://www.conifersystems.com/whitepapers/gnu-make/">What's Wrong With GNU make?</a></em>), and can cause some discomfort. Despite issues with Make, ESAPI C++ uses Make primarily for three reasons: first, its omnipresent; second, its easier to manage than the Auto Tools family; and third, <code>libtool</code> was out of the question.</p>
 <p>Consider what happens when you: (1) type <code>make</code> <code>debug</code>, and then type <code>make</code> <code>release</code>. Each build would require different <code>CFLAGS</code> due to optimizations and level of debug support. In your makefile, you would extract the relevant target and set <code>CFLAGS</code> and <code>CXXFLAGS</code> similar to below (taken from <a href="https://code.google.com/archive/p/owasp-esapi-cplusplus/source/default/source">ESAPI C++ Makefile</a>):</p>
-<pre><code class="text"># Makefile
+<div class="codehilite"><pre><span></span><code># Makefile
 DEBUG_GOALS = $(filter $(MAKECMDGOALS), debug)
 ifneq ($(DEBUG_GOALS),)
     WANT_DEBUG := 1
@@ -329,22 +1153,25 @@ endif
 …
 
 # Merge ESAPI flags with user supplied flags. We perform the extra step to ensure
-# user options follow our options, which should give user option's a preference.
+# user options follow our options, which should give user option&#39;s a preference.
 override CFLAGS := $(ESAPI_CFLAGS) $(CFLAGS)
 override CXXFLAGS := $(ESAPI_CXXFLAGS) $(CXXFLAGS)
 override LDFLAGS := $(ESAPI_LDFLAGS) $(LDFLAGS)
 …
-</code></pre>
+</code></pre></div>
+
 
 <p>Make will first build the program in a debug configuration for a session under the debugger using a rule similar to:</p>
-<pre><code class="text">%.cpp:%.o:
+<div class="codehilite"><pre><span></span><code>%.cpp:%.o:
         $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $&lt; -o $@
-</code></pre>
+</code></pre></div>
+
 
 <p>When you want the release build, Make will do nothing because it considers everything up to date despite the fact <code>CFLAGS</code> and <code>CXXFLAGS</code> have changed. Hence, your program will actually be in a debug configuration and risk a <code>SIGABRT</code> at runtime because debug instrumentation is present (recall <code>assert</code> calls <code>abort()</code> when <code>NDEBUG</code> is <strong>not</strong> defined). In essence, you have DoS'd yourself due to <code>make</code>.</p>
 <p>In addition, many projects do not honor the user's command line. ESAPI C++ does its best to ensure a user's flags are honored via <code>override</code> as shown above, but other projects do not. For example, consider a project that should be built with Position Independent Executable (PIE or ASLR) enabled and data execution prevention (DEP) enabled. Dismissing user settings combined with insecure out of the box settings (and not picking them up during auto-setup or auto-configure) means a program built with the following will likely have neither defense:</p>
-<pre><code class="bash">$ make CFLAGS=&quot;-fPIE&quot; CXXFLAGS=&quot;-fPIE&quot; LDFLAGS=&quot;-pie -z,noexecstack, -z,noexecheap&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$ make <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fPIE&quot;</span> <span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;-fPIE&quot;</span> <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-pie -z,noexecstack, -z,noexecheap&quot;</span>
+</code></pre></div>
+
 
 <p>Defenses such as ASLR and DEP are especially important on Linux because <a href="https://linux.die.net/man/5/elf">Data Execution - not Prevention - is the norm</a>.</p>
 <h2 id="integration">Integration<a class="headerlink" href="#integration" title="Permanent link">&para;</a></h2>
@@ -352,20 +1179,23 @@ override LDFLAGS := $(ESAPI_LDFLAGS) $(LDFLAGS)
 <p>You also have the opportunity to include helpful libraries that are not need for business logic support. For example, if you are working on a platform with <a href="http://dmalloc.com">DMalloc</a> or <a href="https://github.com/google/sanitizers/tree/master/address-sanitizer">Address Sanitizer</a>, you should probably use it in your debug builds. For Ubuntu, DMalloc available from the package manager and can be installed with <code>sudo apt install libdmalloc5</code>. For Apple platforms, its available as a scheme option. Address Sanitizer is available in <a href="https://gcc.gnu.org/gcc-4.8/changes.html">GCC 4.8 and above</a> for many platforms.</p>
 <p>In addition, project level integration is an opportunity to harden third party libraries you chose to include. Because you chose to include them, you and your users are responsible for them. If you or your users endure a <code>SP800-53</code> audit, third party libraries will be in scope because the supply chain is included (specifically, item SA-12, Supply Chain Protection). The audits are not limited to those in the US Federal arena - financial institutions perform reviews too. A perfect example of violating this guidance is <a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1525">CVE-2012-1525</a>, which was due to <a href="https://www.agarri.fr/blog/index.html">Adobe's inclusion of a defective Sablotron library</a>.</p>
 <p>Another example is including OpenSSL. You know (1) <a href="https://www.schneier.com/academic/paperfiles/paper-ssl-revised.pdf">SSLv2 is insecure</a>, (2) <a href="https://blog.qualys.com/ssllabs/2014/10/15/ssl-3-is-dead-killed-by-the-poodle-attack">SSLv3 is insecure</a>, and (3) <a href="https://arstechnica.com/security/2012/09/crime-hijacks-https-sessions/">compression is insecure</a> (among others). In addition, suppose you don't use hardware and engines, and only allow static linking. Given the knowledge and specifications, you would configure the OpenSSL library as follows:</p>
-<pre><code class="bash">$ Configure darwin64-x86_64-cc -no-hw -no-engine -no-comp -no-shared 
-    -no-dso -no-ssl2 -no-ssl3 --openssldir=…
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$ Configure darwin64-x86_64-cc -no-hw -no-engine -no-comp -no-shared 
+    -no-dso -no-ssl2 -no-ssl3 --openssldir<span class="o">=</span>…
+</code></pre></div>
+
 
 <p><em>Note Well</em>: you might want engines, especially on Ivy Bridge microarchitectures (3rd generation Intel Core i5 and i7 processors). To have OpenSSL use the processor's random number generator (via the of <code>rdrand</code> instruction), you will need to call OpenSSL's <code>ENGINE_load_rdrand()</code> function and then <code>ENGINE_set_default</code> with <code>ENGINE_METHOD_RAND</code>. See <a href="https://wiki.openssl.org/index.php/Random_Numbers">OpenSSL's Random Numbers</a> for details.</p>
 <p>If you configure without the switches, then you will likely have vulnerable code/libraries and risk failing an audit. If the program is a remote server, then the following command will reveal if compression is active on the channel:</p>
-<pre><code class="bash">$ echo &quot;GET / HTTP1.0&quot; | openssl s_client -connect &lt;nowiki&gt;example.com:443&lt;/nowiki&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;GET / HTTP1.0&quot;</span> <span class="p">|</span> openssl s_client -connect &lt;nowiki&gt;example.com:443&lt;/nowiki&gt;
+</code></pre></div>
+
 
 <p><code>nm</code> or <code>openssl</code> <code>s_client</code> will show that compression is enabled in the client. In fact, any symbol within the <code>OPENSSL_NO_COMP</code> preprocessor macro will bear witness since <code>-no-comp</code> is translated into a <code>CFLAGS</code> define.</p>
-<pre><code class="bash">$ nm /usr/local/ssl/iphoneos/lib/libcrypto.a 2&gt;/dev/null | egrep -i &quot;(COMP_CTX_new|COMP_CTX_free)&quot;
-0000000000000110 T COMP_CTX_free
-0000000000000000 T COMP_CTX_new
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$ nm /usr/local/ssl/iphoneos/lib/libcrypto.a <span class="m">2</span>&gt;/dev/null <span class="p">|</span> egrep -i <span class="s2">&quot;(COMP_CTX_new|COMP_CTX_free)&quot;</span>
+<span class="m">0000000000000110</span> T COMP_CTX_free
+<span class="m">0000000000000000</span> T COMP_CTX_new
+</code></pre></div>
+
 
 <p>Even more egregious is the answer given to auditors who specifically ask about configurations and protocols: "we don't use weak/wounded/broken ciphers" or "we follow best practices." The use of compression tells the auditor that you are using wounded protocol in an insecure configuration and you don't follow best practices. That will likely set off alarm bells, and ensure the auditor dives deeper on more items.</p>
 <h1 id="preprocessor">Preprocessor<a class="headerlink" href="#preprocessor" title="Permanent link">&para;</a></h1>
@@ -374,21 +1204,22 @@ override LDFLAGS := $(ESAPI_LDFLAGS) $(LDFLAGS)
 <h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
 <p>To remove ambiguity, you should recognize two configurations: Release and Debug. Release is for production code on live servers, and its behavior is requested via the C/C++ <code>NDEBUG</code> macro. Its also the only macro observed by the C and C++ Committees and Posix. Diametrically opposed to release is Debug. While there is a compelling argument for <code>!defined(NDEBUG)</code>, you should have an explicit macro for the configuration and that macro should be <code>DEBUG</code>. This is because vendors and outside libraries use <code>DEBUG</code> (or similar) macro for their configuration. For example, Carnegie Mellon's Mach kernel uses <code>DEBUG</code>, Microsoft's CRT uses <a href="https://www.microsoft.com/en-us/download/details.aspx?id=55979"><code>_DEBUG</code></a>, and Wind River Workbench uses <code>DEBUG_MODE</code>.</p>
 <p>In addition to <code>NDEBUG</code> (Release) and <code>DEBUG</code> (Debug), you have two additional cross products: both are defined or neither are defined. Defining both should be an error, and defining neither should default to a release configuration. Below is from <a href="https://code.google.com/archive/p/owasp-esapi-cplusplus/source/default/source">ESAPI C++ EsapiCommon.h</a>, which is the configuration file used by all source files:</p>
-<pre><code class="c">// Only one or the other, but not both
-#if (defined(DEBUG) || defined(_DEBUG)) &amp;&amp; (defined(NDEBUG) 
-                                           || defined(_NDEBUG))
-# error Both DEBUG and NDEBUG are defined.
-#endif
+<div class="codehilite"><pre><span></span><code><span class="c1">// Only one or the other, but not both</span>
+<span class="cp">#if (defined(DEBUG) || defined(_DEBUG)) &amp;&amp; (defined(NDEBUG) </span>
+                                           <span class="o">||</span> <span class="n">defined</span><span class="p">(</span><span class="n">_NDEBUG</span><span class="p">))</span>
+<span class="cp"># error Both DEBUG and NDEBUG are defined.</span>
+<span class="cp">#endif</span>
 
-// The only time we switch to debug is when asked. 
-// NDEBUG or {nothing} results
-// in release build (fewer surprises at runtime).
-#if defined(DEBUG) || defined(_DEBUG)
-# define ESAPI_BUILD_DEBUG 1
-#else
-# define ESAPI_BUILD_RELEASE 1
-#endif
-</code></pre>
+<span class="c1">// The only time we switch to debug is when asked. </span>
+<span class="c1">// NDEBUG or {nothing} results</span>
+<span class="c1">// in release build (fewer surprises at runtime).</span>
+<span class="cp">#if defined(DEBUG) || defined(_DEBUG)</span>
+<span class="cp"># define ESAPI_BUILD_DEBUG 1</span>
+<span class="cp">#else</span>
+<span class="cp"># define ESAPI_BUILD_RELEASE 1</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+
 
 <p>When <code>DEBUG</code> is in effect, your code should receive full debug instrumentation, including the full force of assertions.</p>
 <h2 id="assert">ASSERT<a class="headerlink" href="#assert" title="Permanent link">&para;</a></h2>
@@ -398,81 +1229,83 @@ override LDFLAGS := $(ESAPI_LDFLAGS) $(LDFLAGS)
 <p>There is one problem with using asserts - <a href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/assert.html">Posix states <code>assert</code> should call <code>abort()</code></a> if <code>NDEBUG</code> is <strong>not</strong> defined. When debugging, <code>NDEBUG</code> will never be defined since you want the "program diagnostics" (quote from the Posix description). The behavior makes <code>assert</code> and its accompanying <code>abort()</code> completely useless for development. The result of "program diagnostics" calling <code>abort()</code> due to standard C/C++ behavior is disuse - developers simply don't use them. Its incredibly bad for the development community because self-debugging programs can help eradicate so many stability problems.</p>
 <p>Since self-debugging programs are so powerful, you will have to have to supply your own assert and signal handler with improved behavior. Your assert will exchange auto-aborting behavior for auto-debugging behavior. The auto-debugging facility will ensure the debugger snaps when a problem is detected, and you will find the point of first failure quickly and easily.</p>
 <p>ESAPI C++ supplies its own assert with the behavior described above. In the code below, <code>ASSERT</code> raises <code>SIGTRAP</code> when in effect or it evaluates to <code>void</code> in other cases.</p>
-<pre><code class="c">// A debug assert which should be sprinkled liberally. 
-// This assert fires and then continues rather
-// than calling abort(). Useful when examining negative 
-// test cases from the command line.
-#if (defined(ESAPI_BUILD_DEBUG) &amp;&amp; defined(ESAPI_OS_STARNIX))
-#  define ESAPI_ASSERT1(exp) {                                    \
-    if(!(exp)) {                                                  \
-        std::ostringstream oss;                                     \
-        oss &lt;&lt; &quot;Assertion failed: &quot; &lt;&lt; (char*)(__FILE__) &lt;&lt; &quot;(&quot;     \
-            &lt;&lt; (int)__LINE__ &lt;&lt; &quot;): &quot; &lt;&lt; (char*)(__func__)          \
-            &lt;&lt; std::endl;                                           \
-        std::cerr &lt;&lt; oss.str();                                     \
-        raise(SIGTRAP);                                             \
-    }                                                             \
-    }
-#  define ESAPI_ASSERT2(exp, msg) {                               \
-    if(!(exp)) {                                                  \
-        std::ostringstream oss;                                     \
-        oss &lt;&lt; &quot;Assertion failed: &quot; &lt;&lt; (char*)(__FILE__) &lt;&lt; &quot;(&quot;     \
-            &lt;&lt; (int)__LINE__ &lt;&lt; &quot;): &quot; &lt;&lt; (char*)(__func__)          \
-            &lt;&lt; &quot;: \&quot;&quot; &lt;&lt; (msg) &lt;&lt; &quot;\&quot;&quot; &lt;&lt; std::endl;                \
-        std::cerr &lt;&lt; oss.str();                                     \
-        raise(SIGTRAP);                                             \
-    }                                                             \
-    }
-#elif (defined(ESAPI_BUILD_DEBUG) &amp;&amp; defined(ESAPI_OS_WINDOWS))
-#  define ESAPI_ASSERT1(exp)      assert(exp)
-#  define ESAPI_ASSERT2(exp, msg) assert(exp)
-#else
-#  define ESAPI_ASSERT1(exp)      ((void)(exp))
-#  define ESAPI_ASSERT2(exp, msg) ((void)(exp))
-#endif
+<div class="codehilite"><pre><span></span><code><span class="c1">// A debug assert which should be sprinkled liberally. </span>
+<span class="c1">// This assert fires and then continues rather</span>
+<span class="c1">// than calling abort(). Useful when examining negative </span>
+<span class="c1">// test cases from the command line.</span>
+<span class="cp">#if (defined(ESAPI_BUILD_DEBUG) &amp;&amp; defined(ESAPI_OS_STARNIX))</span>
+<span class="cp">#  define ESAPI_ASSERT1(exp) {                                    \</span>
+<span class="cp">    if(!(exp)) {                                                  \</span>
+<span class="cp">        std::ostringstream oss;                                     \</span>
+<span class="cp">        oss &lt;&lt; &quot;Assertion failed: &quot; &lt;&lt; (char*)(__FILE__) &lt;&lt; &quot;(&quot;     \</span>
+<span class="cp">            &lt;&lt; (int)__LINE__ &lt;&lt; &quot;): &quot; &lt;&lt; (char*)(__func__)          \</span>
+<span class="cp">            &lt;&lt; std::endl;                                           \</span>
+<span class="cp">        std::cerr &lt;&lt; oss.str();                                     \</span>
+<span class="cp">        raise(SIGTRAP);                                             \</span>
+<span class="cp">    }                                                             \</span>
+<span class="cp">    }</span>
+<span class="cp">#  define ESAPI_ASSERT2(exp, msg) {                               \</span>
+<span class="cp">    if(!(exp)) {                                                  \</span>
+<span class="cp">        std::ostringstream oss;                                     \</span>
+<span class="cp">        oss &lt;&lt; &quot;Assertion failed: &quot; &lt;&lt; (char*)(__FILE__) &lt;&lt; &quot;(&quot;     \</span>
+<span class="cp">            &lt;&lt; (int)__LINE__ &lt;&lt; &quot;): &quot; &lt;&lt; (char*)(__func__)          \</span>
+<span class="cp">            &lt;&lt; &quot;: \&quot;&quot; &lt;&lt; (msg) &lt;&lt; &quot;\&quot;&quot; &lt;&lt; std::endl;                \</span>
+<span class="cp">        std::cerr &lt;&lt; oss.str();                                     \</span>
+<span class="cp">        raise(SIGTRAP);                                             \</span>
+<span class="cp">    }                                                             \</span>
+<span class="cp">    }</span>
+<span class="cp">#elif (defined(ESAPI_BUILD_DEBUG) &amp;&amp; defined(ESAPI_OS_WINDOWS))</span>
+<span class="cp">#  define ESAPI_ASSERT1(exp)      assert(exp)</span>
+<span class="cp">#  define ESAPI_ASSERT2(exp, msg) assert(exp)</span>
+<span class="cp">#else</span>
+<span class="cp">#  define ESAPI_ASSERT1(exp)      ((void)(exp))</span>
+<span class="cp">#  define ESAPI_ASSERT2(exp, msg) ((void)(exp))</span>
+<span class="cp">#endif</span>
 
-#if !defined(ASSERT)
-#  define ASSERT(exp)     ESAPI_ASSERT1(exp)
-#endif
-</code></pre>
+<span class="cp">#if !defined(ASSERT)</span>
+<span class="cp">#  define ASSERT(exp)     ESAPI_ASSERT1(exp)</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+
 
 <p>At program startup, a <code>SIGTRAP</code> handler will be installed if one is not provided by another component:</p>
-<pre><code class="c">    struct DebugTrapHandler
-    {
-      DebugTrapHandler()
-      {
-        struct sigaction new_handler, old_handler;
+<div class="codehilite"><pre><span></span><code>    <span class="k">struct</span> <span class="n">DebugTrapHandler</span>
+    <span class="p">{</span>
+      <span class="n">DebugTrapHandler</span><span class="p">()</span>
+      <span class="p">{</span>
+        <span class="k">struct</span> <span class="n">sigaction</span> <span class="n">new_handler</span><span class="p">,</span> <span class="n">old_handler</span><span class="p">;</span>
 
-        do
-          {
-            int ret = 0;
+        <span class="k">do</span>
+          <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-            ret = sigaction (SIGTRAP, NULL, &amp;old_handler);
-            if (ret != 0) break; // Failed
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">sigaction</span> <span class="p">(</span><span class="n">SIGTRAP</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">old_handler</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span> <span class="c1">// Failed</span>
 
-            // Don't step on another's handler
-            if (old_handler.sa_handler != NULL) break;
+            <span class="c1">// Don&#39;t step on another&#39;s handler</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">old_handler</span><span class="p">.</span><span class="n">sa_handler</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
 
-            new_handler.sa_handler = &amp;DebugTrapHandler::NullHandler;
-            new_handler.sa_flags = 0;
+            <span class="n">new_handler</span><span class="p">.</span><span class="n">sa_handler</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">DebugTrapHandler</span><span class="o">::</span><span class="n">NullHandler</span><span class="p">;</span>
+            <span class="n">new_handler</span><span class="p">.</span><span class="n">sa_flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-            ret = sigemptyset (&amp;new_handler.sa_mask);
-            if (ret != 0) break; // Failed
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">sigemptyset</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">new_handler</span><span class="p">.</span><span class="n">sa_mask</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span> <span class="c1">// Failed</span>
 
-            ret = sigaction (SIGTRAP, &amp;new_handler, NULL);
-            if (ret != 0) break; // Failed
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">sigaction</span> <span class="p">(</span><span class="n">SIGTRAP</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">new_handler</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span> <span class="c1">// Failed</span>
 
-          } while(0);
-      }
+          <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+      <span class="p">}</span>
 
-      static void NullHandler(int /*unused*/) { }
+      <span class="k">static</span> <span class="kt">void</span> <span class="n">NullHandler</span><span class="p">(</span><span class="kt">int</span> <span class="cm">/*unused*/</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 
-    };
+    <span class="p">};</span>
 
-    // We specify a relatively low priority, to make sure we run before other CTORs
-    // http://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Attributes.html#C_002b_002b-Attributes
-    static const DebugTrapHandler g_dummyHandler __attribute__ ((init_priority (110)));
-</code></pre>
+    <span class="c1">// We specify a relatively low priority, to make sure we run before other CTORs</span>
+    <span class="c1">// http://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Attributes.html#C_002b_002b-Attributes</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">DebugTrapHandler</span> <span class="n">g_dummyHandler</span> <span class="nf">__attribute__</span> <span class="p">((</span><span class="n">init_priority</span> <span class="p">(</span><span class="mi">110</span><span class="p">)));</span>
+</code></pre></div>
+
 
 <p>On a Windows platform, you would call <code>_set_invalid_parameter_handler</code> (and possibly <code>set_unexpected</code> or <code>set_terminate</code>) to install a new handler.</p>
 <p>Live hosts running production code should always define <code>NDEBUG</code> (i.e., release configuration), which means they do not assert or auto-abort. Auto-abortion is not acceptable behavior, and anyone who asks for the behavior is completely abusing the functionality of "program diagnostics". If a program wants a core dump, then it should create the dump rather than crashing.</p>
@@ -496,14 +1329,15 @@ override LDFLAGS := $(ESAPI_LDFLAGS) $(LDFLAGS)
 <p>Before discussing GCC and Binutils, it would be a good time to point out some of the defenses discussed below are all ready present in a distribution. Unfortunately, its design by committee, so what is present is usually only a mild variation of what is available (this way, everyone is mildly offended). For those who are purely worried about performance, you might be surprised to learn you have already taken the small performance hint without even knowing.</p>
 <p>Linux and BSD distributions often apply some hardening without intervention via <em><a href="https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html">GCC Spec Files</a></em>. If you are using Debian, Ubuntu, Linux Mint and family, see <em><a href="https://wiki.debian.org/Hardening">Debian Hardening</a></em>. For Red Hat and Fedora systems, see <em><a href="https://lists.fedoraproject.org/pipermail/devel-announce/2011-August/000821.html">New hardened build support (coming) in F16</a></em>. Gentoo users should visit <em><a href="https://wiki.gentoo.org/wiki/Project:Hardened">Hardened Gentoo</a></em>.</p>
 <p>You can see the settings being used by a distribution via <code>gcc</code> <code>-dumpspecs</code>. From Linux Mint 12 below, <code>-fstack-protector</code> (but not -fstack-protector-all) is used by default.</p>
-<pre><code class="bash">$ gcc -dumpspecs
+<div class="codehilite"><pre><span></span><code>$ gcc -dumpspecs
 …
-*link_ssp: %{fstack-protector:}
+*link_ssp: %<span class="o">{</span>fstack-protector:<span class="o">}</span>
 
-*ssp_default: %{!fno-stack-protector:%{!fstack-protector-all: 
-              %{!ffreestanding:%{!nostdlib:-fstack-protector}}}}
+*ssp_default: %<span class="o">{</span>!fno-stack-protector:%<span class="o">{</span>!fstack-protector-all: 
+              %<span class="o">{</span>!ffreestanding:%<span class="o">{</span>!nostdlib:-fstack-protector<span class="o">}}}}</span>
 …
-</code></pre>
+</code></pre></div>
+
 
 <p>The "SSP" above stands for Stack Smashing Protector. SSP is a reimplementation of Hiroaki Etoh's work on IBM Pro Police Stack Detector. See Hiroaki Etoh's patch <em><a href="https://gcc.gnu.org/ml/gcc-patches/2001-06/msg01753.html">gcc stack-smashing protector</a></em> and IBM's <em><a href="https://pdfs.semanticscholar.org/9d92/fa9eaa6ca12888d303deffe8bc392b85c09f.pdf">GCC extension for protecting applications from stack-smashing attacks</a></em> for details.</p>
 <h2 id="gccbinutils">GCC/Binutils<a class="headerlink" href="#gccbinutils" title="Permanent link">&para;</a></h2>
@@ -533,59 +1367,60 @@ b) -fstack-protector guards functions with high risk objects such as C strings, 
 <li><code>-Wno-tautological-compare</code> (Clang)</li>
 </ul>
 <p>Finally, a simple version based Makefile example is shown below. This is different than feature based makefile produced by auto tools (which will test for a particular feature and then define a symbol or configure a template file). Not all platforms use all options and flags. To address the issue you can pursue one of two strategies. First, you can ship with a weakened posture by servicing the lowest common denominator; or you can ship with everything in force. In the latter case, those who don't have a feature available will edit the makefile to accommodate their installation.</p>
-<pre><code class="bash">CXX=g++
-EGREP = egrep
+<div class="codehilite"><pre><span></span><code><span class="nv">CXX</span><span class="o">=</span>g++
+<span class="nv">EGREP</span> <span class="o">=</span> egrep
 …
 
-GCC_COMPILER = $(shell $(CXX) -v 2&gt;&amp;1 | $(EGREP) -i -c '^gcc version')
-GCC41_OR_LATER = $(shell $(CXX) -v 2&gt;&amp;1 | $(EGREP) -i -c '^gcc version (4\.[1-9]|[5-9])')
+<span class="nv">GCC_COMPILER</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>CXX<span class="k">)</span> -v <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> <span class="k">$(</span>EGREP<span class="k">)</span> -i -c <span class="s1">&#39;^gcc version&#39;</span><span class="k">)</span>
+<span class="nv">GCC41_OR_LATER</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>CXX<span class="k">)</span> -v <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> <span class="k">$(</span>EGREP<span class="k">)</span> -i -c <span class="s1">&#39;^gcc version (4\.[1-9]|[5-9])&#39;</span><span class="k">)</span>
 …
 
-GNU_LD210_OR_LATER = $(shell $(LD) -v 2&gt;&amp;1 | $(EGREP) -i -c '^gnu ld .* (2\.1[0-9]|2\.[2-9])')
-GNU_LD214_OR_LATER = $(shell $(LD) -v 2&gt;&amp;1 | $(EGREP) -i -c '^gnu ld .* (2\.1[4-9]|2\.[2-9])')
+<span class="nv">GNU_LD210_OR_LATER</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>LD<span class="k">)</span> -v <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> <span class="k">$(</span>EGREP<span class="k">)</span> -i -c <span class="s1">&#39;^gnu ld .* (2\.1[0-9]|2\.[2-9])&#39;</span><span class="k">)</span>
+<span class="nv">GNU_LD214_OR_LATER</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>LD<span class="k">)</span> -v <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> <span class="k">$(</span>EGREP<span class="k">)</span> -i -c <span class="s1">&#39;^gnu ld .* (2\.1[4-9]|2\.[2-9])&#39;</span><span class="k">)</span>
 …
 
-ifeq ($(GCC_COMPILER),1)
-    MY_CC_FLAGS += -Wall -Wextra -Wconversion
-    MY_CC_FLAGS += -Wformat=2 -Wformat-security
-    MY_CC_FLAGS += -Wno-unused-parameter
+ifeq <span class="o">(</span><span class="k">$(</span>GCC_COMPILER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_CC_FLAGS</span> <span class="o">+=</span> -Wall -Wextra -Wconversion
+    <span class="nv">MY_CC_FLAGS</span> <span class="o">+=</span> -Wformat<span class="o">=</span><span class="m">2</span> -Wformat-security
+    <span class="nv">MY_CC_FLAGS</span> <span class="o">+=</span> -Wno-unused-parameter
 endif
 
-ifeq ($(GCC41_OR_LATER),1)
-    MY_CC_FLAGS += -fstack-protector-all
+ifeq <span class="o">(</span><span class="k">$(</span>GCC41_OR_LATER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_CC_FLAGS</span> <span class="o">+=</span> -fstack-protector-all
 endif
 
-ifeq ($(GCC42_OR_LATER),1)
-    MY_CC_FLAGS += -Wstrict-overflow
+ifeq <span class="o">(</span><span class="k">$(</span>GCC42_OR_LATER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_CC_FLAGS</span> <span class="o">+=</span> -Wstrict-overflow
 endif
 
-ifeq ($(GCC43_OR_LATER),1)
-    MY_CC_FLAGS += -Wtrampolines
+ifeq <span class="o">(</span><span class="k">$(</span>GCC43_OR_LATER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_CC_FLAGS</span> <span class="o">+=</span> -Wtrampolines
 endif
 
-ifeq ($(GNU_LD210_OR_LATER),1)
-    MY_LD_FLAGS += -z,nodlopen -z,nodump
+ifeq <span class="o">(</span><span class="k">$(</span>GNU_LD210_OR_LATER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_LD_FLAGS</span> <span class="o">+=</span> -z,nodlopen -z,nodump
 endif
 
-ifeq ($(GNU_LD214_OR_LATER),1)
-    MY_LD_FLAGS += -z,noexecstack -z,noexecheap
+ifeq <span class="o">(</span><span class="k">$(</span>GNU_LD214_OR_LATER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_LD_FLAGS</span> <span class="o">+=</span> -z,noexecstack -z,noexecheap
 endif
 
-ifeq ($(GNU_LD215_OR_LATER),1)
-    MY_LD_FLAGS += -z,relro -z,now
+ifeq <span class="o">(</span><span class="k">$(</span>GNU_LD215_OR_LATER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_LD_FLAGS</span> <span class="o">+=</span> -z,relro -z,now
 endif
 
-ifeq ($(GNU_LD216_OR_LATER),1)
-    MY_CC_FLAGS += -fPIE
-    MY_LD_FLAGS += -pie
+ifeq <span class="o">(</span><span class="k">$(</span>GNU_LD216_OR_LATER<span class="k">)</span>,1<span class="o">)</span>
+    <span class="nv">MY_CC_FLAGS</span> <span class="o">+=</span> -fPIE
+    <span class="nv">MY_LD_FLAGS</span> <span class="o">+=</span> -pie
 endif
 
-# Use 'override' to honor the user's command line
-override CFLAGS := $(MY_CC_FLAGS) $(CFLAGS)
-override CXXFLAGS := $(MY_CC_FLAGS) $(CXXFLAGS)
-override LDFLAGS := $(MY_LD_FLAGS) $(LDFLAGS)
+<span class="c1"># Use &#39;override&#39; to honor the user&#39;s command line</span>
+override CFLAGS :<span class="o">=</span> <span class="k">$(</span>MY_CC_FLAGS<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span>
+override CXXFLAGS :<span class="o">=</span> <span class="k">$(</span>MY_CC_FLAGS<span class="k">)</span> <span class="k">$(</span>CXXFLAGS<span class="k">)</span>
+override LDFLAGS :<span class="o">=</span> <span class="k">$(</span>MY_LD_FLAGS<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span>
 …
-</code></pre>
+</code></pre></div>
+
 
 <h2 id="clangxcode">Clang/Xcode<a class="headerlink" href="#clangxcode" title="Permanent link">&para;</a></h2>
 <p><a href="https://clang.llvm.org">Clang</a> and <a href="https://llvm.org">LLVM</a> have been aggressively developed since Apple lost its GPL compiler back in 2007 (due to Tivoization which resulted in GPLv3). Since that time, a number of developers and Goggle have joined the effort. While Clang will consume most (all?) GCC/Binutil flags and switches, the project supports a number of its own options, including a static analyzer. In addition, Clang is relatively easy to build with additional diagnostics, such as Dr. John Regher and Peng Li's <a href="https://embed.cs.utah.edu/ioc/">Integer Overflow Checker (IOC)</a>.</p>
@@ -604,103 +1439,109 @@ override LDFLAGS := $(MY_LD_FLAGS) $(LDFLAGS)
 <h2 id="warn-suppression">Warn Suppression<a class="headerlink" href="#warn-suppression" title="Permanent link">&para;</a></h2>
 <p>From the tables above, a lot of warnings have been enabled to help detect possible programming mistakes. The potential mistakes are detected via compiler which carries around a lot of contextual information during its code analysis phase. At times, you will receive spurious warnings because the compiler is not <em>that</em> smart. Its understandable and even a good thing (how would you like to be out of a job because a program writes its own programs?). At times you will have to learn how to work with the compiler's warning system to suppress warnings. Notice what was not said: turn off the warnings.</p>
 <p>Suppressing warnings placates the compiler for spurious noise so you can get to the issues that matter (you are separating the wheat from the chaff). This section will offer some hints and point out some potential minefields. First is an unused parameter (for example, <code>argc</code> or <code>argv</code>). Suppressing unused parameter warnings is especially helpful for C++ and interface programming, where parameters are often unused. For this warning, simply define an "UNUSED" macro and warp the parameter:</p>
-<pre><code class="c">#define UNUSED_PARAMETER(x) ((void)x)
-…
+<div class="codehilite"><pre><span></span><code><span class="cp">#define UNUSED_PARAMETER(x) ((void)x)</span>
+<span class="err">…</span>
 
-int main(int argc, char* argv[])
-{
-    UNUSED_PARAMETER(argc);
-    UNUSED_PARAMETER(argv);
-    …
-}
-</code></pre>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">UNUSED_PARAMETER</span><span class="p">(</span><span class="n">argc</span><span class="p">);</span>
+    <span class="n">UNUSED_PARAMETER</span><span class="p">(</span><span class="n">argv</span><span class="p">);</span>
+    <span class="err">…</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <p>A potential minefield lies near "comparing unsigned and signed" values, and <code>-Wconversion</code> will catch it for you. This is because C/C++ promotion rules state the signed value will be promoted to an unsigned value and then compared. That means <code>-1</code> <code>&gt;</code> <code>1</code> after promotion! To fix this, you cannot blindly cast - you must first range test the value:</p>
-<pre><code class="c">int x = GetX();
-unsigned int y = GetY();
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">GetX</span><span class="p">();</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">GetY</span><span class="p">();</span>
 
-ASSERT(x &gt;= 0);
-if(!(x &gt;= 0))
-    throw runtime_error(&quot;WTF??? X is negative.&quot;);
+<span class="n">ASSERT</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">throw</span> <span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;WTF??? X is negative.&quot;</span><span class="p">);</span>
 
-if(static_cast&lt;unsigned int&gt;(x) &gt; y)
-    cout &lt;&lt; &quot;x is greater than y&quot; &lt;&lt; endl;
-else
-    cout &lt;&lt; &quot;x is not greater than y&quot; &lt;&lt; endl;
-</code></pre>
+<span class="k">if</span><span class="p">(</span><span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;x is greater than y&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;x is not greater than y&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</code></pre></div>
+
 
 <p>Notice the code above will debug itself - you don't need to set a breakpoint to see if there is a problem with <code>x</code>. Just run the program and wait for it to tell you there is a problem. If there is a problem, the program will snap the debugger (and more importantly, not call a useless <code>abort()</code> as specified by Posix). It beats the snot out of <code>printf</code> that are removed when no longer needed or pollute outputs.</p>
 <p>Another conversion problem you will encounter conversion between types, and <code>-Wconversion</code> will also catch it for you. The following will always have an opportunity to fail, and should light up like a Christmas tree:</p>
-<pre><code class="c">struct sockaddr_in addr;
-…
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">addr</span><span class="p">;</span>
+<span class="err">…</span>
 
-addr.sin_port = htons(atoi(argv[2]));
-</code></pre>
+<span class="n">addr</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="n">htons</span><span class="p">(</span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
+</code></pre></div>
+
 
 <p>The following would probably serve you much better. Notice <code>atoi</code> and fiends are not used because they can silently fail. In addition, the code is instrumented so you don't need to waste a lot of time debugging potential problems:</p>
-<pre><code class="c">const char* cstr = GetPortString();
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">cstr</span> <span class="o">=</span> <span class="n">GetPortString</span><span class="p">();</span>
 
-ASSERT(cstr != NULL);
-if(!(cstr != NULL))
-    throw runtime_error(&quot;WTF??? Port string is not valid.&quot;);
+<span class="n">ASSERT</span><span class="p">(</span><span class="n">cstr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">cstr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">))</span>
+    <span class="n">throw</span> <span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;WTF??? Port string is not valid.&quot;</span><span class="p">);</span>
 
-istringstream iss(cstr);
-long long t = 0;
-iss &gt;&gt; t;
+<span class="n">istringstream</span> <span class="nf">iss</span><span class="p">(</span><span class="n">cstr</span><span class="p">);</span>
+<span class="kt">long</span> <span class="kt">long</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">iss</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
 
-ASSERT(!(iss.fail()));
-if(iss.fail())
-    throw runtime_error(&quot;WTF??? Failed to read port.&quot;);
+<span class="n">ASSERT</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">iss</span><span class="p">.</span><span class="n">fail</span><span class="p">()));</span>
+<span class="k">if</span><span class="p">(</span><span class="n">iss</span><span class="p">.</span><span class="n">fail</span><span class="p">())</span>
+    <span class="n">throw</span> <span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;WTF??? Failed to read port.&quot;</span><span class="p">);</span>
 
-// Should this be a port above the reserved range ([0-1024] on Unix)?
-ASSERT(t &gt; 0);
-if(!(t &gt; 0))
-    throw runtime_error(&quot;WTF??? Port is too small&quot;);
+<span class="c1">// Should this be a port above the reserved range ([0-1024] on Unix)?</span>
+<span class="n">ASSERT</span><span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">throw</span> <span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;WTF??? Port is too small&quot;</span><span class="p">);</span>
 
-ASSERT(t &lt; static_cast&lt;long long&gt;(numeric_limits&lt;unsigned int&gt;::max()));
-if(!(t &lt; static_cast&lt;long long&gt;(numeric_limits&lt;unsigned int&gt;::max())))
-    throw runtime_error(&quot;WTF??? Port is too large&quot;);
+<span class="n">ASSERT</span><span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()));</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">(</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">())))</span>
+    <span class="n">throw</span> <span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;WTF??? Port is too large&quot;</span><span class="p">);</span>
 
-// OK to use port
-unsigned short port = static_cast&lt;unsigned short&gt;(t);
-…
-</code></pre>
+<span class="c1">// OK to use port</span>
+<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">port</span> <span class="o">=</span> <span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">short</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="err">…</span>
+</code></pre></div>
+
 
 <p>Again, notice the code above will debug itself - you don't need to set a breakpoint to see if there is a problem with <code>port</code>. This code will continue checking conditions, years after being instrumented (assuming to wrote code to read a config file early in the project). There's no need to remove the <code>ASSERT</code>s as with <code>printf</code> since they are silent guardians.</p>
 <p>Another useful suppression trick is too avoid ignoring return values. Not only is it useful to suppress the warning, its required for correct code. For example, <code>snprint</code> will alert you to truncations through its return value. You should not make them silent truncations by ignoring the warning or casting to <code>void</code>:</p>
-<pre><code class="c">char path[PATH_MAX];
-…
+<div class="codehilite"><pre><span></span><code><span class="kt">char</span> <span class="n">path</span><span class="p">[</span><span class="n">PATH_MAX</span><span class="p">];</span>
+<span class="err">…</span>
 
-int ret = snprintf(path, sizeof(path), &quot;%s/%s&quot;, GetDirectory(), GetObjectName());
-ASSERT(ret != -1);
-ASSERT(!(ret &gt;= sizeof(path)));
+<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="s">&quot;%s/%s&quot;</span><span class="p">,</span> <span class="n">GetDirectory</span><span class="p">(),</span> <span class="n">GetObjectName</span><span class="p">());</span>
+<span class="n">ASSERT</span><span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ASSERT</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">ret</span> <span class="o">&gt;=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">)));</span>
 
-if(ret == -1 || ret &gt;= sizeof(path))
-    throw runtime_error(&quot;WTF??? Unable to build full object name&quot;);
+<span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">ret</span> <span class="o">&gt;=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="n">throw</span> <span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;WTF??? Unable to build full object name&quot;</span><span class="p">);</span>
 
-// OK to use path
-…
-</code></pre>
+<span class="c1">// OK to use path</span>
+<span class="err">…</span>
+</code></pre></div>
+
 
 <p>The problem is pandemic, and not just boring user land programs. Projects which offer high integrity code, such as SELinux, suffer silent truncations. The following is from an approved SELinux patch even though a comment was made that it suffered silent truncations in its <code>security_compute_create_name</code> function from <code>compute_create.c</code>.</p>
-<pre><code class="c">12  int security_compute_create_raw(security_context_t scon,
-13                                  security_context_t tcon,
-14                                  security_class_t   tclass,
-15                                  security_context_t * newcon)
-16  {
-17    char path[PATH_MAX];
-18    char *buf;
-19    size_t size;
-20    int fd, ret;
-21
-22    if (!selinux_mnt) {
-23      errno = ENOENT;
-24      return -1;
-25    }
-26
-27    snprintf(path, sizeof path, &quot;%s/create&quot;, selinux_mnt);
-28    fd = open(path, O_RDWR);
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="mi">12</span>  <span class="kt">int</span> <span class="nf">security_compute_create_raw</span><span class="p">(</span><span class="n">security_context_t</span> <span class="n">scon</span><span class="p">,</span>
+<span class="mi">13</span>                                  <span class="n">security_context_t</span> <span class="n">tcon</span><span class="p">,</span>
+<span class="mi">14</span>                                  <span class="n">security_class_t</span>   <span class="n">tclass</span><span class="p">,</span>
+<span class="mi">15</span>                                  <span class="n">security_context_t</span> <span class="o">*</span> <span class="n">newcon</span><span class="p">)</span>
+<span class="mi">16</span>  <span class="p">{</span>
+<span class="mi">17</span>    <span class="kt">char</span> <span class="n">path</span><span class="p">[</span><span class="n">PATH_MAX</span><span class="p">];</span>
+<span class="mi">18</span>    <span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">;</span>
+<span class="mi">19</span>    <span class="kt">size_t</span> <span class="n">size</span><span class="p">;</span>
+<span class="mi">20</span>    <span class="kt">int</span> <span class="n">fd</span><span class="p">,</span> <span class="n">ret</span><span class="p">;</span>
+<span class="mi">21</span>
+<span class="mi">22</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">selinux_mnt</span><span class="p">)</span> <span class="p">{</span>
+<span class="mi">23</span>      <span class="n">errno</span> <span class="o">=</span> <span class="n">ENOENT</span><span class="p">;</span>
+<span class="mi">24</span>      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="mi">25</span>    <span class="p">}</span>
+<span class="mi">26</span>
+<span class="mi">27</span>    <span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">path</span><span class="p">,</span> <span class="s">&quot;%s/create&quot;</span><span class="p">,</span> <span class="n">selinux_mnt</span><span class="p">);</span>
+<span class="mi">28</span>    <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>Unlike other examples, the above code will not debug itself, and you will have to set breakpoints and trace calls to determine the point of first failure. (And the code above gambles that the truncated file does not exist or is not under an adversary's control by blindly performing the <code>open</code>).</p>
 <h1 id="runtime">Runtime<a class="headerlink" href="#runtime" title="Permanent link">&para;</a></h1>
@@ -714,57 +1555,87 @@ if(ret == -1 || ret &gt;= sizeof(path))
 <p><img alt="Windows1" src="../../assets/C-Based_Toolchain_Hardening_Windows1.png" /></p>
 <p>Finally, for runtime hardening, Microsoft has a helpful tool called EMET. EMET is the <a href="https://support.microsoft.com/en-us/help/2458544/the-enhanced-mitigation-experience-toolkit">Enhanced Mitigation Experience Toolkit</a>, and allows you to apply runtime hardening to an executable which was built without. Its very useful for utilities and other programs that were built without an SDLC.</p>
 <p><img alt="Windows2" src="../../assets/C-Based_Toolchain_Hardening_Windows2.png" /></p>
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" class="btn btn-neutral float-right" title="C-Based Toolchain Hardening Cheat Sheet">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../Bean_Validation_Cheat_Sheet/" class="btn btn-neutral" title="Bean Validation Cheat Sheet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Bean Validation Cheat Sheet
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                C-Based Toolchain Hardening Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.83fe6e3c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
-        <span><a href="../Bean_Validation_Cheat_Sheet/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(false);
-        };
-    </script>
-
-</body>
+    
+  </body>
 </html>

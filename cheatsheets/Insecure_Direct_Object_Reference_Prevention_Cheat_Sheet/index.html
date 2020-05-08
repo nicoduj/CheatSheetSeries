@@ -1,241 +1,1061 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Insecure Direct Object Reference Prevention Cheat Sheet - OWASP Cheat Sheet Series</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Insecure Direct Object Reference Prevention Cheat Sheet";
-    var mkdocs_page_input_path = "cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> OWASP Cheat Sheet Series</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.5">
+    
+    
+      
+        <title>Insecure Direct Object Reference Prevention Cheat Sheet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.df84b5fe.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-header-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../IndexASVS/">Index ASVS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../IndexProactiveControls/">Index Proactive Controls</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Index Alphabetical</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Cheatsheets</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../AJAX_Security_Cheat_Sheet/">AJAX Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Abuse_Case_Cheat_Sheet/">Abuse Case Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Access_Control_Cheat_Sheet/">Access Control Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Attack_Surface_Analysis_Cheat_Sheet/">Attack Surface Analysis Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Authentication_Cheat_Sheet/">Authentication Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Authorization_Testing_Automation/">Authorization Testing Automation</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Bean_Validation_Cheat_Sheet/">Bean Validation Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../C-Based_Toolchain_Hardening/">C-Based Toolchain Hardening</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../C-Based_Toolchain_Hardening_Cheat_Sheet/">C-Based Toolchain Hardening Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/">Choosing and Using Security Questions Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Clickjacking_Defense_Cheat_Sheet/">Clickjacking Defense Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Content_Security_Policy_Cheat_Sheet/">Content Security Policy Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Credential_Stuffing_Prevention_Cheat_Sheet/">Credential Stuffing Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/">Cross-Site Request Forgery Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/">Cross Site Scripting Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cryptographic_Storage_Cheat_Sheet/">Cryptographic Storage Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../DOM_based_XSS_Prevention_Cheat_Sheet/">DOM based XSS Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Database_Security_Cheat_Sheet/">Database Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Denial_of_Service_Cheat_Sheet/">Denial of Service Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Deserialization_Cheat_Sheet/">Deserialization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Security_Cheat_Sheet/">Docker Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../DotNet_Security_Cheat_Sheet/">DotNet Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Error_Handling_Cheat_Sheet/">Error Handling Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../File_Upload_Cheat_Sheet/">File Upload Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Forgot_Password_Cheat_Sheet/">Forgot Password Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../HTML5_Security_Cheat_Sheet/">HTML5 Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../HTTP_Strict_Transport_Security_Cheat_Sheet/">HTTP Strict Transport Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet/">Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet_in_Java/">Injection Prevention Cheat Sheet in Java</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Input_Validation_Cheat_Sheet/">Input Validation Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Insecure Direct Object Reference Prevention Cheat Sheet</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../JAAS_Cheat_Sheet/">JAAS Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../JSON_Web_Token_Cheat_Sheet_for_Java/">JSON Web Token Cheat Sheet for Java</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Key_Management_Cheat_Sheet/">Key Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../LDAP_Injection_Prevention_Cheat_Sheet/">LDAP Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Logging_Cheat_Sheet/">Logging Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Mass_Assignment_Cheat_Sheet/">Mass Assignment Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/">Microservices based Security Arch Doc Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Multifactor_Authentication_Cheat_Sheet/">Multifactor Authentication Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Nodejs_security_cheat_sheet/">Nodejs security cheat sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../OS_Command_Injection_Defense_Cheat_Sheet/">OS Command Injection Defense Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../PHP_Configuration_Cheat_Sheet/">PHP Configuration Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Password_Storage_Cheat_Sheet/">Password Storage Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Pinning_Cheat_Sheet/">Pinning Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Query_Parameterization_Cheat_Sheet/">Query Parameterization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../REST_Assessment_Cheat_Sheet/">REST Assessment Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../REST_Security_Cheat_Sheet/">REST Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Ruby_on_Rails_Cheatsheet/">Ruby on Rails Cheatsheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../SAML_Security_Cheat_Sheet/">SAML Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../SQL_Injection_Prevention_Cheat_Sheet/">SQL Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/">Securing Cascading Style Sheets Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/">Server Side Request Forgery Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Session_Management_Cheat_Sheet/">Session Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../TLS_Cipher_String_Cheat_Sheet/">TLS Cipher String Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Third_Party_Javascript_Management_Cheat_Sheet/">Third Party Javascript Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Threat_Modeling_Cheat_Sheet/">Threat Modeling Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Transaction_Authorization_Cheat_Sheet/">Transaction Authorization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Transport_Layer_Protection_Cheat_Sheet/">Transport Layer Protection Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/">Unvalidated Redirects and Forwards Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../User_Privacy_Protection_Cheat_Sheet/">User Privacy Protection Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Virtual_Patching_Cheat_Sheet/">Virtual Patching Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerability_Disclosure_Cheat_Sheet/">Vulnerability Disclosure Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerable_Dependency_Management_Cheat_Sheet/">Vulnerable Dependency Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Web_Service_Security_Cheat_Sheet/">Web Service Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../XML_External_Entity_Prevention_Cheat_Sheet/">XML External Entity Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../XML_Security_Cheat_Sheet/">XML Security Cheat Sheet</a>
-                    </li>
-                </ul>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Insecure Direct Object Reference Prevention Cheat Sheet
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">OWASP Cheat Sheet Series</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Cheatsheets &raquo;</li>
-        
-      
-    
-    <li>Insecure Direct Object Reference Prevention Cheat Sheet</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
+  </div>
 </div>
-          <div role="main">
-            <div class="section">
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexASVS/" title="Index ASVS" class="md-nav__link">
+      Index ASVS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexProactiveControls/" title="Index Proactive Controls" class="md-nav__link">
+      Index Proactive Controls
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../glossary/" title="Index Alphabetical" class="md-nav__link">
+      Index Alphabetical
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Cheatsheets
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Cheatsheets" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Cheatsheets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security Cheat Sheet" class="md-nav__link">
+      AJAX Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
+      Abuse Case Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
+      Access Control Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
+      Attack Surface Analysis Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
+      Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-nav__link">
+      Authorization Testing Automation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-nav__link">
+      Bean Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-nav__link">
+      C-Based Toolchain Hardening
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
+      C-Based Toolchain Hardening Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
+      Choosing and Using Security Questions Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
+      Clickjacking Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
+      Content Security Policy Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
+      Credential Stuffing Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Cross-Site Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
+      Cross Site Scripting Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
+      Cryptographic Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
+      DOM based XSS Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
+      Database Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
+      Denial of Service Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
+      Deserialization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
+      Docker Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security Cheat Sheet" class="md-nav__link">
+      DotNet Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
+      Error Handling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
+      File Upload Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
+      Forgot Password Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
+      HTML5 Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
+      HTTP Strict Transport Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
+      Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
+      Input Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link md-nav__link--active">
+      Insecure Direct Object Reference Prevention Cheat Sheet
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-nav__link">
+      JAAS Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
+      Key Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
+      LDAP Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
+      Logging Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
+      Mass Assignment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
+      Microservices based Security Arch Doc Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
+      Multifactor Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
+      Nodejs security cheat sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
+      OS Command Injection Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
+      PHP Configuration Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
+      Password Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
+      Pinning Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
+      Query Parameterization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
+      REST Assessment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
+      REST Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
+      Ruby on Rails Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
+      SAML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
+      SQL Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
+      Securing Cascading Style Sheets Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Server Side Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
+      Session Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
+      TLS Cipher String Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
+      Third Party Javascript Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
+      Threat Modeling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
+      Transaction Authorization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
+      Transport Layer Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
+      Unvalidated Redirects and Forwards Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
+      User Privacy Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
+      Virtual Patching Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
+      Vulnerability Disclosure Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
+      Vulnerable Dependency Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
+      Web Service Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
+      XML External Entity Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
+      XML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                
+                  
+                
+                
                 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p><strong>I</strong>nsecure <strong>D</strong>irect <strong>O</strong>bject <strong>R</strong>eference (called <strong>IDOR</strong> from here) occurs when a application exposes a reference to an internal implementation object. Using this way, it reveals the real identifier and format/pattern used of the element in the storage backend side. The most common example of it (although is not limited to this one) is a record identifier in a storage system (database, filesystem and so on).</p>
 <p>IDOR is referenced in element <a href="https://wiki.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References">A4</a> of the OWASP Top 10 in the 2013 edition.</p>
@@ -244,11 +1064,12 @@
 <p>Enumeration attack can be described in the way in which the attacker build a collection of valid identifiers using the discovered format/pattern and test them against the application.</p>
 <p><strong>For example:</strong></p>
 <p>Imagine an HR application exposing a service accepting employee ID in order to return the employee information and for which the format/pattern of the employee ID is the following:</p>
-<pre><code class="text">EMP-00000
+<div class="codehilite"><pre><span></span><code>EMP-00000
 EMP-00001
 EMP-00002
 ...
-</code></pre>
+</code></pre></div>
+
 
 <p>Based on this, an attacker can build a collection of valid ID from <em>EMP-00000</em> to <em>EMP-99999</em>.</p>
 <p>To be exploited, an IDOR issue must be combined with an <a href="../Access_Control_Cheat_Sheet/">Access Control</a> issue because it's the Access Control issue that "allow" the attacker to access to the object for which he have guessed the identifier through is enumeration attack.</p>
@@ -270,187 +1091,220 @@ EMP-00002
 <li>Makes creation of a collection a enumeration values more difficult to achieve because, even if attacker can guess the hash algorithm from the ID size, it cannot reproduce value due to the salt that is not tied to the hidden value.</li>
 </ul>
 <p>This is the implementation of the utility class that generate the identifier to use for exchange with the front end side:</p>
-<pre><code class="java">import javax.xml.bind.DatatypeConverter;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">javax.xml.bind.DatatypeConverter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.UnsupportedEncodingException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.security.MessageDigest</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.security.NoSuchAlgorithmException</span><span class="p">;</span>
 
-/**
- * Handle the creation of ID that will be send to front end side 
- * in order to prevent IDOR
- */
+<span class="cm">/**</span>
+<span class="cm"> * Handle the creation of ID that will be send to front end side </span>
+<span class="cm"> * in order to prevent IDOR</span>
+<span class="cm"> */</span>
 
-public class IDORUtil {
-    /**
-     * SALT used for the generation of the HASH of the real item identifier 
-     * in order to prevent to forge it on front end side.
-     */
-    private static final String SALT = &quot;[READ_IT_FROM_APP_CONFIGURATION]&quot;;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IDORUtil</span> <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * SALT used for the generation of the HASH of the real item identifier </span>
+<span class="cm">     * in order to prevent to forge it on front end side.</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">SALT</span> <span class="o">=</span> <span class="s">&quot;[READ_IT_FROM_APP_CONFIGURATION]&quot;</span><span class="p">;</span>
 
-    /**
-     * Compute a identifier that will be send to the front end and be used as item 
-     * unique identifier on client side.
-     *
-     * @param realItemBackendIdentifier Identifier of the item on the backend storage 
-     *                                  (real identifier)
-     * @return A string representing the identifier to use
-     * @throws UnsupportedEncodingException If string's byte cannot be obtained
-     * @throws NoSuchAlgorithmException If the hashing algorithm used is not 
-     *                                  supported is not available
-     */
-    public static String computeFrontEndIdentifier(String realItemBackendIdentifier) 
-     throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        String frontEndId = null;
-        if (realItemBackendIdentifier != null &amp;&amp; !realItemBackendIdentifier.trim().isEmpty()) {
-            //Prefix the value with the SALT
-            String tmp = SALT + realItemBackendIdentifier;
-            //Get and configure message digester
-            //We use SHA1 here for the following reason even if SHA1 have now potential collision:
-            //1. We do not store sensitive information, just technical ID
-            //2. We want that the ID stay short but not guessable
-            //3. We want that a maximum of backend storage support the algorithm used in order to compute it in selection query/request
-            //If your backend storage supports SHA256 so use it instead of SHA1
-            MessageDigest digester = MessageDigest.getInstance(&quot;sha1&quot;);
-            //Compute the hash
-            byte[] hash = digester.digest(tmp.getBytes(&quot;utf-8&quot;));
-            //Encode is in HEX
-            frontEndId = DatatypeConverter.printHexBinary(hash);
-        }
-        return frontEndId;
-    }
-}
-</code></pre>
+    <span class="cm">/**</span>
+<span class="cm">     * Compute a identifier that will be send to the front end and be used as item </span>
+<span class="cm">     * unique identifier on client side.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param realItemBackendIdentifier Identifier of the item on the backend storage </span>
+<span class="cm">     *                                  (real identifier)</span>
+<span class="cm">     * @return A string representing the identifier to use</span>
+<span class="cm">     * @throws UnsupportedEncodingException If string&#39;s byte cannot be obtained</span>
+<span class="cm">     * @throws NoSuchAlgorithmException If the hashing algorithm used is not </span>
+<span class="cm">     *                                  supported is not available</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">computeFrontEndIdentifier</span><span class="p">(</span><span class="n">String</span> <span class="n">realItemBackendIdentifier</span><span class="p">)</span> 
+     <span class="kd">throws</span> <span class="n">NoSuchAlgorithmException</span><span class="p">,</span> <span class="n">UnsupportedEncodingException</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">frontEndId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">realItemBackendIdentifier</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">realItemBackendIdentifier</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">//Prefix the value with the SALT</span>
+            <span class="n">String</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">SALT</span> <span class="o">+</span> <span class="n">realItemBackendIdentifier</span><span class="p">;</span>
+            <span class="c1">//Get and configure message digester</span>
+            <span class="c1">//We use SHA1 here for the following reason even if SHA1 have now potential collision:</span>
+            <span class="c1">//1. We do not store sensitive information, just technical ID</span>
+            <span class="c1">//2. We want that the ID stay short but not guessable</span>
+            <span class="c1">//3. We want that a maximum of backend storage support the algorithm used in order to compute it in selection query/request</span>
+            <span class="c1">//If your backend storage supports SHA256 so use it instead of SHA1</span>
+            <span class="n">MessageDigest</span> <span class="n">digester</span> <span class="o">=</span> <span class="n">MessageDigest</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;sha1&quot;</span><span class="p">);</span>
+            <span class="c1">//Compute the hash</span>
+            <span class="kt">byte</span><span class="o">[]</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">digester</span><span class="p">.</span><span class="na">digest</span><span class="p">(</span><span class="n">tmp</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;utf-8&quot;</span><span class="p">));</span>
+            <span class="c1">//Encode is in HEX</span>
+            <span class="n">frontEndId</span> <span class="o">=</span> <span class="n">DatatypeConverter</span><span class="p">.</span><span class="na">printHexBinary</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">frontEndId</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <p>This is the example of services using the front identifier:</p>
-<pre><code class="java">/**
- * Service to list all available movies
- *
- * @return The collection of movies ID and name as JSON response
- */
-@RequestMapping(value = &quot;/movies&quot;, method = GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-public Map&lt;String, String&gt; listAllMovies() {
-    Map&lt;String, String&gt; result = new HashMap&lt;&gt;();
+<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Service to list all available movies</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return The collection of movies ID and name as JSON response</span>
+<span class="cm"> */</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;/movies&quot;</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">GET</span><span class="p">,</span> <span class="n">produces</span> <span class="o">=</span> <span class="p">{</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON_VALUE</span><span class="p">})</span>
+<span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">listAllMovies</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
-    try {
-        this.movies.forEach(m -&gt; {
-            try {
-                //Compute the front end ID fof the current element
-                String frontEndId = IDORUtil.computeFrontEndIdentifier(m.getBackendIdentifier());
-                //Add the computed ID and the associated item name to the result map
-                result.put(frontEndId, m.getName());
-            } catch (Exception e) {
-                LOGGER.error(&quot;Error during ID generation for real ID {}: {}&quot;, m.getBackendIdentifier(), 
-                             e.getMessage());
-            }
-        });
-    } catch (Exception e) {
-        //Ensure that in case of error no item is returned
-        result.clear();
-        LOGGER.error(&quot;Error during processing&quot;, e);
-    }
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">movies</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">m</span> <span class="o">-&gt;</span> <span class="p">{</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="c1">//Compute the front end ID fof the current element</span>
+                <span class="n">String</span> <span class="n">frontEndId</span> <span class="o">=</span> <span class="n">IDORUtil</span><span class="p">.</span><span class="na">computeFrontEndIdentifier</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getBackendIdentifier</span><span class="p">());</span>
+                <span class="c1">//Add the computed ID and the associated item name to the result map</span>
+                <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">frontEndId</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">LOGGER</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Error during ID generation for real ID {}: {}&quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="na">getBackendIdentifier</span><span class="p">(),</span> 
+                             <span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Ensure that in case of error no item is returned</span>
+        <span class="n">result</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+        <span class="n">LOGGER</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Error during processing&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    return result;
-}
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
 
-/**
- * Service to obtain the information on a specific movie
- *
- * @param id Movie identifier from a front end point of view
- * @return The movie object as JSON response
- */
-@RequestMapping(value = &quot;/movies/{id}&quot;, method = GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-public Movie obtainMovieName(@PathVariable(&quot;id&quot;) String id) {
+<span class="cm">/**</span>
+<span class="cm"> * Service to obtain the information on a specific movie</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param id Movie identifier from a front end point of view</span>
+<span class="cm"> * @return The movie object as JSON response</span>
+<span class="cm"> */</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;/movies/{id}&quot;</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">GET</span><span class="p">,</span> <span class="n">produces</span> <span class="o">=</span> <span class="p">{</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON_VALUE</span><span class="p">})</span>
+<span class="kd">public</span> <span class="n">Movie</span> <span class="nf">obtainMovieName</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
 
-    //Search for the wanted movie information using Front End Identifier
-    Optional&lt;Movie&gt; movie = this.movies.stream().filter(m -&gt; {
-        boolean match;
-        try {
-            //Compute the front end ID for the current element
-            String frontEndId = IDORUtil.computeFrontEndIdentifier(m.getBackendIdentifier());
-            //Check if the computed ID match the one provided
-            match = frontEndId.equals(id);
-        } catch (Exception e) {
-            //Ensure that in case of error no item is returned
-            match = false;
-            LOGGER.error(&quot;Error during processing&quot;, e);
-        }
-        return match;
-    }).findFirst();
+    <span class="c1">//Search for the wanted movie information using Front End Identifier</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Movie</span><span class="o">&gt;</span> <span class="n">movie</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">movies</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">m</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="kt">boolean</span> <span class="n">match</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">//Compute the front end ID for the current element</span>
+            <span class="n">String</span> <span class="n">frontEndId</span> <span class="o">=</span> <span class="n">IDORUtil</span><span class="p">.</span><span class="na">computeFrontEndIdentifier</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">getBackendIdentifier</span><span class="p">());</span>
+            <span class="c1">//Check if the computed ID match the one provided</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">frontEndId</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//Ensure that in case of error no item is returned</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="n">LOGGER</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Error during processing&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">match</span><span class="p">;</span>
+    <span class="p">}).</span><span class="na">findFirst</span><span class="p">();</span>
 
-    //We have marked the Backend Identifier class field as excluded 
-    //from the serialization
-    //So we can send the object to front end through the serializer
-    return movie.get();
-}
-</code></pre>
+    <span class="c1">//We have marked the Backend Identifier class field as excluded </span>
+    <span class="c1">//from the serialization</span>
+    <span class="c1">//So we can send the object to front end through the serializer</span>
+    <span class="k">return</span> <span class="n">movie</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <p>This is the value object used:</p>
-<pre><code class="java">public class Movie {
-    /**
-     * We indicate to serializer that this field must never be serialized
-     *
-     * @see &quot;https://fasterxml.github.io/jackson-annotations/javadoc/2.5/com/fasterxml/
-     *       jackson/annotation/JsonIgnore.html&quot;
-     */
-    @JsonIgnore
-    private String backendIdentifier;
-...
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Movie</span> <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * We indicate to serializer that this field must never be serialized</span>
+<span class="cm">     *</span>
+<span class="cm">     * @see &quot;https://fasterxml.github.io/jackson-annotations/javadoc/2.5/com/fasterxml/</span>
+<span class="cm">     *       jackson/annotation/JsonIgnore.html&quot;</span>
+<span class="cm">     */</span>
+    <span class="nd">@JsonIgnore</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">backendIdentifier</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <h1 id="sources-of-the-prototype">Sources of the prototype<a class="headerlink" href="#sources-of-the-prototype" title="Permanent link">&para;</a></h1>
 <p><a href="https://github.com/righettod/poc-idor">Github repository</a>.</p>
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../JAAS_Cheat_Sheet/" class="btn btn-neutral float-right" title="JAAS Cheat Sheet">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../Input_Validation_Cheat_Sheet/" class="btn btn-neutral" title="Input Validation Cheat Sheet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Input Validation Cheat Sheet
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                JAAS Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.83fe6e3c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
-        <span><a href="../Input_Validation_Cheat_Sheet/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../JAAS_Cheat_Sheet/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(false);
-        };
-    </script>
-
-</body>
+    
+  </body>
 </html>

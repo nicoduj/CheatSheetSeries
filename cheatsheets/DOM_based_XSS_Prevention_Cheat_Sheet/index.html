@@ -1,241 +1,1061 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>DOM based XSS Prevention Cheat Sheet - OWASP Cheat Sheet Series</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "DOM based XSS Prevention Cheat Sheet";
-    var mkdocs_page_input_path = "cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> OWASP Cheat Sheet Series</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.5">
+    
+    
+      
+        <title>DOM based XSS Prevention Cheat Sheet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.df84b5fe.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-header-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../IndexASVS/">Index ASVS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../IndexProactiveControls/">Index Proactive Controls</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Index Alphabetical</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Cheatsheets</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../AJAX_Security_Cheat_Sheet/">AJAX Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Abuse_Case_Cheat_Sheet/">Abuse Case Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Access_Control_Cheat_Sheet/">Access Control Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Attack_Surface_Analysis_Cheat_Sheet/">Attack Surface Analysis Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Authentication_Cheat_Sheet/">Authentication Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Authorization_Testing_Automation/">Authorization Testing Automation</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Bean_Validation_Cheat_Sheet/">Bean Validation Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../C-Based_Toolchain_Hardening/">C-Based Toolchain Hardening</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../C-Based_Toolchain_Hardening_Cheat_Sheet/">C-Based Toolchain Hardening Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/">Choosing and Using Security Questions Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Clickjacking_Defense_Cheat_Sheet/">Clickjacking Defense Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Content_Security_Policy_Cheat_Sheet/">Content Security Policy Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Credential_Stuffing_Prevention_Cheat_Sheet/">Credential Stuffing Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/">Cross-Site Request Forgery Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/">Cross Site Scripting Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Cryptographic_Storage_Cheat_Sheet/">Cryptographic Storage Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">DOM based XSS Prevention Cheat Sheet</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Database_Security_Cheat_Sheet/">Database Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Denial_of_Service_Cheat_Sheet/">Denial of Service Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Deserialization_Cheat_Sheet/">Deserialization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Security_Cheat_Sheet/">Docker Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../DotNet_Security_Cheat_Sheet/">DotNet Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Error_Handling_Cheat_Sheet/">Error Handling Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../File_Upload_Cheat_Sheet/">File Upload Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Forgot_Password_Cheat_Sheet/">Forgot Password Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../HTML5_Security_Cheat_Sheet/">HTML5 Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../HTTP_Strict_Transport_Security_Cheat_Sheet/">HTTP Strict Transport Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet/">Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet_in_Java/">Injection Prevention Cheat Sheet in Java</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Input_Validation_Cheat_Sheet/">Input Validation Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/">Insecure Direct Object Reference Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../JAAS_Cheat_Sheet/">JAAS Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../JSON_Web_Token_Cheat_Sheet_for_Java/">JSON Web Token Cheat Sheet for Java</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Key_Management_Cheat_Sheet/">Key Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../LDAP_Injection_Prevention_Cheat_Sheet/">LDAP Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Logging_Cheat_Sheet/">Logging Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Mass_Assignment_Cheat_Sheet/">Mass Assignment Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/">Microservices based Security Arch Doc Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Multifactor_Authentication_Cheat_Sheet/">Multifactor Authentication Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Nodejs_security_cheat_sheet/">Nodejs security cheat sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../OS_Command_Injection_Defense_Cheat_Sheet/">OS Command Injection Defense Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../PHP_Configuration_Cheat_Sheet/">PHP Configuration Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Password_Storage_Cheat_Sheet/">Password Storage Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Pinning_Cheat_Sheet/">Pinning Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Query_Parameterization_Cheat_Sheet/">Query Parameterization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../REST_Assessment_Cheat_Sheet/">REST Assessment Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../REST_Security_Cheat_Sheet/">REST Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Ruby_on_Rails_Cheatsheet/">Ruby on Rails Cheatsheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../SAML_Security_Cheat_Sheet/">SAML Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../SQL_Injection_Prevention_Cheat_Sheet/">SQL Injection Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/">Securing Cascading Style Sheets Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/">Server Side Request Forgery Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Session_Management_Cheat_Sheet/">Session Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../TLS_Cipher_String_Cheat_Sheet/">TLS Cipher String Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Third_Party_Javascript_Management_Cheat_Sheet/">Third Party Javascript Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Threat_Modeling_Cheat_Sheet/">Threat Modeling Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Transaction_Authorization_Cheat_Sheet/">Transaction Authorization Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Transport_Layer_Protection_Cheat_Sheet/">Transport Layer Protection Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/">Unvalidated Redirects and Forwards Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../User_Privacy_Protection_Cheat_Sheet/">User Privacy Protection Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Virtual_Patching_Cheat_Sheet/">Virtual Patching Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerability_Disclosure_Cheat_Sheet/">Vulnerability Disclosure Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerable_Dependency_Management_Cheat_Sheet/">Vulnerable Dependency Management Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Web_Service_Security_Cheat_Sheet/">Web Service Security Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../XML_External_Entity_Prevention_Cheat_Sheet/">XML External Entity Prevention Cheat Sheet</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../XML_Security_Cheat_Sheet/">XML Security Cheat Sheet</a>
-                    </li>
-                </ul>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              DOM based XSS Prevention Cheat Sheet
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">OWASP Cheat Sheet Series</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Cheatsheets &raquo;</li>
-        
-      
-    
-    <li>DOM based XSS Prevention Cheat Sheet</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  
-  <hr/>
+  </div>
 </div>
-          <div role="main">
-            <div class="section">
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexASVS/" title="Index ASVS" class="md-nav__link">
+      Index ASVS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexProactiveControls/" title="Index Proactive Controls" class="md-nav__link">
+      Index Proactive Controls
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../glossary/" title="Index Alphabetical" class="md-nav__link">
+      Index Alphabetical
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Cheatsheets
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Cheatsheets" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Cheatsheets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security Cheat Sheet" class="md-nav__link">
+      AJAX Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
+      Abuse Case Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
+      Access Control Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
+      Attack Surface Analysis Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
+      Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-nav__link">
+      Authorization Testing Automation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-nav__link">
+      Bean Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-nav__link">
+      C-Based Toolchain Hardening
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
+      C-Based Toolchain Hardening Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
+      Choosing and Using Security Questions Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
+      Clickjacking Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
+      Content Security Policy Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
+      Credential Stuffing Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Cross-Site Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
+      Cross Site Scripting Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
+      Cryptographic Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link md-nav__link--active">
+      DOM based XSS Prevention Cheat Sheet
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
+      Database Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
+      Denial of Service Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
+      Deserialization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
+      Docker Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security Cheat Sheet" class="md-nav__link">
+      DotNet Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
+      Error Handling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
+      File Upload Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
+      Forgot Password Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
+      HTML5 Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
+      HTTP Strict Transport Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
+      Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
+      Input Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
+      Insecure Direct Object Reference Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-nav__link">
+      JAAS Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
+      Key Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
+      LDAP Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
+      Logging Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
+      Mass Assignment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
+      Microservices based Security Arch Doc Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
+      Multifactor Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
+      Nodejs security cheat sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
+      OS Command Injection Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
+      PHP Configuration Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
+      Password Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
+      Pinning Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
+      Query Parameterization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
+      REST Assessment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
+      REST Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
+      Ruby on Rails Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
+      SAML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
+      SQL Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
+      Securing Cascading Style Sheets Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Server Side Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
+      Session Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
+      TLS Cipher String Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
+      Third Party Javascript Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
+      Threat Modeling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
+      Transaction Authorization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
+      Transport Layer Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
+      Unvalidated Redirects and Forwards Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
+      User Privacy Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
+      Virtual Patching Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
+      Vulnerability Disclosure Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
+      Vulnerable Dependency Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
+      Web Service Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
+      XML External Entity Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
+      XML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                
+                  
+                
+                
                 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>When looking at XSS (Cross-Site Scripting), there are three generally recognized forms of <a href="https://owasp.org/www-community/attacks/xss/">XSS</a>:
 * <a href="https://owasp.org/www-community/attacks/xss/#stored-and-reflected-xss-attacks">Reflected or Stored</a>
@@ -253,27 +1073,30 @@
 <p>For the purposes of this article, we refer to the HTML, HTML attribute, URL, and CSS contexts as subcontexts because each of these contexts can be reached and set within a JavaScript execution context. </p>
 <p>In JavaScript code, the main context is JavaScript but with the right tags and context closing characters, an attacker can try to attack the other 4 contexts using equivalent JavaScript DOM methods.</p>
 <p>The following is an example vulnerability which occurs in the JavaScript context and HTML subcontext:</p>
-<pre><code class="html"> &lt;script&gt;
- var x = '&lt;%= taintedVar %&gt;';
- var d = document.createElement('div');
- d.innerHTML = x;
- document.body.appendChild(d);
- &lt;/script&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s1">&#39;&lt;%= taintedVar %&gt;&#39;</span><span class="p">;</span>
+ <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+ <span class="nx">d</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+ <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
+ <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>Let's look at the individual subcontexts of the execution context in turn.</p>
 <h1 id="rule-1-html-escape-then-javascript-escape-before-inserting-untrusted-data-into-html-subcontext-within-the-execution-context">RULE #1 - HTML Escape then JavaScript Escape Before Inserting Untrusted Data into HTML Subcontext within the Execution Context<a class="headerlink" href="#rule-1-html-escape-then-javascript-escape-before-inserting-untrusted-data-into-html-subcontext-within-the-execution-context" title="Permanent link">&para;</a></h1>
 <p>There are several methods and attributes which can be used to directly render HTML content within JavaScript. These methods constitute the HTML Subcontext within the Execution Context. If these methods are provided with untrusted input, then an XSS vulnerability could result. For example:</p>
 <h2 id="example-dangerous-html-methods">Example Dangerous HTML Methods<a class="headerlink" href="#example-dangerous-html-methods" title="Permanent link">&para;</a></h2>
 <h3 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h3>
-<pre><code class="javascript"> element.innerHTML = &quot;&lt;HTML&gt; Tags and markup&quot;;
- element.outerHTML = &quot;&lt;HTML&gt; Tags and markup&quot;;
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">;</span>
+ <span class="nx">element</span><span class="p">.</span><span class="nx">outerHTML</span> <span class="o">=</span> <span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">;</span>
+</code></pre></div>
+
 
 <h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
-<pre><code class="javascript"> document.write(&quot;&lt;HTML&gt; Tags and markup&quot;);
- document.writeln(&quot;&lt;HTML&gt; Tags and markup&quot;);
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">);</span>
+ <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">);</span>
+</code></pre></div>
+
 
 <h2 id="guideline">Guideline<a class="headerlink" href="#guideline" title="Permanent link">&para;</a></h2>
 <p>To make dynamic updates to HTML in the DOM safe, we recommend:</p>
@@ -281,13 +1104,15 @@
 <li>HTML encoding, and then</li>
 <li>JavaScript encoding all untrusted input, as shown in these examples:</li>
 </ol>
-<pre><code class="javascript"> element.innerHTML = &quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;;
- element.outerHTML = &quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;;
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">;</span>
+ <span class="nx">element</span><span class="p">.</span><span class="nx">outerHTML</span> <span class="o">=</span> <span class="s2">&quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">;</span>
+</code></pre></div>
 
-<pre><code class="javascript"> document.write(&quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;);
- document.writeln(&quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;);
-</code></pre>
+
+<div class="codehilite"><pre><span></span><code> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">);</span>
+ <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s2">&quot;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p><strong>Note:</strong> The <code>Encoder.encodeForHTML()</code> and <code>Encoder.encodeForJS()</code> are just notional encoders. Various options for actual encoders are listed later in this document.</p>
 <h1 id="rule-2-javascript-escape-before-inserting-untrusted-data-into-html-attribute-subcontext-within-the-execution-context">RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context<a class="headerlink" href="#rule-2-javascript-escape-before-inserting-untrusted-data-into-html-attribute-subcontext-within-the-execution-context" title="Permanent link">&para;</a></h1>
@@ -295,142 +1120,157 @@
 <p>When you are in a DOM execution context you only need to JavaScript encode HTML attributes which do not execute code (attributes other than event handler, CSS, and URL attributes).</p>
 <p>For example, the general rule is to HTML Attribute encode untrusted data (data from the database, HTTP request, user, back-end system, etc.) placed in an HTML Attribute. This is the appropriate step to take when outputting data in a rendering context, however using HTML Attribute encoding in an execution context will break the application display of data.</p>
 <h2 id="safe-but-broken-example">SAFE but BROKEN example<a class="headerlink" href="#safe-but-broken-example" title="Permanent link">&para;</a></h2>
-<pre><code class="javascript"> var x = document.createElement(&quot;input&quot;);
- x.setAttribute(&quot;name&quot;, &quot;company_name&quot;);
- // In the following line of code, companyName represents untrusted user input
- // The Encoder.encodeForHTMLAttr() is unnecessary and causes double-encoding
- x.setAttribute(&quot;value&quot;, '&lt;%=Encoder.encodeForJS(Encoder.encodeForHTMLAttr(companyName))%&gt;');
- var form1 = document.forms[0];
- form1.appendChild(x);
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
+ <span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;company_name&quot;</span><span class="p">);</span>
+ <span class="c1">// In the following line of code, companyName represents untrusted user input</span>
+ <span class="c1">// The Encoder.encodeForHTMLAttr() is unnecessary and causes double-encoding</span>
+ <span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s1">&#39;&lt;%=Encoder.encodeForJS(Encoder.encodeForHTMLAttr(companyName))%&gt;&#39;</span><span class="p">);</span>
+ <span class="kd">var</span> <span class="nx">form1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+ <span class="nx">form1</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>The problem is that if companyName had the value "Johnson &amp; Johnson". What would be displayed in the input text field would be "Johnson &amp; Johnson". The appropriate encoding to use in the above case would be only JavaScript encoding to disallow an attacker from closing out the single quotes and in-lining code, or escaping to HTML and opening a new script tag.</p>
 <h2 id="safe-and-functionally-correct-example">SAFE and FUNCTIONALLY CORRECT example<a class="headerlink" href="#safe-and-functionally-correct-example" title="Permanent link">&para;</a></h2>
-<pre><code class="javascript"> var x = document.createElement(&quot;input&quot;);
- x.setAttribute(&quot;name&quot;, &quot;company_name&quot;);
- x.setAttribute(&quot;value&quot;, '&lt;%=Encoder.encodeForJS(companyName)%&gt;');
- var form1 = document.forms[0];
- form1.appendChild(x);
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
+ <span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;company_name&quot;</span><span class="p">);</span>
+ <span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s1">&#39;&lt;%=Encoder.encodeForJS(companyName)%&gt;&#39;</span><span class="p">);</span>
+ <span class="kd">var</span> <span class="nx">form1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+ <span class="nx">form1</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>It is important to note that when setting an HTML attribute which does not execute code, the value is set directly within the object attribute of the HTML element so there is no concerns with injecting up.</p>
 <h1 id="rule-3-be-careful-when-inserting-untrusted-data-into-the-event-handler-and-javascript-code-subcontexts-within-an-execution-context">RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context<a class="headerlink" href="#rule-3-be-careful-when-inserting-untrusted-data-into-the-event-handler-and-javascript-code-subcontexts-within-an-execution-context" title="Permanent link">&para;</a></h1>
 <p>Putting dynamic data within JavaScript code is especially dangerous because JavaScript encoding has different semantics for JavaScript encoded data when compared to other encodings. In many cases, JavaScript encoding does not stop attacks within an execution context. For example, a JavaScript encoded string will execute even though it is JavaScript encoded.</p>
 <p>Therefore, the primary recommendation is to <strong>avoid including untrusted data in this context</strong>. If you must, the following examples describe some approaches that do and do not work.</p>
-<pre><code class="javascript">var x = document.createElement(&quot;a&quot;);
-x.href=&quot;#&quot;;
-// In the line of code below, the encoded data on the right (the second argument to setAttribute)
-// is an example of untrusted data that was properly JavaScript encoded but still executes.
-x.setAttribute(&quot;onclick&quot;, &quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0032\u0032\u0029&quot;);
-var y = document.createTextNode(&quot;Click To Test&quot;);
-x.appendChild(y);
-document.body.appendChild(x);
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">;</span>
+<span class="c1">// In the line of code below, the encoded data on the right (the second argument to setAttribute)</span>
+<span class="c1">// is an example of untrusted data that was properly JavaScript encoded but still executes.</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;onclick&quot;</span><span class="p">,</span> <span class="s2">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0032\u0032\u0029&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="s2">&quot;Click To Test&quot;</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>The <code>setAttribute(name_string,value_string)</code> method is dangerous because it implicitly coerces the <em>value_string</em> into the DOM attribute datatype of <em>name_string</em>.</p>
 <p>In the case above, the attribute name is an JavaScript event handler, so the attribute value is implicitly converted to JavaScript code and evaluated. In the case above, JavaScript encoding does not mitigate against DOM based XSS.</p>
 <p>Other JavaScript methods which take code as a string types will have a similar problem as outline above (<code>setTimeout</code>, <code>setInterval</code>, new Function, etc.). This is in stark contrast to JavaScript encoding in the event handler attribute of a HTML tag (HTML parser) where JavaScript encoding mitigates against XSS.</p>
-<pre><code class="html">&lt;!-- Does NOT work  --&gt;
-&lt;a id=&quot;bb&quot; href=&quot;#&quot; onclick=&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029&quot;&gt; Test Me&lt;/a&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c">&lt;!-- Does NOT work  --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bb&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029&quot;</span><span class="p">&gt;</span> Test Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>An alternative to using <code>Element.setAttribute(...)</code> to set DOM attributes is to set the attribute directly. Directly setting event handler attributes will allow JavaScript encoding to mitigate against DOM based XSS. Please note, it is always dangerous design to put untrusted data directly into a command execution context.</p>
-<pre><code class="html">&lt;a id=&quot;bb&quot; href=&quot;#&quot;&gt; Test Me&lt;/a&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bb&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span> Test Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
 
-<pre><code class="javascript">//The following does NOT work because the event handler is being set to a string.  
-//&quot;alert(7)&quot; is JavaScript encoded.
-document.getElementById(&quot;bb&quot;).onclick = &quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0029&quot;;
 
-//The following does NOT work because the event handler is being set to a string.
-document.getElementById(&quot;bb&quot;).onmouseover = &quot;testIt&quot;;
+<div class="codehilite"><pre><span></span><code><span class="c1">//The following does NOT work because the event handler is being set to a string.  </span>
+<span class="c1">//&quot;alert(7)&quot; is JavaScript encoded.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="s2">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0029&quot;</span><span class="p">;</span>
 
-//The following does NOT work because of the encoded &quot;(&quot; and &quot;)&quot;. 
-//&quot;alert(77)&quot; is JavaScript encoded.
-document.getElementById(&quot;bb&quot;).onmouseover = \u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0037\u0029;
+<span class="c1">//The following does NOT work because the event handler is being set to a string.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span> <span class="o">=</span> <span class="s2">&quot;testIt&quot;</span><span class="p">;</span>
 
-//The following does NOT work because of the encoded &quot;;&quot;. 
-//&quot;testIt;testIt&quot; is JavaScript encoded.
-document.getElementById(&quot;bb&quot;).onmouseover = \u0074\u0065\u0073\u0074\u0049\u0074\u003b\u0074\u0065\u0073
-                                            \u0074\u0049\u0074;
+<span class="c1">//The following does NOT work because of the encoded &quot;(&quot; and &quot;)&quot;. </span>
+<span class="c1">//&quot;alert(77)&quot; is JavaScript encoded.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span> <span class="o">=</span> <span class="nx">\u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0037\u0029</span><span class="p">;</span>
 
-//The following DOES WORK because the encoded value is a valid variable name or function reference.  
-//&quot;testIt&quot; is JavaScript encoded
-document.getElementById(&quot;bb&quot;).onmouseover = \u0074\u0065\u0073\u0074\u0049\u0074;
+<span class="c1">//The following does NOT work because of the encoded &quot;;&quot;. </span>
+<span class="c1">//&quot;testIt;testIt&quot; is JavaScript encoded.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span> <span class="o">=</span> <span class="nx">\u0074\u0065\u0073\u0074\u0049\u0074\u003b\u0074\u0065\u0073</span>
+                                            <span class="nx">\u0074\u0049\u0074</span><span class="p">;</span>
 
-function testIt() {
-   alert(&quot;I was called.&quot;);
-}
-</code></pre>
+<span class="c1">//The following DOES WORK because the encoded value is a valid variable name or function reference.  </span>
+<span class="c1">//&quot;testIt&quot; is JavaScript encoded</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span> <span class="o">=</span> <span class="nx">\u0074\u0065\u0073\u0074\u0049\u0074</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">testIt</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;I was called.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <p>There are other places in JavaScript where JavaScript encoding is accepted as valid executable code.</p>
-<pre><code class="javascript"> for(var \u0062=0; \u0062 &lt; 10; \u0062++){
-     \u0064\u006f\u0063\u0075\u006d\u0065\u006e\u0074
-     .\u0077\u0072\u0069\u0074\u0065\u006c\u006e
-     (&quot;\u0048\u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064&quot;);
- }
- \u0077\u0069\u006e\u0064\u006f\u0077
- .\u0065\u0076\u0061\u006c
- \u0064\u006f\u0063\u0075\u006d\u0065\u006e\u0074
- .\u0077\u0072\u0069\u0074\u0065(111111111);
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">\u0062</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">\u0062</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">\u0062</span><span class="o">++</span><span class="p">){</span>
+     <span class="nx">\u0064\u006f\u0063\u0075\u006d\u0065\u006e\u0074</span>
+     <span class="p">.</span><span class="nx">\u0077\u0072\u0069\u0074\u0065\u006c\u006e</span>
+     <span class="p">(</span><span class="s2">&quot;\u0048\u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064&quot;</span><span class="p">);</span>
+ <span class="p">}</span>
+ <span class="nx">\u0077\u0069\u006e\u0064\u006f\u0077</span>
+ <span class="p">.</span><span class="nx">\u0065\u0076\u0061\u006c</span>
+ <span class="nx">\u0064\u006f\u0063\u0075\u006d\u0065\u006e\u0074</span>
+ <span class="p">.</span><span class="nx">\u0077\u0072\u0069\u0074\u0065</span><span class="p">(</span><span class="mi">111111111</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>or</p>
-<pre><code class="javascript"> var s = &quot;\u0065\u0076\u0061\u006c&quot;;
- var t = &quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0031\u0029&quot;;
- window[s](t);
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;\u0065\u0076\u0061\u006c&quot;</span><span class="p">;</span>
+ <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="s2">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0031\u0029&quot;</span><span class="p">;</span>
+ <span class="nb">window</span><span class="p">[</span><span class="nx">s</span><span class="p">](</span><span class="nx">t</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>Because JavaScript is based on an international standard (ECMAScript), JavaScript encoding enables the support of international characters in programming constructs and variables in addition to alternate string representations (string escapes).</p>
 <p>However the opposite is the case with HTML encoding. HTML tag elements are well defined and do not support alternate representations of the same tag. So HTML encoding cannot be used to allow the developer to have alternate representations of the <code>&lt;a&gt;</code> tag for example.</p>
 <h2 id="html-encodings-disarming-nature">HTML Encoding's Disarming Nature<a class="headerlink" href="#html-encodings-disarming-nature" title="Permanent link">&para;</a></h2>
 <p>In general, HTML encoding serves to castrate HTML tags which are placed in HTML and HTML attribute contexts. Working example (no HTML encoding):</p>
-<pre><code class="html">&lt;a href=&quot;...&quot; &gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>Normally encoded example (Does Not Work – DNW):</p>
-<pre><code class="html">&amp;#x3c;a href=... &amp;#x3e;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="ni">&amp;#x3c;</span>a href=... <span class="ni">&amp;#x3e;</span>
+</code></pre></div>
+
 
 <p>HTML encoded example to highlight a fundamental difference with JavaScript encoded values (DNW):</p>
-<pre><code class="html">&lt;&amp;#x61; href=...&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&lt;</span><span class="ni">&amp;#x61;</span> href=...&gt;
+</code></pre></div>
+
 
 <p>If HTML encoding followed the same semantics as JavaScript encoding. The line above could have possibly worked to render a link. This difference makes JavaScript encoding a less viable weapon in our fight against XSS.</p>
 <h1 id="rule-4-javascript-escape-before-inserting-untrusted-data-into-the-css-attribute-subcontext-within-the-execution-context">RULE #4 - JavaScript Escape Before Inserting Untrusted Data into the CSS Attribute Subcontext within the Execution Context<a class="headerlink" href="#rule-4-javascript-escape-before-inserting-untrusted-data-into-the-css-attribute-subcontext-within-the-execution-context" title="Permanent link">&para;</a></h1>
 <p>Normally executing JavaScript from a CSS context required either passing <code>javascript:attackCode()</code> to the CSS <code>url()</code> method or invoking the CSS <code>expression()</code> method passing JavaScript code to be directly executed. </p>
 <p>From my experience, calling the <code>expression()</code> function from an execution context (JavaScript) has been disabled. In order to mitigate against the CSS <code>url()</code> method, ensure that you are URL encoding the data passed to the CSS <code>url()</code> method.</p>
-<pre><code class="javascript">document.body.style.backgroundImage = &quot;url(&lt;%=Encoder.encodeForJS(Encoder.encodeForURL(companyName))%&gt;)&quot;;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundImage</span> <span class="o">=</span> <span class="s2">&quot;url(&lt;%=Encoder.encodeForJS(Encoder.encodeForURL(companyName))%&gt;)&quot;</span><span class="p">;</span>
+</code></pre></div>
+
 
 <h1 id="rule-5-url-escape-then-javascript-escape-before-inserting-untrusted-data-into-url-attribute-subcontext-within-the-execution-context">RULE #5 - URL Escape then JavaScript Escape Before Inserting Untrusted Data into URL Attribute Subcontext within the Execution Context<a class="headerlink" href="#rule-5-url-escape-then-javascript-escape-before-inserting-untrusted-data-into-url-attribute-subcontext-within-the-execution-context" title="Permanent link">&para;</a></h1>
 <p>The logic which parses URLs in both execution and rendering contexts looks to be the same. Therefore there is little change in the encoding rules for URL attributes in an execution (DOM) context.</p>
-<pre><code class="javascript">var x = document.createElement(&quot;a&quot;);
-x.setAttribute(&quot;href&quot;, '&lt;%=Encoder.encodeForJS(Encoder.encodeForURL(userRelativePath))%&gt;');
-var y = document.createTextElement(&quot;Click Me To Test&quot;);
-x.appendChild(y);
-document.body.appendChild(x);
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span> <span class="s1">&#39;&lt;%=Encoder.encodeForJS(Encoder.encodeForURL(userRelativePath))%&gt;&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createTextElement</span><span class="p">(</span><span class="s2">&quot;Click Me To Test&quot;</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>If you utilize fully qualified URLs then this will break the links as the colon in the protocol identifier (<code>http:</code> or <code>javascript:</code>) will be URL encoded preventing the <code>http</code> and <code>javascript</code> protocols from being invoked.</p>
 <h1 id="rule-6-populate-the-dom-using-safe-javascript-functions-or-properties">RULE #6 - Populate the DOM using safe JavaScript functions or properties<a class="headerlink" href="#rule-6-populate-the-dom-using-safe-javascript-functions-or-properties" title="Permanent link">&para;</a></h1>
 <p>The most fundamental safe way to populate the DOM with untrusted data is to use the safe assignment property <code>textContent</code>. </p>
 <p>Here is an example of safe usage.</p>
-<pre><code class="html">&lt;script&gt;
-element.textContent = untrustedData;  //does not execute code
-&lt;/script&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">untrustedData</span><span class="p">;</span>  <span class="c1">//does not execute code</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <h1 id="rule-7-fixing-dom-cross-site-scripting-vulnerabilities">RULE #7 - Fixing DOM Cross-site Scripting Vulnerabilities<a class="headerlink" href="#rule-7-fixing-dom-cross-site-scripting-vulnerabilities" title="Permanent link">&para;</a></h1>
 <p>The best way to fix DOM based cross-site scripting is to use the right output method (sink). For example if you want to use user input to write in a <code>div tag</code> element don't use <code>innerHtml</code>, instead use <code>innerText</code> or <code>textContent</code>. This will solve the problem, and it is the right way to re-mediate DOM based XSS vulnerabilities.</p>
 <p><strong>It is always a bad idea to use a user-controlled input in dangerous sources such as eval. 99% of the time it is an indication of bad or lazy programming practice, so simply don't do it instead of trying to sanitize the input.</strong></p>
 <p>Finally, to fix the problem in our initial code, instead of trying to encode the output correctly which is a hassle and can easily go wrong we would simply use <code>element.textContent</code> to write it in a content like this:</p>
-<pre><code class="html">&lt;b&gt;Current URL:&lt;/b&gt; &lt;span id=&quot;contentholder&quot;&gt;&lt;/span&gt;
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Current URL:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;contentholder&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 ...
-&lt;script&gt;
-document.getElementById(&quot;contentholder&quot;).textContent = document.baseURI;
-&lt;/script&gt;
-</code></pre>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;contentholder&quot;</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">baseURI</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>It does the same thing but this time it is not vulnerable to DOM based cross-site scripting vulnerabilities.</p>
 <h1 id="guidelines-for-developing-secure-applications-utilizing-javascript">Guidelines for Developing Secure Applications Utilizing JavaScript<a class="headerlink" href="#guidelines-for-developing-secure-applications-utilizing-javascript" title="Permanent link">&para;</a></h1>
@@ -440,8 +1280,9 @@ document.getElementById(&quot;contentholder&quot;).textContent = document.baseUR
 <p>Avoid treating untrusted data as code or markup within JavaScript code.</p>
 <h2 id="guideline-2-always-javascript-encode-and-delimit-untrusted-data-as-quoted-strings-when-entering-the-application-when-building-templated-javascript">GUIDELINE #2 - Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated JavaScript<a class="headerlink" href="#guideline-2-always-javascript-encode-and-delimit-untrusted-data-as-quoted-strings-when-entering-the-application-when-building-templated-javascript" title="Permanent link">&para;</a></h2>
 <p>Always JavaScript encode and delimit untrusted data as quoted strings when entering the application as illustrated in the following example.</p>
-<pre><code class="javascript">var x = &quot;&lt;%= Encode.forJavaScript(untrustedData) %&gt;&quot;;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s2">&quot;&lt;%= Encode.forJavaScript(untrustedData) %&gt;&quot;</span><span class="p">;</span>
+</code></pre></div>
+
 
 <h2 id="guideline-3-use-documentcreateelement-elementsetattributevalue-elementappendchild-and-similar-to-build-dynamic-interfaces">GUIDELINE #3 - Use document.createElement("..."), element.setAttribute("...","value"), element.appendChild(...) and similar to build dynamic interfaces<a class="headerlink" href="#guideline-3-use-documentcreateelement-elementsetattributevalue-elementappendchild-and-similar-to-build-dynamic-interfaces" title="Permanent link">&para;</a></h2>
 <p><code>document.createElement("...")</code>, <code>element.setAttribute("...","value")</code>, <code>element.appendChild(...)</code> and similar are save ways to build dynamic interfaces.</p>
@@ -465,90 +1306,99 @@ document.getElementById(&quot;contentholder&quot;).textContent = document.baseUR
 <p>Ensure to follow step 3 above to make sure that the untrusted data is not sent to dangerous methods within the custom function or handle it by adding an extra layer of encoding.</p>
 <p><strong>Utilizing an Enclosure (as suggested by Gaz)</strong></p>
 <p>The example that follows illustrates using closures to avoid double JavaScript encoding.</p>
-<pre><code class="javascript"> setTimeout((function(param) { return function() {
-          customFunction(param);
-        }
- })(&quot;&lt;%=Encoder.encodeForJS(untrustedData)%&gt;&quot;), y);
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="nx">setTimeout</span><span class="p">((</span><span class="kd">function</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nx">customFunction</span><span class="p">(</span><span class="nx">param</span><span class="p">);</span>
+        <span class="p">}</span>
+ <span class="p">})(</span><span class="s2">&quot;&lt;%=Encoder.encodeForJS(untrustedData)%&gt;&quot;</span><span class="p">),</span> <span class="nx">y</span><span class="p">);</span>
+</code></pre></div>
+
 
 <p>The other alternative is using N-levels of encoding.</p>
 <p><strong>N-Levels of Encoding</strong></p>
 <p>If your code looked like the following, you would need to only double JavaScript encode input data.</p>
-<pre><code class="javascript">setTimeout(&quot;customFunction('&lt;%=doubleJavaScriptEncodedData%&gt;', y)&quot;);
-function customFunction (firstName, lastName)
-     alert(&quot;Hello&quot; + firstName + &quot; &quot; + lastNam);
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(</span><span class="s2">&quot;customFunction(&#39;&lt;%=doubleJavaScriptEncodedData%&gt;&#39;, y)&quot;</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">customFunction</span> <span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">)</span>
+     <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span> <span class="o">+</span> <span class="nx">firstName</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">lastNam</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <p>The <code>doubleJavaScriptEncodedData</code> has its first layer of JavaScript encoding reversed (upon execution) in the single quotes. </p>
 <p>Then the implicit <code>eval</code> of <code>setTimeout</code> reverses another layer of JavaScript encoding to pass the correct value to <code>customFunction</code> </p>
 <p>The reason why you only need to double JavaScript encode is that the <code>customFunction</code> function did not itself pass the input to another method which implicitly or explicitly called <code>eval</code> If <em>firstName</em> was passed to another JavaScript method which implicitly or explicitly called <code>eval()</code> then <code>&lt;%=doubleJavaScriptEncodedData%&gt;</code> above would need to be changed to <code>&lt;%=tripleJavaScriptEncodedData%&gt;</code>.</p>
 <p>An important implementation note is that if the JavaScript code tries to utilize the double or triple encoded data in string comparisons, the value may be interpreted as different values based on the number of <code>evals()</code> the data has passed through before being passed to the if comparison and the number of times the value was JavaScript encoded.</p>
 <p>If <strong>A</strong> is double JavaScript encoded then the following <strong>if</strong> check will return false.</p>
-<pre><code class="javascript"> var x = &quot;doubleJavaScriptEncodedA&quot;;  //\u005c\u0075\u0030\u0030\u0034\u0031
- if (x == &quot;A&quot;) {
-    alert(&quot;x is A&quot;);
- } else if (x == &quot;\u0041&quot;) {
-    alert(&quot;This is what pops&quot;);
- }
-</code></pre>
+<div class="codehilite"><pre><span></span><code> <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s2">&quot;doubleJavaScriptEncodedA&quot;</span><span class="p">;</span>  <span class="c1">//\u005c\u0075\u0030\u0030\u0034\u0031</span>
+ <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;x is A&quot;</span><span class="p">);</span>
+ <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="s2">&quot;\u0041&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;This is what pops&quot;</span><span class="p">);</span>
+ <span class="p">}</span>
+</code></pre></div>
+
 
 <p>This brings up an interesting design point. Ideally, the correct way to apply encoding and avoid the problem stated above is to server-side encode for the output context where data is introduced into the application. </p>
 <p>Then client-side encode (using a JavaScript encoding library such as <a href="https://owasp.org/www-project-enterprise-security-api/">ESAPI4JS</a>) for the individual subcontext (DOM methods) which untrusted data is passed to. <a href="https://owasp.org/www-project-enterprise-security-api/">ESAPI4JS</a> and <a href="https://github.com/chrisisbeef/jquery-encoder/blob/master/src/jquery.jquery-encoder.js">jQuery Encoder</a> are two client side encoding libraries developed by Chris Schmidt.</p>
 <p>Here are some examples of how they are used:</p>
-<pre><code class="javascript">//server-side encoding
-var input = &quot;&lt;%=Encoder.encodeForJS(untrustedData)%&gt;&quot;;  
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1">//server-side encoding</span>
+<span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="s2">&quot;&lt;%=Encoder.encodeForJS(untrustedData)%&gt;&quot;</span><span class="p">;</span>  
+</code></pre></div>
 
-<pre><code class="javascript">//HTML encoding is happening in JavaScript
-document.writeln(ESAPI4JS.encodeForHTML(input));  
-</code></pre>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">//HTML encoding is happening in JavaScript</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">ESAPI4JS</span><span class="p">.</span><span class="nx">encodeForHTML</span><span class="p">(</span><span class="nx">input</span><span class="p">));</span>  
+</code></pre></div>
+
 
 <p>One option is utilize ECMAScript 5 immutable properties in the JavaScript library.
 Another option provided by Gaz (Gareth) was to use a specific code construct to limit mutability with anonymous closures.</p>
 <p>An example follows:</p>
-<pre><code class="javascript">function escapeHTML(str) {
-     str = str + &quot;''&quot;;
-     var out = &quot;''&quot;;
-     for(var i=0; i&lt;str.length; i++) {
-         if(str[i] === '&lt;') {
-             out += '&amp;lt;';
-         } else if(str[i] === '&gt;') {
-             out += '&amp;gt;';
-         } else if(str[i] === &quot;'&quot;) {
-             out += '&amp;#39;';
-         } else if(str[i] === '&quot;') {
-             out += '&amp;quot;';
-         } else {
-             out += str[i];
-         }
-     }
-     return out;
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">escapeHTML</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span> <span class="o">+</span> <span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">;</span>
+     <span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">;</span>
+     <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">out</span> <span class="o">+=</span> <span class="s1">&#39;&amp;lt;&#39;</span><span class="p">;</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">out</span> <span class="o">+=</span> <span class="s1">&#39;&amp;gt;&#39;</span><span class="p">;</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">out</span> <span class="o">+=</span> <span class="s1">&#39;&amp;#39;&#39;</span><span class="p">;</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">out</span> <span class="o">+=</span> <span class="s1">&#39;&amp;quot;&#39;</span><span class="p">;</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+             <span class="nx">out</span> <span class="o">+=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="k">return</span> <span class="nx">out</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <p>Chris Schmidt has put together another implementation of a JavaScript encoder <a href="http://yet-another-dev.blogspot.com/2011/02/client-side-contextual-encoding-for.html">here</a>.</p>
 <h2 id="guideline-6-limit-the-usage-of-untrusted-data-to-only-right-side-operations">GUIDELINE #6 - Limit the usage of untrusted data to only right side operations<a class="headerlink" href="#guideline-6-limit-the-usage-of-untrusted-data-to-only-right-side-operations" title="Permanent link">&para;</a></h2>
 <p>Not only is it good design to limit the usage of untrusted data to right side operations, but also be aware of data which may be passed to the application which look like code (eg. <code>location</code>, <code>eval()</code>).</p>
 <p>If you want to change different object attributes based on user input then use a level of indirection.
 Instead of:</p>
-<pre><code class="javascript">window[userData] = &quot;moreUserData&quot;;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nb">window</span><span class="p">[</span><span class="nx">userData</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;moreUserData&quot;</span><span class="p">;</span>
+</code></pre></div>
+
 
 <p>Do the following instead:</p>
-<pre><code class="javascript">if (userData === &quot;location&quot;) {
-   window.location = &quot;static/path/or/properly/url/encoded/value&quot;;
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">userData</span> <span class="o">===</span> <span class="s2">&quot;location&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&quot;static/path/or/properly/url/encoded/value&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 
 <h2 id="guideline-7-when-url-encoding-in-dom-be-aware-of-character-set-issues">GUIDELINE #7 - When URL encoding in DOM be aware of character set issues<a class="headerlink" href="#guideline-7-when-url-encoding-in-dom-be-aware-of-character-set-issues" title="Permanent link">&para;</a></h2>
 <p>When URL encoding in DOM be aware of character set issues as the character set in JavaScript DOM is not clearly defined (Mike Samuel).</p>
 <h2 id="guideline-8-limit-access-to-properties-objects-when-using-objectx-accessors">GUIDELINE #8 - Limit access to properties objects when using object[x] accessors<a class="headerlink" href="#guideline-8-limit-access-to-properties-objects-when-using-objectx-accessors" title="Permanent link">&para;</a></h2>
 <p>Limit access to properties objects when using <code>object[x]</code> accessors (Mike Samuel). In other words use a level of indirection between untrusted input and specified object properties. </p>
 <p>Here is an example of the problem when using map types:</p>
-<pre><code class="javascript">var myMapType = {};
-myMapType[&lt;%=untrustedData%&gt;] = &quot;moreUntrustedData&quot;;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">myMapType</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">myMapType</span><span class="p">[</span><span class="o">&lt;%=</span><span class="nx">untrustedData</span><span class="o">%&gt;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;moreUntrustedData&quot;</span><span class="p">;</span>
+</code></pre></div>
+
 
 <p>Although the developer writing the code above was trying to add additional keyed elements to the <code>myMapType</code> object. This could be used by an attacker to subvert internal and external attributes of the <code>myMapType</code> object.</p>
 <h2 id="guideline-9-run-your-javascript-in-a-ecmascript-5-canopy-or-sandbox">GUIDELINE #9 - Run your JavaScript in a ECMAScript 5 canopy or sandbox<a class="headerlink" href="#guideline-9-run-your-javascript-in-a-ecmascript-5-canopy-or-sandbox" title="Permanent link">&para;</a></h2>
@@ -558,33 +1408,36 @@ myMapType[&lt;%=untrustedData%&gt;] = &quot;moreUntrustedData&quot;;
 <h1 id="common-problems-associated-with-mitigating-dom-based-xss">Common Problems Associated with Mitigating DOM Based XSS<a class="headerlink" href="#common-problems-associated-with-mitigating-dom-based-xss" title="Permanent link">&para;</a></h1>
 <h2 id="complex-contexts">Complex Contexts<a class="headerlink" href="#complex-contexts" title="Permanent link">&para;</a></h2>
 <p>In many cases the context isn't always straightforward to discern.</p>
-<pre><code class="html">&lt;a href=&quot;javascript:myFunction('&lt;%=untrustedData%&gt;', 'test');&quot;&gt;Click Me&lt;/a&gt;
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:myFunction(&#39;&lt;%=untrustedData%&gt;&#39;, &#39;test&#39;);&quot;</span><span class="p">&gt;</span>Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
  ...
-&lt;script&gt;
-Function myFunction (url,name) {
-    window.location = url;
-}
-&lt;/script&gt;
-</code></pre>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nb">Function</span> <span class="nx">myFunction</span> <span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>In the above example, untrusted data started in the rendering URL context (<code>href</code> attribute of an <code>a</code> tag) then changed to a JavaScript execution context (<code>javascript:</code> protocol handler) which passed the untrusted data to an execution URL subcontext (<code>window.location</code> of <code>myFunction</code>). </p>
 <p>Because the data was introduced in JavaScript code and passed to a URL subcontext the appropriate server-side encoding would be the following:</p>
-<pre><code class="html">&lt;a href=&quot;javascript:myFunction('&lt;%=Encoder.encodeForJS(Encoder.encodeForURL(untrustedData)) %&gt;', 'test');&quot;&gt;
-Click Me&lt;/a&gt;
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:myFunction(&#39;&lt;%=Encoder.encodeForJS(Encoder.encodeForURL(untrustedData)) %&gt;&#39;, &#39;test&#39;);&quot;</span><span class="p">&gt;</span>
+Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
  ...
-</code></pre>
+</code></pre></div>
+
 
 <p>Or if you were using ECMAScript 5 with an immutable JavaScript client-side encoding libraries you could do the following:</p>
-<pre><code class="html">&lt;!-- server side URL encoding has been removed.  Now only JavaScript encoding on server side. --&gt;
-&lt;a href=&quot;javascript:myFunction('&lt;%=Encoder.encodeForJS(untrustedData)%&gt;', 'test');&quot;&gt;Click Me&lt;/a&gt;
+<div class="codehilite"><pre><span></span><code><span class="c">&lt;!-- server side URL encoding has been removed.  Now only JavaScript encoding on server side. --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:myFunction(&#39;&lt;%=Encoder.encodeForJS(untrustedData)%&gt;&#39;, &#39;test&#39;);&quot;</span><span class="p">&gt;</span>Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
  ...
-&lt;script&gt;
-Function myFunction (url,name) {
-    var encodedURL = ESAPI4JS.encodeForURL(url);  //URL encoding using client-side scripts
-    window.location = encodedURL;
-}
-&lt;/script&gt;
-</code></pre>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nb">Function</span> <span class="nx">myFunction</span> <span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">encodedURL</span> <span class="o">=</span> <span class="nx">ESAPI4JS</span><span class="p">.</span><span class="nx">encodeForURL</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>  <span class="c1">//URL encoding using client-side scripts</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="nx">encodedURL</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <h2 id="inconsistencies-of-encoding-libraries">Inconsistencies of Encoding Libraries<a class="headerlink" href="#inconsistencies-of-encoding-libraries" title="Permanent link">&para;</a></h2>
 <p>There are a number of open source encoding libraries out there:</p>
@@ -603,85 +1456,118 @@ Function myFunction (url,name) {
 <p>This logically seems to be prudent advice as the JavaScript parser does not understand HTML encoding. </p>
 <p>However, if the pages returned from your web application utilize a content type of <code>text/xhtml</code> or the file type extension of <code>*.xhtml</code> then HTML encoding may not work to mitigate against XSS.</p>
 <p>For example:</p>
-<pre><code class="html">&lt;script&gt;
-&amp;#x61;lert(1);
-&lt;/script&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="o">&amp;</span><span class="err">#</span><span class="nx">x61</span><span class="p">;</span><span class="nx">lert</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>The HTML encoded value above is still executable. If that isn't enough to keep in mind, you have to remember that encodings are lost when you retrieve them using the value attribute of a DOM element.</p>
 <p>Let's look at the sample page and script:</p>
-<pre><code class="html">&lt;form name=&quot;myForm&quot; ...&gt;
-  &lt;input type=&quot;text&quot; name=&quot;lName&quot; value=&quot;&lt;%=Encoder.encodeForHTML(last_name)%&gt;&quot;&gt;
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;myForm&quot;</span> <span class="err">...</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lName&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&lt;%=Encoder.encodeForHTML(last_name)%&gt;&quot;</span><span class="p">&gt;</span>
  ...
-&lt;/form&gt;
-&lt;script&gt;
-  var x = document.myForm.lName.value;  //when the value is retrieved the encoding is reversed
-  document.writeln(x);  //any code passed into lName is now executable.
-&lt;/script&gt;
-</code></pre>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">myForm</span><span class="p">.</span><span class="nx">lName</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>  <span class="c1">//when the value is retrieved the encoding is reversed</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>  <span class="c1">//any code passed into lName is now executable.</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>Finally there is the problem that certain methods in JavaScript which are usually safe can be unsafe in certain contexts.</p>
 <h2 id="usually-safe-methods">Usually Safe Methods<a class="headerlink" href="#usually-safe-methods" title="Permanent link">&para;</a></h2>
 <p>One example of an attribute which is thought to be safe is <code>innerText</code>. </p>
 <p>Some papers or guides advocate its use as an alternative to <code>innerHTML</code> to mitigate against XSS in <code>innerHTML</code>. However, depending on the tag which <code>innerText</code> is applied, code can be executed.  </p>
-<pre><code class="html">&lt;script&gt;
- var tag = document.createElement(&quot;script&quot;);
- tag.innerText = &quot;&lt;%=untrustedData%&gt;&quot;;  //executes code
-&lt;/script&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="kd">var</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span>
+ <span class="nx">tag</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s2">&quot;&lt;%=untrustedData%&gt;&quot;</span><span class="p">;</span>  <span class="c1">//executes code</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
 
 <p>The <code>innerText</code> feature was originally introduced by Internet Explorer, and was formally specified in the HTML standard in 2016 after being adopted by all major browser vendors.</p>
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../Database_Security_Cheat_Sheet/" class="btn btn-neutral float-right" title="Database Security Cheat Sheet">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../Cryptographic_Storage_Cheat_Sheet/" class="btn btn-neutral" title="Cryptographic Storage Cheat Sheet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Cryptographic Storage Cheat Sheet
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Database Security Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.83fe6e3c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
-        <span><a href="../Cryptographic_Storage_Cheat_Sheet/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../Database_Security_Cheat_Sheet/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(false);
-        };
-    </script>
-
-</body>
+    
+  </body>
 </html>
