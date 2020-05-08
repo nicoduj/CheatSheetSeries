@@ -1,1308 +1,1366 @@
 
-<!DOCTYPE HTML>
-<html lang="en" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Docker Security  · OWASP Cheat Sheet Series</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.5">
+    
+    
+      
+        <title>Docker Security Cheat Sheet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.df84b5fe.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
-
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
-
-    
-
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-
-    
-    <link rel="next" href="DotNet_Security_Cheat_Sheet.html" />
-    
-    
-    <link rel="prev" href="Deserialization_Cheat_Sheet.html" />
-    
-
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        <li class="header">Cheatsheets</li>
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    Introduction
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="Index.html">
-            
-                <a href="Index.html">
-            
-                    
-                    Index Alphabetical
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="IndexASVS.html">
-            
-                <a href="IndexASVS.html">
-            
-                    
-                    Index ASVS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="IndexProactiveControls.html">
-            
-                <a href="IndexProactiveControls.html">
-            
-                    
-                    Index Proactive Controls
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="AJAX_Security_Cheat_Sheet.html">
-            
-                <a href="AJAX_Security_Cheat_Sheet.html">
-            
-                    
-                    AJAX Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="Abuse_Case_Cheat_Sheet.html">
-            
-                <a href="Abuse_Case_Cheat_Sheet.html">
-            
-                    
-                    Abuse Case 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="Access_Control_Cheat_Sheet.html">
-            
-                <a href="Access_Control_Cheat_Sheet.html">
-            
-                    
-                    Access Control 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="Attack_Surface_Analysis_Cheat_Sheet.html">
-            
-                <a href="Attack_Surface_Analysis_Cheat_Sheet.html">
-            
-                    
-                    Attack Surface Analysis 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="Authentication_Cheat_Sheet.html">
-            
-                <a href="Authentication_Cheat_Sheet.html">
-            
-                    
-                    Authentication 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="Authorization_Testing_Automation.html">
-            
-                <a href="Authorization_Testing_Automation.html">
-            
-                    
-                    Authorization Testing Automation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="Bean_Validation_Cheat_Sheet.html">
-            
-                <a href="Bean_Validation_Cheat_Sheet.html">
-            
-                    
-                    Bean Validation 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.12" data-path="C-Based_Toolchain_Hardening.html">
-            
-                <a href="C-Based_Toolchain_Hardening.html">
-            
-                    
-                    C-Based Toolchain Hardening
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.13" data-path="C-Based_Toolchain_Hardening_Cheat_Sheet.html">
-            
-                <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html">
-            
-                    
-                    C-Based Toolchain Hardening 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14" data-path="Choosing_and_Using_Security_Questions_Cheat_Sheet.html">
-            
-                <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html">
-            
-                    
-                    Choosing and Using Security Questions 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="Clickjacking_Defense_Cheat_Sheet.html">
-            
-                <a href="Clickjacking_Defense_Cheat_Sheet.html">
-            
-                    
-                    Clickjacking Defense 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.16" data-path="Content_Security_Policy_Cheat_Sheet.html">
-            
-                <a href="Content_Security_Policy_Cheat_Sheet.html">
-            
-                    
-                    Content Security Policy 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.17" data-path="Credential_Stuffing_Prevention_Cheat_Sheet.html">
-            
-                <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html">
-            
-                    
-                    Credential Stuffing Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.18" data-path="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">
-            
-                <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">
-            
-                    
-                    Cross-Site Request Forgery Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.19" data-path="Cross_Site_Scripting_Prevention_Cheat_Sheet.html">
-            
-                <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html">
-            
-                    
-                    Cross Site Scripting Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.20" data-path="Cryptographic_Storage_Cheat_Sheet.html">
-            
-                <a href="Cryptographic_Storage_Cheat_Sheet.html">
-            
-                    
-                    Cryptographic Storage 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.21" data-path="DOM_based_XSS_Prevention_Cheat_Sheet.html">
-            
-                <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html">
-            
-                    
-                    DOM based XSS Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.22" data-path="Database_Security_Cheat_Sheet.html">
-            
-                <a href="Database_Security_Cheat_Sheet.html">
-            
-                    
-                    Database Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.23" data-path="Denial_of_Service_Cheat_Sheet.html">
-            
-                <a href="Denial_of_Service_Cheat_Sheet.html">
-            
-                    
-                    Denial of Service 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.24" data-path="Deserialization_Cheat_Sheet.html">
-            
-                <a href="Deserialization_Cheat_Sheet.html">
-            
-                    
-                    Deserialization 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.25" data-path="Docker_Security_Cheat_Sheet.html">
-            
-                <a href="Docker_Security_Cheat_Sheet.html">
-            
-                    
-                    Docker Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.26" data-path="DotNet_Security_Cheat_Sheet.html">
-            
-                <a href="DotNet_Security_Cheat_Sheet.html">
-            
-                    
-                    DotNet Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.27" data-path="Error_Handling_Cheat_Sheet.html">
-            
-                <a href="Error_Handling_Cheat_Sheet.html">
-            
-                    
-                    Error Handling 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.28" data-path="File_Upload_Cheat_Sheet.html">
-            
-                <a href="File_Upload_Cheat_Sheet.html">
-            
-                    
-                    File Upload 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.29" data-path="Forgot_Password_Cheat_Sheet.html">
-            
-                <a href="Forgot_Password_Cheat_Sheet.html">
-            
-                    
-                    Forgot Password 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.30" data-path="HTML5_Security_Cheat_Sheet.html">
-            
-                <a href="HTML5_Security_Cheat_Sheet.html">
-            
-                    
-                    HTML5 Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.31" data-path="HTTP_Strict_Transport_Security_Cheat_Sheet.html">
-            
-                <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html">
-            
-                    
-                    HTTP Strict Transport Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.32" data-path="Injection_Prevention_Cheat_Sheet.html">
-            
-                <a href="Injection_Prevention_Cheat_Sheet.html">
-            
-                    
-                    Injection Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.33" data-path="Injection_Prevention_Cheat_Sheet_in_Java.html">
-            
-                <a href="Injection_Prevention_Cheat_Sheet_in_Java.html">
-            
-                    
-                    Injection Prevention  in Java
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.34" data-path="Input_Validation_Cheat_Sheet.html">
-            
-                <a href="Input_Validation_Cheat_Sheet.html">
-            
-                    
-                    Input Validation 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.35" data-path="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html">
-            
-                <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html">
-            
-                    
-                    Insecure Direct Object Reference Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.36" data-path="JAAS_Cheat_Sheet.html">
-            
-                <a href="JAAS_Cheat_Sheet.html">
-            
-                    
-                    JAAS 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.37" data-path="JSON_Web_Token_Cheat_Sheet_for_Java.html">
-            
-                <a href="JSON_Web_Token_Cheat_Sheet_for_Java.html">
-            
-                    
-                    JSON Web Token  for Java
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.38" data-path="Key_Management_Cheat_Sheet.html">
-            
-                <a href="Key_Management_Cheat_Sheet.html">
-            
-                    
-                    Key Management 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.39" data-path="LDAP_Injection_Prevention_Cheat_Sheet.html">
-            
-                <a href="LDAP_Injection_Prevention_Cheat_Sheet.html">
-            
-                    
-                    LDAP Injection Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.40" data-path="Logging_Cheat_Sheet.html">
-            
-                <a href="Logging_Cheat_Sheet.html">
-            
-                    
-                    Logging 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.41" data-path="Mass_Assignment_Cheat_Sheet.html">
-            
-                <a href="Mass_Assignment_Cheat_Sheet.html">
-            
-                    
-                    Mass Assignment 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.42" data-path="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html">
-            
-                <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html">
-            
-                    
-                    Microservices based Security Arch Doc 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.43" data-path="Multifactor_Authentication_Cheat_Sheet.html">
-            
-                <a href="Multifactor_Authentication_Cheat_Sheet.html">
-            
-                    
-                    Multifactor Authentication 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.44" data-path="Nodejs_security_cheat_sheet.html">
-            
-                <a href="Nodejs_security_cheat_sheet.html">
-            
-                    
-                    Nodejs security cheat sheet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.45" data-path="OS_Command_Injection_Defense_Cheat_Sheet.html">
-            
-                <a href="OS_Command_Injection_Defense_Cheat_Sheet.html">
-            
-                    
-                    OS Command Injection Defense 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.46" data-path="PHP_Configuration_Cheat_Sheet.html">
-            
-                <a href="PHP_Configuration_Cheat_Sheet.html">
-            
-                    
-                    PHP Configuration 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.47" data-path="Password_Storage_Cheat_Sheet.html">
-            
-                <a href="Password_Storage_Cheat_Sheet.html">
-            
-                    
-                    Password Storage 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.48" data-path="Pinning_Cheat_Sheet.html">
-            
-                <a href="Pinning_Cheat_Sheet.html">
-            
-                    
-                    Pinning 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.49" data-path="Query_Parameterization_Cheat_Sheet.html">
-            
-                <a href="Query_Parameterization_Cheat_Sheet.html">
-            
-                    
-                    Query Parameterization 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.50" data-path="REST_Assessment_Cheat_Sheet.html">
-            
-                <a href="REST_Assessment_Cheat_Sheet.html">
-            
-                    
-                    REST Assessment 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.51" data-path="REST_Security_Cheat_Sheet.html">
-            
-                <a href="REST_Security_Cheat_Sheet.html">
-            
-                    
-                    REST Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.52" data-path="Ruby_on_Rails_Cheatsheet.html">
-            
-                <a href="Ruby_on_Rails_Cheatsheet.html">
-            
-                    
-                    Ruby on Rails Cheatsheet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.53" data-path="SAML_Security_Cheat_Sheet.html">
-            
-                <a href="SAML_Security_Cheat_Sheet.html">
-            
-                    
-                    SAML Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.54" data-path="SQL_Injection_Prevention_Cheat_Sheet.html">
-            
-                <a href="SQL_Injection_Prevention_Cheat_Sheet.html">
-            
-                    
-                    SQL Injection Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.55" data-path="Securing_Cascading_Style_Sheets_Cheat_Sheet.html">
-            
-                <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html">
-            
-                    
-                    Securing Cascading Style Sheets 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.56" data-path="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html">
-            
-                <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html">
-            
-                    
-                    Server Side Request Forgery Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.57" data-path="Session_Management_Cheat_Sheet.html">
-            
-                <a href="Session_Management_Cheat_Sheet.html">
-            
-                    
-                    Session Management 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.58" data-path="TLS_Cipher_String_Cheat_Sheet.html">
-            
-                <a href="TLS_Cipher_String_Cheat_Sheet.html">
-            
-                    
-                    TLS Cipher String 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.59" data-path="Third_Party_Javascript_Management_Cheat_Sheet.html">
-            
-                <a href="Third_Party_Javascript_Management_Cheat_Sheet.html">
-            
-                    
-                    Third Party Javascript Management 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.60" data-path="Threat_Modeling_Cheat_Sheet.html">
-            
-                <a href="Threat_Modeling_Cheat_Sheet.html">
-            
-                    
-                    Threat Modeling 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.61" data-path="Transaction_Authorization_Cheat_Sheet.html">
-            
-                <a href="Transaction_Authorization_Cheat_Sheet.html">
-            
-                    
-                    Transaction Authorization 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.62" data-path="Transport_Layer_Protection_Cheat_Sheet.html">
-            
-                <a href="Transport_Layer_Protection_Cheat_Sheet.html">
-            
-                    
-                    Transport Layer Protection 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.63" data-path="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html">
-            
-                <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html">
-            
-                    
-                    Unvalidated Redirects and Forwards 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.64" data-path="User_Privacy_Protection_Cheat_Sheet.html">
-            
-                <a href="User_Privacy_Protection_Cheat_Sheet.html">
-            
-                    
-                    User Privacy Protection 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.65" data-path="Virtual_Patching_Cheat_Sheet.html">
-            
-                <a href="Virtual_Patching_Cheat_Sheet.html">
-            
-                    
-                    Virtual Patching 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.66" data-path="Vulnerability_Disclosure_Cheat_Sheet.html">
-            
-                <a href="Vulnerability_Disclosure_Cheat_Sheet.html">
-            
-                    
-                    Vulnerability Disclosure 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.67" data-path="Vulnerable_Dependency_Management_Cheat_Sheet.html">
-            
-                <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html">
-            
-                    
-                    Vulnerable Dependency Management 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.68" data-path="Web_Service_Security_Cheat_Sheet.html">
-            
-                <a href="Web_Service_Security_Cheat_Sheet.html">
-            
-                    
-                    Web Service Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.69" data-path="XML_External_Entity_Prevention_Cheat_Sheet.html">
-            
-                <a href="XML_External_Entity_Prevention_Cheat_Sheet.html">
-            
-                    
-                    XML External Entity Prevention 
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.70" data-path="XML_Security_Cheat_Sheet.html">
-            
-                <a href="XML_Security_Cheat_Sheet.html">
-            
-                    
-                    XML Security 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="#introduction" class="md-skip">
+          Skip to content
         </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
+      
     </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
+    <div data-md-component="announce">
+      
+    </div>
     
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="OWASP Cheat Sheet Series" class="md-header-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Docker Security </a>
-    </h1>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Docker Security Cheat Sheet
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
     
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h1>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Preface.html" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../TOC.html" title="Summary" class="md-nav__link">
+      Summary
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Cheatsheets
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Cheatsheets" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Cheatsheets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="AJAX_Security_Cheat_Sheet.html" title="AJAX Security Cheat Sheet" class="md-nav__link">
+      AJAX Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Abuse_Case_Cheat_Sheet.html" title="Abuse Case Cheat Sheet" class="md-nav__link">
+      Abuse Case Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Access_Control_Cheat_Sheet.html" title="Access Control Cheat Sheet" class="md-nav__link">
+      Access Control Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Attack_Surface_Analysis_Cheat_Sheet.html" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
+      Attack Surface Analysis Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Authentication_Cheat_Sheet.html" title="Authentication Cheat Sheet" class="md-nav__link">
+      Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Authorization_Testing_Automation.html" title="Authorization Testing Automation" class="md-nav__link">
+      Authorization Testing Automation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Bean_Validation_Cheat_Sheet.html" title="Bean Validation Cheat Sheet" class="md-nav__link">
+      Bean Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="C-Based_Toolchain_Hardening.html" title="C-Based Toolchain Hardening" class="md-nav__link">
+      C-Based Toolchain Hardening
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
+      C-Based Toolchain Hardening Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
+      Choosing and Using Security Questions Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Clickjacking_Defense_Cheat_Sheet.html" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
+      Clickjacking Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Content_Security_Policy_Cheat_Sheet.html" title="Content Security Policy Cheat Sheet" class="md-nav__link">
+      Content Security Policy Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
+      Credential Stuffing Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Cross-Site Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
+      Cross Site Scripting Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Cryptographic_Storage_Cheat_Sheet.html" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
+      Cryptographic Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
+      DOM based XSS Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Database_Security_Cheat_Sheet.html" title="Database Security Cheat Sheet" class="md-nav__link">
+      Database Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Denial_of_Service_Cheat_Sheet.html" title="Denial of Service Cheat Sheet" class="md-nav__link">
+      Denial of Service Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Deserialization_Cheat_Sheet.html" title="Deserialization Cheat Sheet" class="md-nav__link">
+      Deserialization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="Docker_Security_Cheat_Sheet.html" title="Docker Security Cheat Sheet" class="md-nav__link md-nav__link--active">
+      Docker Security Cheat Sheet
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="DotNet_Security_Cheat_Sheet.html" title="DotNet Security Cheat Sheet" class="md-nav__link">
+      DotNet Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Error_Handling_Cheat_Sheet.html" title="Error Handling Cheat Sheet" class="md-nav__link">
+      Error Handling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="File_Upload_Cheat_Sheet.html" title="File Upload Cheat Sheet" class="md-nav__link">
+      File Upload Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Forgot_Password_Cheat_Sheet.html" title="Forgot Password Cheat Sheet" class="md-nav__link">
+      Forgot Password Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="HTML5_Security_Cheat_Sheet.html" title="HTML5 Security Cheat Sheet" class="md-nav__link">
+      HTML5 Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
+      HTTP Strict Transport Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Index.html" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="IndexASVS.html" title="IndexASVS" class="md-nav__link">
+      IndexASVS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="IndexProactiveControls.html" title="IndexProactiveControls" class="md-nav__link">
+      IndexProactiveControls
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Injection_Prevention_Cheat_Sheet.html" title="Injection Prevention Cheat Sheet" class="md-nav__link">
+      Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Injection_Prevention_Cheat_Sheet_in_Java.html" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Input_Validation_Cheat_Sheet.html" title="Input Validation Cheat Sheet" class="md-nav__link">
+      Input Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
+      Insecure Direct Object Reference Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="JAAS_Cheat_Sheet.html" title="JAAS Cheat Sheet" class="md-nav__link">
+      JAAS Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="JSON_Web_Token_Cheat_Sheet_for_Java.html" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Key_Management_Cheat_Sheet.html" title="Key Management Cheat Sheet" class="md-nav__link">
+      Key Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
+      LDAP Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Logging_Cheat_Sheet.html" title="Logging Cheat Sheet" class="md-nav__link">
+      Logging Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Mass_Assignment_Cheat_Sheet.html" title="Mass Assignment Cheat Sheet" class="md-nav__link">
+      Mass Assignment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
+      Microservices based Security Arch Doc Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Multifactor_Authentication_Cheat_Sheet.html" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
+      Multifactor Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Nodejs_security_cheat_sheet.html" title="Nodejs security cheat sheet" class="md-nav__link">
+      Nodejs security cheat sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
+      OS Command Injection Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="PHP_Configuration_Cheat_Sheet.html" title="PHP Configuration Cheat Sheet" class="md-nav__link">
+      PHP Configuration Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Password_Storage_Cheat_Sheet.html" title="Password Storage Cheat Sheet" class="md-nav__link">
+      Password Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Pinning_Cheat_Sheet.html" title="Pinning Cheat Sheet" class="md-nav__link">
+      Pinning Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Query_Parameterization_Cheat_Sheet.html" title="Query Parameterization Cheat Sheet" class="md-nav__link">
+      Query Parameterization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="REST_Assessment_Cheat_Sheet.html" title="REST Assessment Cheat Sheet" class="md-nav__link">
+      REST Assessment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="REST_Security_Cheat_Sheet.html" title="REST Security Cheat Sheet" class="md-nav__link">
+      REST Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Ruby_on_Rails_Cheatsheet.html" title="Ruby on Rails Cheatsheet" class="md-nav__link">
+      Ruby on Rails Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="SAML_Security_Cheat_Sheet.html" title="SAML Security Cheat Sheet" class="md-nav__link">
+      SAML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="SQL_Injection_Prevention_Cheat_Sheet.html" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
+      SQL Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
+      Securing Cascading Style Sheets Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Server Side Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Session_Management_Cheat_Sheet.html" title="Session Management Cheat Sheet" class="md-nav__link">
+      Session Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="TLS_Cipher_String_Cheat_Sheet.html" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
+      TLS Cipher String Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
+      Third Party Javascript Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Threat_Modeling_Cheat_Sheet.html" title="Threat Modeling Cheat Sheet" class="md-nav__link">
+      Threat Modeling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Transaction_Authorization_Cheat_Sheet.html" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
+      Transaction Authorization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Transport_Layer_Protection_Cheat_Sheet.html" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
+      Transport Layer Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
+      Unvalidated Redirects and Forwards Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="User_Privacy_Protection_Cheat_Sheet.html" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
+      User Privacy Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Virtual_Patching_Cheat_Sheet.html" title="Virtual Patching Cheat Sheet" class="md-nav__link">
+      Virtual Patching Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Vulnerability_Disclosure_Cheat_Sheet.html" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
+      Vulnerability Disclosure Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
+      Vulnerable Dependency Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="Web_Service_Security_Cheat_Sheet.html" title="Web Service Security Cheat Sheet" class="md-nav__link">
+      Web Service Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
+      XML External Entity Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="XML_Security_Cheat_Sheet.html" title="XML Security Cheat Sheet" class="md-nav__link">
+      XML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>Docker containers are the most popular containerisation technology. Used properly can increase level of security (in comparison to running application directly on the host). On the other hand some misconfigurations can lead to downgrade level of security or even introduce new vulnerabilities.</p>
 <p>The aim of this cheat sheet is to provide an easy to use list of common security mistakes and good practices that will help you securing your Docker containers.</p>
-<h1 id="rules"><a name="rules" class="plugin-anchor" href="#rules"><i class="fa fa-link" aria-hidden="true"></i></a>Rules</h1>
-<h2 id="rule-0---keep-host-and-docker-up-to-date"><a name="rule-0---keep-host-and-docker-up-to-date" class="plugin-anchor" href="#rule-0---keep-host-and-docker-up-to-date"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #0 - Keep Host and Docker up to date</h2>
+<h1 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">&para;</a></h1>
+<h2 id="rule-0-keep-host-and-docker-up-to-date">RULE #0 - Keep Host and Docker up to date<a class="headerlink" href="#rule-0-keep-host-and-docker-up-to-date" title="Permanent link">&para;</a></h2>
 <p>To prevent from known, container escapes vulnerabilities, which typically ends in escalating to root/administrator privileges, patching Docker Engine and Docker Machine is crucial.</p>
-<p>In addition containers (unlike in a virtual machines) share kernel with the host, therefore kernel exploit runned inside the container will directly hit host kernel. For example kernel privilege escalation exploit (<a href="https://github.com/scumjr/dirtycow-vdso" target="_blank">like Dirty COW</a>) runned inside well insulated container will result in root access in a host.</p>
-<h2 id="rule-1---do-not-expose-the-docker-daemon-socket-even-to-the-containers"><a name="rule-1---do-not-expose-the-docker-daemon-socket-even-to-the-containers" class="plugin-anchor" href="#rule-1---do-not-expose-the-docker-daemon-socket-even-to-the-containers"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #1 - Do not expose the Docker daemon socket (even to the containers)</h2>
+<p>In addition containers (unlike in a virtual machines) share kernel with the host, therefore kernel exploit runned inside the container will directly hit host kernel. For example kernel privilege escalation exploit (<a href="https://github.com/scumjr/dirtycow-vdso">like Dirty COW</a>) runned inside well insulated container will result in root access in a host.</p>
+<h2 id="rule-1-do-not-expose-the-docker-daemon-socket-even-to-the-containers">RULE #1 - Do not expose the Docker daemon socket (even to the containers)<a class="headerlink" href="#rule-1-do-not-expose-the-docker-daemon-socket-even-to-the-containers" title="Permanent link">&para;</a></h2>
 <p>Docker socket <em>/var/run/docker.sock</em> is the UNIX socket that Docker is listening to. This is primary entry point for the Docker API. The owner of this socket is root. Giving someone access to it is equivalent to giving a unrestricted root access to your host. </p>
 <p><strong>Do not enable <em>tcp</em> Docker daemon socket.</strong>  If you are running docker daemon with <code>-H tcp://0.0.0.0:XXX</code> or similar you are exposing un-encrypted and un-authenticated direct access to the Docker daemon. 
-If you really, <strong>really</strong> have to do this you should secure it. Check how to do this <a href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option" target="_blank">following Docker official documentation</a>.</p>
+If you really, <strong>really</strong> have to do this you should secure it. Check how to do this <a href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option">following Docker official documentation</a>.</p>
 <p><strong>Do not expose <em>/var/run/docker.sock</em> to other containers</strong>. If you are running your docker image with <code>-v /var/run/docker.sock://var/run/docker.sock</code> or similar you should change it. Remember that mounting the socket read-only is not a solution but only makes it harder to exploit. Equivalent in docker-compose file is somethink like this:</p>
-<pre><code>volumes:
-- &quot;/var/run/docker.sock:/var/run/docker.sock&quot;
-</code></pre><h2 id="rule-2---set-a-user"><a name="rule-2---set-a-user" class="plugin-anchor" href="#rule-2---set-a-user"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #2 - Set a user</h2>
+<div class="codehilite"><pre><span></span><code><span class="c">volumes:</span>
+<span class="err">- &quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span>
+</code></pre></div>
+
+
+<h2 id="rule-2-set-a-user">RULE #2 - Set a user<a class="headerlink" href="#rule-2-set-a-user" title="Permanent link">&para;</a></h2>
 <p>Configuring container, to use unprivileged user, is the best way to prevent privilege escalation attacks. This can be accomplished in three different ways:</p>
 <ol>
 <li>During runtime using <code>-u</code> option of <code>docker run</code> command e.g.:</li>
 </ol>
-<pre><code>docker run -u 4000 alpine
-</code></pre><ol>
+<div class="codehilite"><pre><span></span><code><span class="err">docker run -u 4000 alpine</span>
+</code></pre></div>
+
+
+<ol>
 <li>During build time. Simple add user in Dockerfile and use it. For example:</li>
 </ol>
-<pre><code>FROM alpine
-RUN groupadd -r myuser &amp;&amp; useradd -r -g myuser myuser
-&lt;HERE DO WHAT YOU HAVE TO DO AS A ROOT USER LIKE INSTALLING PACKAGES ETC.&gt;
-USER myuser
-</code></pre><ol>
-<li>Enable user namespace support (<code>--userns-remap=default</code>) in <a href="https://docs.docker.com/engine/security/userns-remap/#enable-userns-remap-on-the-daemon" target="_blank">Docker daemon</a></li>
+<div class="codehilite"><pre><span></span><code><span class="err">FROM alpine</span>
+<span class="err">RUN groupadd -r myuser &amp;&amp; useradd -r -g myuser myuser</span>
+<span class="err">&lt;HERE DO WHAT YOU HAVE TO DO AS A ROOT USER LIKE INSTALLING PACKAGES ETC.&gt;</span>
+<span class="err">USER myuser</span>
+</code></pre></div>
+
+
+<ol>
+<li>Enable user namespace support (<code>--userns-remap=default</code>) in <a href="https://docs.docker.com/engine/security/userns-remap/#enable-userns-remap-on-the-daemon">Docker daemon</a></li>
 </ol>
-<p>More information about this topic can be found in <a href="https://docs.docker.com/engine/security/userns-remap/" target="_blank">Docker official documentation</a></p>
-<p>In kubernetes this can be configured in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/" target="_blank">Security Context</a> using <code>runAsNonRoot</code> field e.g.:</p>
-<pre><code>kind: ...
-apiVersion: ...
-metadata:
-  name: ...
-spec:
-  ...
-  containers:
-  - name: ...
-    image: ....
-    securityContext:
-          ...
-          runAsNonRoot: true
-          ...
-</code></pre><p>As an Kubernetes cluster administrator you can for it using <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/" target="_blank">Pod Security Policies</a>.</p>
-<h2 id="rule-3---limit-capabilities-grant-only-specific-capabilities-needed-by-a-container"><a name="rule-3---limit-capabilities-grant-only-specific-capabilities-needed-by-a-container" class="plugin-anchor" href="#rule-3---limit-capabilities-grant-only-specific-capabilities-needed-by-a-container"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #3 - Limit capabilities (Grant only specific capabilities, needed by a container)</h2>
-<p><a href="http://man7.org/linux/man-pages/man7/capabilities.7.html" target="_blank">Linux kernel capabilities</a> are set of privileges that can be used by privileged. Docker, by default, runs with only a  subset of capabilities. 
+<p>More information about this topic can be found in <a href="https://docs.docker.com/engine/security/userns-remap/">Docker official documentation</a></p>
+<p>In kubernetes this can be configured in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Security Context</a> using <code>runAsNonRoot</code> field e.g.:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">kind: ...</span>
+<span class="c">apiVersion: ...</span>
+<span class="c">metadata:</span>
+<span class="c">  name: ...</span>
+<span class="c">spec:</span>
+<span class="c">  ...</span>
+<span class="c">  containers:</span>
+<span class="c">  - name: ...</span>
+<span class="c">    image: ....</span>
+<span class="c">    securityContext:</span>
+<span class="c">          ...</span>
+<span class="c">          runAsNonRoot: true</span>
+<span class="c">          ...</span>
+</code></pre></div>
+
+
+<p>As an Kubernetes cluster administrator you can for it using <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">Pod Security Policies</a>.</p>
+<h2 id="rule-3-limit-capabilities-grant-only-specific-capabilities-needed-by-a-container">RULE #3 - Limit capabilities (Grant only specific capabilities, needed by a container)<a class="headerlink" href="#rule-3-limit-capabilities-grant-only-specific-capabilities-needed-by-a-container" title="Permanent link">&para;</a></h2>
+<p><a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">Linux kernel capabilities</a> are set of privileges that can be used by privileged. Docker, by default, runs with only a  subset of capabilities. 
 You can change it and drop some capabilities (using <code>--cap-drop</code>) to harden your docker containers, or add some capabilities (using <code>--cap-add</code>) if needed. 
 Remember not to run containers with the <code>--privileged</code> flag - this will add ALL Linux kernel capabilities to the container. </p>
 <p>The most secure setup is to drop all capabilities <code>--cap-drop all</code> and then add only required ones. For example:</p>
-<pre><code>docker run --cap-drop all --cap-add CHOWN alpine
-</code></pre><p><strong>And remember: Do not run containers with the <em>--privileged</em> flag!!!</strong></p>
-<p>In kubernetes this can be configured in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/" target="_blank">Security Context</a> using <code>capabilities</code> field e.g.:</p>
-<pre><code>kind: ...
-apiVersion: ...
-metadata:
-  name: ...
-spec:
-  ...
-  containers:
-  - name: ...
-    image: ....
-    securityContext:
-          ...
-          capabilities:
-            drop:
-              - all
-            add:
-              - CHOWN
-          ...
-</code></pre><p>As an Kubernetes cluster administrator you can for it using <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/" target="_blank">Pod Security Policies</a>.</p>
-<h2 id="rule-4---add-&#x2013;no-new-privileges-flag"><a name="rule-4---add-&#x2013;no-new-privileges-flag" class="plugin-anchor" href="#rule-4---add-&#x2013;no-new-privileges-flag"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #4 - Add &#x2013;no-new-privileges flag</h2>
+<div class="codehilite"><pre><span></span><code><span class="err">docker run --cap-drop all --cap-add CHOWN alpine</span>
+</code></pre></div>
+
+
+<p><strong>And remember: Do not run containers with the <em>--privileged</em> flag!!!</strong></p>
+<p>In kubernetes this can be configured in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Security Context</a> using <code>capabilities</code> field e.g.:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">kind: ...</span>
+<span class="c">apiVersion: ...</span>
+<span class="c">metadata:</span>
+<span class="c">  name: ...</span>
+<span class="c">spec:</span>
+<span class="c">  ...</span>
+<span class="c">  containers:</span>
+<span class="c">  - name: ...</span>
+<span class="c">    image: ....</span>
+<span class="c">    securityContext:</span>
+<span class="c">          ...</span>
+<span class="c">          capabilities:</span>
+<span class="c">            drop:</span>
+<span class="c">              - all</span>
+<span class="c">            add:</span>
+<span class="c">              - CHOWN</span>
+<span class="c">          ...</span>
+</code></pre></div>
+
+
+<p>As an Kubernetes cluster administrator you can for it using <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">Pod Security Policies</a>.</p>
+<h2 id="rule-4-add-no-new-privileges-flag">RULE #4 - Add –no-new-privileges flag<a class="headerlink" href="#rule-4-add-no-new-privileges-flag" title="Permanent link">&para;</a></h2>
 <p>Always run your docker images with <code>--security-opt=no-new-privileges</code> in order to prevent escalate privileges using <code>setuid</code> or <code>setgid</code> binaries.</p>
-<p>In kubernetes this can be configured in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/" target="_blank">Security Context</a> using <code>allowPrivilegeEscalation</code> field e.g.:</p>
-<pre><code>kind: ...
-apiVersion: ...
-metadata:
-  name: ...
-spec:
-  ...
-  containers:
-  - name: ...
-    image: ....
-    securityContext:
-          ...
-          allowPrivilegeEscalation: false
-          ...
-</code></pre><p>As an Kubernetes cluster administrator you can for it using <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/" target="_blank">Pod Security Policies</a>.</p>
-<h2 id="rule-5---disable-inter-container-communication---iccfalse"><a name="rule-5---disable-inter-container-communication---iccfalse" class="plugin-anchor" href="#rule-5---disable-inter-container-communication---iccfalse"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #5 - Disable inter-container communication (--icc=false)</h2>
-<p>By default inter-container communication (icc) is enabled - it means that all containers can talk with each other (using <a href="https://docs.docker.com/v17.09/engine/userguide/networking/default_network/container-communication/#communication-between-containers" target="_blank"><code>docker0</code> bridged network</a>).
+<p>In kubernetes this can be configured in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Security Context</a> using <code>allowPrivilegeEscalation</code> field e.g.:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">kind: ...</span>
+<span class="c">apiVersion: ...</span>
+<span class="c">metadata:</span>
+<span class="c">  name: ...</span>
+<span class="c">spec:</span>
+<span class="c">  ...</span>
+<span class="c">  containers:</span>
+<span class="c">  - name: ...</span>
+<span class="c">    image: ....</span>
+<span class="c">    securityContext:</span>
+<span class="c">          ...</span>
+<span class="c">          allowPrivilegeEscalation: false</span>
+<span class="c">          ...</span>
+</code></pre></div>
+
+
+<p>As an Kubernetes cluster administrator you can for it using <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">Pod Security Policies</a>.</p>
+<h2 id="rule-5-disable-inter-container-communication-iccfalse">RULE #5 - Disable inter-container communication (--icc=false)<a class="headerlink" href="#rule-5-disable-inter-container-communication-iccfalse" title="Permanent link">&para;</a></h2>
+<p>By default inter-container communication (icc) is enabled - it means that all containers can talk with each other (using <a href="https://docs.docker.com/v17.09/engine/userguide/networking/default_network/container-communication/#communication-between-containers"><code>docker0</code> bridged network</a>).
 This can be disabled by running docker daemon with <code>--icc=false</code> flag. 
 If icc is disabled (icc=false) it is required to tell which containers can communicate using --link=CONTAINER_NAME_or_ID:ALIAS option. 
-See more in <a href="https://docs.docker.com/v17.09/engine/userguide/networking/default_network/container-communication/#communication-between-containers" target="_blank">Docker documentation - container communication</a></p>
-<p>In Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/" target="_blank">Network Policies</a> can be used for it.</p>
-<h2 id="rule-6---use-linux-security-module-seccomp-apparmor-or-selinux"><a name="rule-6---use-linux-security-module-seccomp-apparmor-or-selinux" class="plugin-anchor" href="#rule-6---use-linux-security-module-seccomp-apparmor-or-selinux"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #6 - Use Linux Security Module (seccomp, AppArmor, or SELinux)</h2>
+See more in <a href="https://docs.docker.com/v17.09/engine/userguide/networking/default_network/container-communication/#communication-between-containers">Docker documentation - container communication</a></p>
+<p>In Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Network Policies</a> can be used for it.</p>
+<h2 id="rule-6-use-linux-security-module-seccomp-apparmor-or-selinux">RULE #6 - Use Linux Security Module (seccomp, AppArmor, or SELinux)<a class="headerlink" href="#rule-6-use-linux-security-module-seccomp-apparmor-or-selinux" title="Permanent link">&para;</a></h2>
 <p><strong>First of all do not disable default security profile!</strong> </p>
-<p>Consider using security profile like <a href="https://docs.docker.com/engine/security/seccomp/" target="_blank">seccomp</a> or <a href="https://docs.docker.com/engine/security/apparmor/" target="_blank">AppArmor</a>. </p>
-<p>Instructions how to do this inside Kubernetes can be found in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/" target="_blank">Security Context documentation</a> and in <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/#securitycontext-v1-core" target="_blank">Kubernetes API documentation</a></p>
-<h2 id="rule-7---limit-resources-memory-cpu-file-descriptors-processes-restarts"><a name="rule-7---limit-resources-memory-cpu-file-descriptors-processes-restarts" class="plugin-anchor" href="#rule-7---limit-resources-memory-cpu-file-descriptors-processes-restarts"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #7 - Limit resources (memory, CPU, file descriptors, processes, restarts)</h2>
-<p>The best way to avoid DoS attacks is limiting resources. You can limit <a href="https://docs.docker.com/config/containers/resource_constraints/#memory" target="_blank">memory</a>, <a href="https://docs.docker.com/config/containers/resource_constraints/#cpu" target="_blank">CPU</a>, maximum number of restarts (<code>--restart=on-failure:&lt;number_of_restarts&gt;</code>), maximum number of file descriptors (<code>--ulimit nofile=&lt;number&gt;</code>) and maximum number of processes (<code>--ulimit nproc=&lt;number&gt;</code>).</p>
-<p><a href="https://docs.docker.com/engine/reference/commandline/run/#set-ulimits-in-container---ulimit" target="_blank">Check documentation for more details about ulimits</a></p>
-<p>You can also do this inside Kubernetes: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/" target="_blank">Assign Memory Resources to Containers and Pods</a>, <a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/" target="_blank">Assign CPU Resources to Containers and Pods</a> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/extended-resource/" target="_blank">Assign Extended Resources to a Container
+<p>Consider using security profile like <a href="https://docs.docker.com/engine/security/seccomp/">seccomp</a> or <a href="https://docs.docker.com/engine/security/apparmor/">AppArmor</a>. </p>
+<p>Instructions how to do this inside Kubernetes can be found in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Security Context documentation</a> and in <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/#securitycontext-v1-core">Kubernetes API documentation</a></p>
+<h2 id="rule-7-limit-resources-memory-cpu-file-descriptors-processes-restarts">RULE #7 - Limit resources (memory, CPU, file descriptors, processes, restarts)<a class="headerlink" href="#rule-7-limit-resources-memory-cpu-file-descriptors-processes-restarts" title="Permanent link">&para;</a></h2>
+<p>The best way to avoid DoS attacks is limiting resources. You can limit <a href="https://docs.docker.com/config/containers/resource_constraints/#memory">memory</a>, <a href="https://docs.docker.com/config/containers/resource_constraints/#cpu">CPU</a>, maximum number of restarts (<code>--restart=on-failure:&lt;number_of_restarts&gt;</code>), maximum number of file descriptors (<code>--ulimit nofile=&lt;number&gt;</code>) and maximum number of processes (<code>--ulimit nproc=&lt;number&gt;</code>).</p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/run/#set-ulimits-in-container---ulimit">Check documentation for more details about ulimits</a></p>
+<p>You can also do this inside Kubernetes: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/">Assign Memory Resources to Containers and Pods</a>, <a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/">Assign CPU Resources to Containers and Pods</a> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/extended-resource/">Assign Extended Resources to a Container
 </a></p>
-<h2 id="rule-8---set-filesystem-and-volumes-to-read-only"><a name="rule-8---set-filesystem-and-volumes-to-read-only" class="plugin-anchor" href="#rule-8---set-filesystem-and-volumes-to-read-only"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #8 - Set filesystem and volumes to read-only</h2>
+<h2 id="rule-8-set-filesystem-and-volumes-to-read-only">RULE #8 - Set filesystem and volumes to read-only<a class="headerlink" href="#rule-8-set-filesystem-and-volumes-to-read-only" title="Permanent link">&para;</a></h2>
 <p><strong>Run containers with a read-only filesystem</strong> using <code>--read-only</code> flag. For example:</p>
-<pre><code>docker run --read-only alpine sh -c &apos;echo &quot;whatever&quot; &gt; /tmp&apos;
-</code></pre><p>If application inside container have to save something temporarily combine <code>--read-only</code> flag with <code>--tmpfs</code> like this:</p>
-<pre><code>docker run --read-only --tmpfs /tmp alpine sh -c &apos;echo &quot;whatever&quot; &gt; /tmp/file&apos;
-</code></pre><p>Equivalent in docker-compose file will be:</p>
-<pre><code>version: &quot;3&quot;
-services:
-  alpine:
-    image: alpine
-    read_only: true
-</code></pre><p>Equivalent in kubernetes in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/" target="_blank">Security Context</a> will be:</p>
-<pre><code>kind: ...
-apiVersion: ...
-metadata:
-  name: ...
-spec:
-  ...
-  containers:
-  - name: ...
-    image: ....
-    securityContext:
-          ...
-          readOnlyRootFilesystem: true
-          ...
-</code></pre><p>In addition if volume is mounted only for reading <strong>mount them as a read-only</strong>
+<div class="codehilite"><pre><span></span><code><span class="err">docker run --read-only alpine sh -c &#39;echo &quot;whatever&quot; &gt; /tmp&#39;</span>
+</code></pre></div>
+
+
+<p>If application inside container have to save something temporarily combine <code>--read-only</code> flag with <code>--tmpfs</code> like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">docker run --read-only --tmpfs /tmp alpine sh -c &#39;echo &quot;whatever&quot; &gt; /tmp/file&#39;</span>
+</code></pre></div>
+
+
+<p>Equivalent in docker-compose file will be:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">version: &quot;3&quot;</span>
+<span class="c">services:</span>
+<span class="c">  alpine:</span>
+<span class="c">    image: alpine</span>
+<span class="c">    read_only: true</span>
+</code></pre></div>
+
+
+<p>Equivalent in kubernetes in <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Security Context</a> will be:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">kind: ...</span>
+<span class="c">apiVersion: ...</span>
+<span class="c">metadata:</span>
+<span class="c">  name: ...</span>
+<span class="c">spec:</span>
+<span class="c">  ...</span>
+<span class="c">  containers:</span>
+<span class="c">  - name: ...</span>
+<span class="c">    image: ....</span>
+<span class="c">    securityContext:</span>
+<span class="c">          ...</span>
+<span class="c">          readOnlyRootFilesystem: true</span>
+<span class="c">          ...</span>
+</code></pre></div>
+
+
+<p>In addition if volume is mounted only for reading <strong>mount them as a read-only</strong>
 It can be done by appending <code>:ro</code> to the <code>-v</code> like this:</p>
-<pre><code>docker run -v volume-name:/path/in/container:ro alpine
-</code></pre><p>Or by using <code>--mount</code> option:</p>
-<pre><code>$ docker run --mount source=volume-name,destination=/path/in/container,readonly alpine
-</code></pre><h2 id="rule-9---use-static-analysis-tools"><a name="rule-9---use-static-analysis-tools" class="plugin-anchor" href="#rule-9---use-static-analysis-tools"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #9 - Use static analysis tools</h2>
+<div class="codehilite"><pre><span></span><code><span class="err">docker run -v volume-name:/path/in/container:ro alpine</span>
+</code></pre></div>
+
+
+<p>Or by using <code>--mount</code> option:</p>
+<div class="codehilite"><pre><span></span><code>$ docker run --mount <span class="nv">source</span><span class="o">=</span>volume-name,destination<span class="o">=</span>/path/in/container,readonly alpine
+</code></pre></div>
+
+
+<h2 id="rule-9-use-static-analysis-tools">RULE #9 - Use static analysis tools<a class="headerlink" href="#rule-9-use-static-analysis-tools" title="Permanent link">&para;</a></h2>
 <p>To detect containers with known vulnerabilities - scan images using static analysis tools. </p>
 <ul>
-<li>Free<ul>
-<li><a href="https://github.com/coreos/clair" target="_blank">Clair</a></li>
-<li><a href="https://github.com/knqyf263/trivy" target="_blank">Trivy</a></li>
+<li>Free</li>
+<li><a href="https://github.com/coreos/clair">Clair</a></li>
+<li><a href="https://github.com/knqyf263/trivy">Trivy</a></li>
+<li>Commercial</li>
+<li><a href="https://snyk.io/">Snyk</a> <strong>(open source and free option available)</strong></li>
+<li><a href="https://anchore.com/opensource/">anchore</a> <strong>(open source and free option available)</strong></li>
+<li><a href="https://github.com/aquasecurity/microscanner">Aqua Security's MicroScanner</a> <strong>(free option available for rate-limited number of scans)</strong></li>
+<li><a href="https://jfrog.com/xray/">JFrog XRay</a> </li>
+<li><a href="https://www.qualys.com/apps/container-security/">Qualys</a></li>
 </ul>
-</li>
-<li>Commercial<ul>
-<li><a href="https://snyk.io/" target="_blank">Snyk</a> <strong>(open source and free option available)</strong></li>
-<li><a href="https://anchore.com/opensource/" target="_blank">anchore</a> <strong>(open source and free option available)</strong></li>
-<li><a href="https://github.com/aquasecurity/microscanner" target="_blank">Aqua Security&apos;s MicroScanner</a> <strong>(free option available for rate-limited number of scans)</strong></li>
-<li><a href="https://jfrog.com/xray/" target="_blank">JFrog XRay</a> </li>
-<li><a href="https://www.qualys.com/apps/container-security/" target="_blank">Qualys</a></li>
-</ul>
-</li>
-</ul>
-<p>To detect misconfigurations in Kubernetes:</p>
-<ul>
-<li><a href="https://github.com/Shopify/kubeaudit" target="_blank">kubeaudit</a></li>
-<li><a href="https://kubesec.io/" target="_blank">kubesec.io</a></li>
-<li><a href="https://github.com/aquasecurity/kube-bench" target="_blank">kube-bench</a></li>
-</ul>
-<p>To detect misconfigurations in Docker:</p>
-<ul>
-<li><a href="https://www.inspec.io/docs/reference/resources/docker/" target="_blank">inspec.io</a></li>
-<li><a href="https://dev-sec.io/baselines/docker/" target="_blank">dev-sec.io</a></li>
-</ul>
-<h2 id="rule-10---set-the-logging-level-to-at-least-info"><a name="rule-10---set-the-logging-level-to-at-least-info" class="plugin-anchor" href="#rule-10---set-the-logging-level-to-at-least-info"><i class="fa fa-link" aria-hidden="true"></i></a>RULE #10 - Set the logging level to at least INFO</h2>
-<p>By default, the Docker daemon is configured to have a base logging level of &apos;info&apos;, and if this is not the case: set the Docker daemon log level to &apos;info&apos;. Rationale: Setting up an appropriate log level, configures the Docker daemon to log events that you would want to review later. A base log level of &apos;info&apos; and above would capture all logs except debug logs. Until and unless required, you should not run docker daemon at &apos;debug&apos; log level.</p>
+<p>To detect misconfigurations in Kubernetes:
+ - <a href="https://github.com/Shopify/kubeaudit">kubeaudit</a>
+ - <a href="https://kubesec.io/">kubesec.io</a>
+ - <a href="https://github.com/aquasecurity/kube-bench">kube-bench</a></p>
+<p>To detect misconfigurations in Docker:
+ - <a href="https://www.inspec.io/docs/reference/resources/docker/">inspec.io</a>
+ - <a href="https://dev-sec.io/baselines/docker/">dev-sec.io</a></p>
+<h2 id="rule-10-set-the-logging-level-to-at-least-info">RULE #10 - Set the logging level to at least INFO<a class="headerlink" href="#rule-10-set-the-logging-level-to-at-least-info" title="Permanent link">&para;</a></h2>
+<p>By default, the Docker daemon is configured to have a base logging level of 'info', and if this is not the case: set the Docker daemon log level to 'info'. Rationale: Setting up an appropriate log level, configures the Docker daemon to log events that you would want to review later. A base log level of 'info' and above would capture all logs except debug logs. Until and unless required, you should not run docker daemon at 'debug' log level.</p>
 <p>To configure the log level in docker-compose:</p>
-<pre><code>$ docker-compose --log-level info up
-</code></pre><p>References:</p>
+<div class="codehilite"><pre><span></span><code>$ docker-compose --log-level info up
+</code></pre></div>
+
+
+<p>References:</p>
 <ul>
-<li><a href="https://dev-sec.io/baselines/docker/" target="_blank">Docker Baselines on DevSec</a></li>
-<li><a href="https://docs.docker.com/engine/reference/commandline/cli/" target="_blank">Use the Docker command line</a></li>
-<li><a href="https://docs.docker.com/compose/reference/overview/" target="_blank">Overview of docker-compose CLI</a></li>
-<li><a href="https://docs.docker.com/config/containers/logging/configure/" target="_blank">Configuring Logging Drivers</a></li>
-<li><a href="https://docs.docker.com/config/containers/logging/" target="_blank">View logs for a container or service</a></li>
+<li><a href="https://dev-sec.io/baselines/docker/">Docker Baselines on DevSec</a></li>
+<li><a href="https://docs.docker.com/engine/reference/commandline/cli/">Use the Docker command line</a></li>
+<li><a href="https://docs.docker.com/compose/reference/overview/">Overview of docker-compose CLI</a></li>
+<li><a href="https://docs.docker.com/config/containers/logging/configure/">Configuring Logging Drivers</a></li>
+<li><a href="https://docs.docker.com/config/containers/logging/">View logs for a container or service</a></li>
 </ul>
-<h1 id="related-projects"><a name="related-projects" class="plugin-anchor" href="#related-projects"><i class="fa fa-link" aria-hidden="true"></i></a>Related Projects</h1>
-<p><a href="https://github.com/OWASP/Docker-Security" target="_blank">OWASP Docker Top 10</a></p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
-                        </div>
-                    </div>
+<h1 id="related-projects">Related Projects<a class="headerlink" href="#related-projects" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/OWASP/Docker-Security">OWASP Docker Top 10</a></p>
                 
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="Deserialization_Cheat_Sheet.html" title="Deserialization Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-
-            
-                
-                <a href="Deserialization_Cheat_Sheet.html" class="navigation navigation-prev " aria-label="Previous page: Deserialization ">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="DotNet_Security_Cheat_Sheet.html" class="navigation navigation-next " aria-label="Next page: DotNet Security ">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Deserialization Cheat Sheet
+              </div>
+            </div>
+          </a>
         
+        
+          <a href="DotNet_Security_Cheat_Sheet.html" title="DotNet Security Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                DotNet Security Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker Security ","level":"1.25","depth":1,"next":{"title":"DotNet Security ","level":"1.26","depth":1,"path":"cheatsheets/DotNet_Security_Cheat_Sheet.md","ref":"cheatsheets/DotNet_Security_Cheat_Sheet.md","articles":[]},"previous":{"title":"Deserialization ","level":"1.24","depth":1,"path":"cheatsheets/Deserialization_Cheat_Sheet.md","ref":"cheatsheets/Deserialization_Cheat_Sheet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors"],"root":"./cheatsheets","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"anchors":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"Preface.md","glossary":"GLOSSARY.md","summary":"TOC.md"},"variables":{},"title":"OWASP Cheat Sheet Series","language":"en","gitbook":"*","description":"Website with the collection of all the cheat sheets of the project."},"file":{"path":"cheatsheets/Docker_Security_Cheat_Sheet.md","mtime":"2020-05-08T10:11:31.947Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-08T10:12:01.474Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
         
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
     
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
+      <script src="../assets/javascripts/vendor.83fe6e3c.min.js"></script>
+      <script src="../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
     
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
-    </body>
+  </body>
 </html>
-
