@@ -1,0 +1,1315 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.5">
+    
+    
+      
+        <title>JAAS Cheat Sheet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.df84b5fe.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-what-is-jaas-authentication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-header-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              JAAS Cheat Sheet
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
+      
+  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexASVS/" title="Index ASVS" class="md-nav__link">
+      Index ASVS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../IndexProactiveControls/" title="Index Proactive Controls" class="md-nav__link">
+      Index Proactive Controls
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../glossary/" title="Index Alphabetical" class="md-nav__link">
+      Index Alphabetical
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Cheatsheets
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Cheatsheets" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Cheatsheets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security Cheat Sheet" class="md-nav__link">
+      AJAX Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
+      Abuse Case Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
+      Access Control Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
+      Attack Surface Analysis Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
+      Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-nav__link">
+      Authorization Testing Automation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-nav__link">
+      Bean Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-nav__link">
+      C-Based Toolchain Hardening
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
+      C-Based Toolchain Hardening Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
+      Choosing and Using Security Questions Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
+      Clickjacking Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
+      Content Security Policy Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
+      Credential Stuffing Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Cross-Site Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
+      Cross Site Scripting Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
+      Cryptographic Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
+      DOM based XSS Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
+      Database Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
+      Denial of Service Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
+      Deserialization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
+      Docker Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security Cheat Sheet" class="md-nav__link">
+      DotNet Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
+      Error Handling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
+      File Upload Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
+      Forgot Password Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
+      HTML5 Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
+      HTTP Strict Transport Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
+      Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
+      Input Validation Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
+      Insecure Direct Object Reference Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="JAAS Cheat Sheet" class="md-nav__link md-nav__link--active">
+      JAAS Cheat Sheet
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
+      Key Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
+      LDAP Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
+      Logging Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
+      Mass Assignment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
+      Microservices based Security Arch Doc Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
+      Multifactor Authentication Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
+      Nodejs security cheat sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
+      OS Command Injection Defense Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
+      PHP Configuration Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
+      Password Storage Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
+      Pinning Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
+      Query Parameterization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
+      REST Assessment Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
+      REST Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
+      Ruby on Rails Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
+      SAML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
+      SQL Injection Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
+      Securing Cascading Style Sheets Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
+      Server Side Request Forgery Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
+      Session Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
+      TLS Cipher String Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
+      Third Party Javascript Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
+      Threat Modeling Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
+      Transaction Authorization Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
+      Transport Layer Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
+      Unvalidated Redirects and Forwards Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
+      User Privacy Protection Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
+      Virtual Patching Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
+      Vulnerability Disclosure Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
+      Vulnerable Dependency Management Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
+      Web Service Security Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
+      XML External Entity Prevention Cheat Sheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
+      XML Security Cheat Sheet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="introduction-what-is-jaas-authentication">Introduction - What is JAAS authentication?<a class="headerlink" href="#introduction-what-is-jaas-authentication" title="Permanent link">&para;</a></h1>
+<p>The process of verifying the identity of a user or another system is authentication. </p>
+<p><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/jaas/JAASRefGuide.html">JAAS</a>, as an authentication framework manages the authenticated user's identity and credentials from login to logout.</p>
+<p>The JAAS authentication lifecycle:</p>
+<ol>
+<li>Create <code>LoginContext</code>.</li>
+<li>Read the configuration file for one or more <code>LoginModules</code> to initialize.</li>
+<li>Call <code>LoginContext.initialize()</code> for each LoginModule to initialize.</li>
+<li>Call <code>LoginContext.login()</code> for each LoginModule.</li>
+<li>If login successful then call <code>LoginContext.commit()</code> else call <code>LoginContext.abort()</code></li>
+</ol>
+<h1 id="configuration-file">Configuration file<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h1>
+<p>The JAAS configuration file contains a <code>LoginModule</code> stanza for each <code>LoginModule</code> available for logging on to the application.</p>
+<p>A stanza from a JAAS configuration file:</p>
+<div class="codehilite"><pre><span></span><code>Branches
+{
+    USNavy.AppLoginModule required
+    debug=true
+    succeeded=true;
+}
+</code></pre></div>
+
+
+<p>Note the placement of the semicolons, terminating both <code>LoginModule</code> entries and stanzas. </p>
+<p>The word required indicates the <code>LoginContext</code>'s <code>login()</code> method must be successful when logging in the user. The <code>LoginModule</code>-specific values <code>debug</code> and <code>succeeded</code> are passed to the <code>LoginModule</code>. </p>
+<p>They are defined by the <code>LoginModule</code> and their usage is managed inside the <code>LoginModule</code>. Note, Options are Configured using key-value pairing such as <code>debug="true"</code> and the key and value should be separated by a <code>=</code> sign.</p>
+<h1 id="mainjava-the-client">Main.java (The client)<a class="headerlink" href="#mainjava-the-client" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Execution syntax:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>Java –Djava.security.auth.login.config==packageName/packageName.config
+        packageName.Main Stanza1
+
+Where:
+    packageName is the directory containing the config file.
+    packageName.config specifies the config file in the Java package, packageName.
+    packageName.Main specifies Main.java in the Java package, packageName.
+    Stanza1 is the name of the stanza Main() should read from the config file.
+</code></pre></div>
+
+
+<ul>
+<li>When executed, the 1st command line argument is the stanza from the config file. The Stanza names the <code>LoginModule</code> to be used. The 2nd argument is the <code>CallbackHandler</code>.</li>
+<li>Create a new <code>LoginContext</code> with the arguments passed to <code>Main.java</code>.<ul>
+<li><code>loginContext = new LoginContext (args[0], new AppCallbackHandler());</code></li>
+</ul>
+</li>
+<li>Call the LoginContext.Login Module:<ul>
+<li><code>loginContext.login();</code></li>
+</ul>
+</li>
+<li>The value in succeeded Option is returned from <code>loginContext.login()</code>.</li>
+<li>If the login was successful, a subject was created.</li>
+</ul>
+<h1 id="loginmodulejava">LoginModule.java<a class="headerlink" href="#loginmodulejava" title="Permanent link">&para;</a></h1>
+<p>A <code>LoginModule</code> must have the following authentication methods:</p>
+<ul>
+<li><code>initialize()</code></li>
+<li><code>login()</code></li>
+<li><code>commit()</code></li>
+<li><code>abort()</code></li>
+<li><code>logout()</code></li>
+</ul>
+<h2 id="initialize">initialize()<a class="headerlink" href="#initialize" title="Permanent link">&para;</a></h2>
+<p>In <code>Main()</code>, after the <code>LoginContext</code> reads the correct stanza from the config file, the <code>LoginContext</code> instantiates the <code>LoginModule</code> specified in the stanza.</p>
+<ul>
+<li><code>initialize()</code> methods signature:<ul>
+<li><code>Public void initialize (Subject subject, CallbackHandler callbackHandler, Map sharedState, Map options)</code></li>
+</ul>
+</li>
+<li>The arguments above should be saved as follows:<ul>
+<li><code>this.subject = subject;</code></li>
+<li><code>this.callbackHandler = callbackHandler;</code></li>
+<li><code>this.sharedState = sharedState;</code></li>
+<li><code>this.options = options;</code></li>
+</ul>
+</li>
+<li>What the <code>initialize()</code> method does:<ul>
+<li>Builds a subject object of the <code>Subject</code> class contingent on a successful <code>login()</code>.</li>
+<li>Sets the <code>CallbackHandler</code> which interacts with the user to gather login information.</li>
+<li>If a <code>LoginContext</code> specifies 2 or more LoginModules, which is legal, they can share information via a <code>sharedState</code> map.</li>
+<li>Saves state information such as debug and succeeded in an options Map.</li>
+</ul>
+</li>
+</ul>
+<h2 id="login">login()<a class="headerlink" href="#login" title="Permanent link">&para;</a></h2>
+<p>Captures user supplied login information. The code snippet below declares an array of two callback objects which, when passed to the <code>callbackHandler.handle</code> method in the <code>callbackHandler.java</code> program, will be loaded with a user name and password provided interactively by the user:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">NameCallback</span> <span class="n">nameCB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NameCallback</span><span class="p">(</span><span class="s">&quot;Username&quot;</span><span class="p">);</span>
+<span class="n">PasswordCallback</span> <span class="n">passwordCB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PasswordCallback</span> <span class="p">(</span><span class="s">&quot;Password&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="n">Callback</span><span class="o">[]</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Callback</span><span class="o">[]</span> <span class="p">{</span> <span class="n">nameCB</span><span class="p">,</span> <span class="n">passwordCB</span> <span class="p">};</span>
+<span class="n">callbackHandler</span><span class="p">.</span><span class="na">handle</span> <span class="p">(</span><span class="n">callbacks</span><span class="p">);</span>
+</code></pre></div>
+
+
+<ul>
+<li>Authenticates the user</li>
+<li>Retrieves the user supplied information from the callback objects:<ul>
+<li><code>String ID = nameCallback.getName ();</code></li>
+<li><code>char[] tempPW = passwordCallback.getPassword ();</code></li>
+</ul>
+</li>
+<li>Compare <code>name</code> and <code>tempPW</code> to values stored in a repository such as LDAP.</li>
+<li>Set the value of the variable succeeded and return to <code>Main()</code>.</li>
+</ul>
+<h2 id="commit">commit()<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h2>
+<p>Once the users credentials are successfully verified during <code>login()</code>, the JAAS authentication framework associates the credentials, as needed, with the subject. </p>
+<p>There are two types of credentials, <strong>Public</strong> and <strong>Private</strong>:
+- Public credentials include public keys. 
+- Private credentials include passwords and public keys. </p>
+<p>Principals (i.e. Identities the subject has other than their login name) such as employee number or membership ID in a user group are added to the subject. </p>
+<p>Below, is an example <code>commit()</code> method where first, for each group the authenticated user has membership in, the group name is added as a principal to the subject. The subject's username is then added to their public credentials.</p>
+<p>Code snippet setting then adding any principals and a public credentials to a subject:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">commit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">If</span> <span class="p">(</span><span class="n">userAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Set</span> <span class="n">groups</span> <span class="o">=</span> <span class="n">UserService</span><span class="p">.</span><span class="na">findGroups</span> <span class="p">(</span><span class="n">username</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Iterator</span> <span class="n">itr</span> <span class="o">=</span> <span class="n">groups</span><span class="p">.</span><span class="na">iterator</span> <span class="p">();</span> <span class="n">itr</span><span class="p">.</span><span class="na">hasNext</span> <span class="p">();</span> <span class="p">{</span>
+            <span class="n">String</span> <span class="n">groupName</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">itr</span><span class="p">.</span><span class="na">next</span> <span class="p">();</span>
+            <span class="n">UserGroupPrincipal</span> <span class="n">group</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserGroupPrincipal</span> <span class="p">(</span><span class="n">GroupName</span><span class="p">);</span>
+            <span class="n">subject</span><span class="p">.</span><span class="na">getPrincipals</span> <span class="p">().</span><span class="na">add</span> <span class="p">(</span><span class="n">group</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">UsernameCredential</span> <span class="n">cred</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UsernameCredential</span> <span class="p">(</span><span class="n">username</span><span class="p">);</span>
+        <span class="n">subject</span><span class="p">.</span><span class="na">getPublicCredentials</span><span class="p">().</span><span class="na">add</span> <span class="p">(</span><span class="n">cred</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="abort">abort()<a class="headerlink" href="#abort" title="Permanent link">&para;</a></h2>
+<p>The <code>abort()</code> method is called when authentication doesn't succeed. Before the <code>abort()</code> method exits the <code>LoginModule</code>, care should be taken to reset state including the user name and password input fields.</p>
+<h2 id="logout">logout()<a class="headerlink" href="#logout" title="Permanent link">&para;</a></h2>
+<p>The release of the users principals and credentials when <code>LoginContext.logout</code> is called:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">logout</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">subject</span><span class="p">.</span><span class="na">isReadOnly</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">Set</span> <span class="n">principals</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">getPrincipals</span><span class="p">(</span><span class="n">UserGroupPrincipal</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">subject</span><span class="p">.</span><span class="na">getPrincipals</span><span class="p">().</span><span class="na">removeAll</span><span class="p">(</span><span class="n">principals</span><span class="p">);</span>
+        <span class="n">Set</span> <span class="n">creds</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">getPublicCredentials</span><span class="p">(</span><span class="n">UsernameCredential</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">subject</span><span class="p">.</span><span class="na">getPublicCredentials</span><span class="p">().</span><span class="na">removeAll</span><span class="p">(</span><span class="n">creds</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h1 id="callbackhandlerjava">CallbackHandler.java<a class="headerlink" href="#callbackhandlerjava" title="Permanent link">&para;</a></h1>
+<p>The <code>callbackHandler</code> is in a source (<code>.java</code>) file separate from any single <code>LoginModule</code> so that it can service a multitude of LoginModules with differing callback objects:</p>
+<ul>
+<li>Creates instance of the <code>CallbackHandler</code> class and has only one method, <code>handle()</code>.</li>
+<li>A <code>CallbackHandler</code> servicing a LoginModule requiring username &amp; password to login:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">handle</span><span class="p">(</span><span class="n">Callback</span><span class="o">[]</span> <span class="n">callbacks</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">callbacks</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Callback</span> <span class="n">callback</span> <span class="o">=</span> <span class="n">callbacks</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">callback</span> <span class="k">instanceof</span> <span class="n">NameCallback</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NameCallback</span> <span class="n">nameCallBack</span> <span class="o">=</span> <span class="p">(</span><span class="n">NameCallback</span><span class="p">)</span> <span class="n">callback</span><span class="p">;</span>
+            <span class="n">nameCallBack</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+    <span class="p">}</span>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">callback</span> <span class="k">instanceof</span> <span class="n">PasswordCallback</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">PasswordCallback</span> <span class="n">passwordCallBack</span> <span class="o">=</span> <span class="p">(</span><span class="n">PasswordCallback</span><span class="p">)</span> <span class="n">callback</span><span class="p">;</span>
+            <span class="n">passwordCallBack</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="n">password</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h1 id="related-articles">Related Articles<a class="headerlink" href="#related-articles" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://jaasbook.wordpress.com/2009/09/27/intro/">JAAS in Action</a>, Michael Coté, posted on September 27, 2009, URL as 5/14/2012.</li>
+<li>Pistoia Marco, Nagaratnam Nataraj, Koved Larry, Nadalin Anthony from book <a href="https://www.oreilly.com/library/view/enterprise-javatm-security/0321118898/">"Enterprise Java Security" - Addison-Wesley, 2004</a>.</li>
+</ul>
+<h1 id="disclosure">Disclosure<a class="headerlink" href="#disclosure" title="Permanent link">&para;</a></h1>
+<p>All of the code in the attached JAAS cheat sheet has been copied verbatim from this <a href="https://jaasbook.wordpress.com/2009/09/27/intro/">free source</a>.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Insecure Direct Object Reference Prevention Cheat Sheet
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                JSON Web Token Cheat Sheet for Java
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.83fe6e3c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
