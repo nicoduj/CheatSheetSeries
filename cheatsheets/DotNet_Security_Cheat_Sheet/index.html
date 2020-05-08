@@ -1,1139 +1,247 @@
-
-
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
-      
-      
-      
-      <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.5">
-    
-    
-      
-        <title>DotNet Security Cheat Sheet</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.df84b5fe.min.css">
-      
-      
-    
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
-    
-    
-    
-    
-      
-    
-    
-  </head>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-    <body dir="ltr">
   
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#introduction" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="OWASP Cheat Sheet Series" class="md-header-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
-      
-  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>DotNet Security Cheat Sheet - OWASP Cheat Sheet Series</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-    </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
-            OWASP Cheat Sheet Series
-          </span>
-          <span class="md-header-nav__topic md-ellipsis">
-            
-              DotNet Security Cheat Sheet
-            
-          </span>
-        </div>
-      
-    </div>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DotNet Security Cheat Sheet";
+    var mkdocs_page_input_path = "cheatsheets/DotNet_Security_Cheat_Sheet.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OWASP Cheat Sheet Series</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../IndexASVS/">Index ASVS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../IndexProactiveControls/">Index Proactive Controls</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossary/">Index Alphabetical</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../AJAX_Security_Cheat_Sheet/">AJAX Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Abuse_Case_Cheat_Sheet/">Abuse Case Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Access_Control_Cheat_Sheet/">Access Control Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Attack_Surface_Analysis_Cheat_Sheet/">Attack Surface Analysis Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Authentication_Cheat_Sheet/">Authentication Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Authorization_Testing_Automation/">Authorization Testing Automation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Bean_Validation_Cheat_Sheet/">Bean Validation Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../C-Based_Toolchain_Hardening/">C-Based Toolchain Hardening</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../C-Based_Toolchain_Hardening_Cheat_Sheet/">C-Based Toolchain Hardening Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/">Choosing and Using Security Questions Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Clickjacking_Defense_Cheat_Sheet/">Clickjacking Defense Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Content_Security_Policy_Cheat_Sheet/">Content Security Policy Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Credential_Stuffing_Prevention_Cheat_Sheet/">Credential Stuffing Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/">Cross-Site Request Forgery Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/">Cross Site Scripting Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Cryptographic_Storage_Cheat_Sheet/">Cryptographic Storage Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../DOM_based_XSS_Prevention_Cheat_Sheet/">DOM based XSS Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Database_Security_Cheat_Sheet/">Database Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Denial_of_Service_Cheat_Sheet/">Denial of Service Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Deserialization_Cheat_Sheet/">Deserialization Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Docker_Security_Cheat_Sheet/">Docker Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">DotNet Security Cheat Sheet</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-net-framework">The .NET Framework</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#updating-the-framework">Updating the Framework</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#security-announcements">Security Announcements</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Error_Handling_Cheat_Sheet/">Error Handling Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../File_Upload_Cheat_Sheet/">File Upload Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Forgot_Password_Cheat_Sheet/">Forgot Password Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../HTML5_Security_Cheat_Sheet/">HTML5 Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../HTTP_Strict_Transport_Security_Cheat_Sheet/">HTTP Strict Transport Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet/">Injection Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Injection_Prevention_Cheat_Sheet_in_Java/">Injection Prevention Cheat Sheet in Java</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Input_Validation_Cheat_Sheet/">Input Validation Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/">Insecure Direct Object Reference Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../JAAS_Cheat_Sheet/">JAAS Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../JSON_Web_Token_Cheat_Sheet_for_Java/">JSON Web Token Cheat Sheet for Java</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Key_Management_Cheat_Sheet/">Key Management Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../LDAP_Injection_Prevention_Cheat_Sheet/">LDAP Injection Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Logging_Cheat_Sheet/">Logging Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Mass_Assignment_Cheat_Sheet/">Mass Assignment Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/">Microservices based Security Arch Doc Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Multifactor_Authentication_Cheat_Sheet/">Multifactor Authentication Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Nodejs_security_cheat_sheet/">Nodejs security cheat sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../OS_Command_Injection_Defense_Cheat_Sheet/">OS Command Injection Defense Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../PHP_Configuration_Cheat_Sheet/">PHP Configuration Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Password_Storage_Cheat_Sheet/">Password Storage Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Pinning_Cheat_Sheet/">Pinning Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Query_Parameterization_Cheat_Sheet/">Query Parameterization Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../REST_Assessment_Cheat_Sheet/">REST Assessment Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../REST_Security_Cheat_Sheet/">REST Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Ruby_on_Rails_Cheatsheet/">Ruby on Rails Cheatsheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../SAML_Security_Cheat_Sheet/">SAML Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../SQL_Injection_Prevention_Cheat_Sheet/">SQL Injection Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/">Securing Cascading Style Sheets Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/">Server Side Request Forgery Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Session_Management_Cheat_Sheet/">Session Management Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../TLS_Cipher_String_Cheat_Sheet/">TLS Cipher String Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Third_Party_Javascript_Management_Cheat_Sheet/">Third Party Javascript Management Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Threat_Modeling_Cheat_Sheet/">Threat Modeling Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Transaction_Authorization_Cheat_Sheet/">Transaction Authorization Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Transport_Layer_Protection_Cheat_Sheet/">Transport Layer Protection Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/">Unvalidated Redirects and Forwards Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../User_Privacy_Protection_Cheat_Sheet/">User Privacy Protection Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Virtual_Patching_Cheat_Sheet/">Virtual Patching Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerability_Disclosure_Cheat_Sheet/">Vulnerability Disclosure Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Vulnerable_Dependency_Management_Cheat_Sheet/">Vulnerable Dependency Management Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Web_Service_Security_Cheat_Sheet/">Web Service Security Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../XML_External_Entity_Prevention_Cheat_Sheet/">XML External Entity Prevention Cheat Sheet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../XML_Security_Cheat_Sheet/">XML Security Cheat Sheet</a>
+                    </li>
+                </ul>
       </div>
     </div>
-  </div>
-</div>
-    
-    
-  </nav>
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-        
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series">
-      
-  <img src="../../assets/OWASP_Logo_Transp.png" alt="logo">
-
-    </a>
-    OWASP Cheat Sheet Series
-  </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../IndexASVS/" title="Index ASVS" class="md-nav__link">
-      Index ASVS
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../IndexProactiveControls/" title="Index Proactive Controls" class="md-nav__link">
-      Index Proactive Controls
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../glossary/" title="Index Alphabetical" class="md-nav__link">
-      Index Alphabetical
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    
-    <label class="md-nav__link" for="nav-5">
-      Cheatsheets
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Cheatsheets" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Cheatsheets
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security Cheat Sheet" class="md-nav__link">
-      AJAX Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
-      Abuse Case Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
-      Access Control Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
-      Attack Surface Analysis Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
-      Authentication Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-nav__link">
-      Authorization Testing Automation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-nav__link">
-      Bean Validation Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-nav__link">
-      C-Based Toolchain Hardening
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
-      C-Based Toolchain Hardening Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
-      Choosing and Using Security Questions Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
-      Clickjacking Defense Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
-      Content Security Policy Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
-      Credential Stuffing Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Cross-Site Request Forgery Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
-      Cross Site Scripting Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
-      Cryptographic Storage Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
-      DOM based XSS Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
-      Database Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
-      Denial of Service Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
-      Deserialization Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
-      Docker Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        DotNet Security Cheat Sheet
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="DotNet Security Cheat Sheet" class="md-nav__link md-nav__link--active">
-      DotNet Security Cheat Sheet
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-net-framework" class="md-nav__link">
-    The .NET Framework
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-the-framework" class="md-nav__link">
-    Updating the Framework
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-announcements" class="md-nav__link">
-    Security Announcements
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
-      Error Handling Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
-      File Upload Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
-      Forgot Password Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
-      HTML5 Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
-      HTTP Strict Transport Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
-      Injection Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
-      Injection Prevention Cheat Sheet in Java
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
-      Input Validation Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
-      Insecure Direct Object Reference Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-nav__link">
-      JAAS Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
-      JSON Web Token Cheat Sheet for Java
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
-      Key Management Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
-      LDAP Injection Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
-      Logging Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
-      Mass Assignment Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
-      Microservices based Security Arch Doc Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
-      Multifactor Authentication Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
-      Nodejs security cheat sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
-      OS Command Injection Defense Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
-      PHP Configuration Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
-      Password Storage Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
-      Pinning Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
-      Query Parameterization Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
-      REST Assessment Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
-      REST Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
-      Ruby on Rails Cheatsheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
-      SAML Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
-      SQL Injection Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
-      Securing Cascading Style Sheets Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Server Side Request Forgery Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
-      Session Management Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
-      TLS Cipher String Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
-      Third Party Javascript Management Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
-      Threat Modeling Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
-      Transaction Authorization Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
-      Transport Layer Protection Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
-      Unvalidated Redirects and Forwards Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
-      User Privacy Protection Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
-      Virtual Patching Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
-      Vulnerability Disclosure Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
-      Vulnerable Dependency Management Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
-      Web Service Security Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
-      XML External Entity Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
-      XML Security Cheat Sheet
-    </a>
-  </li>
-
-        
-      </ul>
     </nav>
-  </li>
 
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OWASP Cheat Sheet Series</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
     
+      
+        
+          <li>Cheatsheets &raquo;</li>
+        
+      
+    
+    <li>DotNet Security Cheat Sheet</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-net-framework" class="md-nav__link">
-    The .NET Framework
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-the-framework" class="md-nav__link">
-    Updating the Framework
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-announcements" class="md-nav__link">
-    Security Announcements
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
               
-                
-                
-                  
-                
-                
                 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>This page intends to provide quick basic .NET security tips for developers.</p>
 <h2 id="the-net-framework">The .NET Framework<a class="headerlink" href="#the-net-framework" title="Permanent link">&para;</a></h2>
@@ -1195,137 +303,132 @@
 <li>Make sure <a href="http://www.iis.net/configreference/system.webserver/tracing">tracing</a> is turned off.</li>
 <li>While viewstate isn't always appropriate for web development, using it can provide CSRF mitigation. To make the ViewState protect against CSRF attacks you need to set the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.page.viewstateuserkey">ViewStateUserKey</a>:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="k">protected</span> <span class="k">override</span> <span class="nf">OnInit</span><span class="p">(</span><span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">base</span><span class="p">.</span><span class="n">OnInit</span><span class="p">(</span><span class="n">e</span><span class="p">);</span> 
-    <span class="n">ViewStateUserKey</span> <span class="p">=</span> <span class="n">Session</span><span class="p">.</span><span class="n">SessionID</span><span class="p">;</span>
-<span class="p">}</span> 
-</code></pre></div>
-
+<pre><code class="csharp">protected override OnInit(EventArgs e) {
+    base.OnInit(e); 
+    ViewStateUserKey = Session.SessionID;
+} 
+</code></pre>
 
 <p>If you don't use Viewstate, then look to the default master page of the ASP.NET Web Forms default template for a manual anti-CSRF token using a double-submit cookie.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">AntiXsrfTokenKey</span> <span class="p">=</span> <span class="s">&quot;__AntiXsrfToken&quot;</span><span class="p">;</span>
-<span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">AntiXsrfUserNameKey</span> <span class="p">=</span> <span class="s">&quot;__AntiXsrfUserName&quot;</span><span class="p">;</span>
-<span class="k">private</span> <span class="kt">string</span> <span class="n">_antiXsrfTokenValue</span><span class="p">;</span>
-<span class="k">protected</span> <span class="k">void</span> <span class="nf">Page_Init</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// The code below helps to protect against XSRF attacks</span>
-    <span class="kt">var</span> <span class="n">requestCookie</span> <span class="p">=</span> <span class="n">Request</span><span class="p">.</span><span class="n">Cookies</span><span class="p">[</span><span class="n">AntiXsrfTokenKey</span><span class="p">];</span>
-    <span class="n">Guid</span> <span class="n">requestCookieGuidValue</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">requestCookie</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">Guid</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">requestCookie</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="k">out</span> <span class="n">requestCookieGuidValue</span><span class="p">))</span>
-    <span class="p">{</span>
-       <span class="c1">// Use the Anti-XSRF token from the cookie</span>
-       <span class="n">_antiXsrfTokenValue</span> <span class="p">=</span> <span class="n">requestCookie</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
-       <span class="n">Page</span><span class="p">.</span><span class="n">ViewStateUserKey</span> <span class="p">=</span> <span class="n">_antiXsrfTokenValue</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-       <span class="c1">// Generate a new Anti-XSRF token and save to the cookie</span>
-       <span class="n">_antiXsrfTokenValue</span> <span class="p">=</span> <span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">().</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;N&quot;</span><span class="p">);</span>
-       <span class="n">Page</span><span class="p">.</span><span class="n">ViewStateUserKey</span> <span class="p">=</span> <span class="n">_antiXsrfTokenValue</span><span class="p">;</span>
-       <span class="kt">var</span> <span class="n">responseCookie</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HttpCookie</span><span class="p">(</span><span class="n">AntiXsrfTokenKey</span><span class="p">)</span>
-       <span class="p">{</span>
-          <span class="n">HttpOnly</span> <span class="p">=</span> <span class="k">true</span><span class="p">,</span>
-          <span class="n">Value</span> <span class="p">=</span> <span class="n">_antiXsrfTokenValue</span>
-       <span class="p">};</span>
-       <span class="k">if</span> <span class="p">(</span><span class="n">FormsAuthentication</span><span class="p">.</span><span class="n">RequireSSL</span> <span class="p">&amp;&amp;</span> <span class="n">Request</span><span class="p">.</span><span class="n">IsSecureConnection</span><span class="p">)</span>
-       <span class="p">{</span>
-          <span class="n">responseCookie</span><span class="p">.</span><span class="n">Secure</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-       <span class="p">}</span>
-       <span class="n">Response</span><span class="p">.</span><span class="n">Cookies</span><span class="p">.</span><span class="n">Set</span><span class="p">(</span><span class="n">responseCookie</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">Page</span><span class="p">.</span><span class="n">PreLoad</span> <span class="p">+=</span> <span class="n">master_Page_PreLoad</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">protected</span> <span class="k">void</span> <span class="nf">master_Page_PreLoad</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(!</span><span class="n">IsPostBack</span><span class="p">)</span>
-    <span class="p">{</span>
-       <span class="c1">// Set Anti-XSRF token</span>
-       <span class="n">ViewState</span><span class="p">[</span><span class="n">AntiXsrfTokenKey</span><span class="p">]</span> <span class="p">=</span> <span class="n">Page</span><span class="p">.</span><span class="n">ViewStateUserKey</span><span class="p">;</span>
-       <span class="n">ViewState</span><span class="p">[</span><span class="n">AntiXsrfUserNameKey</span><span class="p">]</span> <span class="p">=</span> <span class="n">Context</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">Identity</span><span class="p">.</span><span class="n">Name</span> <span class="p">??</span> <span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-       <span class="c1">// Validate the Anti-XSRF token</span>
+<pre><code class="csharp">private const string AntiXsrfTokenKey = &quot;__AntiXsrfToken&quot;;
+private const string AntiXsrfUserNameKey = &quot;__AntiXsrfUserName&quot;;
+private string _antiXsrfTokenValue;
+protected void Page_Init(object sender, EventArgs e)
+{
+    // The code below helps to protect against XSRF attacks
+    var requestCookie = Request.Cookies[AntiXsrfTokenKey];
+    Guid requestCookieGuidValue;
+    if (requestCookie != null &amp;&amp; Guid.TryParse(requestCookie.Value, out requestCookieGuidValue))
+    {
+       // Use the Anti-XSRF token from the cookie
+       _antiXsrfTokenValue = requestCookie.Value;
+       Page.ViewStateUserKey = _antiXsrfTokenValue;
+    }
+    else
+    {
+       // Generate a new Anti-XSRF token and save to the cookie
+       _antiXsrfTokenValue = Guid.NewGuid().ToString(&quot;N&quot;);
+       Page.ViewStateUserKey = _antiXsrfTokenValue;
+       var responseCookie = new HttpCookie(AntiXsrfTokenKey)
+       {
+          HttpOnly = true,
+          Value = _antiXsrfTokenValue
+       };
+       if (FormsAuthentication.RequireSSL &amp;&amp; Request.IsSecureConnection)
+       {
+          responseCookie.Secure = true;
+       }
+       Response.Cookies.Set(responseCookie);
+    }
+    Page.PreLoad += master_Page_PreLoad;
+}
+protected void master_Page_PreLoad(object sender, EventArgs e)
+{
+    if (!IsPostBack)
+    {
+       // Set Anti-XSRF token
+       ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
+       ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;
+    }
+    else
+    {
+       // Validate the Anti-XSRF token
 
-<span class="k">if</span> <span class="p">((</span><span class="kt">string</span><span class="p">)</span><span class="n">ViewState</span><span class="p">[</span><span class="n">AntiXsrfTokenKey</span><span class="p">]</span> <span class="p">!=</span> <span class="n">_antiXsrfTokenValue</span> <span class="p">||</span>
-          <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="n">ViewState</span><span class="p">[</span><span class="n">AntiXsrfUserNameKey</span><span class="p">]</span> <span class="p">!=</span> <span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">Identity</span><span class="p">.</span><span class="n">Name</span> <span class="p">??</span> <span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">))</span>
-       <span class="p">{</span>
-          <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">&quot;Validation of Anti-XSRF token failed.&quot;</span><span class="p">);</span>
-       <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+if ((string)ViewState[AntiXsrfTokenKey] != _antiXsrfTokenValue ||
+          (string)ViewState[AntiXsrfUserNameKey] != (Context.User.Identity.Name ?? String.Empty))
+       {
+          throw new InvalidOperationException(&quot;Validation of Anti-XSRF token failed.&quot;);
+       }
+    }
+}
+</code></pre>
 
 <ul>
 <li>Consider <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">HSTS</a> in IIS. See <a href="https://support.microsoft.com/en-us/help/954002/how-to-add-a-custom-http-response-header-to-a-web-site-that-is-hosted">here</a> for the procedure.</li>
 <li>This is a recommended <code>web.config</code> setup that handles HSTS among other things.</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
- <span class="nt">&lt;configuration&gt;</span>
-   <span class="nt">&lt;system.web&gt;</span>
-     <span class="nt">&lt;httpRuntime</span> <span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-   <span class="nt">&lt;/system.web&gt;</span>
-   <span class="nt">&lt;system.webServer&gt;</span>
-     <span class="nt">&lt;security&gt;</span>
-       <span class="nt">&lt;requestFiltering</span> <span class="na">removeServerHeader=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
-     <span class="nt">&lt;/security&gt;</span>
-     <span class="nt">&lt;staticContent&gt;</span>
-       <span class="nt">&lt;clientCache</span> <span class="na">cacheControlCustom=</span><span class="s">&quot;public&quot;</span>
-            <span class="na">cacheControlMode=</span><span class="s">&quot;UseMaxAge&quot;</span>
-            <span class="na">cacheControlMaxAge=</span><span class="s">&quot;1.00:00:00&quot;</span>
-            <span class="na">setEtag=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
-     <span class="nt">&lt;/staticContent&gt;</span>
-     <span class="nt">&lt;httpProtocol&gt;</span>
-       <span class="nt">&lt;customHeaders&gt;</span>
-         <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;Content-Security-Policy&quot;</span>
-            <span class="na">value=</span><span class="s">&quot;default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; font-src &#39;self&#39;&quot;</span> <span class="nt">/&gt;</span>
-         <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-Content-Type-Options&quot;</span> <span class="na">value=</span><span class="s">&quot;NOSNIFF&quot;</span> <span class="nt">/&gt;</span>
-         <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-Frame-Options&quot;</span> <span class="na">value=</span><span class="s">&quot;DENY&quot;</span> <span class="nt">/&gt;</span>
-         <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-Permitted-Cross-Domain-Policies&quot;</span> <span class="na">value=</span><span class="s">&quot;master-only&quot;</span><span class="nt">/&gt;</span>
-         <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-XSS-Protection&quot;</span> <span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
-         <span class="nt">&lt;remove</span> <span class="na">name=</span><span class="s">&quot;X-Powered-By&quot;</span><span class="nt">/&gt;</span>
-       <span class="nt">&lt;/customHeaders&gt;</span>
-     <span class="nt">&lt;/httpProtocol&gt;</span>
-     <span class="nt">&lt;rewrite&gt;</span>
-       <span class="nt">&lt;rules&gt;</span>
-         <span class="nt">&lt;rule</span> <span class="na">name=</span><span class="s">&quot;Redirect to https&quot;</span><span class="nt">&gt;</span>
-           <span class="nt">&lt;match</span> <span class="na">url=</span><span class="s">&quot;(.*)&quot;</span><span class="nt">/&gt;</span>
-           <span class="nt">&lt;conditions&gt;</span>
-             <span class="nt">&lt;add</span> <span class="na">input=</span><span class="s">&quot;{HTTPS}&quot;</span> <span class="na">pattern=</span><span class="s">&quot;Off&quot;</span><span class="nt">/&gt;</span>
-             <span class="nt">&lt;add</span> <span class="na">input=</span><span class="s">&quot;{REQUEST_METHOD}&quot;</span> <span class="na">pattern=</span><span class="s">&quot;^get$|^head$&quot;</span> <span class="nt">/&gt;</span>
-           <span class="nt">&lt;/conditions&gt;</span>
-           <span class="nt">&lt;action</span> <span class="na">type=</span><span class="s">&quot;Redirect&quot;</span> <span class="na">url=</span><span class="s">&quot;https://{HTTP_HOST}/{R:1}&quot;</span> <span class="na">redirectType=</span><span class="s">&quot;Permanent&quot;</span><span class="nt">/&gt;</span>
-         <span class="nt">&lt;/rule&gt;</span>
-       <span class="nt">&lt;/rules&gt;</span>
-       <span class="nt">&lt;outboundRules&gt;</span>
-         <span class="nt">&lt;rule</span> <span class="na">name=</span><span class="s">&quot;Add HSTS Header&quot;</span> <span class="na">enabled=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-           <span class="nt">&lt;match</span> <span class="na">serverVariable=</span><span class="s">&quot;RESPONSE_Strict_Transport_Security&quot;</span> <span class="na">pattern=</span><span class="s">&quot;.*&quot;</span> <span class="nt">/&gt;</span>
-           <span class="nt">&lt;conditions&gt;</span>
-             <span class="nt">&lt;add</span> <span class="na">input=</span><span class="s">&quot;{HTTPS}&quot;</span> <span class="na">pattern=</span><span class="s">&quot;on&quot;</span> <span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
-           <span class="nt">&lt;/conditions&gt;</span>
-           <span class="nt">&lt;action</span> <span class="na">type=</span><span class="s">&quot;Rewrite&quot;</span> <span class="na">value=</span><span class="s">&quot;max-age=15768000&quot;</span> <span class="nt">/&gt;</span>
-         <span class="nt">&lt;/rule&gt;</span>
-       <span class="nt">&lt;/outboundRules&gt;</span>
-     <span class="nt">&lt;/rewrite&gt;</span>
-   <span class="nt">&lt;/system.webServer&gt;</span>
- <span class="nt">&lt;/configuration&gt;</span>
-</code></pre></div>
-
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;configuration&gt;
+   &lt;system.web&gt;
+     &lt;httpRuntime enableVersionHeader=&quot;false&quot;/&gt;
+   &lt;/system.web&gt;
+   &lt;system.webServer&gt;
+     &lt;security&gt;
+       &lt;requestFiltering removeServerHeader=&quot;true&quot; /&gt;
+     &lt;/security&gt;
+     &lt;staticContent&gt;
+       &lt;clientCache cacheControlCustom=&quot;public&quot;
+            cacheControlMode=&quot;UseMaxAge&quot;
+            cacheControlMaxAge=&quot;1.00:00:00&quot;
+            setEtag=&quot;true&quot; /&gt;
+     &lt;/staticContent&gt;
+     &lt;httpProtocol&gt;
+       &lt;customHeaders&gt;
+         &lt;add name=&quot;Content-Security-Policy&quot;
+            value=&quot;default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'&quot; /&gt;
+         &lt;add name=&quot;X-Content-Type-Options&quot; value=&quot;NOSNIFF&quot; /&gt;
+         &lt;add name=&quot;X-Frame-Options&quot; value=&quot;DENY&quot; /&gt;
+         &lt;add name=&quot;X-Permitted-Cross-Domain-Policies&quot; value=&quot;master-only&quot;/&gt;
+         &lt;add name=&quot;X-XSS-Protection&quot; value=&quot;0&quot;/&gt;
+         &lt;remove name=&quot;X-Powered-By&quot;/&gt;
+       &lt;/customHeaders&gt;
+     &lt;/httpProtocol&gt;
+     &lt;rewrite&gt;
+       &lt;rules&gt;
+         &lt;rule name=&quot;Redirect to https&quot;&gt;
+           &lt;match url=&quot;(.*)&quot;/&gt;
+           &lt;conditions&gt;
+             &lt;add input=&quot;{HTTPS}&quot; pattern=&quot;Off&quot;/&gt;
+             &lt;add input=&quot;{REQUEST_METHOD}&quot; pattern=&quot;^get$|^head$&quot; /&gt;
+           &lt;/conditions&gt;
+           &lt;action type=&quot;Redirect&quot; url=&quot;https://{HTTP_HOST}/{R:1}&quot; redirectType=&quot;Permanent&quot;/&gt;
+         &lt;/rule&gt;
+       &lt;/rules&gt;
+       &lt;outboundRules&gt;
+         &lt;rule name=&quot;Add HSTS Header&quot; enabled=&quot;true&quot;&gt;
+           &lt;match serverVariable=&quot;RESPONSE_Strict_Transport_Security&quot; pattern=&quot;.*&quot; /&gt;
+           &lt;conditions&gt;
+             &lt;add input=&quot;{HTTPS}&quot; pattern=&quot;on&quot; ignoreCase=&quot;true&quot; /&gt;
+           &lt;/conditions&gt;
+           &lt;action type=&quot;Rewrite&quot; value=&quot;max-age=15768000&quot; /&gt;
+         &lt;/rule&gt;
+       &lt;/outboundRules&gt;
+     &lt;/rewrite&gt;
+   &lt;/system.webServer&gt;
+ &lt;/configuration&gt;
+</code></pre>
 
 <ul>
 <li>Remove the version header.</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;httpRuntime</span> <span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
-
+<pre><code class="xml">&lt;httpRuntime enableVersionHeader=&quot;false&quot; /&gt;
+</code></pre>
 
 <ul>
 <li>Also remove the Server header.</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">&quot;Server&quot;</span><span class="p">);</span>
-</code></pre></div>
-
+<pre><code class="csharp">HttpContext.Current.Response.Headers.Remove(&quot;Server&quot;);
+</code></pre>
 
 <h2 id="http-validation-and-encoding">HTTP validation and encoding<a class="headerlink" href="#http-validation-and-encoding" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1358,112 +461,107 @@
 <p>DO: Using an object relational mapper (ORM) or stored procedures is the most effective way of countering the SQL Injection vulnerability.</p>
 <p>DO: Use parameterized queries where a direct sql query must be used. More Information can be found <a href="../Query_Parameterization_Cheat_Sheet/">here</a>.</p>
 <p>e.g. In entity frameworks:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">var</span> <span class="k">sql</span> <span class="o">=</span> <span class="o">@</span><span class="ss">&quot;Update [User] SET FirstName = @FirstName WHERE Id = @Id&quot;</span><span class="p">;</span>
-<span class="n">context</span><span class="p">.</span><span class="k">Database</span><span class="p">.</span><span class="n">ExecuteSqlCommand</span><span class="p">(</span>
-    <span class="k">sql</span><span class="p">,</span>
-    <span class="k">new</span> <span class="n">SqlParameter</span><span class="p">(</span><span class="ss">&quot;@FirstName&quot;</span><span class="p">,</span> <span class="n">firstname</span><span class="p">),</span>
-    <span class="k">new</span> <span class="n">SqlParameter</span><span class="p">(</span><span class="ss">&quot;@Id&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">));</span>
-</code></pre></div>
-
+<pre><code class="sql">var sql = @&quot;Update [User] SET FirstName = @FirstName WHERE Id = @Id&quot;;
+context.Database.ExecuteSqlCommand(
+    sql,
+    new SqlParameter(&quot;@FirstName&quot;, firstname),
+    new SqlParameter(&quot;@Id&quot;, id));
+</code></pre>
 
 <p>DO NOT: Concatenate strings anywhere in your code and execute them against your database (Known as dynamic sql).</p>
 <p>NB: You can still accidentally do this with ORMs or Stored procedures so check everywhere.</p>
 <p>e.g</p>
-<div class="codehilite"><pre><span></span><code><span class="n">string</span> <span class="n">strQry</span> <span class="o">=</span> <span class="ss">&quot;SELECT * FROM Users WHERE UserName=&#39;&quot;</span> <span class="o">+</span> <span class="n">txtUser</span><span class="p">.</span><span class="nb">Text</span> <span class="o">+</span> <span class="ss">&quot;&#39; AND Password=&#39;&quot;</span> 
-                <span class="o">+</span> <span class="n">txtPassword</span><span class="p">.</span><span class="nb">Text</span> <span class="o">+</span> <span class="ss">&quot;&#39;&quot;</span><span class="p">;</span>
-<span class="k">EXEC</span> <span class="n">strQry</span> <span class="o">//</span> <span class="k">SQL</span> <span class="n">Injection</span> <span class="n">vulnerability</span><span class="o">!</span>
-</code></pre></div>
-
+<pre><code class="sql">string strQry = &quot;SELECT * FROM Users WHERE UserName='&quot; + txtUser.Text + &quot;' AND Password='&quot; 
+                + txtPassword.Text + &quot;'&quot;;
+EXEC strQry // SQL Injection vulnerability!
+</code></pre>
 
 <p>DO: Practise Least Privilege - Connect to the database using an account with a minimum set of permissions required to do it's job i.e. not the sa account</p>
 <h3 id="os-injection">OS Injection<a class="headerlink" href="#os-injection" title="Permanent link">&para;</a></h3>
 <p>Information about OS Injection can be found on this <a href="../OS_Command_Injection_Defense_Cheat_Sheet/#net">cheat sheet</a>.</p>
 <p>DO: Use <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process.start?view=netframework-4.7.2">System.Diagnostics.Process.Start</a> to call underlying OS functions.</p>
 <p>e.g</p>
-<div class="codehilite"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span> <span class="n">process</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">();</span>
-<span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">ProcessStartInfo</span> <span class="n">startInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">ProcessStartInfo</span><span class="p">();</span>
-<span class="n">startInfo</span><span class="p">.</span><span class="n">FileName</span> <span class="p">=</span> <span class="s">&quot;validatedCommand&quot;</span><span class="p">;</span>
-<span class="n">startInfo</span><span class="p">.</span><span class="n">Arguments</span> <span class="p">=</span> <span class="s">&quot;validatedArg1 validatedArg2 validatedArg3&quot;</span><span class="p">;</span>
-<span class="n">process</span><span class="p">.</span><span class="n">StartInfo</span> <span class="p">=</span> <span class="n">startInfo</span><span class="p">;</span>
-<span class="n">process</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
-</code></pre></div>
-
+<pre><code class="csharp">System.Diagnostics.Process process = new System.Diagnostics.Process();
+System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+startInfo.FileName = &quot;validatedCommand&quot;;
+startInfo.Arguments = &quot;validatedArg1 validatedArg2 validatedArg3&quot;;
+process.StartInfo = startInfo;
+process.Start();
+</code></pre>
 
 <p>DO: Use whitelist validation on all user supplied input. Input validation prevents improperly formed data from entering an information system. For more information please see the <a href="../Input_Validation_Cheat_Sheet/">Input Validation Cheat Sheet</a>.</p>
 <p>e.g Validating user input using <a href="https://docs.microsoft.com/en-us/dotnet/api/system.net.ipaddress.tryparse?view=netframework-4.8">IPAddress.TryParse Method</a></p>
-<div class="codehilite"><pre><span></span><code><span class="c1">//User input</span>
-<span class="kt">string</span> <span class="n">ipAddress</span> <span class="p">=</span> <span class="s">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+<pre><code class="csharp">//User input
+string ipAddress = &quot;127.0.0.1&quot;;
 
-<span class="c1">//check to make sure an ip address was provided</span>
-<span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">ipAddress</span><span class="p">))</span>
-<span class="p">{</span>
-    <span class="c1">// Create an instance of IPAddress for the specified address string (in</span>
-    <span class="c1">// dotted-quad, or colon-hexadecimal notation).</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">ipAddress</span><span class="p">,</span> <span class="k">out</span> <span class="kt">var</span> <span class="n">address</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="c1">// Display the address in standard notation.</span>
-        <span class="k">return</span> <span class="n">address</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="c1">//ipAddress is not of type IPAddress</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
-    <span class="p">...</span>
-<span class="p">}</span>
- <span class="err">```</span>
+//check to make sure an ip address was provided
+if (!string.IsNullOrEmpty(ipAddress))
+{
+    // Create an instance of IPAddress for the specified address string (in
+    // dotted-quad, or colon-hexadecimal notation).
+    if (IPAddress.TryParse(ipAddress, out var address))
+    {
+        // Display the address in standard notation.
+        return address.ToString();
+    }
+    else
+    {
+        //ipAddress is not of type IPAddress
+        ...
+    }
+    ...
+}
+ ```
 
-<span class="err">###</span> <span class="n">LDAP</span> <span class="n">injection</span>
+### LDAP injection
 
-<span class="n">Almost</span> <span class="n">any</span> <span class="n">characters</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">in</span> <span class="n">Distinguished</span> <span class="n">Names</span><span class="p">.</span> <span class="n">However</span><span class="p">,</span> <span class="n">some</span> <span class="n">must</span> <span class="n">be</span> <span class="n">escaped</span> <span class="n">with</span> <span class="n">the</span> <span class="n">backslash</span> <span class="err">`\`</span> <span class="n">escape</span> <span class="n">character</span><span class="p">.</span> <span class="n">A</span> <span class="n">table</span> <span class="n">showing</span> <span class="n">which</span> <span class="n">characters</span> <span class="n">that</span> <span class="n">should</span> <span class="n">be</span> <span class="n">escaped</span> <span class="k">for</span> <span class="n">Active</span> <span class="n">Directory</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="n">at</span> <span class="n">the</span> <span class="k">in</span> <span class="n">the</span> <span class="p">[</span><span class="n">LDAP</span> <span class="n">Injection</span> <span class="n">Prevention</span> <span class="n">Cheat</span> <span class="n">Sheet</span><span class="p">](</span><span class="n">LDAP_Injection_Prevention_Cheat_Sheet</span><span class="p">.</span><span class="n">md</span><span class="err">#</span><span class="n">introduction</span><span class="p">).</span>
+Almost any characters can be used in Distinguished Names. However, some must be escaped with the backslash `\` escape character. A table showing which characters that should be escaped for Active Directory can be found at the in the [LDAP Injection Prevention Cheat Sheet](LDAP_Injection_Prevention_Cheat_Sheet.md#introduction).
 
-<span class="n">NB</span><span class="p">:</span> <span class="n">The</span> <span class="n">space</span> <span class="n">character</span> <span class="n">must</span> <span class="n">be</span> <span class="n">escaped</span> <span class="n">only</span> <span class="k">if</span> <span class="n">it</span> <span class="k">is</span> <span class="n">the</span> <span class="n">leading</span> <span class="n">or</span> <span class="n">trailing</span> <span class="n">character</span> <span class="k">in</span> <span class="n">a</span> <span class="n">component</span> <span class="n">name</span><span class="p">,</span> <span class="n">such</span> <span class="k">as</span> <span class="n">a</span> <span class="n">Common</span> <span class="n">Name</span><span class="p">.</span> <span class="n">Embedded</span> <span class="n">spaces</span> <span class="n">should</span> <span class="n">not</span> <span class="n">be</span> <span class="n">escaped</span><span class="p">.</span>
+NB: The space character must be escaped only if it is the leading or trailing character in a component name, such as a Common Name. Embedded spaces should not be escaped.
 
-<span class="n">More</span> <span class="n">information</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="p">[</span><span class="n">here</span><span class="p">](</span><span class="n">LDAP_Injection_Prevention_Cheat_Sheet</span><span class="p">.</span><span class="n">md</span><span class="err">#</span><span class="n">introduction</span><span class="p">).</span>
+More information can be found [here](LDAP_Injection_Prevention_Cheat_Sheet.md#introduction).
 
-<span class="err">##</span> <span class="n">A2</span> <span class="n">Broken</span> <span class="n">Authentication</span>
+## A2 Broken Authentication
 
-<span class="n">DO</span><span class="p">:</span> <span class="n">Use</span> <span class="p">[</span><span class="n">ASP</span><span class="p">.</span><span class="n">net</span> <span class="n">Core</span> <span class="n">Identity</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="c1">//docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-2.2&amp;).</span>
-<span class="n">ASP</span><span class="p">.</span><span class="n">net</span> <span class="n">Core</span> <span class="n">Identity</span> <span class="n">framework</span> <span class="k">is</span> <span class="n">well</span> <span class="n">configured</span> <span class="k">by</span> <span class="k">default</span><span class="p">,</span> <span class="k">where</span> <span class="n">it</span> <span class="n">uses</span> <span class="n">secure</span> <span class="n">password</span> <span class="n">hashes</span> <span class="n">and</span> <span class="n">an</span> <span class="n">individual</span> <span class="n">salt</span><span class="p">.</span> <span class="n">Identity</span> <span class="n">uses</span> <span class="n">the</span> <span class="n">PBKDF2</span> <span class="n">hashing</span> <span class="n">function</span> <span class="k">for</span> <span class="n">passwords</span><span class="p">,</span> <span class="n">and</span> <span class="n">they</span> <span class="n">generate</span> <span class="n">a</span> <span class="n">random</span> <span class="n">salt</span> <span class="n">per</span> <span class="n">user</span><span class="p">.</span>
+DO: Use [ASP.net Core Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-2.2&amp;).
+ASP.net Core Identity framework is well configured by default, where it uses secure password hashes and an individual salt. Identity uses the PBKDF2 hashing function for passwords, and they generate a random salt per user.
 
-<span class="n">DO</span><span class="p">:</span> <span class="n">Set</span> <span class="n">secure</span> <span class="n">password</span> <span class="n">policy</span>
+DO: Set secure password policy
 
-<span class="n">e</span><span class="p">.</span><span class="n">g</span> <span class="n">ASP</span><span class="p">.</span><span class="n">net</span> <span class="n">Core</span> <span class="n">Identity</span>
+e.g ASP.net Core Identity
 
-<span class="err">```</span> <span class="n">csharp</span>
-<span class="c1">//startup.cs</span>
-<span class="n">services</span><span class="p">.</span><span class="n">Configure</span><span class="p">&lt;</span><span class="n">IdentityOptions</span><span class="p">&gt;(</span><span class="n">options</span> <span class="p">=&gt;</span>
-<span class="p">{</span>
-    <span class="c1">// Password settings</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireDigit</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequiredLength</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireNonAlphanumeric</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireUppercase</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireLowercase</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequiredUniqueChars</span> <span class="p">=</span> <span class="m">6</span><span class="p">;</span>
+``` csharp
+//startup.cs
+services.Configure&lt;IdentityOptions&gt;(options =&gt;
+{
+    // Password settings
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 8;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequiredUniqueChars = 6;
 
 
-    <span class="n">options</span><span class="p">.</span><span class="n">Lockout</span><span class="p">.</span><span class="n">DefaultLockoutTimeSpan</span> <span class="p">=</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">30</span><span class="p">);</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Lockout</span><span class="p">.</span><span class="n">MaxFailedAccessAttempts</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+    options.Lockout.MaxFailedAccessAttempts = 3;
 
-    <span class="n">options</span><span class="p">.</span><span class="n">SignIn</span><span class="p">.</span><span class="n">RequireConfirmedEmail</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+    options.SignIn.RequireConfirmedEmail = true;
 
-    <span class="n">options</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">RequireUniqueEmail</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre></div>
-
+    options.User.RequireUniqueEmail = true;
+});
+</code></pre>
 
 <p>DO: Set a cookie policy</p>
 <p>e.g</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">//startup.cs</span>
-<span class="n">services</span><span class="p">.</span><span class="n">ConfigureApplicationCookie</span><span class="p">(</span><span class="n">options</span> <span class="p">=&gt;</span>
-<span class="p">{</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Cookie</span><span class="p">.</span><span class="n">HttpOnly</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Cookie</span><span class="p">.</span><span class="n">Expiration</span> <span class="p">=</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromHours</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">SlidingExpiration</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre></div>
-
+<pre><code class="csharp">//startup.cs
+services.ConfigureApplicationCookie(options =&gt;
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.Expiration = TimeSpan.FromHours(1)
+    options.SlidingExpiration = true;
+});
+</code></pre>
 
 <h2 id="a3-sensitive-data-exposure">A3 Sensitive Data Exposure<a class="headerlink" href="#a3-sensitive-data-exposure" title="Permanent link">&para;</a></h2>
 <p>DO NOT: <a href="../Password_Storage_Cheat_Sheet/#do-not-limit-the-character-set-and-set-long-max-lengths-for-credentials">Store encrypted passwords</a>.</p>
@@ -1477,45 +575,43 @@ Apply the following test: Would you be happy leaving the data on a spreadsheet o
 <p>DO: Ensure headers are not disclosing information about your application. See <a href="https://github.com/johnstaveley/SecurityEssentials/blob/master/SecurityEssentials/Core/HttpHeaders.cs">HttpHeaders.cs</a> , <a href="https://github.com/Dionach/StripHeaders/">Dionach StripHeaders</a>, disable via <code>web.config</code> or <a href="https://medium.com/bugbountywriteup/security-headers-1c770105940b">startup.cs</a>:</p>
 <p>More information on Transport Layer Protection can be found <a href="../Transport_Layer_Protection_Cheat_Sheet/">here</a>.
 e.g Web.config</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;system.web&gt;</span>
-    <span class="nt">&lt;httpRuntime</span> <span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/system.web&gt;</span>
-<span class="nt">&lt;system.webServer&gt;</span>
-    <span class="nt">&lt;security&gt;</span>
-        <span class="nt">&lt;requestFiltering</span> <span class="na">removeServerHeader=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/security&gt;</span>
-    <span class="nt">&lt;httpProtocol&gt;</span>
-        <span class="nt">&lt;customHeaders&gt;</span>
-            <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-Content-Type-Options&quot;</span> <span class="na">value=</span><span class="s">&quot;nosniff&quot;</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-Frame-Options&quot;</span> <span class="na">value=</span><span class="s">&quot;DENY&quot;</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-Permitted-Cross-Domain-Policies&quot;</span> <span class="na">value=</span><span class="s">&quot;master-only&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;X-XSS-Protection&quot;</span> <span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;remove</span> <span class="na">name=</span><span class="s">&quot;X-Powered-By&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/customHeaders&gt;</span>
-    <span class="nt">&lt;/httpProtocol&gt;</span>
-<span class="nt">&lt;/system.webServer&gt;</span>
-</code></pre></div>
-
+<pre><code class="xml">&lt;system.web&gt;
+    &lt;httpRuntime enableVersionHeader=&quot;false&quot;/&gt;
+&lt;/system.web&gt;
+&lt;system.webServer&gt;
+    &lt;security&gt;
+        &lt;requestFiltering removeServerHeader=&quot;true&quot; /&gt;
+    &lt;/security&gt;
+    &lt;httpProtocol&gt;
+        &lt;customHeaders&gt;
+            &lt;add name=&quot;X-Content-Type-Options&quot; value=&quot;nosniff&quot; /&gt;
+            &lt;add name=&quot;X-Frame-Options&quot; value=&quot;DENY&quot; /&gt;
+            &lt;add name=&quot;X-Permitted-Cross-Domain-Policies&quot; value=&quot;master-only&quot;/&gt;
+            &lt;add name=&quot;X-XSS-Protection&quot; value=&quot;0&quot;/&gt;
+            &lt;remove name=&quot;X-Powered-By&quot;/&gt;
+        &lt;/customHeaders&gt;
+    &lt;/httpProtocol&gt;
+&lt;/system.webServer&gt;
+</code></pre>
 
 <p>e.g Startup.cs</p>
-<div class="codehilite"><pre><span></span><code><span class="n">app</span><span class="p">.</span><span class="n">UseHsts</span><span class="p">(</span><span class="n">hsts</span> <span class="p">=&gt;</span> <span class="n">hsts</span><span class="p">.</span><span class="n">MaxAge</span><span class="p">(</span><span class="m">365</span><span class="p">).</span><span class="n">IncludeSubdomains</span><span class="p">());</span>
-<span class="n">app</span><span class="p">.</span><span class="n">UseXContentTypeOptions</span><span class="p">();</span>
-<span class="n">app</span><span class="p">.</span><span class="n">UseReferrerPolicy</span><span class="p">(</span><span class="n">opts</span> <span class="p">=&gt;</span> <span class="n">opts</span><span class="p">.</span><span class="n">NoReferrer</span><span class="p">());</span>
-<span class="n">app</span><span class="p">.</span><span class="n">UseXXssProtection</span><span class="p">(</span><span class="n">options</span> <span class="p">=&gt;</span> <span class="n">options</span><span class="p">.</span><span class="n">FilterDisabled</span><span class="p">());</span>
-<span class="n">app</span><span class="p">.</span><span class="n">UseXfo</span><span class="p">(</span><span class="n">options</span> <span class="p">=&gt;</span> <span class="n">options</span><span class="p">.</span><span class="n">Deny</span><span class="p">());</span>
+<pre><code class="csharp">app.UseHsts(hsts =&gt; hsts.MaxAge(365).IncludeSubdomains());
+app.UseXContentTypeOptions();
+app.UseReferrerPolicy(opts =&gt; opts.NoReferrer());
+app.UseXXssProtection(options =&gt; options.FilterDisabled());
+app.UseXfo(options =&gt; options.Deny());
 
-<span class="n">app</span><span class="p">.</span><span class="n">UseCsp</span><span class="p">(</span><span class="n">opts</span> <span class="p">=&gt;</span> <span class="n">opts</span>
- <span class="p">.</span><span class="n">BlockAllMixedContent</span><span class="p">()</span>
- <span class="p">.</span><span class="n">StyleSources</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Self</span><span class="p">())</span>
- <span class="p">.</span><span class="n">StyleSources</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">UnsafeInline</span><span class="p">())</span>
- <span class="p">.</span><span class="n">FontSources</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Self</span><span class="p">())</span>
- <span class="p">.</span><span class="n">FormActions</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Self</span><span class="p">())</span>
- <span class="p">.</span><span class="n">FrameAncestors</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Self</span><span class="p">())</span>
- <span class="p">.</span><span class="n">ImageSources</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Self</span><span class="p">())</span>
- <span class="p">.</span><span class="n">ScriptSources</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Self</span><span class="p">())</span>
- <span class="p">);</span>
-</code></pre></div>
-
+app.UseCsp(opts =&gt; opts
+ .BlockAllMixedContent()
+ .StyleSources(s =&gt; s.Self())
+ .StyleSources(s =&gt; s.UnsafeInline())
+ .FontSources(s =&gt; s.Self())
+ .FormActions(s =&gt; s.Self())
+ .FrameAncestors(s =&gt; s.Self())
+ .ImageSources(s =&gt; s.Self())
+ .ScriptSources(s =&gt; s.Self())
+ );
+</code></pre>
 
 <p>For more information about headers can be found <a href="https://owasp.org/www-project-secure-headers/">here</a>.</p>
 <h2 id="a4-xml-external-entities-xxe">A4 XML External Entities (XXE)<a class="headerlink" href="#a4-xml-external-entities-xxe" title="Permanent link">&para;</a></h2>
@@ -1525,233 +621,210 @@ e.g Web.config</p>
 <h2 id="a5-broken-access-control">A5 Broken Access Control<a class="headerlink" href="#a5-broken-access-control" title="Permanent link">&para;</a></h2>
 <h3 id="weak-account-management">Weak Account management<a class="headerlink" href="#weak-account-management" title="Permanent link">&para;</a></h3>
 <p>Ensure cookies are sent via httpOnly:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">CookieHttpOnly</span> <span class="p">=</span> <span class="k">true</span><span class="p">,</span>
-</code></pre></div>
-
+<pre><code class="csharp">CookieHttpOnly = true,
+</code></pre>
 
 <p>Reduce the time period a session can be stolen in by reducing session timeout and removing sliding expiration:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ExpireTimeSpan</span> <span class="p">=</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">60</span><span class="p">),</span>
-<span class="n">SlidingExpiration</span> <span class="p">=</span> <span class="k">false</span>
-</code></pre></div>
-
+<pre><code class="csharp">ExpireTimeSpan = TimeSpan.FromMinutes(60),
+SlidingExpiration = false
+</code></pre>
 
 <p>See <a href="https://github.com/johnstaveley/SecurityEssentials/blob/master/SecurityEssentials/App_Start/Startup.Auth.cs">here</a> for full startup code snippet</p>
 <p>Ensure cookie is sent over https in the production environment. This should be enforced in the config transforms:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;httpCookies</span> <span class="na">requireSSL=</span><span class="s">&quot;true&quot;</span> <span class="na">xdt:Transform=</span><span class="s">&quot;SetAttributes(requireSSL)&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;authentication&gt;</span>
-    <span class="nt">&lt;forms</span> <span class="na">requireSSL=</span><span class="s">&quot;true&quot;</span> <span class="na">xdt:Transform=</span><span class="s">&quot;SetAttributes(requireSSL)&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/authentication&gt;</span>
-</code></pre></div>
-
+<pre><code class="xml">&lt;httpCookies requireSSL=&quot;true&quot; xdt:Transform=&quot;SetAttributes(requireSSL)&quot;/&gt;
+&lt;authentication&gt;
+    &lt;forms requireSSL=&quot;true&quot; xdt:Transform=&quot;SetAttributes(requireSSL)&quot;/&gt;
+&lt;/authentication&gt;
+</code></pre>
 
 <p>Protect LogOn, Registration and password reset methods against brute force attacks by throttling requests (see code below), consider also using ReCaptcha.</p>
-<div class="codehilite"><pre><span></span><code><span class="na">[HttpPost]</span>
-<span class="na">[AllowAnonymous]</span>
-<span class="na">[ValidateAntiForgeryToken]</span>
-<span class="na">[AllowXRequestsEveryXSecondsAttribute(Name = &quot;LogOn&quot;,</span>
-<span class="na">Message = &quot;You have performed this action more than {x} times in the last {n} seconds.&quot;,</span>
-<span class="na">Requests = 3, Seconds = 60)]</span>
-<span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ActionResult</span><span class="p">&gt;</span> <span class="n">LogOn</span><span class="p">(</span><span class="n">LogOnViewModel</span> <span class="n">model</span><span class="p">,</span> <span class="kt">string</span> <span class="n">returnUrl</span><span class="p">)</span>
-</code></pre></div>
-
+<pre><code class="csharp">[HttpPost]
+[AllowAnonymous]
+[ValidateAntiForgeryToken]
+[AllowXRequestsEveryXSecondsAttribute(Name = &quot;LogOn&quot;,
+Message = &quot;You have performed this action more than {x} times in the last {n} seconds.&quot;,
+Requests = 3, Seconds = 60)]
+public async Task&lt;ActionResult&gt; LogOn(LogOnViewModel model, string returnUrl)
+</code></pre>
 
 <p>DO NOT: Roll your own authentication or session management, use the one provided by .Net</p>
 <p>DO NOT: Tell someone if the account exists on LogOn, Registration or Password reset. Say something like 'Either the username or password was incorrect', or 'If this account exists then a reset token will be sent to the registered email address'. This protects against account enumeration.</p>
 <p>The feedback to the user should be identical whether or not the account exists, both in terms of content and behavior: e.g. if the response takes 50% longer when the account is real then membership information can be guessed and tested.</p>
 <h3 id="missing-function-level-access-control">Missing function-level access control<a class="headerlink" href="#missing-function-level-access-control" title="Permanent link">&para;</a></h3>
 <p>DO: Authorize users on all externally facing endpoints. The .NET framework has many ways to authorize a user, use them at method level:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">[Authorize(Roles = &quot;Admin&quot;)]</span>
-<span class="na">[HttpGet]</span>
-<span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Index</span><span class="p">(</span><span class="kt">int</span> <span class="n">page</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span>
-</code></pre></div>
-
+<pre><code class="csharp">[Authorize(Roles = &quot;Admin&quot;)]
+[HttpGet]
+public ActionResult Index(int page = 1)
+</code></pre>
 
 <p>or better yet, at controller level:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">[Authorize]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">UserController</span>
-</code></pre></div>
-
+<pre><code class="csharp">[Authorize]
+public class UserController
+</code></pre>
 
 <p>You can also check roles in code using identity features in .net: <code>System.Web.Security.Roles.IsUserInRole(userName, roleName)</code></p>
 <p>You can find more information <a href="../Access_Control_Cheat_Sheet/#introduction">here</a> on Access Control and <a href="../Authorization_Testing_Automation/">here</a> for Authorization.</p>
 <h3 id="insecure-direct-object-references">Insecure Direct object references<a class="headerlink" href="#insecure-direct-object-references" title="Permanent link">&para;</a></h3>
 <p>When you have a resource (object) which can be accessed by a reference (in the sample below this is the <code>id</code>) then you need to ensure that the user is intended to be there</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Insecure</span>
-<span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Edit</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="kt">var</span> <span class="n">user</span> <span class="p">=</span> <span class="n">_context</span><span class="p">.</span><span class="n">Users</span><span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">Id</span> <span class="p">==</span> <span class="n">id</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="s">&quot;Details&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">UserViewModel</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="p">}</span>
+<pre><code class="csharp">// Insecure
+public ActionResult Edit(int id)
+{
+  var user = _context.Users.FirstOrDefault(e =&gt; e.Id == id);
+  return View(&quot;Details&quot;, new UserViewModel(user);
+}
 
-<span class="c1">// Secure</span>
-<span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Edit</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="kt">var</span> <span class="n">user</span> <span class="p">=</span> <span class="n">_context</span><span class="p">.</span><span class="n">Users</span><span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">Id</span> <span class="p">==</span> <span class="n">id</span><span class="p">);</span>
-  <span class="c1">// Establish user has right to edit the details</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">Id</span> <span class="p">!=</span> <span class="n">_userIdentity</span><span class="p">.</span><span class="n">GetUserId</span><span class="p">())</span>
-  <span class="p">{</span>
-        <span class="n">HandleErrorInfo</span> <span class="n">error</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HandleErrorInfo</span><span class="p">(</span>
-            <span class="k">new</span> <span class="nf">Exception</span><span class="p">(</span><span class="s">&quot;INFO: You do not have permission to edit these details&quot;</span><span class="p">));</span>
-        <span class="k">return</span> <span class="nf">View</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nf">View</span><span class="p">(</span><span class="s">&quot;Edit&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">UserViewModel</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-
+// Secure
+public ActionResult Edit(int id)
+{
+  var user = _context.Users.FirstOrDefault(e =&gt; e.Id == id);
+  // Establish user has right to edit the details
+  if (user.Id != _userIdentity.GetUserId())
+  {
+        HandleErrorInfo error = new HandleErrorInfo(
+            new Exception(&quot;INFO: You do not have permission to edit these details&quot;));
+        return View(&quot;Error&quot;, error);
+  }
+  return View(&quot;Edit&quot;, new UserViewModel(user);
+}
+</code></pre>
 
 <p>More information can be found <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/">here</a> for Insecure Direct Object Reference.</p>
 <h2 id="a6-security-misconfiguration">A6 Security Misconfiguration<a class="headerlink" href="#a6-security-misconfiguration" title="Permanent link">&para;</a></h2>
 <h3 id="debug-and-stack-trace">Debug and Stack Trace<a class="headerlink" href="#debug-and-stack-trace" title="Permanent link">&para;</a></h3>
 <p>Ensure debug and trace are off in production. This can be enforced using web.config transforms:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;compilation</span> <span class="na">xdt:Transform=</span><span class="s">&quot;RemoveAttributes(debug)&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;trace</span> <span class="na">enabled=</span><span class="s">&quot;false&quot;</span> <span class="na">xdt:Transform=</span><span class="s">&quot;Replace&quot;</span><span class="nt">/&gt;</span>
-</code></pre></div>
-
+<pre><code class="xml">&lt;compilation xdt:Transform=&quot;RemoveAttributes(debug)&quot; /&gt;
+&lt;trace enabled=&quot;false&quot; xdt:Transform=&quot;Replace&quot;/&gt;
+</code></pre>
 
 <p>DO NOT: Use default passwords</p>
 <p>DO: (When using TLS) Redirect a request made over Http to https:</p>
 <p>e.g Global.asax.cs</p>
-<div class="codehilite"><pre><span></span><code><span class="k">protected</span> <span class="k">void</span> <span class="nf">Application_BeginRequest</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="cp">#if !DEBUG</span>
-    <span class="c1">// SECURE: Ensure any request is returned over SSL/TLS in production</span>
-    <span class="k">if</span> <span class="p">(!</span><span class="n">Request</span><span class="p">.</span><span class="n">IsLocal</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">Context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">IsSecureConnection</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">redirect</span> <span class="p">=</span> <span class="n">Context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Url</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span>
-                        <span class="p">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="p">)</span>
-                        <span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;http:&quot;</span><span class="p">,</span> <span class="s">&quot;https:&quot;</span><span class="p">);</span>
-        <span class="n">Response</span><span class="p">.</span><span class="n">Redirect</span><span class="p">(</span><span class="n">redirect</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="cp">#endif</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="csharp">protected void Application_BeginRequest()
+{
+    #if !DEBUG
+    // SECURE: Ensure any request is returned over SSL/TLS in production
+    if (!Request.IsLocal &amp;&amp; !Context.Request.IsSecureConnection) {
+        var redirect = Context.Request.Url.ToString()
+                        .ToLower(CultureInfo.CurrentCulture)
+                        .Replace(&quot;http:&quot;, &quot;https:&quot;);
+        Response.Redirect(redirect);
+    }
+    #endif
+}
+</code></pre>
 
 <p>e.g Startup.cs in the Configure()</p>
-<div class="codehilite"><pre><span></span><code>  <span class="n">app</span><span class="p">.</span><span class="n">UseHttpsRedirection</span><span class="p">();</span>
-</code></pre></div>
-
+<pre><code class="csharp">  app.UseHttpsRedirection();
+</code></pre>
 
 <h3 id="cross-site-request-forgery">Cross-site request forgery<a class="headerlink" href="#cross-site-request-forgery" title="Permanent link">&para;</a></h3>
 <p>DO NOT: Send sensitive data without validating Anti-Forgery-Tokens (<a href="https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks">.NET</a> / <a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-3.0#aspnet-core-antiforgery-configuration">.NET Core</a>).</p>
 <p>DO: Send the anti-forgery token with every POST/PUT request:</p>
 <h4 id="using-net-framework">Using .NET Framework:<a class="headerlink" href="#using-net-framework" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="p">(</span><span class="n">Html</span><span class="p">.</span><span class="n">BeginForm</span><span class="p">(</span><span class="s">&quot;LogOff&quot;</span><span class="p">,</span> <span class="s">&quot;Account&quot;</span><span class="p">,</span> <span class="n">FormMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">id</span> <span class="p">=</span> <span class="s">&quot;logoutForm&quot;</span><span class="p">,</span> 
-                        <span class="n">@class</span> <span class="p">=</span> <span class="s">&quot;pull-right&quot;</span> <span class="p">}))</span>
-<span class="p">{</span>
-    <span class="n">@Html</span><span class="p">.</span><span class="n">AntiForgeryToken</span><span class="p">()</span>
-    <span class="p">&lt;</span><span class="n">ul</span> <span class="n">class</span><span class="p">=</span><span class="s">&quot;nav nav-pills&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="n">li</span> <span class="n">role</span><span class="p">=</span><span class="s">&quot;presentation&quot;</span><span class="p">&gt;</span>
-        <span class="n">Logged</span> <span class="k">on</span> <span class="k">as</span> <span class="n">@User</span><span class="p">.</span><span class="n">Identity</span><span class="p">.</span><span class="n">Name</span>
-        <span class="p">&lt;/</span><span class="n">li</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="n">li</span> <span class="n">role</span><span class="p">=</span><span class="s">&quot;presentation&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="s">&quot;javascript:document.getElementById(&#39;logoutForm&#39;).submit()&quot;</span><span class="p">&gt;</span><span class="n">Log</span> <span class="n">off</span><span class="p">&lt;/</span><span class="n">a</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="n">li</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="n">ul</span><span class="p">&gt;</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="csharp">using (Html.BeginForm(&quot;LogOff&quot;, &quot;Account&quot;, FormMethod.Post, new { id = &quot;logoutForm&quot;, 
+                        @class = &quot;pull-right&quot; }))
+{
+    @Html.AntiForgeryToken()
+    &lt;ul class=&quot;nav nav-pills&quot;&gt;
+        &lt;li role=&quot;presentation&quot;&gt;
+        Logged on as @User.Identity.Name
+        &lt;/li&gt;
+        &lt;li role=&quot;presentation&quot;&gt;
+        &lt;a href=&quot;javascript:document.getElementById('logoutForm').submit()&quot;&gt;Log off&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+}
+</code></pre>
 
 <p>Then validate it at the method or preferably the controller level:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">[HttpPost]</span>
-<span class="na">[ValidateAntiForgeryToken]</span>
-<span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">LogOff</span><span class="p">()</span>
-</code></pre></div>
-
+<pre><code class="csharp">[HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult LogOff()
+</code></pre>
 
 <p>Make sure the tokens are removed completely for invalidation on logout.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// SECURE: Remove any remaining cookies including Anti-CSRF cookie</span>
-<span class="c1">/// &lt;/summary&gt;</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">RemoveAntiForgeryCookie</span><span class="p">(</span><span class="n">Controller</span> <span class="n">controller</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">string</span><span class="p">[]</span> <span class="n">allCookies</span> <span class="p">=</span> <span class="n">controller</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Cookies</span><span class="p">.</span><span class="n">AllKeys</span><span class="p">;</span>
-    <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">cookie</span> <span class="k">in</span> <span class="n">allCookies</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Cookies</span><span class="p">[</span><span class="n">cookie</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> 
-            <span class="n">cookie</span> <span class="p">==</span> <span class="s">&quot;__RequestVerificationToken&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">controller</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Cookies</span><span class="p">[</span><span class="n">cookie</span><span class="p">].</span><span class="n">Expires</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">AddDays</span><span class="p">(-</span><span class="m">1</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="csharp">/// &lt;summary&gt;
+/// SECURE: Remove any remaining cookies including Anti-CSRF cookie
+/// &lt;/summary&gt;
+public void RemoveAntiForgeryCookie(Controller controller)
+{
+    string[] allCookies = controller.Request.Cookies.AllKeys;
+    foreach (string cookie in allCookies)
+    {
+        if (controller.Response.Cookies[cookie] != null &amp;&amp; 
+            cookie == &quot;__RequestVerificationToken&quot;)
+        {
+            controller.Response.Cookies[cookie].Expires = DateTime.Now.AddDays(-1);
+        }
+    }
+}
+</code></pre>
 
 <h4 id="using-net-core-20-or-later">Using .NET Core 2.0 or later:<a class="headerlink" href="#using-net-core-20-or-later" title="Permanent link">&para;</a></h4>
 <p>Starting with .NET Core 2.0 it is possible to <a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-3.0#aspnet-core-antiforgery-configuration">automatically generate and verify the antiforgery token</a>.</p>
 <p>If you are using <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro">tag-helpers</a>, which is the default for most web project templates, then all forms will automatically send the anti-forgery token. You can check if tag-helpers are enabled by checking if your main <code>_ViewImports.cshtml</code> file contains:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">@addTagHelper</span> <span class="p">*,</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">AspNetCore</span><span class="p">.</span><span class="n">Mvc</span><span class="p">.</span><span class="n">TagHelpers</span>
-</code></pre></div>
-
+<pre><code class="csharp">@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+</code></pre>
 
 <p><code>IHtmlHelper.BeginForm</code> also sends anti-forgery-tokens automatically.</p>
 <p>Unless you are using tag-helpers or <code>IHtmlHelper.BeginForm</code>, you must use the requisite helper on forms as seen here:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;RelevantAction&quot;</span> <span class="p">&gt;</span>
+<pre><code class="html">&lt;form action=&quot;RelevantAction&quot; &gt;
 @Html.AntiForgeryToken()
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</code></pre></div>
-
+&lt;/form&gt;
+</code></pre>
 
 <p>To automatically validate all requests other than GET, HEAD, OPTIONS and TRACE you need to add a global action filter with the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute?view=aspnetcore-2.2">AutoValidateAntiforgeryToken</a> attribute inside your <code>Startup.cs</code> as mentioned in the following <a href="https://andrewlock.net/automatically-validating-anti-forgery-tokens-in-asp-net-core-with-the-autovalidateantiforgerytokenattribute/">article</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">services</span><span class="p">.</span><span class="n">AddMvc</span><span class="p">(</span><span class="n">options</span> <span class="p">=&gt;</span>
-<span class="p">{</span>
-    <span class="n">options</span><span class="p">.</span><span class="n">Filters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">AutoValidateAntiforgeryTokenAttribute</span><span class="p">());</span>
-<span class="p">});</span>
-</code></pre></div>
-
+<pre><code class="csharp">services.AddMvc(options =&gt;
+{
+    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+});
+</code></pre>
 
 <p>If you need to disable the attribute validation for a specific method on a controller you can add the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute?view=aspnetcore-2.2">IgnoreAntiforgeryToken</a> attribute to the controller method (for MVC controllers) or parent class (for Razor pages): </p>
-<div class="codehilite"><pre><span></span><code><span class="na">[IgnoreAntiforgeryToken]</span>
-<span class="na">[HttpDelete]</span>
-<span class="k">public</span> <span class="n">IActionResult</span> <span class="nf">Delete</span><span class="p">()</span>
-</code></pre></div>
+<pre><code class="csharp">[IgnoreAntiforgeryToken]
+[HttpDelete]
+public IActionResult Delete()
+</code></pre>
 
-
-<div class="codehilite"><pre><span></span><code><span class="na">[IgnoreAntiforgeryToken]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">UnsafeModel</span> <span class="p">:</span> <span class="n">PageModel</span>
-</code></pre></div>
-
+<pre><code class="csharp">[IgnoreAntiforgeryToken]
+public class UnsafeModel : PageModel
+</code></pre>
 
 <p>If you need to also validate the token on GET, HEAD, OPTIONS or TRACE - requests you can add the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute?view=aspnetcore-2.2">ValidateAntiforgeryToken</a> attribute to the controller method (for MVC controllers) or parent class (for Razor pages):</p>
-<div class="codehilite"><pre><span></span><code><span class="na">[HttpGet]</span>
-<span class="na">[ValidateAntiforgeryToken]</span>
-<span class="k">public</span> <span class="n">IActionResult</span> <span class="nf">DoSomethingDangerous</span><span class="p">()</span>
-</code></pre></div>
+<pre><code class="csharp">[HttpGet]
+[ValidateAntiforgeryToken]
+public IActionResult DoSomethingDangerous()
+</code></pre>
 
-
-<div class="codehilite"><pre><span></span><code><span class="na">[HttpGet]</span>
-<span class="na">[ValidateAntiforgeryToken]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">SafeModel</span> <span class="p">:</span> <span class="n">PageModel</span>
-</code></pre></div>
-
+<pre><code class="csharp">[HttpGet]
+[ValidateAntiforgeryToken]
+public class SafeModel : PageModel
+</code></pre>
 
 <p>In case you can't use a global action filter, add the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute?view=aspnetcore-2.2">AutoValidateAntiforgeryToken</a> attribute to your controller classes or razor page models:</p>
-<div class="codehilite"><pre><span></span><code><span class="na">[AutoValidateAntiforgeryToken]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">UserController</span>
-</code></pre></div>
+<pre><code class="csharp">[AutoValidateAntiforgeryToken]
+public class UserController
+</code></pre>
 
-
-<div class="codehilite"><pre><span></span><code><span class="na">[AutoValidateAntiforgeryToken]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">SafeModel</span> <span class="p">:</span> <span class="n">PageModel</span>
-</code></pre></div>
-
+<pre><code class="csharp">[AutoValidateAntiforgeryToken]
+public class SafeModel : PageModel
+</code></pre>
 
 <h4 id="using-net-core-20-or-net-framework-with-ajax">Using .Net Core 2.0 or .NET Framework with AJAX<a class="headerlink" href="#using-net-core-20-or-net-framework-with-ajax" title="Permanent link">&para;</a></h4>
 <p>You will need to attach the anti-forgery token to AJAX requests.</p>
 <p>If you are using jQuery in an ASP.NET Core MVC view this can be achieved using this snippet:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">@</span><span class="nx">inject</span>  <span class="nx">Microsoft</span><span class="p">.</span><span class="nx">AspNetCore</span><span class="p">.</span><span class="nx">Antiforgery</span><span class="p">.</span><span class="nx">IAntiforgery</span> <span class="nx">antiforgeryProvider</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span>
-<span class="p">{</span>
-    <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;@Url.Action(&quot;Action&quot;, &quot;Controller&quot;)&#39;</span><span class="p">,</span>
-    <span class="nx">contentType</span><span class="o">:</span> <span class="s2">&quot;application/x-www-form-urlencoded; charset=utf-8&quot;</span><span class="p">,</span>
-    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
-        <span class="s1">&#39;__RequestVerificationToken&#39;</span><span class="o">:</span> <span class="s1">&#39;@antiforgeryProvider.GetAndStoreTokens(this.Context).RequestToken&#39;</span>
-    <span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div>
-
+<pre><code class="javascript">@inject  Microsoft.AspNetCore.Antiforgery.IAntiforgery antiforgeryProvider
+$.ajax(
+{
+    type: &quot;POST&quot;,
+    url: '@Url.Action(&quot;Action&quot;, &quot;Controller&quot;)',
+    contentType: &quot;application/x-www-form-urlencoded; charset=utf-8&quot;,
+    data: {
+        id: id,
+        '__RequestVerificationToken': '@antiforgeryProvider.GetAndStoreTokens(this.Context).RequestToken'
+    }
+})
+</code></pre>
 
 <p>If you are using the .NET Framework, you can find some code snippets <a href="https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks#anti-csrf-and-ajax">here</a>.</p>
 <p>More information can be found <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/">here</a> for Cross-Site Request Forgery.</p>
@@ -1760,24 +833,22 @@ e.g Web.config</p>
 <p>You get encoding of all HTML content with MVC3, to properly encode all content whether HTML, javascript, CSS, LDAP etc use the Microsoft AntiXSS library:</p>
 <p><code>Install-Package AntiXSS</code></p>
 <p>Then set in config:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;system.web&gt;</span>
-<span class="nt">&lt;httpRuntime</span> <span class="na">targetFramework=</span><span class="s">&quot;4.5&quot;</span>
-<span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span>
-<span class="na">encoderType=</span><span class="s">&quot;Microsoft.Security.Application.AntiXssEncoder, AntiXssLibrary&quot;</span>
-<span class="na">maxRequestLength=</span><span class="s">&quot;4096&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
-
+<pre><code class="xml">&lt;system.web&gt;
+&lt;httpRuntime targetFramework=&quot;4.5&quot;
+enableVersionHeader=&quot;false&quot;
+encoderType=&quot;Microsoft.Security.Application.AntiXssEncoder, AntiXssLibrary&quot;
+maxRequestLength=&quot;4096&quot; /&gt;
+</code></pre>
 
 <p>DO NOT: Use the <code>[AllowHTML]</code> attribute or helper class <code>@Html.Raw</code> unless you really know that the content you are writing to the browser is safe and has been escaped properly.</p>
 <p>DO: Enable a <a href="../Content_Security_Policy_Cheat_Sheet/#context">Content Security Policy</a>, this will prevent your pages from accessing assets it should not be able to access (e.g. a malicious script):</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;system.webServer&gt;</span>
-    <span class="nt">&lt;httpProtocol&gt;</span>
-        <span class="nt">&lt;customHeaders&gt;</span>
-            <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;Content-Security-Policy&quot;</span>
-                <span class="na">value=</span><span class="s">&quot;default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;;</span>
-<span class="s">                font-src &#39;self&#39;; script-src &#39;self&#39;&quot;</span> <span class="nt">/&gt;</span>
-</code></pre></div>
-
+<pre><code class="xml">&lt;system.webServer&gt;
+    &lt;httpProtocol&gt;
+        &lt;customHeaders&gt;
+            &lt;add name=&quot;Content-Security-Policy&quot;
+                value=&quot;default-src 'none'; style-src 'self'; img-src 'self';
+                font-src 'self'; script-src 'self'&quot; /&gt;
+</code></pre>
 
 <p>More information can be found <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/">here</a> for Cross-Site Scripting.</p>
 <h2 id="a8-insecure-deserialization">A8 Insecure Deserialization<a class="headerlink" href="#a8-insecure-deserialization" title="Permanent link">&para;</a></h2>
@@ -1802,67 +873,65 @@ If a deserialized hostile object tries to initiate a system processes or access 
 <p>What Logs to Collect and more information about Logging can be found on this <a href="../Logging_Cheat_Sheet/">cheat sheet</a>.</p>
 <p>.NET Core come with a LoggerFactory, which is in Microsoft.Extensions.Logging. More information about ILogger can be found <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger">here</a>.</p>
 <p>How to log all errors from the <code>Startup.cs</code>, so that anytime an error is thrown it will be logged.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="k">void</span> <span class="nf">Configure</span><span class="p">(</span><span class="n">IApplicationBuilder</span> <span class="n">app</span><span class="p">,</span> <span class="n">IHostingEnvironment</span> <span class="n">env</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">IsDevelopment</span><span class="p">())</span>
-    <span class="p">{</span>
-        <span class="n">_isDevelopment</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-        <span class="n">app</span><span class="p">.</span><span class="n">UseDeveloperExceptionPage</span><span class="p">();</span>
-    <span class="p">}</span>
+<pre><code class="csharp">public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        _isDevelopment = true;
+        app.UseDeveloperExceptionPage();
+    }
 
-    <span class="c1">//Log all errors in the application</span>
-    <span class="n">app</span><span class="p">.</span><span class="n">UseExceptionHandler</span><span class="p">(</span><span class="n">errorApp</span> <span class="p">=&gt;</span>
-    <span class="p">{</span>
-        <span class="n">errorApp</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="k">async</span> <span class="n">context</span> <span class="p">=&gt;</span>
-        <span class="p">{</span>
-            <span class="kt">var</span> <span class="n">errorFeature</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Features</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">IExceptionHandlerFeature</span><span class="p">&gt;();</span>
-            <span class="kt">var</span> <span class="n">exception</span> <span class="p">=</span> <span class="n">errorFeature</span><span class="p">.</span><span class="n">Error</span><span class="p">;</span>
+    //Log all errors in the application
+    app.UseExceptionHandler(errorApp =&gt;
+    {
+        errorApp.Run(async context =&gt;
+        {
+            var errorFeature = context.Features.Get&lt;IExceptionHandlerFeature&gt;();
+            var exception = errorFeature.Error;
 
-            <span class="n">Log</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Stacktrace of error: {0}&quot;</span><span class="p">,</span><span class="n">exception</span><span class="p">.</span><span class="n">StackTrace</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
+            Log.Error(String.Format(&quot;Stacktrace of error: {0}&quot;,exception.StackTrace.ToString()));
+        });
+    });
 
-        <span class="n">app</span><span class="p">.</span><span class="n">UseAuthentication</span><span class="p">();</span>
-            <span class="n">app</span><span class="p">.</span><span class="n">UseMvc</span><span class="p">();</span>
-        <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+        app.UseAuthentication();
+            app.UseMvc();
+        }
+}
+</code></pre>
 
 <p>e.g Injecting into the class constructor, which makes writing unit test simpler. It is recommended if instances of the class will be created using dependency injection (e.g. MVC controllers).  The below example shows logging of all unsuccessful log in attempts.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">AccountsController</span> <span class="p">:</span> <span class="n">Controller</span>
-<span class="p">{</span>
-        <span class="k">private</span> <span class="n">ILogger</span> <span class="n">_Logger</span><span class="p">;</span>
+<pre><code class="csharp">public class AccountsController : Controller
+{
+        private ILogger _Logger;
 
-        <span class="k">public</span> <span class="nf">AccountsController</span><span class="p">(</span> <span class="n">ILogger</span> <span class="n">logger</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">_Logger</span> <span class="p">=</span> <span class="n">logger</span><span class="p">;</span>
-        <span class="p">}</span>
+        public AccountsController( ILogger logger)
+        {
+            _Logger = logger;
+        }
 
-<span class="na">    [HttpPost]</span>
-<span class="na">        [AllowAnonymous]</span>
-<span class="na">        [ValidateAntiForgeryToken]</span>
-        <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">IActionResult</span><span class="p">&gt;</span> <span class="n">Login</span><span class="p">(</span><span class="n">LoginViewModel</span> <span class="n">model</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">ModelState</span><span class="p">.</span><span class="n">IsValid</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_signInManager</span><span class="p">.</span><span class="n">PasswordSignInAsync</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">Email</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">Password</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">RememberMe</span><span class="p">,</span> <span class="n">lockoutOnFailure</span><span class="p">:</span> <span class="k">false</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Succeeded</span><span class="p">)</span>
-                <span class="p">{</span>
-            <span class="c1">//Log all successful log in attempts</span>
-            <span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;User: {0}, Successfully Logged in&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
-            <span class="c1">//Code for successful login</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="c1">//Log all incorrect log in attempts</span>
-            <span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;User: {0}, Incorrect Password&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+    [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task&lt;IActionResult&gt; Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+            //Log all successful log in attempts
+            Log.Information(String.Format(&quot;User: {0}, Successfully Logged in&quot;, model.Email));
+            //Code for successful login
+        }
+        else
+        {
+            //Log all incorrect log in attempts
+            Log.Information(String.Format(&quot;User: {0}, Incorrect Password&quot;, model.Email));
+        }
+    }
 
-    <span class="p">...</span>
-</code></pre></div>
-
+    ...
+</code></pre>
 
 <p>Logging levels for ILogger are listed below, in order of high to low importance:</p>
 <h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
@@ -1873,32 +942,30 @@ If a deserialized hostile object tries to initiate a system processes or access 
 <p>Below is vulnerability not discussed in OWASP 2017</p>
 <h2 id="a10-unvalidated-redirects-and-forwards">A10 Unvalidated redirects and forwards<a class="headerlink" href="#a10-unvalidated-redirects-and-forwards" title="Permanent link">&para;</a></h2>
 <p>A protection against this was introduced in Mvc 3 template. Here is the code:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ActionResult</span><span class="p">&gt;</span> <span class="n">LogOn</span><span class="p">(</span><span class="n">LogOnViewModel</span> <span class="n">model</span><span class="p">,</span> <span class="kt">string</span> <span class="n">returnUrl</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">ModelState</span><span class="p">.</span><span class="n">IsValid</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">logonResult</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_userManager</span><span class="p">.</span><span class="n">TryLogOnAsync</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">UserName</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">Password</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">logonResult</span><span class="p">.</span><span class="n">Success</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">await</span> <span class="n">_userManager</span><span class="p">.</span><span class="n">LogOnAsync</span><span class="p">(</span><span class="n">logonResult</span><span class="p">.</span><span class="n">UserName</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">RememberMe</span><span class="p">);</span>  
-            <span class="k">return</span> <span class="nf">RedirectToLocal</span><span class="p">(</span><span class="n">returnUrl</span><span class="p">);</span>
-<span class="p">...</span>
-</code></pre></div>
+<pre><code class="csharp">public async Task&lt;ActionResult&gt; LogOn(LogOnViewModel model, string returnUrl)
+{
+    if (ModelState.IsValid)
+    {
+        var logonResult = await _userManager.TryLogOnAsync(model.UserName, model.Password);
+        if (logonResult.Success)
+        {
+            await _userManager.LogOnAsync(logonResult.UserName, model.RememberMe);  
+            return RedirectToLocal(returnUrl);
+...
+</code></pre>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">private</span> <span class="n">ActionResult</span> <span class="nf">RedirectToLocal</span><span class="p">(</span><span class="kt">string</span> <span class="n">returnUrl</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">Url</span><span class="p">.</span><span class="n">IsLocalUrl</span><span class="p">(</span><span class="n">returnUrl</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="nf">Redirect</span><span class="p">(</span><span class="n">returnUrl</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="nf">RedirectToAction</span><span class="p">(</span><span class="s">&quot;Landing&quot;</span><span class="p">,</span> <span class="s">&quot;Account&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="csharp">private ActionResult RedirectToLocal(string returnUrl)
+{
+    if (Url.IsLocalUrl(returnUrl))
+    {
+        return Redirect(returnUrl);
+    }
+    else
+    {
+        return RedirectToAction(&quot;Landing&quot;, &quot;Account&quot;);
+    }
+}
+</code></pre>
 
 <p>Other advice:</p>
 <ul>
@@ -1926,87 +993,57 @@ If a deserialized hostile object tries to initiate a system processes or access 
 <li>Use at least two security modes for your binding. Message security includes security provisions in the headers. Transport security means use of SSL. <a href="https://docs.microsoft.com/en-us/dotnet/framework/wcf/samples/ws-transport-with-message-credential">TransportWithMessageCredential</a> combines the two.</li>
 <li>Test your WCF implementation with a fuzzer like the <a href="https://www.zaproxy.org/">ZAP</a>.</li>
 </ul>
-                
-                  
-                
               
-              
-                
-
-
-              
-            </article>
+            </div>
           </div>
-        </div>
-      </main>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Docker Security Cheat Sheet
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Error Handling Cheat Sheet
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+        <a href="../Error_Handling_Cheat_Sheet/" class="btn btn-neutral float-right" title="Error Handling Cheat Sheet">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Docker_Security_Cheat_Sheet/" class="btn btn-neutral" title="Docker Security Cheat Sheet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
   </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-    </div>
-    
-      <script src="../../assets/javascripts/vendor.83fe6e3c.min.js"></script>
-      <script src="../../assets/javascripts/bundle.7e1cb91c.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
       
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
       
-    
-  </body>
+        <span><a href="../Docker_Security_Cheat_Sheet/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Error_Handling_Cheat_Sheet/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(false);
+        };
+    </script>
+
+</body>
 </html>
