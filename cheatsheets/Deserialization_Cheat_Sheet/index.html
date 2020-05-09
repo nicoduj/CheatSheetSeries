@@ -1097,8 +1097,8 @@
 <h2 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
 <p>The following techniques are all good for preventing attacks against deserialization against <a href="https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html">Java's Serializable format</a>.</p>
 <p>Implementation advices: 
-* In your code, override the <code>ObjectInputStream#resolveClass()</code> method to prevent arbitrary classes from being deserialized. This safe behavior can be wrapped in a library like <a href="https://github.com/ikkisoft/SerialKiller">SerialKiller</a>. 
-* Use a safe replacement for the generic <code>readObject()</code> method as seen here. Note that this addresses "<a href="https://en.wikipedia.org/wiki/Billion_laughs_attack">billion laughs</a>" type attacks by checking input length and number of objects deserialized.</p>
+- In your code, override the <code>ObjectInputStream#resolveClass()</code> method to prevent arbitrary classes from being deserialized. This safe behavior can be wrapped in a library like <a href="https://github.com/ikkisoft/SerialKiller">SerialKiller</a>. 
+- Use a safe replacement for the generic <code>readObject()</code> method as seen here. Note that this addresses "<a href="https://en.wikipedia.org/wiki/Billion_laughs_attack">billion laughs</a>" type attacks by checking input length and number of objects deserialized.</p>
 <h3 id="whitebox-review_2">WhiteBox Review<a class="headerlink" href="#whitebox-review_2" title="Permanent link">&para;</a></h3>
 <p>Be aware of the following Java API uses for potential serialization vulnerability.</p>
 <p>1. <code>XMLdecoder</code> with external user defined parameters</p>

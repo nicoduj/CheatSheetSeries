@@ -1319,8 +1319,8 @@ The goal of this article is to provide a concrete proposal of approach to collec
 <h3 id="attack-surface-analysis">Attack surface analysis<a class="headerlink" href="#attack-surface-analysis" title="Permanent link">&para;</a></h3>
 <h4 id="implementation-tips">Implementation tips<a class="headerlink" href="#implementation-tips" title="Permanent link">&para;</a></h4>
 <p>To enumerate microservices endpoints that need to be tested during security testing and analyzed during threat modeling analyze data collected under the following sections:
-* Identify and describe application-functionality services (parameter "API definition")
-* Identify and describe infrastructure services (parameter "Link to the service documentation")</p>
+- Identify and describe application-functionality services (parameter "API definition")
+- Identify and describe infrastructure services (parameter "Link to the service documentation")</p>
 <h4 id="mapping-to-owasp-projects">Mapping to OWASP projects<a class="headerlink" href="#mapping-to-owasp-projects" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://github.com/OWASP/ASVS/blob/master/4.0/en/0x10-V1-Architecture.md#v1-architecture-design-and-threat-modeling-requirements">OWASP ASVS, V1 "Architecture, Design and Threat Modeling Requirements", #1.1.2</a></li>
@@ -1329,11 +1329,11 @@ The goal of this article is to provide a concrete proposal of approach to collec
 <h3 id="data-leakage-analysis">Data leakage analysis<a class="headerlink" href="#data-leakage-analysis" title="Permanent link">&para;</a></h3>
 <h4 id="implementation-tips_1">Implementation tips<a class="headerlink" href="#implementation-tips_1" title="Permanent link">&para;</a></h4>
 <p>To analyze possible data leakage analyze data collected under the following sections: 
-* Identify and describe data assets
-* Identify "service-to-storage" relations
-* Identify "service-to-service" synchronous communications
-* Identify "service-to-service" asynchronous communications
-* Identify "asset-to-storage" relations</p>
+- Identify and describe data assets
+- Identify "service-to-storage" relations
+- Identify "service-to-service" synchronous communications
+- Identify "service-to-service" asynchronous communications
+- Identify "asset-to-storage" relations</p>
 <h4 id="mapping-to-owasp-projects_1">Mapping to OWASP projects<a class="headerlink" href="#mapping-to-owasp-projects_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://github.com/OWASP/ASVS/blob/master/4.0/en/0x10-V1-Architecture.md#v1-architecture-design-and-threat-modeling-requirements">OWASP ASVS, V1 "Architecture, Design and Threat Modeling Requirements", #1.1.2</a></li>
@@ -1342,13 +1342,13 @@ The goal of this article is to provide a concrete proposal of approach to collec
 <h3 id="applications-trust-boundaries-components-and-significant-data-flows-justification">Application's trust boundaries, components, and significant data flows justification<a class="headerlink" href="#applications-trust-boundaries-components-and-significant-data-flows-justification" title="Permanent link">&para;</a></h3>
 <h4 id="implementation-tips_2">Implementation tips<a class="headerlink" href="#implementation-tips_2" title="Permanent link">&para;</a></h4>
 <p>To verify documentation and justification of all the application's trust boundaries, components, and significant data flows analyze data collected under the following sections:
-* Identify and describe application-functionality services
-* Identify and describe infrastructure services
-* Identify and describe data storages
-* Identify and describe message queues 
-* Identify "service-to-storage" relations 
-* Identify "service-to-service" synchronous communications
-* Identify "service-to-service" asynchronous communications</p>
+- Identify and describe application-functionality services
+- Identify and describe infrastructure services
+- Identify and describe data storages
+- Identify and describe message queues 
+- Identify "service-to-storage" relations 
+- Identify "service-to-service" synchronous communications
+- Identify "service-to-service" asynchronous communications</p>
 <h4 id="mapping-to-owasp-projects_2">Mapping to OWASP projects<a class="headerlink" href="#mapping-to-owasp-projects_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://github.com/OWASP/ASVS/blob/master/4.0/en/0x10-V1-Architecture.md#v1-architecture-design-and-threat-modeling-requirements">OWASP ASVS, V1 "Architecture, Design and Threat Modeling Requirements", #1.1.4</a></li>
@@ -1356,10 +1356,10 @@ The goal of this article is to provide a concrete proposal of approach to collec
 <h3 id="analysis-of-the-applications-high-level-architecture">Analysis of the application's high-level architecture<a class="headerlink" href="#analysis-of-the-applications-high-level-architecture" title="Permanent link">&para;</a></h3>
 <h4 id="implementation-tips_3">Implementation tips<a class="headerlink" href="#implementation-tips_3" title="Permanent link">&para;</a></h4>
 <p>To verify definition and security analysis of the application's high-level architecture and all connected remote services analyze data collected under the following sections:
-* Identify and describe application-functionality services
-* Identify and describe infrastructure services
-* Identify and describe data storages
-* Identify and describe message queues</p>
+- Identify and describe application-functionality services
+- Identify and describe infrastructure services
+- Identify and describe data storages
+- Identify and describe message queues</p>
 <h4 id="mapping-to-owasp-projects_3">Mapping to OWASP projects<a class="headerlink" href="#mapping-to-owasp-projects_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://github.com/OWASP/ASVS/blob/master/4.0/en/0x10-V1-Architecture.md#v1-architecture-design-and-threat-modeling-requirements">OWASP ASVS, V1 "Architecture, Design and Threat Modeling Requirements", #1.1.5</a></li>
@@ -1374,10 +1374,10 @@ The goal of this article is to provide a concrete proposal of approach to collec
 <h3 id="enforcement-of-the-principle-of-least-privilege">Enforcement of the principle of least privilege<a class="headerlink" href="#enforcement-of-the-principle-of-least-privilege" title="Permanent link">&para;</a></h3>
 <h4 id="implementation-tips_5">Implementation tips<a class="headerlink" href="#implementation-tips_5" title="Permanent link">&para;</a></h4>
 <p>To define minimally needed microservice permissions analyze data collected under the following sections:
-* Identify and describe application-functionality services (parameter "API definition")
-* Identify "service-to-storage" relations
-* Identify "service-to-service" synchronous communications 
-* Identify "service-to-service" asynchronous communications</p>
+- Identify and describe application-functionality services (parameter "API definition")
+- Identify "service-to-storage" relations
+- Identify "service-to-service" synchronous communications 
+- Identify "service-to-service" asynchronous communications</p>
 <h4 id="mapping-to-owasp-projects_5">Mapping to OWASP projects<a class="headerlink" href="#mapping-to-owasp-projects_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://github.com/OWASP/ASVS/blob/master/4.0/en/0x10-V1-Architecture.md#v1-architecture-design-and-threat-modeling-requirements">OWASP ASVS, V1 "Architecture, Design and Threat Modeling Requirements", #1.4.3</a></li>
@@ -1385,8 +1385,8 @@ The goal of this article is to provide a concrete proposal of approach to collec
 <h3 id="sensitive-data-identification-and-classification">Sensitive data identification and classification<a class="headerlink" href="#sensitive-data-identification-and-classification" title="Permanent link">&para;</a></h3>
 <h4 id="implementation-tips_6">Implementation tips<a class="headerlink" href="#implementation-tips_6" title="Permanent link">&para;</a></h4>
 <p>To verify that all sensitive data is identified and classified into protection levels analyze data collected under the following sections:
-* Identify and describe data assets
-* Identify "asset-to-storage" relations</p>
+- Identify and describe data assets
+- Identify "asset-to-storage" relations</p>
 <h4 id="mapping-to-owasp-projects_6">Mapping to OWASP projects<a class="headerlink" href="#mapping-to-owasp-projects_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://github.com/OWASP/ASVS/blob/master/4.0/en/0x10-V1-Architecture.md#v1-architecture-design-and-threat-modeling-requirements">OWASP ASVS, V1 "Architecture, Design and Threat Modeling Requirements", #1.8.1</a></li>
@@ -1394,8 +1394,8 @@ The goal of this article is to provide a concrete proposal of approach to collec
 <h3 id="application-components-businesssecurity-functions-verification">Application components business/security functions verification<a class="headerlink" href="#application-components-businesssecurity-functions-verification" title="Permanent link">&para;</a></h3>
 <h4 id="implementation-tips_7">Implementation tips<a class="headerlink" href="#implementation-tips_7" title="Permanent link">&para;</a></h4>
 <p>To verify the definition and documentation of all application components in terms of the business or security functions they provide analyze data collected under the following sections (parameter "Short description"): 
-* Identify and describe application-functionality services
-* Identify and describe infrastructure services</p>
+- Identify and describe application-functionality services
+- Identify and describe infrastructure services</p>
 <h4 id="mapping-to-owasp-projects_7">Mapping to OWASP projects<a class="headerlink" href="#mapping-to-owasp-projects_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://github.com/OWASP/ASVS/blob/master/4.0/en/0x10-V1-Architecture.md#v1-architecture-design-and-threat-modeling-requirements">OWASP ASVS, V1 "Architecture, Design and Threat Modeling Requirements", #1.11.1</a></li>

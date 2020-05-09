@@ -1065,8 +1065,8 @@
 <p>Most of the projects use third-party dependencies to delegate handling of different kind of operations, <em>e.g.</em> generation of document in a specific format, HTTP communications, data parsing of a specific format, etc.</p>
 <p>It's a good approach because it allows the development team to focus on the real application code supporting the expected business feature. The dependency brings forth an expected downside where the security posture of the real application is now resting on it.</p>
 <p>This aspect is referenced in the following projects:
-* <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/">OWASP TOP 10 2017</a> under the point <em><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities.html">A9 - Using Components with Known Vulnerabilities</a></em>.
-* <a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP Application Security Verification Standard Project</a> under the section <em>V14.2 Dependency</em>.</p>
+- <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/">OWASP TOP 10 2017</a> under the point <em><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities.html">A9 - Using Components with Known Vulnerabilities</a></em>.
+- <a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP Application Security Verification Standard Project</a> under the section <em>V14.2 Dependency</em>.</p>
 <p>Based on this context, it's important for a project to ensure that all the third-party dependencies implemented are clean of any security issue, and if they happen to contain any security issues, the development team needs to be aware of it and apply the required mitigation measures to secure the affected application.</p>
 <p>It's highly recommended to perform automated analysis of the dependencies from the birth of the project. Indeed, if this task is added at the middle or end of the project, it can imply a huge amount of work to handle all the issues identified and that will in turn impose a huge burden on the development team and might to blocking the advancement of the project at hand.</p>
 <p><strong>Note:</strong> </p>
@@ -1102,8 +1102,8 @@
 <p>Update the version of the dependency in the project on a testing environment.</p>
 <p><strong>Step 2:</strong></p>
 <p>Prior to running the tests, 2 output paths are possible:
-* All tests succeed, and thus the update can be pushed to production.
-* One or several tests failed, several output paths are possible:
+- All tests succeed, and thus the update can be pushed to production.
+- One or several tests failed, several output paths are possible:
     * Failure is due to change in some function calls (<em>e.g.</em> signature, argument, package, etc.). The development team must update their code to fit the new library. Once that is done, re-run the tests.
     * Technical incompatibility of the released dependency (<em>e.g.</em> require a more recent runtime version) which leads to the following actions:
         1. Raise the issue to the provider.
@@ -1113,9 +1113,9 @@
 <p>Provider informs the team that it will take a while to fix the issue and, so, a patched version will not be available before months.</p>
 <h3 id="ideal-condition-of-application-of-the-approach_1">Ideal condition of application of the approach<a class="headerlink" href="#ideal-condition-of-application-of-the-approach_1" title="Permanent link">&para;</a></h3>
 <p>Provider can share any of the below with the development team:
-* The exploitation code.
-* The list of impacted functions by the vulnerability.
-* A workaround to prevent the exploitation of the issue.</p>
+- The exploitation code.
+- The list of impacted functions by the vulnerability.
+- A workaround to prevent the exploitation of the issue.</p>
 <h3 id="approach_1">Approach<a class="headerlink" href="#approach_1" title="Permanent link">&para;</a></h3>
 <p><strong>Step 1:</strong></p>
 <p>If a workaround is provided, it should be applied and validated on the testing environment, and thereafter deployed to production.</p>
@@ -1156,8 +1156,8 @@
 <h3 id="approach_2">Approach<a class="headerlink" href="#approach_2" title="Permanent link">&para;</a></h3>
 <p><strong>Step 1:</strong></p>
 <p>If we are in this case due to one of the following conditions, it's a good idea to start a parallel study to find another component better maintained or if it's a commercial component with support <strong>then put pressure</strong> on the provider with the help of your <a href="https://en.wikipedia.org/wiki/Chief_risk_officer">Chief Risk Officer</a> (fallback possible to <a href="https://en.wikipedia.org/wiki/Chief_information_security_officer">Chief Information Security Officer</a>):
-* Provider does not want to fix the issue.
-* Provider does not answer at all.</p>
+- Provider does not want to fix the issue.
+- Provider does not answer at all.</p>
 <p>In all cases, here, we need to handle the vulnerability right now.</p>
 <p><strong>Step 2:</strong></p>
 <p>As we know the vulnerable dependency, we know where it is used in the application (if it's a transitive dependency then we can identify the first level dependency using it using the <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">IDE</a> built-in feature or the dependency management system used (Maven, Gradle, Nuget, NPM, etc.). Note that IDE is also used to identify the calls to the dependency.</p>
@@ -1179,8 +1179,8 @@
 <h2 id="case-4">Case 4<a class="headerlink" href="#case-4" title="Permanent link">&para;</a></h2>
 <h3 id="context_4">Context<a class="headerlink" href="#context_4" title="Permanent link">&para;</a></h3>
 <p>The vulnerable dependency is found during one of the following situation in which the provider is not aware of the vulnerability:
-* Via the discovery of a full disclosure post on the Internet.
-* During a penetration test.</p>
+- Via the discovery of a full disclosure post on the Internet.
+- During a penetration test.</p>
 <h3 id="ideal-condition-of-application-of-the-approach_3">Ideal condition of application of the approach<a class="headerlink" href="#ideal-condition-of-application-of-the-approach_3" title="Permanent link">&para;</a></h3>
 <p>Provider collaborates with you after being notified of the vulnerability.</p>
 <h3 id="approach_3">Approach<a class="headerlink" href="#approach_3" title="Permanent link">&para;</a></h3>
@@ -1191,8 +1191,8 @@
 <h1 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h1>
 <p>This section lists several tools that can used to analyse the dependencies used by a project in order to detect the vulnerabilities.</p>
 <p>It's important to ensure, during the selection process of a vulnerable dependency detection tool, that this one:
-* Uses several reliable input sources in order to handle both vulnerability disclosure ways.
-* Support for flagging an issue raised on a component as a <a href="https://www.whitehatsec.com/glossary/content/false-positive">false-positive</a>.</p>
+- Uses several reliable input sources in order to handle both vulnerability disclosure ways.
+- Support for flagging an issue raised on a component as a <a href="https://www.whitehatsec.com/glossary/content/false-positive">false-positive</a>.</p>
 <ul>
 <li>Free<ul>
 <li><a href="https://owasp.org/www-project-dependency-check/">OWASP Dependency Check</a>: <ul>
