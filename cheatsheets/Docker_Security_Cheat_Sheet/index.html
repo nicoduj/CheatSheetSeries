@@ -470,132 +470,12 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Docker Security Cheat Sheet
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
     
     <a href="./" title="Docker Security Cheat Sheet" class="md-nav__link md-nav__link--active">
       Docker Security Cheat Sheet
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rules" class="md-nav__link">
-    Rules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-0-keep-host-and-docker-up-to-date" class="md-nav__link">
-    RULE #0 - Keep Host and Docker up to date
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-1-do-not-expose-the-docker-daemon-socket-even-to-the-containers" class="md-nav__link">
-    RULE #1 - Do not expose the Docker daemon socket (even to the containers)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-2-set-a-user" class="md-nav__link">
-    RULE #2 - Set a user
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-3-limit-capabilities-grant-only-specific-capabilities-needed-by-a-container" class="md-nav__link">
-    RULE #3 - Limit capabilities (Grant only specific capabilities, needed by a container)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-4-add-no-new-privileges-flag" class="md-nav__link">
-    RULE #4 - Add –no-new-privileges flag
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-5-disable-inter-container-communication-iccfalse" class="md-nav__link">
-    RULE #5 - Disable inter-container communication (--icc=false)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-6-use-linux-security-module-seccomp-apparmor-or-selinux" class="md-nav__link">
-    RULE #6 - Use Linux Security Module (seccomp, AppArmor, or SELinux)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-7-limit-resources-memory-cpu-file-descriptors-processes-restarts" class="md-nav__link">
-    RULE #7 - Limit resources (memory, CPU, file descriptors, processes, restarts)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-8-set-filesystem-and-volumes-to-read-only" class="md-nav__link">
-    RULE #8 - Set filesystem and volumes to read-only
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-9-use-static-analysis-tools" class="md-nav__link">
-    RULE #9 - Use static analysis tools
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-10-set-the-logging-level-to-at-least-info" class="md-nav__link">
-    RULE #10 - Set the logging level to at least INFO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-projects" class="md-nav__link">
-    Related Projects
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -1159,114 +1039,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rules" class="md-nav__link">
-    Rules
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-0-keep-host-and-docker-up-to-date" class="md-nav__link">
-    RULE #0 - Keep Host and Docker up to date
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-1-do-not-expose-the-docker-daemon-socket-even-to-the-containers" class="md-nav__link">
-    RULE #1 - Do not expose the Docker daemon socket (even to the containers)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-2-set-a-user" class="md-nav__link">
-    RULE #2 - Set a user
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-3-limit-capabilities-grant-only-specific-capabilities-needed-by-a-container" class="md-nav__link">
-    RULE #3 - Limit capabilities (Grant only specific capabilities, needed by a container)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-4-add-no-new-privileges-flag" class="md-nav__link">
-    RULE #4 - Add –no-new-privileges flag
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-5-disable-inter-container-communication-iccfalse" class="md-nav__link">
-    RULE #5 - Disable inter-container communication (--icc=false)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-6-use-linux-security-module-seccomp-apparmor-or-selinux" class="md-nav__link">
-    RULE #6 - Use Linux Security Module (seccomp, AppArmor, or SELinux)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-7-limit-resources-memory-cpu-file-descriptors-processes-restarts" class="md-nav__link">
-    RULE #7 - Limit resources (memory, CPU, file descriptors, processes, restarts)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-8-set-filesystem-and-volumes-to-read-only" class="md-nav__link">
-    RULE #8 - Set filesystem and volumes to read-only
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-9-use-static-analysis-tools" class="md-nav__link">
-    RULE #9 - Use static analysis tools
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rule-10-set-the-logging-level-to-at-least-info" class="md-nav__link">
-    RULE #10 - Set the logging level to at least INFO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-projects" class="md-nav__link">
-    Related Projects
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1282,12 +1056,10 @@
                   
                 
                 
-                  <h1>Docker Security Cheat Sheet</h1>
-                
-                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>Docker containers are the most popular containerisation technology. Used properly can increase level of security (in comparison to running application directly on the host). On the other hand some misconfigurations can lead to downgrade level of security or even introduce new vulnerabilities.</p>
 <p>The aim of this cheat sheet is to provide an easy to use list of common security mistakes and good practices that will help you securing your Docker containers.</p>
-<h2 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">&para;</a></h2>
+<h1 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">&para;</a></h1>
 <h2 id="rule-0-keep-host-and-docker-up-to-date">RULE #0 - Keep Host and Docker up to date<a class="headerlink" href="#rule-0-keep-host-and-docker-up-to-date" title="Permanent link">&para;</a></h2>
 <p>To prevent from known, container escapes vulnerabilities, which typically ends in escalating to root/administrator privileges, patching Docker Engine and Docker Machine is crucial.</p>
 <p>In addition containers (unlike in a virtual machines) share kernel with the host, therefore kernel exploit runned inside the container will directly hit host kernel. For example kernel privilege escalation exploit (<a href="https://github.com/scumjr/dirtycow-vdso">like Dirty COW</a>) runned inside well insulated container will result in root access in a host.</p>
@@ -1492,7 +1264,7 @@ It can be done by appending <code>:ro</code> to the <code>-v</code> like this:</
 <li><a href="https://docs.docker.com/config/containers/logging/configure/">Configuring Logging Drivers</a></li>
 <li><a href="https://docs.docker.com/config/containers/logging/">View logs for a container or service</a></li>
 </ul>
-<h2 id="related-projects">Related Projects<a class="headerlink" href="#related-projects" title="Permanent link">&para;</a></h2>
+<h1 id="related-projects">Related Projects<a class="headerlink" href="#related-projects" title="Permanent link">&para;</a></h1>
 <p><a href="https://github.com/OWASP/Docker-Security">OWASP Docker Top 10</a></p>
                 
                   

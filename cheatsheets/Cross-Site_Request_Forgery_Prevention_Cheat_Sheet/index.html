@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#cross-site-request-forgery-csrf-prevention-cheat-sheet" class="md-skip">
           Skip to content
         </a>
       
@@ -386,6 +386,8 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Cross-Site Request Forgery Prevention Cheat Sheet
@@ -401,6 +403,8 @@
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1285,6 +1289,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -1534,9 +1540,8 @@
                   
                 
                 
-                  <h1>Cross-Site Request Forgery Prevention Cheat Sheet</h1>
-                
-                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+                <h1 id="cross-site-request-forgery-csrf-prevention-cheat-sheet">Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet<a class="headerlink" href="#cross-site-request-forgery-csrf-prevention-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p><a href="https://owasp.org/www-community/attacks/csrf">Cross-Site Request Forgery (CSRF)</a> is a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site when the user is authenticated. A CSRF attack works because browser requests automatically include all cookies including session cookies. Therefore, if the user is authenticated to the site, the site cannot distinguish between legitimate requests and forged requests.</p>
 <p>The impact of a successful CSRF attack is limited to the capabilities exposed by the vulnerable application and privileges of the user. For example, this attack could result in a transfer of funds, changing a password, or making a purchase with the user's credentials. In effect, CSRF attacks are used by an attacker to make a target system perform a function via the victim's browser, without the victim's knowledge, at least until the unauthorized transaction has been committed.</p>
 <p>In short, the following principles should be followed to defend against CSRF:</p>
@@ -1556,22 +1561,20 @@
 </ul>
 <h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#contents">Contents</a></li>
 <li><a href="#token-based-mitigation">Token Based Mitigation</a></li>
-<li><a href="#use-built-in-or-existing-csrf-implementations-for-csrf-protection">Use Built-In Or Existing CSRF Implementations for CSRF Protection</a></li>
+<li><a href="#use-built-in-or-existing-csrf-implementations-for-csrf-protection">Use Build-In Or Existing CSRF Implementations for CSRF Protection</a></li>
 <li><a href="#synchronizer-token-pattern">Synchronizer Token Pattern</a></li>
 <li><a href="#encryption-based-token-pattern">Encryption based Token Pattern</a></li>
 <li><a href="#hmac-based-token-pattern">HMAC Based Token Pattern</a></li>
 <li><a href="#defense-in-depth-techniques">Defense In Depth Techniques</a></li>
 <li><a href="#samesite-cookie-attribute">SameSite Cookie Attribute</a></li>
 <li><a href="#verifying-origin-with-standard-headers">Verifying Origin With Standard Headers</a><ul>
-<li><a href="#identifying-source-origin-via-originreferer-header">Identifying Source Origin (via Origin/Referer header)</a></li>
+<li><a href="#identifying-source-origin--via-origin-referer-header-">Identifying Source Origin (via Origin/Referer header)</a></li>
 <li><a href="#identifying-the-target-origin">Identifying the Target Origin</a></li>
 </ul>
 </li>
 <li><a href="#double-submit-cookie">Double Submit Cookie</a><ul>
-<li><a href="#cookie-with-host--prefix">Cookie with __Host- prefix</a></li>
+<li><a href="#cookie-with---host--prefix">Cookie with __Host- prefix</a></li>
 </ul>
 </li>
 <li><a href="#use-of-custom-request-headers">Use of Custom Request Headers</a></li>
@@ -1581,7 +1584,7 @@
 <li><a href="#javascript-guidance-for-auto-inclusion-of-csrf-tokens-as-an-ajax-request-header">JavaScript Guidance for Auto-inclusion of CSRF tokens as an AJAX Request header</a></li>
 <li><a href="#storing-the-csrf-token-value-in-the-dom">Storing the CSRF Token Value in the DOM</a></li>
 <li><a href="#overriding-defaults-to-set-custom-header">Overriding Defaults to Set Custom Header</a><ul>
-<li><a href="#xmlhttprequest-native-javascript">XMLHttpRequest (Native JavaScript)</a></li>
+<li><a href="#xmlhttprequest--native-javascript-">XMLHttpRequest (Native JavaScript)</a></li>
 <li><a href="#angularjs">AngularJS</a></li>
 <li><a href="#axios">Axios</a></li>
 <li><a href="#jquery">JQuery</a></li>
@@ -1589,6 +1592,7 @@
 </li>
 <li><a href="#references">References</a></li>
 <li><a href="#csrf">CSRF</a></li>
+<li><a href="#cookie-prefixes">Cookie Prefixes</a></li>
 </ul>
 <h2 id="token-based-mitigation">Token Based Mitigation<a class="headerlink" href="#token-based-mitigation" title="Permanent link">&para;</a></h2>
 <p>This defense is one of the most popular and recommended methods to mitigate CSRF. It can be achieved either with state (<a href="#synchronizer-token-pattern">synchronizer token pattern</a>) or stateless (<a href="#encryption-based-token-pattern">encrypted</a> or <a href="#hmac-based-token-pattern">hashed</a> based token pattern).</p>

@@ -830,6 +830,8 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Securing Cascading Style Sheets Cheat Sheet
@@ -846,6 +848,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -854,13 +858,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#risk-1" class="md-nav__link">
@@ -872,34 +869,6 @@
         <li class="md-nav__item">
   <a href="#risk-2" class="md-nav__link">
     Risk #2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defensive-mechanisms-to-mitigate-attackers-motivation" class="md-nav__link">
-    Defensive Mechanisms to Mitigate Attacker's Motivation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defense-mechanism" class="md-nav__link">
-    Defense Mechanism
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defense-mechanism-2" class="md-nav__link">
-    Defense Mechanism #2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defense-mechanism-3" class="md-nav__link">
-    Defense Mechanism #3
   </a>
   
 </li>
@@ -1110,6 +1079,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -1118,13 +1089,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#risk-1" class="md-nav__link">
@@ -1136,34 +1100,6 @@
         <li class="md-nav__item">
   <a href="#risk-2" class="md-nav__link">
     Risk #2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defensive-mechanisms-to-mitigate-attackers-motivation" class="md-nav__link">
-    Defensive Mechanisms to Mitigate Attacker's Motivation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defense-mechanism" class="md-nav__link">
-    Defense Mechanism
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defense-mechanism-2" class="md-nav__link">
-    Defense Mechanism #2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defense-mechanism-3" class="md-nav__link">
-    Defense Mechanism #3
   </a>
   
 </li>
@@ -1184,9 +1120,7 @@
                   
                 
                 
-                  <h1>Securing Cascading Style Sheets Cheat Sheet</h1>
-                
-                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>The goal of this <code>CSS</code> (Not <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/">XSS</a>, but <a href="https://www.w3schools.com/css/css_intro.asp">Cascading Style Sheet</a>) Cheat Sheet is to inform Programmers, Testers, Security Analysts, Front-End Developers and anyone who is interested in Web Application Security to use these recommendations or requirements in order to achieve better security when authoring <code>Cascading Style Sheets</code>.</p>
 <p>Let's demonstrate this risk with an example:</p>
 <p>Santhosh is a programmer who works for a company called <strong>X</strong> and authors a Cascading Style Sheet to implement styling of the web application. The application for which he is writing CSS Code has various roles like <strong>Student</strong>, <strong>Teacher</strong>, <strong>Super User</strong> &amp; <strong>Administrator</strong> and these roles have different permissions (PBAC - <a href="../Access_Control_Cheat_Sheet/">Permission Based Access Control</a>) and Roles (RBAC - <a href="../Access_Control_Cheat_Sheet/">Role Based Access Control</a>). Not only do these roles have different access controls, but these roles could also have different styling for webpages that might be specific to an individual or group of roles.</p>
@@ -1212,7 +1146,7 @@
 <p>In a nutshell, having global styling could reveal sensitive information that could be beneficial to the attacker.</p>
 <h2 id="risk-2">Risk #2<a class="headerlink" href="#risk-2" title="Permanent link">&para;</a></h2>
 <p>Let's say, Santhosh has this habit of writing the descriptive selector names like <code>.profileSettings,</code> <code>exportUserData,</code> <code>.changePassword,</code> <code>.oldPassword,</code> <code>.newPassword,</code> <code>.confirmNewPassword</code> etc. Good programmers like to keep code readable and usable by other Code Reviewers of the team. The risk is that attackers could map these selectors to actual features of a web application.</p>
-<h2 id="defensive-mechanisms-to-mitigate-attackers-motivation">Defensive Mechanisms to Mitigate Attacker's Motivation<a class="headerlink" href="#defensive-mechanisms-to-mitigate-attackers-motivation" title="Permanent link">&para;</a></h2>
+<h1 id="defensive-mechanisms-to-mitigate-attackers-motivation">Defensive Mechanisms to Mitigate Attacker's Motivation<a class="headerlink" href="#defensive-mechanisms-to-mitigate-attackers-motivation" title="Permanent link">&para;</a></h1>
 <h2 id="defense-mechanism">Defense Mechanism<a class="headerlink" href="#defense-mechanism" title="Permanent link">&para;</a></h2>
 <p>As a CSS Coder / Programmer, always keep the CSS isolated by access control level. By this, it means <strong>Student</strong> will have a different CSS file called as <code>StudentStyling.CSS</code> while <strong>Administrator</strong> has <code>AdministratorStyling.CSS</code> and so on. Make sure these <code>*.CSS</code> files are accessed only for a user with the proper access control level. Only users with the proper access control level should be able to access their <code>*.CSS</code> file.</p>
 <p>If an authenticated user with the <strong>Student</strong> Role tries to access <code>AdministratorStyling.CSS</code> through forced browsing, an alert that an intrusion is occurring should be recorded.</p>
