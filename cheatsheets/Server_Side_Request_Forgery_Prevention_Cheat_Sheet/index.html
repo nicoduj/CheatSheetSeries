@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#server-side-request-forgery-cheat-sheet" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -842,8 +842,6 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Server Side Request Forgery Prevention Cheat Sheet
@@ -859,8 +857,6 @@
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1255,8 +1251,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -1472,8 +1466,9 @@
                   
                 
                 
-                <h1 id="server-side-request-forgery-cheat-sheet">Server-Side Request Forgery Cheat Sheet<a class="headerlink" href="#server-side-request-forgery-cheat-sheet" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+                  <h1>Server Side Request Forgery Prevention Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The objective of the cheat sheet is to provide advices regarding the protection against <a href="https://www.acunetix.com/blog/articles/server-side-request-forgery-vulnerability/">Server Side Request Forgery</a> (SSRF) attack.</p>
 <p>This cheat sheet will focus on the defensive point of view and will not explain how to perform this attack. This <a href="../../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_Orange_Tsai_Talk.pdf">talk</a> from the security researcher <a href="https://twitter.com/orange_8361">Orange Tsai</a> as well as this <a href="../../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_SSRF_Bible.pdf">document</a> provide techniques on how to perform this kind of attack.</p>
 <h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
@@ -1653,14 +1648,14 @@
     * Local IP address (V4 + V6).
     * Internal IP of your organization (expected to be in private IP ranges) for the domain that are not part of your organization.</p>
 <p>The following Python3 script can be used, as a starting point, for the monitoring mentioned above:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Dependencies: pip install ipaddress dnspython</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">## Dependencies: pip install ipaddress dnspython</span>
 <span class="kn">import</span> <span class="nn">ipaddress</span>
 <span class="kn">import</span> <span class="nn">dns.resolver</span>
 
-<span class="c1"># Configure the whitelist to check</span>
+<span class="c1">## Configure the whitelist to check</span>
 <span class="n">DOMAINS_WHITELIST</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;owasp.org&quot;</span><span class="p">,</span> <span class="s2">&quot;labslinux&quot;</span><span class="p">]</span>
 
-<span class="c1"># Configure the DNS resolver to use for all DNS queries</span>
+<span class="c1">## Configure the DNS resolver to use for all DNS queries</span>
 <span class="n">DNS_RESOLVER</span> <span class="o">=</span> <span class="n">dns</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">Resolver</span><span class="p">()</span>
 <span class="n">DNS_RESOLVER</span><span class="o">.</span><span class="n">nameservers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1.1.1.1&quot;</span><span class="p">]</span>
 

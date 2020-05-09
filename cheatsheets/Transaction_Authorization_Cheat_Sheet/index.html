@@ -902,12 +902,181 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Transaction Authorization Cheat Sheet
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Transaction Authorization Cheat Sheet" class="md-nav__link md-nav__link--active">
       Transaction Authorization Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-and-audience" class="md-nav__link">
+    Purpose and audience
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-functional-guidelines" class="md-nav__link">
+    1. Functional Guidelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-transaction-authorization-method-has-to-allow-a-user-to-identify-and-acknowledge-significant-transaction-data" class="md-nav__link">
+    1.1 Transaction authorization method has to allow a user to identify and acknowledge significant transaction data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-change-of-authorization-token-should-be-authorized-using-the-current-authorization-token" class="md-nav__link">
+    1.2 Change of authorization token should be authorized using the current authorization token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-change-of-authorization-method-should-be-authorized-using-the-current-authorization-method" class="md-nav__link">
+    1.3 Change of authorization method should be authorized using the current authorization method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-users-should-be-able-to-easily-distinguish-the-authentication-process-from-the-transaction-authorization-process" class="md-nav__link">
+    1.4 Users should be able to easily distinguish the authentication process from the transaction authorization process
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-each-transaction-should-be-authorized-using-unique-authorization-credentials" class="md-nav__link">
+    1.5 Each transaction should be authorized using unique authorization credentials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-non-functional-guidelines" class="md-nav__link">
+    2. Non-functional guidelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-authorization-should-be-performed-and-enforced-server-side" class="md-nav__link">
+    2.1 Authorization should be performed and enforced server-side
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-authorization-method-should-be-enforced-server-side" class="md-nav__link">
+    2.2 Authorization method should be enforced server side
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-transaction-verification-data-should-be-generated-server-side" class="md-nav__link">
+    2.3 Transaction verification data should be generated server-side
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-application-should-prevent-authorization-credentials-brute-forcing" class="md-nav__link">
+    2.4 Application should prevent authorization credentials brute-forcing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-application-should-control-which-transaction-state-transitions-are-allowed" class="md-nav__link">
+    2.5 Application should control which transaction state transitions are allowed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-transaction-data-should-be-protected-against-modification" class="md-nav__link">
+    2.6 Transaction data should be protected against modification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-confidentiality-of-the-transaction-data-should-be-protected-during-any-client-server-communications" class="md-nav__link">
+    2.7 Confidentiality of the transaction data should be protected during any client / server communications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-when-a-transaction-is-executed-the-system-should-check-whether-it-was-authorized" class="md-nav__link">
+    2.8 When a transaction is executed, the system should check whether it was authorized
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-authorization-credentials-should-be-valid-only-by-limited-period-of-time" class="md-nav__link">
+    2.9 Authorization credentials should be valid only by limited period of time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-authorization-credentials-should-be-unique-for-every-operation" class="md-nav__link">
+    2.10 Authorization credentials should be unique for every operation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    Remarks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-future-reading" class="md-nav__link">
+    References and future reading
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1208,163 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-and-audience" class="md-nav__link">
+    Purpose and audience
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-functional-guidelines" class="md-nav__link">
+    1. Functional Guidelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-transaction-authorization-method-has-to-allow-a-user-to-identify-and-acknowledge-significant-transaction-data" class="md-nav__link">
+    1.1 Transaction authorization method has to allow a user to identify and acknowledge significant transaction data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-change-of-authorization-token-should-be-authorized-using-the-current-authorization-token" class="md-nav__link">
+    1.2 Change of authorization token should be authorized using the current authorization token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-change-of-authorization-method-should-be-authorized-using-the-current-authorization-method" class="md-nav__link">
+    1.3 Change of authorization method should be authorized using the current authorization method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-users-should-be-able-to-easily-distinguish-the-authentication-process-from-the-transaction-authorization-process" class="md-nav__link">
+    1.4 Users should be able to easily distinguish the authentication process from the transaction authorization process
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-each-transaction-should-be-authorized-using-unique-authorization-credentials" class="md-nav__link">
+    1.5 Each transaction should be authorized using unique authorization credentials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-non-functional-guidelines" class="md-nav__link">
+    2. Non-functional guidelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-authorization-should-be-performed-and-enforced-server-side" class="md-nav__link">
+    2.1 Authorization should be performed and enforced server-side
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-authorization-method-should-be-enforced-server-side" class="md-nav__link">
+    2.2 Authorization method should be enforced server side
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-transaction-verification-data-should-be-generated-server-side" class="md-nav__link">
+    2.3 Transaction verification data should be generated server-side
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-application-should-prevent-authorization-credentials-brute-forcing" class="md-nav__link">
+    2.4 Application should prevent authorization credentials brute-forcing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-application-should-control-which-transaction-state-transitions-are-allowed" class="md-nav__link">
+    2.5 Application should control which transaction state transitions are allowed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-transaction-data-should-be-protected-against-modification" class="md-nav__link">
+    2.6 Transaction data should be protected against modification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-confidentiality-of-the-transaction-data-should-be-protected-during-any-client-server-communications" class="md-nav__link">
+    2.7 Confidentiality of the transaction data should be protected during any client / server communications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-when-a-transaction-is-executed-the-system-should-check-whether-it-was-authorized" class="md-nav__link">
+    2.8 When a transaction is executed, the system should check whether it was authorized
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-authorization-credentials-should-be-valid-only-by-limited-period-of-time" class="md-nav__link">
+    2.9 Authorization credentials should be valid only by limited period of time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-authorization-credentials-should-be-unique-for-every-operation" class="md-nav__link">
+    2.10 Authorization credentials should be unique for every operation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    Remarks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-future-reading" class="md-nav__link">
+    References and future reading
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,14 +1380,16 @@
                   
                 
                 
-                <h1 id="purpose-and-audience">Purpose and audience<a class="headerlink" href="#purpose-and-audience" title="Permanent link">&para;</a></h1>
+                  <h1>Transaction Authorization Cheat Sheet</h1>
+                
+                <h2 id="purpose-and-audience">Purpose and audience<a class="headerlink" href="#purpose-and-audience" title="Permanent link">&para;</a></h2>
 <p>The Purpose of this cheat sheet is to provide guidelines on how to securely implement transaction authorization to protect it from being bypassed. These guidelines can be used by:</p>
 <ul>
 <li><strong>Banks</strong> - to define functional and non-functional requirements for transaction authorization.</li>
 <li><strong>Developers</strong> – to design and implement transaction authorization without vulnerabilities.</li>
 <li><strong>Pentesters</strong> – to test for transaction authorization security.</li>
 </ul>
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Some applications use a second factor to check whether an authorized user is performing sensitive operations. A common example is wire transfer authorization, typically used in online or mobile banking applications. </p>
 <p>For the purpose of this document we will call that process: <em>transaction authorization</em>.</p>
 <p>Usage scenarios are not only limited to financial systems. For example: an e-mail with a secret code or a link with some kind of token to unlock a user account is also a special case of transaction authorization. A user authorizes the operation of account unlocking by using a second factor (a unique code sent to his email address). Transaction authorization can be implemented using various methods, e.g.:</p>
@@ -1076,7 +1402,7 @@
 </ul>
 <p>Some of these can be implemented on a physical device or in a mobile application.</p>
 <p>Transaction authorization is implemented in order to protect for unauthorized wire transfers as a result of attacks using malware, phishing, password or session hijacking, CSRF, XSS, etc.. Unfortunately, as with any piece of code, this protection can be improperly implemented and as a result it might be possible to bypass this safeguard.</p>
-<h1 id="1-functional-guidelines">1. Functional Guidelines<a class="headerlink" href="#1-functional-guidelines" title="Permanent link">&para;</a></h1>
+<h2 id="1-functional-guidelines">1. Functional Guidelines<a class="headerlink" href="#1-functional-guidelines" title="Permanent link">&para;</a></h2>
 <h2 id="11-transaction-authorization-method-has-to-allow-a-user-to-identify-and-acknowledge-significant-transaction-data">1.1 Transaction authorization method has to allow a user to identify and acknowledge significant transaction data<a class="headerlink" href="#11-transaction-authorization-method-has-to-allow-a-user-to-identify-and-acknowledge-significant-transaction-data" title="Permanent link">&para;</a></h2>
 <p>User's computers cannot be trusted due to malware threats. Hence a method that prevents a user from identifying transaction on an external device cannot be considered as secure. Transaction data should be presented and acknowledged using an external authorization component.</p>
 <p>Such a transaction authorization components should be build using the <em>What You See Is What You Sign</em> principle. When a user authorizes a transaction he needs to know what he is authorizing. Based on this principle, an authorization method must permit a user to identify and acknowledge the data which are significant to a given transaction. For example, in the case of a wire transfer: the target account and amount.</p>
@@ -1109,7 +1435,7 @@
 </ul>
 <h2 id="15-each-transaction-should-be-authorized-using-unique-authorization-credentials">1.5 Each transaction should be authorized using unique authorization credentials<a class="headerlink" href="#15-each-transaction-should-be-authorized-using-unique-authorization-credentials" title="Permanent link">&para;</a></h2>
 <p>Some applications are asking for transaction authorization credentials only once, e.g. static password, code sent through SMS, token response. Afterwards a user is able to authorize any transaction during the whole user's session or at least he has to reuse the same credentials each time he needs to authorize a transaction. Such behavior is not sufficient to prevent malware attacks because malware will sniff such credentials and use them to authorize any transaction without the user's knowledge.</p>
-<h1 id="2-non-functional-guidelines">2. Non-functional guidelines<a class="headerlink" href="#2-non-functional-guidelines" title="Permanent link">&para;</a></h1>
+<h2 id="2-non-functional-guidelines">2. Non-functional guidelines<a class="headerlink" href="#2-non-functional-guidelines" title="Permanent link">&para;</a></h2>
 <h2 id="21-authorization-should-be-performed-and-enforced-server-side">2.1 Authorization should be performed and enforced server-side<a class="headerlink" href="#21-authorization-should-be-performed-and-enforced-server-side" title="Permanent link">&para;</a></h2>
 <p>As for <a href="https://cwe.mitre.org/data/definitions/602.html">all other security controls</a> transaction authorization should be enforced server-side. By no means it should be possible to influence the authorization result by altering data which flows from a client to a server, e.g. by:</p>
 <ul>
@@ -1171,7 +1497,7 @@
 <p>In some malware attacks scenarios, authorization credentials entered by the user is passed to malware command and control server (C&amp;C) and then used from an attacker-controlled machine. Such a process is often performed manually by an attacker. To make such attacks difficult, the server should allow authorizing the transaction only in a limited time window between generating of challenge or OTP and the transaction authorization. Additionally, such safeguard will also aid in preventing resource exhaustion attacks. The time window should be carefully selected to not disrupt normal users' behavior.</p>
 <h2 id="210-authorization-credentials-should-be-unique-for-every-operation">2.10 Authorization credentials should be unique for every operation<a class="headerlink" href="#210-authorization-credentials-should-be-unique-for-every-operation" title="Permanent link">&para;</a></h2>
 <p>To prevent all sorts of replay attacks, authorization credentials should be unique for every operation. It could be achieved using different methods depending on the applied transaction authorization mechanism. For example: using a timestamp, a sequence number or a random value in signed transaction data or as a part of a challenge.</p>
-<h1 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">&para;</a></h1>
+<h2 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">&para;</a></h2>
 <p>We identify other issues that should be taken into consideration while implementing transaction authorization. However we deem to be beyond the scope of this cheat sheet:</p>
 <ul>
 <li>Which transactions should be authorized? All transactions or only some of them. Each application is different and an application owner should decide if all transactions should be authorized or only some of them, considering risk analysis, risk exposition of given application, and other safeguards implemented in an application.</li>
@@ -1183,7 +1509,7 @@
 <li>Protection of the signing keys using a second factor either be password, biometric, etc..</li>
 <li>Protection of the signing keys leveraging secure elements (TEE, TPM, Smart card..)</li>
 </ul>
-<h1 id="references-and-future-reading">References and future reading<a class="headerlink" href="#references-and-future-reading" title="Permanent link">&para;</a></h1>
+<h2 id="references-and-future-reading">References and future reading<a class="headerlink" href="#references-and-future-reading" title="Permanent link">&para;</a></h2>
 <p>References and future reading:
 - Wojciech Dworakowski: <a href="http://www.slideshare.net/wojdwo/ebanking-transaction-authorization-appsec-eu-2015-amsterdam">E-banking transaction authorization - possible vulnerabilities, security verification and best practices for implementation. Presentation from AppSec EU 2015</a>.
 - Saar Drimer, Steven J. Murdoch, and Ross Anderson: <a href="http://www.cl.cam.ac.uk/~sjm217/papers/fc09optimised.pdf">Optimised to Fail - Card Readers for Online Banking</a>.

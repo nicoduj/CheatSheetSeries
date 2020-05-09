@@ -458,12 +458,240 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Deserialization Cheat Sheet
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Deserialization Cheat Sheet" class="md-nav__link md-nav__link--active">
       Deserialization Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-deserialization" class="md-nav__link">
+    What is Deserialization?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guidance-on-deserializing-objects-safely" class="md-nav__link">
+    Guidance on Deserializing Objects Safely
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+    <nav class="md-nav" aria-label="Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blackbox-review" class="md-nav__link">
+    BlackBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review_1" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java
+  </a>
+  
+    <nav class="md-nav" aria-label="Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review_2" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blackbox-review_1" class="md-nav__link">
+    BlackBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent-data-leakage-and-trusted-field-clobbering" class="md-nav__link">
+    Prevent Data Leakage and Trusted Field Clobbering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent-deserialization-of-domain-objects" class="md-nav__link">
+    Prevent Deserialization of Domain Objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harden-your-own-javaioobjectinputstream" class="md-nav__link">
+    Harden Your Own java.io.ObjectInputStream
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harden-all-javaioobjectinputstream-usage-with-an-agent" class="md-nav__link">
+    Harden All java.io.ObjectInputStream Usage with an Agent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-csharp" class="md-nav__link">
+    .Net CSharp
+  </a>
+  
+    <nav class="md-nav" aria-label=".Net CSharp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review_3" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blackbox-review_2" class="md-nav__link">
+    BlackBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-precautions" class="md-nav__link">
+    General Precautions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-net-rce-gadgets" class="md-nav__link">
+    Known .NET RCE Gadgets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-agnostic-methods-for-deserializing-safely" class="md-nav__link">
+    Language-Agnostic Methods for Deserializing Safely
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-alternative-data-formats" class="md-nav__link">
+    Using Alternative Data Formats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#only-deserialize-signed-data" class="md-nav__link">
+    Only Deserialize Signed Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mitigation-toolslibraries" class="md-nav__link">
+    Mitigation Tools/Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-tools" class="md-nav__link">
+    Detection Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1267,222 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-deserialization" class="md-nav__link">
+    What is Deserialization?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guidance-on-deserializing-objects-safely" class="md-nav__link">
+    Guidance on Deserializing Objects Safely
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+    <nav class="md-nav" aria-label="Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blackbox-review" class="md-nav__link">
+    BlackBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review_1" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java
+  </a>
+  
+    <nav class="md-nav" aria-label="Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review_2" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blackbox-review_1" class="md-nav__link">
+    BlackBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent-data-leakage-and-trusted-field-clobbering" class="md-nav__link">
+    Prevent Data Leakage and Trusted Field Clobbering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent-deserialization-of-domain-objects" class="md-nav__link">
+    Prevent Deserialization of Domain Objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harden-your-own-javaioobjectinputstream" class="md-nav__link">
+    Harden Your Own java.io.ObjectInputStream
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harden-all-javaioobjectinputstream-usage-with-an-agent" class="md-nav__link">
+    Harden All java.io.ObjectInputStream Usage with an Agent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-csharp" class="md-nav__link">
+    .Net CSharp
+  </a>
+  
+    <nav class="md-nav" aria-label=".Net CSharp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitebox-review_3" class="md-nav__link">
+    WhiteBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blackbox-review_2" class="md-nav__link">
+    BlackBox Review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-precautions" class="md-nav__link">
+    General Precautions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-net-rce-gadgets" class="md-nav__link">
+    Known .NET RCE Gadgets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-agnostic-methods-for-deserializing-safely" class="md-nav__link">
+    Language-Agnostic Methods for Deserializing Safely
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-alternative-data-formats" class="md-nav__link">
+    Using Alternative Data Formats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#only-deserialize-signed-data" class="md-nav__link">
+    Only Deserialize Signed Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mitigation-toolslibraries" class="md-nav__link">
+    Mitigation Tools/Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-tools" class="md-nav__link">
+    Detection Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,14 +1498,16 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Deserialization Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This article is focused on providing clear, actionable guidance for safely deserializing untrusted data in your applications.</p>
-<h1 id="what-is-deserialization">What is Deserialization?<a class="headerlink" href="#what-is-deserialization" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-deserialization">What is Deserialization?<a class="headerlink" href="#what-is-deserialization" title="Permanent link">&para;</a></h2>
 <p><strong>Serialization</strong> is the process of turning some object into a data format that can be restored later. People often serialize objects in order to save them to storage, or to send as part of communications. </p>
 <p><strong>Deserialization</strong> is the reverse of that process, taking data structured from some format, and rebuilding it into an object. Today, the most popular data format for serializing data is JSON. Before that, it was XML.</p>
 <p>However, many programming languages offer a native capability for serializing objects. These native formats usually offer more features than JSON or XML, including customizability of the serialization process. </p>
 <p>Unfortunately, the features of these native deserialization mechanisms can be repurposed for malicious effect when operating on untrusted data. Attacks against deserializers have been found to allow denial-of-service, access control, and remote code execution (RCE) attacks.</p>
-<h1 id="guidance-on-deserializing-objects-safely">Guidance on Deserializing Objects Safely<a class="headerlink" href="#guidance-on-deserializing-objects-safely" title="Permanent link">&para;</a></h1>
+<h2 id="guidance-on-deserializing-objects-safely">Guidance on Deserializing Objects Safely<a class="headerlink" href="#guidance-on-deserializing-objects-safely" title="Permanent link">&para;</a></h2>
 <p>The following language-specific guidance attempts to enumerate safe methodologies for deserializing data that can't be trusted.</p>
 <h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
 <h3 id="whitebox-review">WhiteBox Review<a class="headerlink" href="#whitebox-review" title="Permanent link">&para;</a></h3>
@@ -1253,19 +1697,19 @@
 <li><code>System.Data.DataViewManager, System.Xml.XmlDocument/XmlDataDocument</code></li>
 <li><code>System.Management.Automation.PSObject</code></li>
 </ul>
-<h1 id="language-agnostic-methods-for-deserializing-safely">Language-Agnostic Methods for Deserializing Safely<a class="headerlink" href="#language-agnostic-methods-for-deserializing-safely" title="Permanent link">&para;</a></h1>
+<h2 id="language-agnostic-methods-for-deserializing-safely">Language-Agnostic Methods for Deserializing Safely<a class="headerlink" href="#language-agnostic-methods-for-deserializing-safely" title="Permanent link">&para;</a></h2>
 <h2 id="using-alternative-data-formats">Using Alternative Data Formats<a class="headerlink" href="#using-alternative-data-formats" title="Permanent link">&para;</a></h2>
 <p>A great reduction of risk is achieved by avoiding native (de)serialization formats. By switching to a pure data format like JSON or XML, you lessen the chance of custom deserialization logic being repurposed towards malicious ends.</p>
 <p>Many applications rely on a <a href="https://en.wikipedia.org/wiki/Data_transfer_object">data-transfer object pattern</a> that involves creating a separate domain of objects for the explicit purpose data transfer. Of course, it's still possible that the application will make security mistakes after a pure data object is parsed.</p>
 <h2 id="only-deserialize-signed-data">Only Deserialize Signed Data<a class="headerlink" href="#only-deserialize-signed-data" title="Permanent link">&para;</a></h2>
 <p>If the application knows before deserialization which messages will need to be processed, they could sign them as part of the serialization process. The application could then to choose not to deserialize any message which didn't have an authenticated signature.</p>
-<h1 id="mitigation-toolslibraries">Mitigation Tools/Libraries<a class="headerlink" href="#mitigation-toolslibraries" title="Permanent link">&para;</a></h1>
+<h2 id="mitigation-toolslibraries">Mitigation Tools/Libraries<a class="headerlink" href="#mitigation-toolslibraries" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://github.com/ikkisoft/SerialKiller">Java secure deserialization library</a></li>
 <li><a href="https://github.com/cschneider4711/SWAT">SWAT</a> (Serial Whitelist Application Trainer)</li>
 <li><a href="https://github.com/kantega/notsoserial">NotSoSerial</a></li>
 </ul>
-<h1 id="detection-tools">Detection Tools<a class="headerlink" href="#detection-tools" title="Permanent link">&para;</a></h1>
+<h2 id="detection-tools">Detection Tools<a class="headerlink" href="#detection-tools" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet">Java deserialization cheat sheet aimed at pen testers</a></li>
 <li><a href="https://github.com/frohoff/ysoserial">A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization.</a></li>
@@ -1286,7 +1730,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet">Java-Deserialization-Cheat-Sheet</a></li>
 <li><a href="https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data">Deserialization of untrusted data</a></li>

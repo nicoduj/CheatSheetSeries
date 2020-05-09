@@ -398,8 +398,6 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Cross Site Scripting Prevention Cheat Sheet
@@ -416,8 +414,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -426,6 +422,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#a-positive-xss-prevention-model" class="md-nav__link">
@@ -444,6 +447,165 @@
         <li class="md-nav__item">
   <a href="#you-need-a-security-encoding-library" class="md-nav__link">
     You Need a Security Encoding Library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xss-prevention-rules" class="md-nav__link">
+    XSS Prevention Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-0-never-insert-untrusted-data-except-in-allowed-locations" class="md-nav__link">
+    RULE #0 - Never Insert Untrusted Data Except in Allowed Locations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-1-html-escape-before-inserting-untrusted-data-into-html-element-content" class="md-nav__link">
+    RULE #1 - HTML Escape Before Inserting Untrusted Data into HTML Element Content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-2-attribute-escape-before-inserting-untrusted-data-into-html-common-attributes" class="md-nav__link">
+    RULE #2 - Attribute Escape Before Inserting Untrusted Data into HTML Common Attributes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-3-javascript-escape-before-inserting-untrusted-data-into-javascript-data-values" class="md-nav__link">
+    RULE #3 - JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values
+  </a>
+  
+    <nav class="md-nav" aria-label="RULE #3 - JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-31-html-escape-json-values-in-an-html-context-and-read-the-data-with-jsonparse" class="md-nav__link">
+    RULE #3.1 - HTML escape JSON values in an HTML context and read the data with JSON.parse
+  </a>
+  
+    <nav class="md-nav" aria-label="RULE #3.1 - HTML escape JSON values in an HTML context and read the data with JSON.parse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization" class="md-nav__link">
+    JSON serialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-entity-encoding" class="md-nav__link">
+    HTML entity encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-4-css-escape-and-strictly-validate-before-inserting-untrusted-data-into-html-style-property-values" class="md-nav__link">
+    RULE #4 - CSS Escape And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-5-url-escape-before-inserting-untrusted-data-into-html-url-parameter-values" class="md-nav__link">
+    RULE #5 - URL Escape Before Inserting Untrusted Data into HTML URL Parameter Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-6-sanitize-html-markup-with-a-library-designed-for-the-job" class="md-nav__link">
+    RULE #6 - Sanitize HTML Markup with a Library Designed for the Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-7-avoid-javascript-urls" class="md-nav__link">
+    RULE #7 - Avoid JavaScript URL's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-8-prevent-dom-based-xss" class="md-nav__link">
+    RULE #8 - Prevent DOM-based XSS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-1-use-httponly-cookie-flag" class="md-nav__link">
+    Bonus Rule #1: Use HTTPOnly cookie flag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-2-implement-content-security-policy" class="md-nav__link">
+    Bonus Rule #2: Implement Content Security Policy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-3-use-an-auto-escaping-template-system" class="md-nav__link">
+    Bonus Rule #3: Use an Auto-Escaping Template System
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-4-properly-use-modern-js-frameworks" class="md-nav__link">
+    Bonus Rule #4: Properly use modern JS frameworks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x-xss-protection-header" class="md-nav__link">
+    X-XSS-Protection Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xss-prevention-rules-summary" class="md-nav__link">
+    XSS Prevention Rules Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-encoding-rules-summary" class="md-nav__link">
+    Output Encoding Rules Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-articles" class="md-nav__link">
+    Related Articles
   </a>
   
 </li>
@@ -1086,8 +1248,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -1096,6 +1256,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#a-positive-xss-prevention-model" class="md-nav__link">
@@ -1118,6 +1285,165 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#xss-prevention-rules" class="md-nav__link">
+    XSS Prevention Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-0-never-insert-untrusted-data-except-in-allowed-locations" class="md-nav__link">
+    RULE #0 - Never Insert Untrusted Data Except in Allowed Locations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-1-html-escape-before-inserting-untrusted-data-into-html-element-content" class="md-nav__link">
+    RULE #1 - HTML Escape Before Inserting Untrusted Data into HTML Element Content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-2-attribute-escape-before-inserting-untrusted-data-into-html-common-attributes" class="md-nav__link">
+    RULE #2 - Attribute Escape Before Inserting Untrusted Data into HTML Common Attributes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-3-javascript-escape-before-inserting-untrusted-data-into-javascript-data-values" class="md-nav__link">
+    RULE #3 - JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values
+  </a>
+  
+    <nav class="md-nav" aria-label="RULE #3 - JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-31-html-escape-json-values-in-an-html-context-and-read-the-data-with-jsonparse" class="md-nav__link">
+    RULE #3.1 - HTML escape JSON values in an HTML context and read the data with JSON.parse
+  </a>
+  
+    <nav class="md-nav" aria-label="RULE #3.1 - HTML escape JSON values in an HTML context and read the data with JSON.parse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization" class="md-nav__link">
+    JSON serialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-entity-encoding" class="md-nav__link">
+    HTML entity encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-4-css-escape-and-strictly-validate-before-inserting-untrusted-data-into-html-style-property-values" class="md-nav__link">
+    RULE #4 - CSS Escape And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-5-url-escape-before-inserting-untrusted-data-into-html-url-parameter-values" class="md-nav__link">
+    RULE #5 - URL Escape Before Inserting Untrusted Data into HTML URL Parameter Values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-6-sanitize-html-markup-with-a-library-designed-for-the-job" class="md-nav__link">
+    RULE #6 - Sanitize HTML Markup with a Library Designed for the Job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-7-avoid-javascript-urls" class="md-nav__link">
+    RULE #7 - Avoid JavaScript URL's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-8-prevent-dom-based-xss" class="md-nav__link">
+    RULE #8 - Prevent DOM-based XSS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-1-use-httponly-cookie-flag" class="md-nav__link">
+    Bonus Rule #1: Use HTTPOnly cookie flag
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-2-implement-content-security-policy" class="md-nav__link">
+    Bonus Rule #2: Implement Content Security Policy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-3-use-an-auto-escaping-template-system" class="md-nav__link">
+    Bonus Rule #3: Use an Auto-Escaping Template System
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-rule-4-properly-use-modern-js-frameworks" class="md-nav__link">
+    Bonus Rule #4: Properly use modern JS frameworks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x-xss-protection-header" class="md-nav__link">
+    X-XSS-Protection Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xss-prevention-rules-summary" class="md-nav__link">
+    XSS Prevention Rules Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-encoding-rules-summary" class="md-nav__link">
+    Output Encoding Rules Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-articles" class="md-nav__link">
+    Related Articles
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1134,7 +1460,9 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Cross Site Scripting Prevention Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This article provides a simple positive model for preventing <a href="https://owasp.org/www-community/attacks/xss/">XSS</a> using output escaping/encoding properly. While there are a huge number of XSS attack vectors, following a few simple rules can completely defend against this serious attack.</p>
 <p>This article does not explore the technical or business impact of XSS. Suffice it to say that it can lead to an attacker gaining the ability to do anything a victim can do through their browser.</p>
 <p>Both <a href="https://owasp.org/www-community/attacks/xss/#stored-and-reflected-xss-attacks">reflected and stored XSS</a> can be addressed by performing the appropriate validation and escaping on the server-side. <a href="https://owasp.org/www-community/attacks/DOM_Based_XSS">DOM Based XSS</a> can be addressed with a special subset of rules described in the <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/">DOM based XSS Prevention Cheat Sheet</a>.</p>
@@ -1152,7 +1480,7 @@ tag anywhere, or an event handler attribute like onmouseover, or inside CSS, or 
 <p>Writing these encoders is not tremendously difficult, but there are quite a few hidden pitfalls. For example, you might be tempted to use some of the escaping shortcuts like <code>\"</code> in JavaScript. However, these values are dangerous and may be misinterpreted by the nested parsers in the browser. You might also forget to escape the escape character, which attackers can use to neutralize your attempts to be safe. OWASP recommends using a security-focused encoding library to make sure these rules are properly implemented.</p>
 <p>Microsoft provides an encoding library named the <a href="https://archive.codeplex.com/?p=wpl">Microsoft Anti-Cross Site Scripting Library</a> for the .NET platform and ASP.NET Framework has built-in <a href="https://msdn.microsoft.com/en-us/library/ms972969.aspx#securitybarriers_topic6">ValidateRequest</a> function that provides <strong>limited</strong> sanitization.</p>
 <p>The <a href="https://owasp.org/www-project-java-encoder/">OWASP Java Encoder Project</a> provides a high-performance encoding library for Java.</p>
-<h1 id="xss-prevention-rules">XSS Prevention Rules<a class="headerlink" href="#xss-prevention-rules" title="Permanent link">&para;</a></h1>
+<h2 id="xss-prevention-rules">XSS Prevention Rules<a class="headerlink" href="#xss-prevention-rules" title="Permanent link">&para;</a></h2>
 <p>The following rules are intended to prevent all XSS in your application. While these rules do not allow absolute freedom in putting untrusted data into an HTML document, they should cover the vast majority of common use cases. You do not have to allow <strong>all</strong> the rules in your organization. Many organizations may find that <strong>allowing only Rule #1 and Rule #2 are sufficient for their needs</strong>. Please add a note to the discussion page if there is an additional context that is often required and can be secured with escaping.</p>
 <p><strong>Do NOT</strong> simply escape the list of example characters provided in the various rules. It is NOT sufficient to escape only that list. Blacklist approaches are quite fragile. The whitelist rules here have been carefully designed to provide protection even against future vulnerabilities introduced by browser changes.</p>
 <h2 id="rule-0-never-insert-untrusted-data-except-in-allowed-locations">RULE #0 - Never Insert Untrusted Data Except in Allowed Locations<a class="headerlink" href="#rule-0-never-insert-untrusted-data-except-in-allowed-locations" title="Permanent link">&para;</a></h2>
@@ -1453,7 +1781,7 @@ If you <strong>really</strong> have to use them remember that now all the data m
 <li><a href="https://github.com/zaproxy/zaproxy/issues/5849">OWASP ZAP deprecated the scan for the header</a></li>
 <li><a href="https://scotthelme.co.uk/security-headers-updates/#removing-the-x-xss-protection-header">SecurityHeaders.com no longer scans for the header</a></li>
 </ul>
-<h1 id="xss-prevention-rules-summary">XSS Prevention Rules Summary<a class="headerlink" href="#xss-prevention-rules-summary" title="Permanent link">&para;</a></h1>
+<h2 id="xss-prevention-rules-summary">XSS Prevention Rules Summary<a class="headerlink" href="#xss-prevention-rules-summary" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1516,7 +1844,7 @@ If you <strong>really</strong> have to use them remember that now all the data m
 </table>
 <p>The following snippets of HTML demonstrate how to safely render untrusted data in a variety of different contexts.</p>
 <p><strong>Safe HTML Attributes include:</strong> <code>align</code>, <code>alink</code>, <code>alt</code>, <code>bgcolor</code>, <code>border</code>, <code>cellpadding</code>, <code>cellspacing</code>, <code>class</code>, <code>color</code>, <code>cols</code>, <code>colspan</code>, <code>coords</code>, <code>dir</code>, <code>face</code>, <code>height</code>, <code>hspace</code>, <code>ismap</code>, <code>lang</code>, <code>marginheight</code>, <code>marginwidth</code>, <code>multiple</code>, <code>nohref</code>, <code>noresize</code>, <code>noshade</code>, <code>nowrap</code>, <code>ref</code>, <code>rel</code>, <code>rev</code>, <code>rows</code>, <code>rowspan</code>, <code>scrolling</code>, <code>shape</code>, <code>span</code>, <code>summary</code>, <code>tabindex</code>, <code>title</code>, <code>usemap</code>, <code>valign</code>, <code>value</code>, <code>vlink</code>, <code>vspace</code>, <code>width</code>.</p>
-<h1 id="output-encoding-rules-summary">Output Encoding Rules Summary<a class="headerlink" href="#output-encoding-rules-summary" title="Permanent link">&para;</a></h1>
+<h2 id="output-encoding-rules-summary">Output Encoding Rules Summary<a class="headerlink" href="#output-encoding-rules-summary" title="Permanent link">&para;</a></h2>
 <p>The purpose of output encoding (as it relates to Cross Site Scripting) is to convert untrusted input into a safe form where the input is displayed as <strong>data</strong> to the user without executing as <strong>code</strong> in the browser. The following charts details a list of critical output encoding methods needed to stop Cross Site Scripting.</p>
 <table>
 <thead>
@@ -1548,7 +1876,7 @@ If you <strong>really</strong> have to use them remember that now all the data m
 </tr>
 </tbody>
 </table>
-<h1 id="related-articles">Related Articles<a class="headerlink" href="#related-articles" title="Permanent link">&para;</a></h1>
+<h2 id="related-articles">Related Articles<a class="headerlink" href="#related-articles" title="Permanent link">&para;</a></h2>
 <p><strong>XSS Attack Cheat Sheet</strong></p>
 <p>The following article describes how to exploit different kinds of XSS Vulnerabilities that this article was created to help you avoid:</p>
 <ul>

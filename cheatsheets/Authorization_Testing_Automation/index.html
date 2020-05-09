@@ -290,12 +290,90 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Authorization Testing Automation
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Authorization Testing Automation" class="md-nav__link md-nav__link--active">
       Authorization Testing Automation
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposition" class="md-nav__link">
+    Proposition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-matrix-pivot-file" class="md-nav__link">
+    Authorization matrix pivot file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-of-the-authorization-matrix-for-audit-review" class="md-nav__link">
+    Rendering of the authorization matrix for audit / review
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-the-prototype" class="md-nav__link">
+    Sources of the prototype
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1117,72 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposition" class="md-nav__link">
+    Proposition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-matrix-pivot-file" class="md-nav__link">
+    Authorization matrix pivot file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-of-the-authorization-matrix-for-audit-review" class="md-nav__link">
+    Rendering of the authorization matrix for audit / review
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-the-prototype" class="md-nav__link">
+    Sources of the prototype
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,19 +1198,21 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Authorization Testing Automation</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Authorizations definition and implementation is one of the important protection measure of an application. They are defined in the creation phase of the project and, even if authorization issues are found when the application is initially released and submitted to a security audit before to go live, the most significant number of issues related to authorization came in the maintenance lifetime of the application.</p>
 <p>This situation is often explained by the fact that features are added/modified and no review of the authorizations was performed on the application before the publishing of the new release, for cost or time issue reason.</p>
-<h1 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h1>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>In order to try to address this situation, it's can be interesting to automate the evaluation of the authorizations definition and implementation on the application. This, to constantly ensure that implementation of the authorizations in the application is consistent with the authorizations definition.</p>
 <p>An authorization is often composed by 2 elements (also named dimensions): The <strong>Feature</strong> and the <strong>Logical Role</strong> that can access it (sometime a third dimension named <strong>Data</strong> is added in order to define a access that include a filtering at business data level).</p>
 <p>The representation of the different combinations of these 2 dimensions is often named an <strong>Authorization matrix</strong> and is often formalized in an Microsoft Excel file.</p>
 <p>During a test of an authorization, a <strong>Logical Role</strong> is also called a <strong>Point Of View</strong>.</p>
-<h1 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h2>
 <p>This article describe a proposition of implementation in order to automate the tests of an <em>authorization matrix</em>.</p>
 <p>This article use the assumption that 2 dimensions are used to represents an authorization for the technical proposition described and take as example a application exposing REST services.</p>
 <p>The objective is to provide starting ideas/hints in order to create a tailored way of testing of the authorization matrix for the target application.</p>
-<h1 id="proposition">Proposition<a class="headerlink" href="#proposition" title="Permanent link">&para;</a></h1>
+<h2 id="proposition">Proposition<a class="headerlink" href="#proposition" title="Permanent link">&para;</a></h2>
 <p>In order to achieve the full automation of the evaluation of the <em>authorization matrix</em>, the following actions has been performed:</p>
 <ol>
 <li>
@@ -1437,7 +1581,7 @@
 </code></pre></div>
 
 
-<h1 id="rendering-of-the-authorization-matrix-for-audit-review">Rendering of the authorization matrix for audit / review<a class="headerlink" href="#rendering-of-the-authorization-matrix-for-audit-review" title="Permanent link">&para;</a></h1>
+<h2 id="rendering-of-the-authorization-matrix-for-audit-review">Rendering of the authorization matrix for audit / review<a class="headerlink" href="#rendering-of-the-authorization-matrix-for-audit-review" title="Permanent link">&para;</a></h2>
 <p>Even if the authorization matrix is stored in a human readable format (XML), it can be interesting to provide an on-the-fly rendering representation of the XML file in order to facilitate the review, audit and discussion about the authorization matrix in order to spot potential inconsistencies.</p>
 <p>The Following XSL stylesheet can be used:</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -1546,7 +1690,7 @@
 
 <p>Example of the rendering:</p>
 <p><img alt="RenderingExample" src="../../assets/Authorization_Testing_Automation_AutomationRendering.png" /></p>
-<h1 id="sources-of-the-prototype">Sources of the prototype<a class="headerlink" href="#sources-of-the-prototype" title="Permanent link">&para;</a></h1>
+<h2 id="sources-of-the-prototype">Sources of the prototype<a class="headerlink" href="#sources-of-the-prototype" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/righettod/poc-authz-testing">Github repository</a></p>
                 
                   

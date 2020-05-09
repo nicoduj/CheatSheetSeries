@@ -926,12 +926,90 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Unvalidated Redirects and Forwards Cheat Sheet
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link md-nav__link--active">
       Unvalidated Redirects and Forwards Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safe-url-redirects" class="md-nav__link">
+    Safe URL Redirects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dangerous-url-redirects" class="md-nav__link">
+    Dangerous URL Redirects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dangerous-url-redirect-example-1" class="md-nav__link">
+    Dangerous URL Redirect Example 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dangerous-forward-example" class="md-nav__link">
+    Dangerous Forward Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preventing-unvalidated-redirects-and-forwards" class="md-nav__link">
+    Preventing Unvalidated Redirects and Forwards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-urls" class="md-nav__link">
+    Validating URLs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1117,72 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safe-url-redirects" class="md-nav__link">
+    Safe URL Redirects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dangerous-url-redirects" class="md-nav__link">
+    Dangerous URL Redirects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dangerous-url-redirect-example-1" class="md-nav__link">
+    Dangerous URL Redirect Example 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dangerous-forward-example" class="md-nav__link">
+    Dangerous Forward Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preventing-unvalidated-redirects-and-forwards" class="md-nav__link">
+    Preventing Unvalidated Redirects and Forwards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validating-urls" class="md-nav__link">
+    Validating URLs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,10 +1198,12 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Unvalidated Redirects and Forwards Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Unvalidated redirects and forwards are possible when a web application accepts untrusted input that could cause the web application to redirect the request to a URL contained within untrusted input. By modifying untrusted URL input to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. </p>
 <p>Because the server name in the modified link is identical to the original site, phishing attempts may have a more trustworthy appearance. Unvalidated redirect and forward attacks can also be used to maliciously craft a URL that would pass the application's access control check and then forward the attacker to privileged functions that they would normally not be able to access.</p>
-<h1 id="safe-url-redirects">Safe URL Redirects<a class="headerlink" href="#safe-url-redirects" title="Permanent link">&para;</a></h1>
+<h2 id="safe-url-redirects">Safe URL Redirects<a class="headerlink" href="#safe-url-redirects" title="Permanent link">&para;</a></h2>
 <p>When we want to redirect a user automatically to another page (without an action of the visitor such as clicking on a hyperlink) you might implement a code such as the following:</p>
 <p>Java</p>
 <div class="codehilite"><pre><span></span><code><span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="s">&quot;http://www.mysite.com&quot;</span><span class="p">);</span>
@@ -1087,7 +1231,7 @@
 
 
 <p>In the examples above, the URL is being explicitly declared in the code and cannot be manipulated by an attacker.</p>
-<h1 id="dangerous-url-redirects">Dangerous URL Redirects<a class="headerlink" href="#dangerous-url-redirects" title="Permanent link">&para;</a></h1>
+<h2 id="dangerous-url-redirects">Dangerous URL Redirects<a class="headerlink" href="#dangerous-url-redirects" title="Permanent link">&para;</a></h2>
 <p>The following examples demonstrate unsafe redirect and forward code.</p>
 <h2 id="dangerous-url-redirect-example-1">Dangerous URL Redirect Example 1<a class="headerlink" href="#dangerous-url-redirect-example-1" title="Permanent link">&para;</a></h2>
 <p>The following Java code receives the URL from the parameter named <code>url</code> (<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequest.html#getParameter-java.lang.String-">GET or POST</a>) and redirects to that URL:</p>
@@ -1188,7 +1332,7 @@ ASP.NET MVC 2 LogOn action in `AccountController.cs` (see Microsoft Docs link pr
 </code></pre></div>
 
 
-<h1 id="preventing-unvalidated-redirects-and-forwards">Preventing Unvalidated Redirects and Forwards<a class="headerlink" href="#preventing-unvalidated-redirects-and-forwards" title="Permanent link">&para;</a></h1>
+<h2 id="preventing-unvalidated-redirects-and-forwards">Preventing Unvalidated Redirects and Forwards<a class="headerlink" href="#preventing-unvalidated-redirects-and-forwards" title="Permanent link">&para;</a></h2>
 <p>Safe use of redirects and forwards can be done in a number of ways:</p>
 <ul>
 <li>Simply avoid using redirects and forwards.</li>
@@ -1214,7 +1358,7 @@ ASP.NET MVC 2 LogOn action in `AccountController.cs` (see Microsoft Docs link pr
 <li>Data URIs such as <code>data:text/html,&lt;script&gt;alert(document.domain)&lt;/script&gt;</code> should be blocked</li>
 <li>URIs containing CRLF characters can lead to header injection or response splitting attacks, and should be blocked.</li>
 </ul>
-<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="http://cwe.mitre.org/data/definitions/601.html">CWE Entry 601 on Open Redirects</a>.</li>
 <li><a href="http://projects.webappsec.org/w/page/13246981/URL%20Redirector%20Abuse">WASC Article on URL Redirector Abuse</a></li>

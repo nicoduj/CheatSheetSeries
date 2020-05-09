@@ -950,12 +950,227 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Virtual Patching Cheat Sheet
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Virtual Patching Cheat Sheet" class="md-nav__link md-nav__link--active">
       Virtual Patching Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-virtual-patching" class="md-nav__link">
+    Definition: Virtual Patching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-just-fix-the-code" class="md-nav__link">
+    Why Not Just Fix the Code?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-of-virtual-patching" class="md-nav__link">
+    Value of Virtual Patching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-patching-tools" class="md-nav__link">
+    Virtual Patching Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-virtual-patching-methodology" class="md-nav__link">
+    A Virtual Patching Methodology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-public-vulnerability" class="md-nav__link">
+    Example Public Vulnerability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation-phase" class="md-nav__link">
+    Preparation Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identification-phase" class="md-nav__link">
+    Identification Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proactive-identification" class="md-nav__link">
+    Proactive Identification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactive-identification" class="md-nav__link">
+    Reactive Identification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-phase" class="md-nav__link">
+    Analysis Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-patch-creation-phase" class="md-nav__link">
+    Virtual Patch Creation Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-virtual-patch-creation" class="md-nav__link">
+    Manual Virtual Patch Creation
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Virtual Patch Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#positive-security-whitelist-virtual-patches-recommended-solution" class="md-nav__link">
+    Positive Security (Whitelist) Virtual Patches (Recommended Solution)
+  </a>
+  
+    <nav class="md-nav" aria-label="Positive Security (Whitelist) Virtual Patches (Recommended Solution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-whitelist-modsecurity-virtual-patch" class="md-nav__link">
+    Example Whitelist ModSecurity Virtual Patch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negative-security-blacklist-virtual-patches" class="md-nav__link">
+    Negative Security (Blacklist) Virtual Patches
+  </a>
+  
+    <nav class="md-nav" aria-label="Negative Security (Blacklist) Virtual Patches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-blacklist-modsecurity-virtual-patch" class="md-nav__link">
+    Example Blacklist ModSecurity Virtual Patch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-method-is-better-for-virtual-patching-positive-or-negative-security" class="md-nav__link">
+    Which Method is Better for Virtual Patching – Positive or Negative Security?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beware-of-exploit-specific-virtual-patches" class="md-nav__link">
+    Beware of Exploit-Specific Virtual Patches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-virtual-patch-creation" class="md-nav__link">
+    Automated Virtual Patch Creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementationtesting-phase" class="md-nav__link">
+    Implementation/Testing Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-steps" class="md-nav__link">
+    Testing Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recoveryfollow-up-phase" class="md-nav__link">
+    Recovery/Follow-Up Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1254,209 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-virtual-patching" class="md-nav__link">
+    Definition: Virtual Patching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-just-fix-the-code" class="md-nav__link">
+    Why Not Just Fix the Code?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-of-virtual-patching" class="md-nav__link">
+    Value of Virtual Patching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-patching-tools" class="md-nav__link">
+    Virtual Patching Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-virtual-patching-methodology" class="md-nav__link">
+    A Virtual Patching Methodology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-public-vulnerability" class="md-nav__link">
+    Example Public Vulnerability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation-phase" class="md-nav__link">
+    Preparation Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identification-phase" class="md-nav__link">
+    Identification Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proactive-identification" class="md-nav__link">
+    Proactive Identification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactive-identification" class="md-nav__link">
+    Reactive Identification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-phase" class="md-nav__link">
+    Analysis Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-patch-creation-phase" class="md-nav__link">
+    Virtual Patch Creation Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-virtual-patch-creation" class="md-nav__link">
+    Manual Virtual Patch Creation
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Virtual Patch Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#positive-security-whitelist-virtual-patches-recommended-solution" class="md-nav__link">
+    Positive Security (Whitelist) Virtual Patches (Recommended Solution)
+  </a>
+  
+    <nav class="md-nav" aria-label="Positive Security (Whitelist) Virtual Patches (Recommended Solution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-whitelist-modsecurity-virtual-patch" class="md-nav__link">
+    Example Whitelist ModSecurity Virtual Patch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negative-security-blacklist-virtual-patches" class="md-nav__link">
+    Negative Security (Blacklist) Virtual Patches
+  </a>
+  
+    <nav class="md-nav" aria-label="Negative Security (Blacklist) Virtual Patches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-blacklist-modsecurity-virtual-patch" class="md-nav__link">
+    Example Blacklist ModSecurity Virtual Patch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-method-is-better-for-virtual-patching-positive-or-negative-security" class="md-nav__link">
+    Which Method is Better for Virtual Patching – Positive or Negative Security?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beware-of-exploit-specific-virtual-patches" class="md-nav__link">
+    Beware of Exploit-Specific Virtual Patches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-virtual-patch-creation" class="md-nav__link">
+    Automated Virtual Patch Creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementationtesting-phase" class="md-nav__link">
+    Implementation/Testing Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-steps" class="md-nav__link">
+    Testing Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recoveryfollow-up-phase" class="md-nav__link">
+    Recovery/Follow-Up Phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,12 +1472,14 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Virtual Patching Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The goal with this cheat Sheet is to present a concise virtual patching framework that organizations can follow to maximize the timely implementation of mitigation protections.</p>
-<h1 id="definition-virtual-patching">Definition: Virtual Patching<a class="headerlink" href="#definition-virtual-patching" title="Permanent link">&para;</a></h1>
+<h2 id="definition-virtual-patching">Definition: Virtual Patching<a class="headerlink" href="#definition-virtual-patching" title="Permanent link">&para;</a></h2>
 <p><strong>A security policy enforcement layer which prevents and reports the exploitation attempt of a known vulnerability.</strong></p>
 <p>The virtual patch works when the security enforcement layer analyzes transactions and intercepts attacks in transit, so malicious traffic never reaches the web application. The resulting impact of virtual patching is that, while the actual source code of the application itself has not been modified, the exploitation attempt does not succeed.</p>
-<h1 id="why-not-just-fix-the-code">Why Not Just Fix the Code?<a class="headerlink" href="#why-not-just-fix-the-code" title="Permanent link">&para;</a></h1>
+<h2 id="why-not-just-fix-the-code">Why Not Just Fix the Code?<a class="headerlink" href="#why-not-just-fix-the-code" title="Permanent link">&para;</a></h2>
 <p>From a purely technical perspective, the number one remediation strategy would be for an organization to correct the identified vulnerability within the source code of the web application. This concept is universally agreed upon by both web application security experts and system owners. Unfortunately, in real world business situations, there arise many scenarios where updating the source code of a web application is not easy such as:</p>
 <ul>
 <li><strong>Lack of resources</strong> - Devs are already allocated to other projects.</li>
@@ -1069,13 +1487,13 @@
 <li><strong>Outsourced App Dev</strong> - Changes would require a new project.</li>
 </ul>
 <p>The important point is this - <strong>Code level fixes and Virtual Patching are NOT mutually exclusive</strong>. They are processes that are executed by different team (OWASP Builders/Devs vs. OWASP Defenders/OpSec) and can be run in tandem.</p>
-<h1 id="value-of-virtual-patching">Value of Virtual Patching<a class="headerlink" href="#value-of-virtual-patching" title="Permanent link">&para;</a></h1>
+<h2 id="value-of-virtual-patching">Value of Virtual Patching<a class="headerlink" href="#value-of-virtual-patching" title="Permanent link">&para;</a></h2>
 <p>The two main goals of Virtual Patching are:</p>
 <ul>
 <li><strong>Minimize Time-to-Fix</strong> - Fixing application source code takes time. The main purpose of a virtual patch is to implement a mitigation for the identified vulnerability as soon as possible. The urgency of this response may be different: for example if the vulnerability was identified in-house through code reviews or penetration testing vs. finding a vulnerability as part of live incident response.</li>
 <li><strong>Attack Surface Reduction</strong> - Focus on minimizing the attack vector. In some cases, such as missing positive security input validation, it is possible to achieve 100% attack surface reduction. In other cases, such with missing output encoding for XSS flaws, you may only be able to limit the exposures. Keep in mind - 50% reduction in 10 minutes is better than 100% reduction in 48 hrs.</li>
 </ul>
-<h1 id="virtual-patching-tools">Virtual Patching Tools<a class="headerlink" href="#virtual-patching-tools" title="Permanent link">&para;</a></h1>
+<h2 id="virtual-patching-tools">Virtual Patching Tools<a class="headerlink" href="#virtual-patching-tools" title="Permanent link">&para;</a></h2>
 <p>Notice that the definition above did not list any specific tool as there are a number of different options that may be used for virtual patching efforts such as:</p>
 <ul>
 <li>Intermediary devices such as a WAF or IPS appliance</li>
@@ -1083,7 +1501,7 @@
 <li>Application layer filter such as ESAPI WAF</li>
 </ul>
 <p>For example purposes, we will show virtual patching examples using the open source <a href="http://www.modsecurity.org">ModSecurity WAF tool</a>.</p>
-<h1 id="a-virtual-patching-methodology">A Virtual Patching Methodology<a class="headerlink" href="#a-virtual-patching-methodology" title="Permanent link">&para;</a></h1>
+<h2 id="a-virtual-patching-methodology">A Virtual Patching Methodology<a class="headerlink" href="#a-virtual-patching-methodology" title="Permanent link">&para;</a></h2>
 <p>Virtual Patching, like most other security processes, is not something that should be approached haphazardly. Instead, a consistent, repeatable process should be followed that will provide the best chances of success. The following virtual patching workflow mimics the industry accepted practice for conducting IT Incident Response and consists of the following phases:</p>
 <ol>
 <li>Preparation.</li>
@@ -1093,7 +1511,7 @@
 <li>Implementation/Testing.</li>
 <li>Recovery/Follow Up.</li>
 </ol>
-<h1 id="example-public-vulnerability">Example Public Vulnerability<a class="headerlink" href="#example-public-vulnerability" title="Permanent link">&para;</a></h1>
+<h2 id="example-public-vulnerability">Example Public Vulnerability<a class="headerlink" href="#example-public-vulnerability" title="Permanent link">&para;</a></h2>
 <p>Let's take the following <a href="https://packetstormsecurity.com/files/119217/WordPress-Shopping-Cart-8.1.14-Shell-Upload-SQL-Injection.html">SQL Injection vulnerability</a> as our example for the remainder of this article:</p>
 <div class="codehilite"><pre><span></span><code>WordPress Shopping Cart Plugin for WordPress 
 /wp-content/plugins/levelfourstorefront/scripts/administration/exportsubscribers.php 
@@ -1105,7 +1523,7 @@ reqID Parameter prone to SQL Injection.
 <p>WordPress Shopping Cart Plugin for WordPress contains a flaw that may allow an attacker to carry out an SQL injection attack. </p>
 <p>The issue is due to the <code>/wp-content/plugins/levelfourstorefront/scripts/administration/exportsubscribers.php</code> script not properly sanitizing user-supplied input to the <code>reqID</code> parameter. </p>
 <p>This may allow an attacker to inject or manipulate SQL queries in the back-end database, allowing for the manipulation or disclosure of arbitrary data.</p>
-<h1 id="preparation-phase">Preparation Phase<a class="headerlink" href="#preparation-phase" title="Permanent link">&para;</a></h1>
+<h2 id="preparation-phase">Preparation Phase<a class="headerlink" href="#preparation-phase" title="Permanent link">&para;</a></h2>
 <p>The importance of properly utilizing the preparation phase with regards to virtual patching cannot be overstated. You need to do a number of things to setup the virtual patching processes and framework <strong>prior</strong> to actually having to deal with an identified vulnerability, or worse yet, react to a live web application intrusion. The point is that during a live compromise is not the ideal time to be proposing installation of a web application firewall and the concept of a virtual patch. Tension is high during real incidents and time is of the essence, so lay the foundation of virtual patching when the waters are calm and get everything in place and ready to go when an incident does occur.</p>
 <p>Here are a few critical items that should be addressed during the preparation phase:</p>
 <ul>
@@ -1121,7 +1539,7 @@ reqID Parameter prone to SQL Injection.
 </ul>
 </li>
 </ul>
-<h1 id="identification-phase">Identification Phase<a class="headerlink" href="#identification-phase" title="Permanent link">&para;</a></h1>
+<h2 id="identification-phase">Identification Phase<a class="headerlink" href="#identification-phase" title="Permanent link">&para;</a></h2>
 <p>The Identification Phase occurs when an organization becomes aware of a vulnerability within their web application. There are generally two different methods of identifying vulnerabilities: <code>Proactive</code> and <code>Reactive</code>.</p>
 <h2 id="proactive-identification">Proactive Identification<a class="headerlink" href="#proactive-identification" title="Permanent link">&para;</a></h2>
 <p>This occurs when an organization takes it upon themselves to assess their web security posture and conducts the following tasks:</p>
@@ -1137,7 +1555,7 @@ reqID Parameter prone to SQL Injection.
 <li><strong>Public disclosure</strong> - Public vulnerability disclosure for commercial/open source web application software that you are using. The threat level for public disclosure is increased as more people know about the vulnerability.</li>
 <li><strong>Security incident</strong> – This is the most urgent situation as the attack is active. In these situations, remediation must be immediate.</li>
 </ul>
-<h1 id="analysis-phase">Analysis Phase<a class="headerlink" href="#analysis-phase" title="Permanent link">&para;</a></h1>
+<h2 id="analysis-phase">Analysis Phase<a class="headerlink" href="#analysis-phase" title="Permanent link">&para;</a></h2>
 <p>Here are the recommended steps to start the analysis phase:</p>
 <ol>
 <li><strong>Determine Virtual Patching Applicability</strong> - Virtual patching is ideally suited for injection-type flaws but may not provide an adequate level of attack surface reduction for other attack types or categories. Thorough analysis of the underlying flaw should be conducted to determine if the virtual patching tool has adequate detection logic capabilities.</li>
@@ -1148,7 +1566,7 @@ reqID Parameter prone to SQL Injection.
 <li><strong>List what configuration is required to trigger the problem</strong> - Some vulnerabilities may only manifest themselves under certain configuration settings.</li>
 <li><strong>List Proof of Concept (PoC) exploit code or payloads used during attacks/testing</strong> - Many vulnerability announcements have accompanying exploit code that shows how to demonstrate the vulnerability. If this data is available, make sure to download it for analysis. This will be useful later on when both developing and testing the virtual patch.</li>
 </ol>
-<h1 id="virtual-patch-creation-phase">Virtual Patch Creation Phase<a class="headerlink" href="#virtual-patch-creation-phase" title="Permanent link">&para;</a></h1>
+<h2 id="virtual-patch-creation-phase">Virtual Patch Creation Phase<a class="headerlink" href="#virtual-patch-creation-phase" title="Permanent link">&para;</a></h2>
 <p>The process of creating an accurate virtual patch is bound by two main tenants:</p>
 <ol>
 <li><strong>No false positives</strong> - Do not ever block legitimate traffic under any circumstances.</li>
@@ -1161,13 +1579,13 @@ reqID Parameter prone to SQL Injection.
 <h4 id="example-whitelist-modsecurity-virtual-patch">Example Whitelist ModSecurity Virtual Patch<a class="headerlink" href="#example-whitelist-modsecurity-virtual-patch" title="Permanent link">&para;</a></h4>
 <p>In order to create a whitelist virtual patch, you must be able to verify what the normal, expected input values are. If you have implemented proper audit logging as part of the Preparation Phase, then you should be able to review audit logs to identify the format of expected input types. In this case, the <code>reqID</code> parameter is supposed to only hold integer characters so we can use this virtual patch:</p>
 <div class="codehilite"><pre><span></span><code>#
-# Verify we only receive 1 parameter called &quot;reqID&quot;
+## Verify we only receive 1 parameter called &quot;reqID&quot;
 #
 SecRule REQUEST_URI &quot;@contains /wp-content/plugins/levelfourstorefront/scripts/administration/exportsubscribers.php&quot; &quot;chain,id:1,phase:2,t:none,t:Utf8toUnicode,t:urlDecodeUni,t:normalizePathWin,t:lowercase,block,msg:&#39;Input Validation Error for \&#39;reqID\&#39; parameter - Duplicate Parameters Names Seen.&#39;,logdata:&#39;%{matched_var}&#39;&quot;
   SecRule &amp;ARGS:/reqID/ &quot;!@eq 1&quot;
 
 #
-# Verify reqID&#39;s payload only contains integers
+## Verify reqID&#39;s payload only contains integers
 #
 SecRule REQUEST_URI &quot;@contains /wp-content/plugins/levelfourstorefront/scripts/administration/exportsubscribers.php&quot; &quot;chain,id:2,phase:2,t:none,t:Utf8toUnicode,t:urlDecodeUni,t:normalizePathWin,t:lowercase,block,msg:&#39;Input Validation Error for \&#39;reqID\&#39; parameter.&#39;,logdata:&#39;%{args.reqid}&#39;&quot;
   SecRule ARGS:/reqID/ &quot;!@rx ^[0-9]+$&quot;
@@ -1214,7 +1632,7 @@ SecRule REQUEST_URI &quot;@contains /wp-content/plugins/levelfourstorefront/scri
 <li><strong>ThreadFix Virtual Patching</strong> - ThreadFix also includes automated processes of converting imported vulnerability XML data into virtual patches for security tools such as ModSecurity. Reference <a href="https://github.com/denimgroup/threadfix/wiki/Waf-Types#mod_security">here</a>.</li>
 <li><strong>Direct Importing to WAF Device</strong> - Many commercial WAF products have the capability to import DAST tool XML report data and automatically adjust their protection profiles.</li>
 </ul>
-<h1 id="implementationtesting-phase">Implementation/Testing Phase<a class="headerlink" href="#implementationtesting-phase" title="Permanent link">&para;</a></h1>
+<h2 id="implementationtesting-phase">Implementation/Testing Phase<a class="headerlink" href="#implementationtesting-phase" title="Permanent link">&para;</a></h2>
 <p>In order to accurately test out the newly created virtual patches, it may be necessary to use an application other than a web browser. Some useful tools are:</p>
 <ul>
 <li>Web browser.</li>
@@ -1228,13 +1646,13 @@ SecRule REQUEST_URI &quot;@contains /wp-content/plugins/levelfourstorefront/scri
 <li>If the vulnerability was identified by a specific tool or assessment team - request a retest.</li>
 <li>If retesting fails due to evasions, then you must go back to the Analysis phase to identify how to better fix the issue.</li>
 </ul>
-<h1 id="recoveryfollow-up-phase">Recovery/Follow-Up Phase<a class="headerlink" href="#recoveryfollow-up-phase" title="Permanent link">&para;</a></h1>
+<h2 id="recoveryfollow-up-phase">Recovery/Follow-Up Phase<a class="headerlink" href="#recoveryfollow-up-phase" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Update Data in Ticket System</strong> - Although you may need to expedite the implementation of virtual patches, you should still track them in your normal Patch Management processes. This means that you should create proper change request tickets, etc… so that their existence and functionality is documented. Updating the ticket system also helps to identify "time-to-fix" metrics for different vulnerability types. Make sure to properly log the virtual patch rule ID values.</li>
 <li><strong>Periodic Re-assessments</strong> - You should also have periodic re-assessments to verify if/when you can remove previous virtual patches if the web application code has been updated with the real source code fix. I have found that many people opt to keep virtual patches in place due to better identification/logging vs. application or db capabilities.</li>
 <li><strong>Running Virtual Patch Alert Reports</strong> - Run reports to identify if/when any of your virtual patches have triggered. This will show value for virtual patching in relation to windows of exposure for source code time-to-fix.</li>
 </ul>
-<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://owasp.org/www-community/Virtual_Patching_Best_Practices">OWASP Virtual Patching Best Practices</a>.</li>
 <li><a href="https://wiki.owasp.org/index.php/Category:OWASP_Securing_WebGoat_using_ModSecurity_Project">OWASP Securing WebGoat with ModSecurity</a>.</li>

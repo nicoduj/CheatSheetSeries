@@ -878,12 +878,201 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Third Party Javascript Management Cheat Sheet
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link md-nav__link--active">
       Third Party Javascript Management Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-risks" class="md-nav__link">
+    Major risks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-1-loss-of-control-over-changes-to-the-client-application" class="md-nav__link">
+    Risk 1: Loss of control over changes to the client application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-2-execution-of-arbitrary-code-on-client-systems" class="md-nav__link">
+    Risk 2: Execution of arbitrary code on client systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-3-disclosure-of-sensitive-information-to-3rd-parties" class="md-nav__link">
+    Risk 3: Disclosure of sensitive information to 3rd parties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3rd-party-javascript-deployment-architectures" class="md-nav__link">
+    3rd Party JavaScript Deployment Architectures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vendor-javascript-on-page" class="md-nav__link">
+    Vendor JavaScript on page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javascript-request-to-vendor" class="md-nav__link">
+    JavaScript Request to Vendor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indirect-request-to-vendor-through-tag-manager" class="md-nav__link">
+    Indirect request to Vendor through Tag Manager
+  </a>
+  
+    <nav class="md-nav" aria-label="Indirect request to Vendor through Tag Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-problems-with-requesting-tags" class="md-nav__link">
+    Security Problems with requesting Tags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-direct-data-layer" class="md-nav__link">
+    Server Direct Data Layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-defense-considerations" class="md-nav__link">
+    Security Defense Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-direct-data-layer_1" class="md-nav__link">
+    Server Direct Data Layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indirect-requests" class="md-nav__link">
+    Indirect Requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sandboxing-content" class="md-nav__link">
+    Sandboxing Content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subresource-integrity" class="md-nav__link">
+    Subresource Integrity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-javascript-libraries-updated" class="md-nav__link">
+    Keeping JavaScript libraries updated
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sandboxing-with-iframe" class="md-nav__link">
+    Sandboxing with iframe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-iframe-containment" class="md-nav__link">
+    Virtual iframe Containment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vendor-agreements" class="md-nav__link">
+    Vendor Agreements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#martechsec" class="md-nav__link">
+    MarTechSec
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marsecops" class="md-nav__link">
+    MarSecOps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1228,183 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-risks" class="md-nav__link">
+    Major risks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-1-loss-of-control-over-changes-to-the-client-application" class="md-nav__link">
+    Risk 1: Loss of control over changes to the client application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-2-execution-of-arbitrary-code-on-client-systems" class="md-nav__link">
+    Risk 2: Execution of arbitrary code on client systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-3-disclosure-of-sensitive-information-to-3rd-parties" class="md-nav__link">
+    Risk 3: Disclosure of sensitive information to 3rd parties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3rd-party-javascript-deployment-architectures" class="md-nav__link">
+    3rd Party JavaScript Deployment Architectures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vendor-javascript-on-page" class="md-nav__link">
+    Vendor JavaScript on page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javascript-request-to-vendor" class="md-nav__link">
+    JavaScript Request to Vendor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indirect-request-to-vendor-through-tag-manager" class="md-nav__link">
+    Indirect request to Vendor through Tag Manager
+  </a>
+  
+    <nav class="md-nav" aria-label="Indirect request to Vendor through Tag Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-problems-with-requesting-tags" class="md-nav__link">
+    Security Problems with requesting Tags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-direct-data-layer" class="md-nav__link">
+    Server Direct Data Layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-defense-considerations" class="md-nav__link">
+    Security Defense Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-direct-data-layer_1" class="md-nav__link">
+    Server Direct Data Layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indirect-requests" class="md-nav__link">
+    Indirect Requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sandboxing-content" class="md-nav__link">
+    Sandboxing Content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subresource-integrity" class="md-nav__link">
+    Subresource Integrity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-javascript-libraries-updated" class="md-nav__link">
+    Keeping JavaScript libraries updated
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sandboxing-with-iframe" class="md-nav__link">
+    Sandboxing with iframe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-iframe-containment" class="md-nav__link">
+    Virtual iframe Containment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vendor-agreements" class="md-nav__link">
+    Vendor Agreements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#martechsec" class="md-nav__link">
+    MarTechSec
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marsecops" class="md-nav__link">
+    MarSecOps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,7 +1420,9 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Third Party Javascript Management Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Tags, aka marketing tags, analytics tags etc. are small bits of javascript on a web page. They can also be HTML image elements when javascript is disabled. The reason for them is to collect data on the web user actions and browsing context for use by the web page owner in marketing.</p>
 <p>Third party vendor javascript tags (hereinafter, <strong>tags</strong>) can be divided into two types: 
 - User interface tags.
@@ -1064,7 +1430,7 @@
 <p>User interface tags have to execute on the client because they change the DOM; displaying a dialog or image or changing text etc.</p>
 <p>Analytics tags send information back to a marketing information database; information like what user action was just taken, browser metadata, location information, page metadata etc. The rationale for analytics tags is to provide data from the user's browser DOM to the vendor for some form of marketing analysis. This data can be anything available in the DOM. The data is used for user navigation and clickstream analysis, identification of the user to determine further content to display etc., and various marketing analysis functions.</p>
 <p>The term <strong>host</strong> refers to the original site the user goes to, such as a shopping or news site, that contains or retrieves and executes third party javascript tag for marketing analysis of the user actions.</p>
-<h1 id="major-risks">Major risks<a class="headerlink" href="#major-risks" title="Permanent link">&para;</a></h1>
+<h2 id="major-risks">Major risks<a class="headerlink" href="#major-risks" title="Permanent link">&para;</a></h2>
 <p>The single greatest risk is a compromise of the third party javascript server, and the injection of malicious javascript into the original tag javascript. This has happened in 2018 and likely earlier.</p>
 <p>The invocation of 3rd party JS code in a web application requires consideration for 3 risks in particular:</p>
 <ol>
@@ -1090,7 +1456,7 @@
 <p>In many cases, this grants the 3rd party primary access to information on the organization's users / customers / clients. Additionally, if the 3rd party is sharing the script with other entities, it also collects secondary data from all the other entities, thus knowing who the organization's visitors are but also what other organizations they interact with.</p>
 <p>A typical case is the current situation with major news/press sites that invoke 3rd party code (typically for ad engines, statistics and JavaScript APIs): any user visiting any of these websites also informs the 3rd parties of the visit. In many cases, the 3rd party also gets to know what news articles each individual user is clicking specifically (leakage occurs through the HTTP referrer field) and thus can establish deeper personality profiles.</p>
 <p>Typical defenses include, but are not restricted to: in-house script mirroring (to prevent leakage of HTTP requests to 3rd parties). Users can reduce their profiling by random clicking links on leaking websites/applications (such as press/news websites) to reduce profiling. See below for more details.</p>
-<h1 id="3rd-party-javascript-deployment-architectures">3rd Party JavaScript Deployment Architectures<a class="headerlink" href="#3rd-party-javascript-deployment-architectures" title="Permanent link">&para;</a></h1>
+<h2 id="3rd-party-javascript-deployment-architectures">3rd Party JavaScript Deployment Architectures<a class="headerlink" href="#3rd-party-javascript-deployment-architectures" title="Permanent link">&para;</a></h2>
 <p>There are three basic deployment mechanisms for <strong>tags</strong>. These mechanisms can be combined with each other.</p>
 <h2 id="vendor-javascript-on-page">Vendor JavaScript on page<a class="headerlink" href="#vendor-javascript-on-page" title="Permanent link">&para;</a></h2>
 <p>This is where the vendor provides the host with the javascript and the host puts it on the host page. To be secure the host company must review the code for any vulnerabilities like <a href="https://owasp.org/www-community/attacks/xss/">XSS attacks</a> or malicious actions such as sending sensitive data from the DOM to a malicious site. This is often difficult because the javascript is commonly obfuscated.</p>
@@ -1164,7 +1530,7 @@
 <p>The host developers have to work with the vendor in order to know what type of data the vendor needs to do their analysis. Then the host programmer determines what DOM element will have that data.</p>
 <p>The host developers have to work with the tag manager or aggregator to agree on the protocol to send the data to the aggregator: what URL, parameters, format etc.</p>
 <p>The tag manager or aggregator has to work with the vendor to agree on the protocol to send the data to the vendor: what URL, parameters, format etc. Does the vendor have an API?</p>
-<h1 id="security-defense-considerations">Security Defense Considerations<a class="headerlink" href="#security-defense-considerations" title="Permanent link">&para;</a></h1>
+<h2 id="security-defense-considerations">Security Defense Considerations<a class="headerlink" href="#security-defense-considerations" title="Permanent link">&para;</a></h2>
 <h2 id="server-direct-data-layer_1">Server Direct Data Layer<a class="headerlink" href="#server-direct-data-layer_1" title="Permanent link">&para;</a></h2>
 <p>The server direct mechanism is a good security standard for third party javascript management, deployment and execution. A good practice for the host page is to create a data layer of DOM objects.</p>
 <p>The data layer can perform any validation of the values, especially values from DOM objects exposed to the user like URL parameters and input fields, if these are required for the marketing analysis.</p>
@@ -1247,7 +1613,7 @@
 <p>This technique creates iFrames that run asynchronously in relation to the main page. It also provides its own containment javascript that automates the dynamic implementation of the protected iFrames based on the marketing tag requirements.</p>
 <h2 id="vendor-agreements">Vendor Agreements<a class="headerlink" href="#vendor-agreements" title="Permanent link">&para;</a></h2>
 <p>You can have the agreement or request for proposal with the 3rd parties require evidence that they have implemented secure coding and general corporate server access security. But in particular you need to determine the monitoring and control of their source code in order to prevent and detect malicious changes to that javascript.</p>
-<h1 id="martechsec">MarTechSec<a class="headerlink" href="#martechsec" title="Permanent link">&para;</a></h1>
+<h2 id="martechsec">MarTechSec<a class="headerlink" href="#martechsec" title="Permanent link">&para;</a></h2>
 <p>Marketing Technology Security</p>
 <p>This refers to all aspects of reducing the risk from marketing javascript. Controls include</p>
 <ol>
@@ -1257,7 +1623,7 @@
 <li>Technical controls for malicious javascript identification; <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">Subresource Integrity</a>.</li>
 <li>Technical controls including client side javascript malicious behavior in penetration testing requirements.</li>
 </ol>
-<h1 id="marsecops">MarSecOps<a class="headerlink" href="#marsecops" title="Permanent link">&para;</a></h1>
+<h2 id="marsecops">MarSecOps<a class="headerlink" href="#marsecops" title="Permanent link">&para;</a></h2>
 <p>Marketing Security Operations</p>
 <p>This refers to the operational requirements to maintain some of the technical controls. This involves possible cooperation and information exchange between the marketing team, the martech provider and the run or operations team to update the information in the page controls (SRI hash change, changes in pages with SRI), the policies in the Virtual iFrames, tag manager configuration, data layer changes etc.</p>
 <p>The most complete and preventive controls for any site containing non-trivial marketing tags are -</p>
@@ -1273,7 +1639,7 @@
 </li>
 </ol>
 <p>The MarSecOps requirements to implement technical controls at the speed of change that marketing wants or without a significant number of dedicated resources, can make data layer and Subresource Integrity controls impractical.</p>
-<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://randywestergren.com/widespread-xss-vulnerabilities-ad-network-code-affecting-top-tier-publishers-retailers/">Widespread XSS Vulnerabilities in Ad Network Code Affecting Top Tier Publishers, Retailers</a>.</li>
 <li><a href="https://www.riskiq.com/blog/labs/magecart-ticketmaster-breach/">Inside and Beyond Ticketmaster: The Many Breaches of Magecart</a>.</li>

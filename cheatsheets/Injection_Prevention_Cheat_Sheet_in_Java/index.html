@@ -566,12 +566,363 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Injection Prevention Cheat Sheet in Java
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link md-nav__link--active">
       Injection Prevention Cheat Sheet in Java
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-injection" class="md-nav__link">
+    What is Injection ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-advices-to-prevent-injection" class="md-nav__link">
+    General advices to prevent Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-injection-types" class="md-nav__link">
+    Specific Injection types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jpa" class="md-nav__link">
+    JPA
+  </a>
+  
+    <nav class="md-nav" aria-label="JPA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_1" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_1" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_1" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    Operating System
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_2" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_2" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_2" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xml-xpath-injection" class="md-nav__link">
+    XML: XPath Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="XML: XPath Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_3" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_3" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_3" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmljavascriptcss" class="md-nav__link">
+    HTML/JavaScript/CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="HTML/JavaScript/CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_4" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_4" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_4" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    NoSQL
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_5" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_5" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-mongodb" class="md-nav__link">
+    Example - MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_5" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-injection" class="md-nav__link">
+    Log Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="Log Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_6" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_6" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-log4j2" class="md-nav__link">
+    Example using Log4j2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-logback-with-the-owasp-security-logging-library" class="md-nav__link">
+    Example using Logback with the OWASP Security Logging library
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_6" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1390,345 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-injection" class="md-nav__link">
+    What is Injection ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-advices-to-prevent-injection" class="md-nav__link">
+    General advices to prevent Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-injection-types" class="md-nav__link">
+    Specific Injection types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jpa" class="md-nav__link">
+    JPA
+  </a>
+  
+    <nav class="md-nav" aria-label="JPA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_1" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_1" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_1" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    Operating System
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_2" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_2" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_2" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xml-xpath-injection" class="md-nav__link">
+    XML: XPath Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="XML: XPath Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_3" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_3" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_3" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmljavascriptcss" class="md-nav__link">
+    HTML/JavaScript/CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="HTML/JavaScript/CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_4" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_4" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_4" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    NoSQL
+  </a>
+  
+    <nav class="md-nav" aria-label="NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_5" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_5" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-mongodb" class="md-nav__link">
+    Example - MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_5" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-injection" class="md-nav__link">
+    Log Injection
+  </a>
+  
+    <nav class="md-nav" aria-label="Log Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symptom_6" class="md-nav__link">
+    Symptom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-prevent_6" class="md-nav__link">
+    How to prevent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-log4j2" class="md-nav__link">
+    Example using Log4j2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-logback-with-the-owasp-security-logging-library" class="md-nav__link">
+    Example using Logback with the OWASP Security Logging library
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references_6" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,20 +1744,22 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Injection Prevention Cheat Sheet in Java</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This document has for objective to provide some tips to handle <em>Injection</em> into Java application code.</p>
 <p>Sample codes used in tips are located <a href="https://github.com/righettod/injection-cheat-sheets">here</a>.</p>
-<h1 id="what-is-injection">What is Injection ?<a class="headerlink" href="#what-is-injection" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-injection">What is Injection ?<a class="headerlink" href="#what-is-injection" title="Permanent link">&para;</a></h2>
 <p><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection">Injection</a> in OWASP Top 10 is defined as following:</p>
 <p><em>Consider anyone who can send untrusted data to the system, including external users, internal users, and administrators.</em></p>
-<h1 id="general-advices-to-prevent-injection">General advices to prevent Injection<a class="headerlink" href="#general-advices-to-prevent-injection" title="Permanent link">&para;</a></h1>
+<h2 id="general-advices-to-prevent-injection">General advices to prevent Injection<a class="headerlink" href="#general-advices-to-prevent-injection" title="Permanent link">&para;</a></h2>
 <p>The following point can be applied, in a general way, to prevent <em>Injection</em> issue:</p>
 <ol>
 <li>Apply <strong>Input Validation</strong> (using whitelist approach) combined with <strong>Output Sanitizing+Escaping</strong> on user input/output.</li>
 <li>If you need to interact with system, try to use API features provided by your technology stack (Java / .Net / PHP...) instead of building command.</li>
 </ol>
 <p>Additional advices are provided on this <a href="../Input_Validation_Cheat_Sheet/">cheatsheet</a>.</p>
-<h1 id="specific-injection-types">Specific Injection types<a class="headerlink" href="#specific-injection-types" title="Permanent link">&para;</a></h1>
+<h2 id="specific-injection-types">Specific Injection types<a class="headerlink" href="#specific-injection-types" title="Permanent link">&para;</a></h2>
 <p><em>Examples in this section will be provided in Java technology (see Maven project associated) but advices are applicable to others technologies like .Net / PHP / Ruby / Python...</em></p>
 <h2 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
 <h3 id="symptom">Symptom<a class="headerlink" href="#symptom" title="Permanent link">&para;</a></h3>

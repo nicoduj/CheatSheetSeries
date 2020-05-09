@@ -722,12 +722,103 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        PHP Configuration Cheat Sheet
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="PHP Configuration Cheat Sheet" class="md-nav__link md-nav__link--active">
       PHP Configuration Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-configuration-and-deployment" class="md-nav__link">
+    PHP Configuration and Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phpini" class="md-nav__link">
+    php.ini
+  </a>
+  
+    <nav class="md-nav" aria-label="php.ini">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php-error-handling" class="md-nav__link">
+    PHP error handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-general-settings" class="md-nav__link">
+    PHP general settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-file-upload-handling" class="md-nav__link">
+    PHP file upload handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-executable-handling" class="md-nav__link">
+    PHP executable handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-session-handling" class="md-nav__link">
+    PHP session handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suhosin" class="md-nav__link">
+    Suhosin
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1130,85 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-configuration-and-deployment" class="md-nav__link">
+    PHP Configuration and Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phpini" class="md-nav__link">
+    php.ini
+  </a>
+  
+    <nav class="md-nav" aria-label="php.ini">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#php-error-handling" class="md-nav__link">
+    PHP error handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-general-settings" class="md-nav__link">
+    PHP general settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-file-upload-handling" class="md-nav__link">
+    PHP file upload handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-executable-handling" class="md-nav__link">
+    PHP executable handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php-session-handling" class="md-nav__link">
+    PHP session handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suhosin" class="md-nav__link">
+    Suhosin
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,13 +1224,15 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>PHP Configuration Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This page is meant to help those configuring PHP and the web server it is running on to be very secure.</p>
 <p>Below you will find information on the proper settings for the <code>php.ini</code> file and instructions on configuring Apache, Nginx, and Caddy web servers.</p>
 <p>For general PHP codebase security please refer to the two following great guides:
 - <a href="https://paragonie.com/blog/2017/12/2018-guide-building-secure-php-software">Paragonie's 2018 PHP Security Guide</a>
 - <a href="https://github.com/guardrailsio/awesome-php-security">Awesome PHP Security</a></p>
-<h1 id="php-configuration-and-deployment">PHP Configuration and Deployment<a class="headerlink" href="#php-configuration-and-deployment" title="Permanent link">&para;</a></h1>
+<h2 id="php-configuration-and-deployment">PHP Configuration and Deployment<a class="headerlink" href="#php-configuration-and-deployment" title="Permanent link">&para;</a></h2>
 <h2 id="phpini">php.ini<a class="headerlink" href="#phpini" title="Permanent link">&para;</a></h2>
 <p>Some of following settings need to be adapted to your system, in particular <code>session.save_path</code>, <code>session.cookie_path</code> (e.g. <code>/var/www/mysite</code>), and <code>session.cookie_domain</code> (e.g. <code>ExampleSite.com</code>). </p>
 <p>You should also be running PHP 7.2 or later. If running PHP 7.0 and 7.1, you will use slightly different values in a couple of places below (see inline comments). Finally look through the <a href="https://www.php.net/manual/ini.core.php">PHP Manual</a> for a complete reference on every value in the php.ini configuration file.</p>

@@ -854,12 +854,436 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Session Management Cheat Sheet
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="Session Management Cheat Sheet" class="md-nav__link md-nav__link--active">
       Session Management Cheat Sheet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-properties" class="md-nav__link">
+    Session ID Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-name-fingerprinting" class="md-nav__link">
+    Session ID Name Fingerprinting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-length" class="md-nav__link">
+    Session ID Length
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-entropy" class="md-nav__link">
+    Session ID Entropy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-content-or-value" class="md-nav__link">
+    Session ID Content (or Value)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-management-implementation" class="md-nav__link">
+    Session Management Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-session-management-implementations" class="md-nav__link">
+    Built-in Session Management Implementations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#used-vs-accepted-session-id-exchange-mechanisms" class="md-nav__link">
+    Used vs. Accepted Session ID Exchange Mechanisms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transport-layer-security" class="md-nav__link">
+    Transport Layer Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookies" class="md-nav__link">
+    Cookies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secure-attribute" class="md-nav__link">
+    Secure Attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httponly-attribute" class="md-nav__link">
+    HttpOnly Attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samesite-attribute" class="md-nav__link">
+    SameSite Attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-and-path-attributes" class="md-nav__link">
+    Domain and Path Attributes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expire-and-max-age-attributes" class="md-nav__link">
+    Expire and Max-Age Attributes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html5-web-storage-api" class="md-nav__link">
+    HTML5 Web Storage API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-localstorage-api" class="md-nav__link">
+    The localStorage API
+  </a>
+  
+    <nav class="md-nav" aria-label="The localStorage API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    Duration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-access" class="md-nav__link">
+    Offline Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    Use Case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sessionstorage-api" class="md-nav__link">
+    The sessionStorage API
+  </a>
+  
+    <nav class="md-nav" aria-label="The sessionStorage API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope_1" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration_1" class="md-nav__link">
+    Duration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-access_1" class="md-nav__link">
+    Offline Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_1" class="md-nav__link">
+    Use Case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-risks" class="md-nav__link">
+    Security Risks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-life-cycle" class="md-nav__link">
+    Session ID Life Cycle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-generation-and-verification-permissive-and-strict-session-management" class="md-nav__link">
+    Session ID Generation and Verification: Permissive and Strict Session Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-session-id-as-any-other-user-input" class="md-nav__link">
+    Manage Session ID as Any Other User Input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renew-the-session-id-after-any-privilege-level-change" class="md-nav__link">
+    Renew the Session ID After Any Privilege Level Change
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-when-using-multiple-cookies" class="md-nav__link">
+    Considerations When Using Multiple Cookies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-expiration" class="md-nav__link">
+    Session Expiration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-session-expiration" class="md-nav__link">
+    Automatic Session Expiration
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic Session Expiration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idle-timeout" class="md-nav__link">
+    Idle Timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#absolute-timeout" class="md-nav__link">
+    Absolute Timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renewal-timeout" class="md-nav__link">
+    Renewal Timeout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-session-expiration" class="md-nav__link">
+    Manual Session Expiration
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Session Expiration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logout-button" class="md-nav__link">
+    Logout Button
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-content-caching" class="md-nav__link">
+    Web Content Caching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-client-side-defenses-for-session-management" class="md-nav__link">
+    Additional Client-Side Defenses for Session Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-login-timeout" class="md-nav__link">
+    Initial Login Timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-session-logout-on-web-browser-window-close-events" class="md-nav__link">
+    Force Session Logout On Web Browser Window Close Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-web-browser-cross-tab-sessions" class="md-nav__link">
+    Disable Web Browser Cross-Tab Sessions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-client-logout" class="md-nav__link">
+    Automatic Client Logout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-attacks-detection" class="md-nav__link">
+    Session Attacks Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-guessing-and-brute-force-detection" class="md-nav__link">
+    Session ID Guessing and Brute Force Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-session-id-anomalies" class="md-nav__link">
+    Detecting Session ID Anomalies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-the-session-id-to-other-user-properties" class="md-nav__link">
+    Binding the Session ID to Other User Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-sessions-life-cycle-monitoring-creation-usage-and-destruction-of-session-ids" class="md-nav__link">
+    Logging Sessions Life Cycle: Monitoring Creation, Usage, and Destruction of Session IDs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simultaneous-session-logons" class="md-nav__link">
+    Simultaneous Session Logons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-management-waf-protections" class="md-nav__link">
+    Session Management WAF Protections
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1039,8 +1463,418 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-properties" class="md-nav__link">
+    Session ID Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-name-fingerprinting" class="md-nav__link">
+    Session ID Name Fingerprinting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-length" class="md-nav__link">
+    Session ID Length
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-entropy" class="md-nav__link">
+    Session ID Entropy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-content-or-value" class="md-nav__link">
+    Session ID Content (or Value)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-management-implementation" class="md-nav__link">
+    Session Management Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-session-management-implementations" class="md-nav__link">
+    Built-in Session Management Implementations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#used-vs-accepted-session-id-exchange-mechanisms" class="md-nav__link">
+    Used vs. Accepted Session ID Exchange Mechanisms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transport-layer-security" class="md-nav__link">
+    Transport Layer Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookies" class="md-nav__link">
+    Cookies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secure-attribute" class="md-nav__link">
+    Secure Attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httponly-attribute" class="md-nav__link">
+    HttpOnly Attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samesite-attribute" class="md-nav__link">
+    SameSite Attribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-and-path-attributes" class="md-nav__link">
+    Domain and Path Attributes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expire-and-max-age-attributes" class="md-nav__link">
+    Expire and Max-Age Attributes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html5-web-storage-api" class="md-nav__link">
+    HTML5 Web Storage API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-localstorage-api" class="md-nav__link">
+    The localStorage API
+  </a>
+  
+    <nav class="md-nav" aria-label="The localStorage API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    Duration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-access" class="md-nav__link">
+    Offline Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    Use Case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sessionstorage-api" class="md-nav__link">
+    The sessionStorage API
+  </a>
+  
+    <nav class="md-nav" aria-label="The sessionStorage API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scope_1" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration_1" class="md-nav__link">
+    Duration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-access_1" class="md-nav__link">
+    Offline Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_1" class="md-nav__link">
+    Use Case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-risks" class="md-nav__link">
+    Security Risks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-life-cycle" class="md-nav__link">
+    Session ID Life Cycle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-generation-and-verification-permissive-and-strict-session-management" class="md-nav__link">
+    Session ID Generation and Verification: Permissive and Strict Session Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-session-id-as-any-other-user-input" class="md-nav__link">
+    Manage Session ID as Any Other User Input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renew-the-session-id-after-any-privilege-level-change" class="md-nav__link">
+    Renew the Session ID After Any Privilege Level Change
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-when-using-multiple-cookies" class="md-nav__link">
+    Considerations When Using Multiple Cookies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-expiration" class="md-nav__link">
+    Session Expiration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-session-expiration" class="md-nav__link">
+    Automatic Session Expiration
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic Session Expiration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idle-timeout" class="md-nav__link">
+    Idle Timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#absolute-timeout" class="md-nav__link">
+    Absolute Timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renewal-timeout" class="md-nav__link">
+    Renewal Timeout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-session-expiration" class="md-nav__link">
+    Manual Session Expiration
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Session Expiration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logout-button" class="md-nav__link">
+    Logout Button
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-content-caching" class="md-nav__link">
+    Web Content Caching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-client-side-defenses-for-session-management" class="md-nav__link">
+    Additional Client-Side Defenses for Session Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-login-timeout" class="md-nav__link">
+    Initial Login Timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-session-logout-on-web-browser-window-close-events" class="md-nav__link">
+    Force Session Logout On Web Browser Window Close Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-web-browser-cross-tab-sessions" class="md-nav__link">
+    Disable Web Browser Cross-Tab Sessions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-client-logout" class="md-nav__link">
+    Automatic Client Logout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-attacks-detection" class="md-nav__link">
+    Session Attacks Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-id-guessing-and-brute-force-detection" class="md-nav__link">
+    Session ID Guessing and Brute Force Detection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-session-id-anomalies" class="md-nav__link">
+    Detecting Session ID Anomalies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-the-session-id-to-other-user-properties" class="md-nav__link">
+    Binding the Session ID to Other User Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-sessions-life-cycle-monitoring-creation-usage-and-destruction-of-session-ids" class="md-nav__link">
+    Logging Sessions Life Cycle: Monitoring Creation, Usage, and Destruction of Session IDs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simultaneous-session-logons" class="md-nav__link">
+    Simultaneous Session Logons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-management-waf-protections" class="md-nav__link">
+    Session Management WAF Protections
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1056,7 +1890,9 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                  <h1>Session Management Cheat Sheet</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p><strong>Web Authentication, Session Management, and Access Control</strong>:</p>
 <p>A web session is a sequence of network HTTP request and response transactions associated to the same user. Modern and complex web applications require the retaining of information or status about each user for the duration of multiple requests. Therefore, sessions provide the ability to establish variables – such as access rights and localization settings – which will apply to each and every interaction a user has with the web application for the duration of the session.</p>
 <p>Web applications can create sessions to keep track of anonymous users after the very first user request. An example would be maintaining the user language preference. Additionally, web applications will make use of sessions once the user has authenticated. This ensures the ability to identify the user on any subsequent requests as well as being able to apply security access controls, authorized access to the user private data, and to increase the usability of the application. Therefore, current web applications can provide session capabilities both pre and post authentication.</p>
@@ -1065,7 +1901,7 @@
 <p><img alt="SessionDiagram" src="../../assets/Session_Management_Cheat_Sheet_Diagram.png" /></p>
 <p>The session ID or token binds the user authentication credentials (in the form of a user session) to the user HTTP traffic and the appropriate access controls enforced by the web application. The complexity of these three components (authentication, session management, and access control) in modern web applications, plus the fact that its implementation and binding resides on the web developer's hands (as web development framework do not provide strict relationships between these modules), makes the implementation of a secure session management module very challenging.</p>
 <p>The disclosure, capture, prediction, brute force, or fixation of the session ID will lead to session hijacking (or sidejacking) attacks, where an attacker is able to fully impersonate a victim user in the web application. Attackers can perform two types of session hijacking attacks, targeted or generic. In a targeted attack, the attacker's goal is to impersonate a specific (or privileged) web application victim user. For generic attacks, the attacker's goal is to impersonate (or get access as) any valid or legitimate user in the web application.</p>
-<h1 id="session-id-properties">Session ID Properties<a class="headerlink" href="#session-id-properties" title="Permanent link">&para;</a></h1>
+<h2 id="session-id-properties">Session ID Properties<a class="headerlink" href="#session-id-properties" title="Permanent link">&para;</a></h2>
 <p>In order to keep the authenticated state and track the users progress within the web application, applications provide users with a <strong>session identifier</strong> (session ID or token) that is assigned at session creation time, and is shared and exchanged by the user and the web application for the duration of the session (it is sent on every HTTP request). The session ID is a <code>name=value</code> pair.</p>
 <p>With the goal of implementing secure session IDs, the generation of identifiers (IDs or tokens) must meet the following properties.</p>
 <h2 id="session-id-name-fingerprinting">Session ID Name Fingerprinting<a class="headerlink" href="#session-id-name-fingerprinting" title="Permanent link">&para;</a></h2>
@@ -1096,7 +1932,7 @@
 <p>The meaning and business or application logic associated to the session ID must be stored on the server side, and specifically, in session objects or in a session management database or repository. </p>
 <p>The stored information can include the client IP address, User-Agent, e-mail, username, user ID, role, privilege level, access rights, language preferences, account ID, current state, last login, session timeouts, and other internal session details. If the session objects and properties contain sensitive information, such as credit card numbers, it is required to duly encrypt and protect the session management repository.</p>
 <p>It is recommended to create cryptographically strong session IDs through the usage of cryptographic hash functions such as SHA256.</p>
-<h1 id="session-management-implementation">Session Management Implementation<a class="headerlink" href="#session-management-implementation" title="Permanent link">&para;</a></h1>
+<h2 id="session-management-implementation">Session Management Implementation<a class="headerlink" href="#session-management-implementation" title="Permanent link">&para;</a></h2>
 <p>The session management implementation defines the exchange mechanism that will be used between the user and the web application to share and continuously exchange the session ID. There are multiple mechanisms available in HTTP to maintain session state within web applications, such as cookies (standard HTTP header), URL parameters (URL rewriting – <a href="https://www.ietf.org/rfc/rfc2396.txt">RFC2396</a>), URL arguments on GET requests, body arguments on POST requests, such as hidden form fields (HTML forms), or proprietary HTTP headers.</p>
 <p>The preferred session ID exchange mechanism should allow defining advanced token properties, such as the token expiration date and time, or granular usage constraints. This is one of the reasons why cookies (RFCs <a href="https://www.ietf.org/rfc/rfc2109.txt">2109</a> &amp; <a href="https://www.ietf.org/rfc/rfc2965.txt">2965</a> &amp; <a href="https://www.ietf.org/rfc/rfc6265.txt">6265</a>) are one of the most extensively used session ID exchange mechanisms, offering advanced capabilities not available in other methods.</p>
 <p>The usage of specific session ID exchange mechanisms, such as those where the ID is included in the URL, might disclose the session ID (in web links and logs, web browser history and bookmarks, the Referer header or search engines), as well as facilitate other attacks, such as the manipulation of the ID or <a href="http://www.acrossecurity.com/papers/session_fixation.pdf">session fixation attacks</a>.</p>
@@ -1125,7 +1961,7 @@
 </ul>
 <p>See the OWASP <a href="../Transport_Layer_Protection_Cheat_Sheet/">Transport Layer Protection Cheat Sheet</a> for more general guidance on implementing TLS securely.</p>
 <p>It is important to emphasize that TLS does not protect against session ID prediction, brute force, client-side tampering or fixation; however, it does provide effective protection against an attacker intercepting or stealing session IDs through a man in the middle attack.</p>
-<h1 id="cookies">Cookies<a class="headerlink" href="#cookies" title="Permanent link">&para;</a></h1>
+<h2 id="cookies">Cookies<a class="headerlink" href="#cookies" title="Permanent link">&para;</a></h2>
 <p>The session ID exchange mechanism based on cookies provides multiple security features in the form of cookie attributes that can be used to protect the exchange of the session ID:</p>
 <h2 id="secure-attribute">Secure Attribute<a class="headerlink" href="#secure-attribute" title="Permanent link">&para;</a></h2>
 <p>The <code>Secure</code> cookie attribute instructs web browsers to only send the cookie through an encrypted HTTPS (SSL/TLS) connection. This session protection mechanism is mandatory to prevent the disclosure of the session ID through MitM (Man-in-the-Middle) attacks. It ensures that an attacker cannot simply capture the session ID from web browser traffic.</p>
@@ -1156,7 +1992,7 @@
 <li>Ensure entire cookie should be encrypted if sensitive data is persisted in the cookie</li>
 <li>Define all cookies being used by the application, their name and why they are needed</li>
 </ul>
-<h1 id="html5-web-storage-api">HTML5 Web Storage API<a class="headerlink" href="#html5-web-storage-api" title="Permanent link">&para;</a></h1>
+<h2 id="html5-web-storage-api">HTML5 Web Storage API<a class="headerlink" href="#html5-web-storage-api" title="Permanent link">&para;</a></h2>
 <p>The Web Hypertext Application Technology Working Group (WHATWG) describes the HTML5 Web Storage APIs, <code>localStorage</code> and <code>sessionStorage</code>, as mechanisms for storing name-value pairs client-side.
 Unlike HTTP cookies, the contents of <code>localStorage</code> and <code>sessionStorage</code> are not automatically shared within requests or responses by the browser and are used for storing data client-side.</p>
 <h2 id="the-localstorage-api">The localStorage API<a class="headerlink" href="#the-localstorage-api" title="Permanent link">&para;</a></h2>
@@ -1191,7 +2027,7 @@ Due to the potential to access Web Storage APIs via an XSS attack, session ident
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">SessionStorage API</a></li>
 <li><a href="https://html.spec.whatwg.org/multipage/webstorage.html#webstorage">WHATWG Web Storage Spec</a></li>
 </ul>
-<h1 id="session-id-life-cycle">Session ID Life Cycle<a class="headerlink" href="#session-id-life-cycle" title="Permanent link">&para;</a></h1>
+<h2 id="session-id-life-cycle">Session ID Life Cycle<a class="headerlink" href="#session-id-life-cycle" title="Permanent link">&para;</a></h2>
 <h2 id="session-id-generation-and-verification-permissive-and-strict-session-management">Session ID Generation and Verification: Permissive and Strict Session Management<a class="headerlink" href="#session-id-generation-and-verification-permissive-and-strict-session-management" title="Permanent link">&para;</a></h2>
 <p>There are two types of session management mechanisms for web applications, permissive and strict, related to session fixation vulnerabilities. The permissive mechanism allow the web application to initially accept any session ID value set by the user as valid, creating a new session for it, while the strict mechanism enforces that the web application will only accept session ID values that have been previously generated by the web application.</p>
 <p>The session tokens should be handled by the web server if possible or generated via a cryptographically secure random number generator.</p>
@@ -1207,7 +2043,7 @@ Due to the potential to access Web Storage APIs via an XSS attack, session ident
 <p>If the web application uses cookies as the session ID exchange mechanism, and multiple cookies are set for a given session, the web application must verify all cookies (and enforce relationships between them) before allowing access to the user session.</p>
 <p>It is very common for web applications to set a user cookie pre-authentication over HTTP to keep track of unauthenticated (or anonymous) users. Once the user authenticates in the web application, a new post-authentication secure cookie is set over HTTPS, and a binding between both cookies and the user session is established. If the web application does not verify both cookies for authenticated sessions, an attacker can make use of the pre-authentication unprotected cookie to get access to the authenticated user session (see <a href="https://media.blackhat.com/bh-eu-11/Raul_Siles/BlackHat_EU_2011_Siles_SAP_Session-Slides.pdf">here</a> and <a href="https://media.blackhat.com/bh-eu-11/Raul_Siles/BlackHat_EU_2011_Siles_SAP_Session-WP.pdf">here</a>).</p>
 <p>Web applications should try to avoid the same cookie name for different paths or domain scopes within the same web application, as this increases the complexity of the solution and potentially introduces scoping issues.</p>
-<h1 id="session-expiration">Session Expiration<a class="headerlink" href="#session-expiration" title="Permanent link">&para;</a></h1>
+<h2 id="session-expiration">Session Expiration<a class="headerlink" href="#session-expiration" title="Permanent link">&para;</a></h2>
 <p>In order to minimize the time period an attacker can launch attacks over active sessions and hijack them, it is mandatory to set expiration timeouts for every session, establishing the amount of time a session will remain active. Insufficient session expiration by the web application increases the exposure of other session-based attacks, as for the attacker to be able to reuse a valid session ID and hijack the associated session, it must still be active.</p>
 <p>The shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly with the purpose and nature of the web application, and balance security and usability, so that the user can comfortably complete the operations within the web application without his session frequently expiring. </p>
 <p>Both the idle and absolute timeout values are highly dependent on how critical the web application and its data are. Common idle timeouts ranges are 2-5 minutes for high-value applications and 15-30 minutes for low risk applications.</p>
@@ -1235,7 +2071,7 @@ Due to the potential to access Web Storage APIs via an XSS attack, session ident
 <h2 id="web-content-caching">Web Content Caching<a class="headerlink" href="#web-content-caching" title="Permanent link">&para;</a></h2>
 <p>Even after the session has been closed, it might be possible to access the private or sensitive data exchanged within the session through the web browser cache. Therefore, web applications must use restrictive cache directives for all the web traffic exchanged through HTTP and HTTPS, such as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"><code>Cache-Control</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Pragma"><code>Pragma</code></a> HTTP headers, and/or equivalent META tags on all or (at least) sensitive web pages.</p>
 <p>Independently of the cache policy defined by the web application, if caching web application contents is allowed, the session IDs must never be cached, so it is highly recommended to use the <code>Cache-Control: no-cache="Set-Cookie, Set-Cookie2"</code> directive, to allow web clients to cache everything except the session ID (see <a href="https://stackoverflow.com/a/41352418">here</a>).</p>
-<h1 id="additional-client-side-defenses-for-session-management">Additional Client-Side Defenses for Session Management<a class="headerlink" href="#additional-client-side-defenses-for-session-management" title="Permanent link">&para;</a></h1>
+<h2 id="additional-client-side-defenses-for-session-management">Additional Client-Side Defenses for Session Management<a class="headerlink" href="#additional-client-side-defenses-for-session-management" title="Permanent link">&para;</a></h2>
 <p>Web applications can complement the previously described session management defenses with additional countermeasures on the client side. Client-side protections, typically in the form of JavaScript checks and verifications, are not bullet proof and can easily be defeated by a skilled attacker, but can introduce another layer of defense that has to be bypassed by intruders.</p>
 <h2 id="initial-login-timeout">Initial Login Timeout<a class="headerlink" href="#initial-login-timeout" title="Permanent link">&para;</a></h2>
 <p>Web applications can use JavaScript code in the login page to evaluate and measure the amount of time since the page was loaded and a session ID was granted. If a login attempt is tried after a specific amount of time, the client code can notify the user that the maximum amount of time to log in has passed and reload the login page, hence retrieving a new session ID.</p>
@@ -1248,7 +2084,7 @@ Due to the potential to access Web Storage APIs via an XSS attack, session ident
 <h2 id="automatic-client-logout">Automatic Client Logout<a class="headerlink" href="#automatic-client-logout" title="Permanent link">&para;</a></h2>
 <p>JavaScript code can be used by the web application in all (or critical) pages to automatically logout client sessions after the idle timeout expires, for example, by redirecting the user to the logout page (the same resource used by the logout button mentioned previously).</p>
 <p>The benefit of enhancing the server-side idle timeout functionality with client-side code is that the user can see that the session has finished due to inactivity, or even can be notified in advance that the session is about to expire through a count down timer and warning messages. This user-friendly approach helps to avoid loss of work in web pages that require extensive input data due to server-side silently expired sessions.</p>
-<h1 id="session-attacks-detection">Session Attacks Detection<a class="headerlink" href="#session-attacks-detection" title="Permanent link">&para;</a></h1>
+<h2 id="session-attacks-detection">Session Attacks Detection<a class="headerlink" href="#session-attacks-detection" title="Permanent link">&para;</a></h2>
 <h2 id="session-id-guessing-and-brute-force-detection">Session ID Guessing and Brute Force Detection<a class="headerlink" href="#session-id-guessing-and-brute-force-detection" title="Permanent link">&para;</a></h2>
 <p>If an attacker tries to guess or brute force a valid session ID, he needs to launch multiple sequential requests against the target web application using different session IDs from a single (or set of) IP address(es). Additionally, if an attacker tries to analyze the predictability of the session ID (e.g. using statistical analysis), he needs to launch multiple sequential requests from a single (or set of) IP address(es) against the target web application to gather new valid session IDs.</p>
 <p>Web applications must be able to detect both scenarios based on the number of attempts to gather (or use) different session IDs and alert and/or block the offending IP address(es).</p>
@@ -1266,7 +2102,7 @@ Due to the potential to access Web Storage APIs via an XSS attack, session ident
 <h2 id="simultaneous-session-logons">Simultaneous Session Logons<a class="headerlink" href="#simultaneous-session-logons" title="Permanent link">&para;</a></h2>
 <p>It is the web application design decision to determine if multiple simultaneous logons from the same user are allowed from the same or from different client IP addresses. If the web application does not want to allow simultaneous session logons, it must take effective actions after each new authentication event, implicitly terminating the previously available session, or asking the user (through the old, new or both sessions) about the session that must remain active.</p>
 <p>It is recommended for web applications to add user capabilities that allow checking the details of active sessions at any time, monitor and alert the user about concurrent logons, provide user features to remotely terminate sessions manually, and track account activity history (logbook) by recording multiple client details such as IP address, User-Agent, login date and time, idle time, etc.</p>
-<h1 id="session-management-waf-protections">Session Management WAF Protections<a class="headerlink" href="#session-management-waf-protections" title="Permanent link">&para;</a></h1>
+<h2 id="session-management-waf-protections">Session Management WAF Protections<a class="headerlink" href="#session-management-waf-protections" title="Permanent link">&para;</a></h2>
 <p>There are situations where the web application source code is not available or cannot be modified, or when the changes required to implement the multiple security recommendations and best practices detailed above imply a full redesign of the web application architecture, and therefore, cannot be easily implemented in the short term. </p>
 <p>In these scenarios, or to complement the web application defenses, and with the goal of keeping the web application as secure as possible, it is recommended to use external protections such as Web Application Firewalls (WAFs) that can mitigate the session management threats already described.</p>
 <p>Web Application Firewalls offer detection and protection capabilities against session based attacks. On the one hand, it is trivial for WAFs to enforce the usage of security attributes on cookies, such as the <code>Secure</code> and <code>HttpOnly</code> flags, applying basic rewriting rules on the <code>Set-Cookie</code> header for all the web application responses that set a new cookie. </p>
