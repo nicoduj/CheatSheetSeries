@@ -1528,9 +1528,11 @@
 <li>If the application is vulnerable to <a href="https://portswigger.net/web-security/xxe">XML eXternal Entity (XXE) injection</a> then it can by exploited to perform a <a href="https://portswigger.net/web-security/xxe#exploiting-xxe-to-perform-ssrf-attacks">SSRF attack</a>, take a look at the <a href="../XML_External_Entity_Prevention_Cheat_Sheet/">XXE cheat sheet</a> to learn how to prevent the exposure to XXE.</li>
 </ul>
 <h2 id="cases">Cases<a class="headerlink" href="#cases" title="Permanent link">&para;</a></h2>
-<p>Depending on the application's functionality and requirements, there are two basic cases in which SSRF can happen:
-- Application can send request only to <strong>identified and trusted applications</strong>: Case when <a href="https://en.wikipedia.org/wiki/Whitelisting">whitelist</a> approach is available.
-- Application can send requests to <strong>ANY external IP address or domain name</strong>: Case when <a href="https://en.wikipedia.org/wiki/Whitelisting">whitelist</a> approach is not available.</p>
+<p>Depending on the application's functionality and requirements, there are two basic cases in which SSRF can happen:</p>
+<ul>
+<li>Application can send request only to <strong>identified and trusted applications</strong>: Case when <a href="https://en.wikipedia.org/wiki/Whitelisting">whitelist</a> approach is available.</li>
+<li>Application can send requests to <strong>ANY external IP address or domain name</strong>: Case when <a href="https://en.wikipedia.org/wiki/Whitelisting">whitelist</a> approach is not available.</li>
+</ul>
 <p>Because these two cases are very different, this cheat sheet will describe defences against them separately.</p>
 <h3 id="case-1-application-can-send-request-only-to-identified-and-trusted-applications">Case 1 - Application can send request only to identified and trusted applications<a class="headerlink" href="#case-1-application-can-send-request-only-to-identified-and-trusted-applications" title="Permanent link">&para;</a></h3>
 <p>Sometimes, an application need to perform request to another application, often located on another network, to perform a specific task. Depending of the business case, it can happen that information from the user are needed to perform the action.</p>
@@ -1547,11 +1549,13 @@ The user leverages the web application as a proxy to the HR system.</p>
 <p>The first level of protection that comes to mind is <a href="../Input_Validation_Cheat_Sheet/">Input validation</a>.</p>
 <p>Based on that point, the following question comes to mind: <em>How to perform this input validation?</em></p>
 <p>As <a href="https://twitter.com/orange_8361">Orange Tsai</a> shows in his <a href="../../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_Orange_Tsai_Talk.pdf">talk</a>, depending on the programming language used, parsers can be abused. One possible countermeasure is to apply the <a href="../Input_Validation_Cheat_Sheet/#whitelisting-vs-blacklisting">whitelisting approach</a> when input validation is used because, most of the time, the format of the information expected from the user is globally know.</p>
-<p>The request sent to the internal application will be based on the following information:
-- String containing business data.
-- IP address (V4 or V6).
-- Domain name.
-- URL.</p>
+<p>The request sent to the internal application will be based on the following information:</p>
+<ul>
+<li>String containing business data.</li>
+<li>IP address (V4 or V6).</li>
+<li>Domain name.</li>
+<li>URL.</li>
+</ul>
 <p><strong>Note:</strong> Disable the support for the following of the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections">redirection</a> in your web client in order to prevent the bypass of the input validation described in the section <code>Exploitation tricks &gt; Bypassing restrictions &gt; Input validation &gt; Unsafe redirect</code> of this <a href="../../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_SSRF_Bible.pdf">document</a>.</p>
 <h6 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h6>
 <p>In the context of SSRF, checks can be put in place to ensure that the string respects the business/technical format expected.</p>
@@ -1595,10 +1599,12 @@ The user leverages the web application as a proxy to the HR system.</p>
 </blockquote>
 <p>After ensuring the validity of the incoming IP address, the second layer of validation is applied. A whitelist is created after determining all the IP addresses (v4 and v6 in order to avoid bypasses) of the identified and trusted applications. The valid IP is cross checked with that list to ensure its communication with the internal application (string strict comparison with case sensitive).</p>
 <h6 id="domain-name">Domain name<a class="headerlink" href="#domain-name" title="Permanent link">&para;</a></h6>
-<p>In the attempt of validating domain names, it is apparent to do a DNS resolution in order to verify the existence of the domain. In general, it is not a bad idea, yet it opens up the application to attacks depending on the configuration used regarding the DNS servers used for the domain name resolution:
-- It can disclose information to external DNS resolvers.
-- It can be used by an attacker to bind a legit domain name to an internal IP address. See the section <code>Exploitation tricks &gt; Bypassing restrictions &gt; Input validation &gt; DNS pinning</code> of this <a href="../../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_SSRF_Bible.pdf">document</a>.
-- It can be used, by an attacker, to deliver a malicious payload to the internal DNS resolvers as well as to the API (SDK or third-party) used by the application to handle the DNS communication and then, potentially, trigger a vulnerability in one of these components.</p>
+<p>In the attempt of validating domain names, it is apparent to do a DNS resolution in order to verify the existence of the domain. In general, it is not a bad idea, yet it opens up the application to attacks depending on the configuration used regarding the DNS servers used for the domain name resolution:</p>
+<ul>
+<li>It can disclose information to external DNS resolvers.</li>
+<li>It can be used by an attacker to bind a legit domain name to an internal IP address. See the section <code>Exploitation tricks &gt; Bypassing restrictions &gt; Input validation &gt; DNS pinning</code> of this <a href="../../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_SSRF_Bible.pdf">document</a>.</li>
+<li>It can be used, by an attacker, to deliver a malicious payload to the internal DNS resolvers as well as to the API (SDK or third-party) used by the application to handle the DNS communication and then, potentially, trigger a vulnerability in one of these components.</li>
+</ul>
 <p>In the context of SSRF, there are 2 validations to perform:</p>
 <ol>
 <li>Ensure that the data provided is a valid domain name.</li>

@@ -1514,9 +1514,11 @@
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>Most of the projects use third-party dependencies to delegate handling of different kind of operations, <em>e.g.</em> generation of document in a specific format, HTTP communications, data parsing of a specific format, etc.</p>
 <p>It's a good approach because it allows the development team to focus on the real application code supporting the expected business feature. The dependency brings forth an expected downside where the security posture of the real application is now resting on it.</p>
-<p>This aspect is referenced in the following projects:
-- <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/">OWASP TOP 10 2017</a> under the point <em><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities.html">A9 - Using Components with Known Vulnerabilities</a></em>.
-- <a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP Application Security Verification Standard Project</a> under the section <em>V14.2 Dependency</em>.</p>
+<p>This aspect is referenced in the following projects:</p>
+<ul>
+<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/">OWASP TOP 10 2017</a> under the point <em><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities.html">A9 - Using Components with Known Vulnerabilities</a></em>.</li>
+<li><a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP Application Security Verification Standard Project</a> under the section <em>V14.2 Dependency</em>.</li>
+</ul>
 <p>Based on this context, it's important for a project to ensure that all the third-party dependencies implemented are clean of any security issue, and if they happen to contain any security issues, the development team needs to be aware of it and apply the required mitigation measures to secure the affected application.</p>
 <p>It's highly recommended to perform automated analysis of the dependencies from the birth of the project. Indeed, if this task is added at the middle or end of the project, it can imply a huge amount of work to handle all the issues identified and that will in turn impose a huge burden on the development team and might to blocking the advancement of the project at hand.</p>
 <p><strong>Note:</strong></p>
@@ -1611,9 +1613,11 @@
 <p>Nothing specific because here we are in a <em>patch yourself</em> condition.</p>
 <h4 id="approach_2">Approach<a class="headerlink" href="#approach_2" title="Permanent link">&para;</a></h4>
 <p><strong>Step 1:</strong></p>
-<p>If we are in this case due to one of the following conditions, it's a good idea to start a parallel study to find another component better maintained or if it's a commercial component with support <strong>then put pressure</strong> on the provider with the help of your <a href="https://en.wikipedia.org/wiki/Chief_risk_officer">Chief Risk Officer</a> (fallback possible to <a href="https://en.wikipedia.org/wiki/Chief_information_security_officer">Chief Information Security Officer</a>):
-- Provider does not want to fix the issue.
-- Provider does not answer at all.</p>
+<p>If we are in this case due to one of the following conditions, it's a good idea to start a parallel study to find another component better maintained or if it's a commercial component with support <strong>then put pressure</strong> on the provider with the help of your <a href="https://en.wikipedia.org/wiki/Chief_risk_officer">Chief Risk Officer</a> (fallback possible to <a href="https://en.wikipedia.org/wiki/Chief_information_security_officer">Chief Information Security Officer</a>):</p>
+<ul>
+<li>Provider does not want to fix the issue.</li>
+<li>Provider does not answer at all.</li>
+</ul>
 <p>In all cases, here, we need to handle the vulnerability right now.</p>
 <p><strong>Step 2:</strong></p>
 <p>As we know the vulnerable dependency, we know where it is used in the application (if it's a transitive dependency then we can identify the first level dependency using it using the <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">IDE</a> built-in feature or the dependency management system used (Maven, Gradle, Nuget, NPM, etc.). Note that IDE is also used to identify the calls to the dependency.</p>
@@ -1648,11 +1652,15 @@
 <p>Using the information from the full disclosure post or the pentester's exploitation feedback, if the provider collaborates then apply <a href="#case-2">Case 2</a>, otherwise apply <a href="#case-3">Case 3</a>, and instead of analyzing the CVE information, the team needs to analyze the information from the full disclosure post/pentester's exploitation feedback.</p>
 <h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
 <p>This section lists several tools that can used to analyse the dependencies used by a project in order to detect the vulnerabilities.</p>
-<p>It's important to ensure, during the selection process of a vulnerable dependency detection tool, that this one:
-- Uses several reliable input sources in order to handle both vulnerability disclosure ways.
-- Support for flagging an issue raised on a component as a <a href="https://www.whitehatsec.com/glossary/content/false-positive">false-positive</a>.</p>
+<p>It's important to ensure, during the selection process of a vulnerable dependency detection tool, that this one:</p>
 <ul>
-<li>Free</li>
+<li>Uses several reliable input sources in order to handle both vulnerability disclosure ways.</li>
+<li>
+<p>Support for flagging an issue raised on a component as a <a href="https://www.whitehatsec.com/glossary/content/false-positive">false-positive</a>.</p>
+</li>
+<li>
+<p>Free</p>
+</li>
 <li><a href="https://owasp.org/www-project-dependency-check/">OWASP Dependency Check</a>:<ul>
 <li>Full support: Java, .Net.</li>
 <li>Experimental support: Python, Ruby, PHP (composer), NodeJS, C, C++.</li>
