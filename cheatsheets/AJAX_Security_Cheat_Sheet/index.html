@@ -13,15 +13,15 @@
       
       
       <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.1">
     
     
       
-        <title>AJAX Security Cheat Sheet</title>
+        <title>AJAX Security</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b9ffd7b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.71dfd922.min.css">
       
       
     
@@ -37,6 +37,11 @@
     
     
       
+        
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-4531126-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -50,7 +55,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#ajax-security-cheat-sheet" class="md-skip">
           Skip to content
         </a>
       
@@ -77,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              AJAX Security Cheat Sheet
+              AJAX Security
             
           </span>
         </div>
@@ -234,14 +239,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        AJAX Security Cheat Sheet
+        AJAX Security
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="AJAX Security Cheat Sheet" class="md-nav__link md-nav__link--active">
-      AJAX Security Cheat Sheet
+    <a href="./" title="AJAX Security" class="md-nav__link md-nav__link--active">
+      AJAX Security
     </a>
     
       
@@ -260,6 +265,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#client-side-javascript" class="md-nav__link">
     Client Side (JavaScript)
   </a>
@@ -341,8 +354,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#server-side" class="md-nav__link">
     Server Side
   </a>
@@ -385,8 +398,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#avoid-writing-serialization-code-remember-ref-vs-value-types" class="md-nav__link">
-    Avoid writing serialization code. Remember ref vs. value types!
+  <a href="#avoid-writing-serialization-code-server-side" class="md-nav__link">
+    Avoid writing serialization code Server Side
   </a>
   
 </li>
@@ -416,6 +429,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -430,8 +448,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
-      Abuse Case Cheat Sheet
+    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case" class="md-nav__link">
+      Abuse Case
     </a>
   </li>
 
@@ -442,8 +460,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
-      Access Control Cheat Sheet
+    <a href="../Access_Control_Cheat_Sheet/" title="Access Control" class="md-nav__link">
+      Access Control
     </a>
   </li>
 
@@ -454,8 +472,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
-      Attack Surface Analysis Cheat Sheet
+    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis" class="md-nav__link">
+      Attack Surface Analysis
     </a>
   </li>
 
@@ -466,8 +484,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
-      Authentication Cheat Sheet
+    <a href="../Authentication_Cheat_Sheet/" title="Authentication" class="md-nav__link">
+      Authentication
     </a>
   </li>
 
@@ -478,8 +496,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-nav__link">
-      Authorization Testing Automation
+    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation.md" class="md-nav__link">
+      Authorization Testing Automation.md
     </a>
   </li>
 
@@ -490,8 +508,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-nav__link">
-      Bean Validation Cheat Sheet
+    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation" class="md-nav__link">
+      Bean Validation
     </a>
   </li>
 
@@ -502,7 +520,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-nav__link">
+    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening.md" class="md-nav__link">
+      C-Based Toolchain Hardening.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening" class="md-nav__link">
       C-Based Toolchain Hardening
     </a>
   </li>
@@ -514,8 +544,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
-      C-Based Toolchain Hardening Cheat Sheet
+    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions" class="md-nav__link">
+      Choosing and Using Security Questions
     </a>
   </li>
 
@@ -526,8 +556,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
-      Choosing and Using Security Questions Cheat Sheet
+    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense" class="md-nav__link">
+      Clickjacking Defense
     </a>
   </li>
 
@@ -538,8 +568,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
-      Clickjacking Defense Cheat Sheet
+    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy" class="md-nav__link">
+      Content Security Policy
     </a>
   </li>
 
@@ -550,8 +580,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
-      Content Security Policy Cheat Sheet
+    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention" class="md-nav__link">
+      Credential Stuffing Prevention
     </a>
   </li>
 
@@ -562,8 +592,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
-      Credential Stuffing Prevention Cheat Sheet
+    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention" class="md-nav__link">
+      Cross-Site Request Forgery Prevention
     </a>
   </li>
 
@@ -574,8 +604,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Cross-Site Request Forgery Prevention Cheat Sheet
+    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention" class="md-nav__link">
+      Cross Site Scripting Prevention
     </a>
   </li>
 
@@ -586,8 +616,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
-      Cross Site Scripting Prevention Cheat Sheet
+    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage" class="md-nav__link">
+      Cryptographic Storage
     </a>
   </li>
 
@@ -598,8 +628,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
-      Cryptographic Storage Cheat Sheet
+    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention" class="md-nav__link">
+      DOM based XSS Prevention
     </a>
   </li>
 
@@ -610,8 +640,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
-      DOM based XSS Prevention Cheat Sheet
+    <a href="../Database_Security_Cheat_Sheet/" title="Database Security" class="md-nav__link">
+      Database Security
     </a>
   </li>
 
@@ -622,8 +652,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
-      Database Security Cheat Sheet
+    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service" class="md-nav__link">
+      Denial of Service
     </a>
   </li>
 
@@ -634,8 +664,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
-      Denial of Service Cheat Sheet
+    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization" class="md-nav__link">
+      Deserialization
     </a>
   </li>
 
@@ -646,8 +676,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
-      Deserialization Cheat Sheet
+    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security" class="md-nav__link">
+      Docker Security
     </a>
   </li>
 
@@ -658,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
-      Docker Security Cheat Sheet
+    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security" class="md-nav__link">
+      DotNet Security
     </a>
   </li>
 
@@ -670,8 +700,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security Cheat Sheet" class="md-nav__link">
-      DotNet Security Cheat Sheet
+    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling" class="md-nav__link">
+      Error Handling
     </a>
   </li>
 
@@ -682,8 +712,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
-      Error Handling Cheat Sheet
+    <a href="../File_Upload_Cheat_Sheet/" title="File Upload" class="md-nav__link">
+      File Upload
     </a>
   </li>
 
@@ -694,8 +724,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
-      File Upload Cheat Sheet
+    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password" class="md-nav__link">
+      Forgot Password
     </a>
   </li>
 
@@ -706,8 +736,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
-      Forgot Password Cheat Sheet
+    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security" class="md-nav__link">
+      HTML5 Security
     </a>
   </li>
 
@@ -718,8 +748,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
-      HTML5 Security Cheat Sheet
+    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security" class="md-nav__link">
+      HTTP Strict Transport Security
     </a>
   </li>
 
@@ -730,8 +760,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
-      HTTP Strict Transport Security Cheat Sheet
+    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention" class="md-nav__link">
+      Injection Prevention
     </a>
   </li>
 
@@ -742,8 +772,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
-      Injection Prevention Cheat Sheet
+    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java.md" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java.md
     </a>
   </li>
 
@@ -754,8 +784,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
-      Injection Prevention Cheat Sheet in Java
+    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation" class="md-nav__link">
+      Input Validation
     </a>
   </li>
 
@@ -766,8 +796,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
-      Input Validation Cheat Sheet
+    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention" class="md-nav__link">
+      Insecure Direct Object Reference Prevention
     </a>
   </li>
 
@@ -778,8 +808,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
-      Insecure Direct Object Reference Prevention Cheat Sheet
+    <a href="../JAAS_Cheat_Sheet/" title="JAAS" class="md-nav__link">
+      JAAS
     </a>
   </li>
 
@@ -790,8 +820,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-nav__link">
-      JAAS Cheat Sheet
+    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java.md" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java.md
     </a>
   </li>
 
@@ -802,8 +832,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
-      JSON Web Token Cheat Sheet for Java
+    <a href="../Key_Management_Cheat_Sheet/" title="Key Management" class="md-nav__link">
+      Key Management
     </a>
   </li>
 
@@ -814,8 +844,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
-      Key Management Cheat Sheet
+    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention" class="md-nav__link">
+      LDAP Injection Prevention
     </a>
   </li>
 
@@ -826,8 +856,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
-      LDAP Injection Prevention Cheat Sheet
+    <a href="../Logging_Cheat_Sheet/" title="Logging" class="md-nav__link">
+      Logging
     </a>
   </li>
 
@@ -838,8 +868,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
-      Logging Cheat Sheet
+    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment" class="md-nav__link">
+      Mass Assignment
     </a>
   </li>
 
@@ -850,8 +880,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
-      Mass Assignment Cheat Sheet
+    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc" class="md-nav__link">
+      Microservices based Security Arch Doc
     </a>
   </li>
 
@@ -862,8 +892,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
-      Microservices based Security Arch Doc Cheat Sheet
+    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication" class="md-nav__link">
+      Multifactor Authentication
     </a>
   </li>
 
@@ -874,8 +904,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
-      Multifactor Authentication Cheat Sheet
+    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet.md" class="md-nav__link">
+      Nodejs security cheat sheet.md
     </a>
   </li>
 
@@ -886,8 +916,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
-      Nodejs security cheat sheet
+    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense" class="md-nav__link">
+      OS Command Injection Defense
     </a>
   </li>
 
@@ -898,8 +928,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
-      OS Command Injection Defense Cheat Sheet
+    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration" class="md-nav__link">
+      PHP Configuration
     </a>
   </li>
 
@@ -910,8 +940,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
-      PHP Configuration Cheat Sheet
+    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage" class="md-nav__link">
+      Password Storage
     </a>
   </li>
 
@@ -922,8 +952,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
-      Password Storage Cheat Sheet
+    <a href="../Pinning_Cheat_Sheet/" title="Pinning" class="md-nav__link">
+      Pinning
     </a>
   </li>
 
@@ -934,8 +964,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
-      Pinning Cheat Sheet
+    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization" class="md-nav__link">
+      Query Parameterization
     </a>
   </li>
 
@@ -946,8 +976,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
-      Query Parameterization Cheat Sheet
+    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment" class="md-nav__link">
+      REST Assessment
     </a>
   </li>
 
@@ -958,8 +988,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
-      REST Assessment Cheat Sheet
+    <a href="../REST_Security_Cheat_Sheet/" title="REST Security" class="md-nav__link">
+      REST Security
     </a>
   </li>
 
@@ -970,8 +1000,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
-      REST Security Cheat Sheet
+    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet.md" class="md-nav__link">
+      Ruby on Rails Cheatsheet.md
     </a>
   </li>
 
@@ -982,8 +1012,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
-      Ruby on Rails Cheatsheet
+    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security" class="md-nav__link">
+      SAML Security
     </a>
   </li>
 
@@ -994,8 +1024,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
-      SAML Security Cheat Sheet
+    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention" class="md-nav__link">
+      SQL Injection Prevention
     </a>
   </li>
 
@@ -1006,8 +1036,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
-      SQL Injection Prevention Cheat Sheet
+    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets" class="md-nav__link">
+      Securing Cascading Style Sheets
     </a>
   </li>
 
@@ -1018,8 +1048,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
-      Securing Cascading Style Sheets Cheat Sheet
+    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention" class="md-nav__link">
+      Server Side Request Forgery Prevention
     </a>
   </li>
 
@@ -1030,8 +1060,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Server Side Request Forgery Prevention Cheat Sheet
+    <a href="../Session_Management_Cheat_Sheet/" title="Session Management" class="md-nav__link">
+      Session Management
     </a>
   </li>
 
@@ -1042,8 +1072,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
-      Session Management Cheat Sheet
+    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String" class="md-nav__link">
+      TLS Cipher String
     </a>
   </li>
 
@@ -1054,8 +1084,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
-      TLS Cipher String Cheat Sheet
+    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management" class="md-nav__link">
+      Third Party Javascript Management
     </a>
   </li>
 
@@ -1066,8 +1096,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
-      Third Party Javascript Management Cheat Sheet
+    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling" class="md-nav__link">
+      Threat Modeling
     </a>
   </li>
 
@@ -1078,8 +1108,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
-      Threat Modeling Cheat Sheet
+    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization" class="md-nav__link">
+      Transaction Authorization
     </a>
   </li>
 
@@ -1090,8 +1120,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
-      Transaction Authorization Cheat Sheet
+    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection" class="md-nav__link">
+      Transport Layer Protection
     </a>
   </li>
 
@@ -1102,8 +1132,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
-      Transport Layer Protection Cheat Sheet
+    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards" class="md-nav__link">
+      Unvalidated Redirects and Forwards
     </a>
   </li>
 
@@ -1114,8 +1144,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
-      Unvalidated Redirects and Forwards Cheat Sheet
+    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection" class="md-nav__link">
+      User Privacy Protection
     </a>
   </li>
 
@@ -1126,8 +1156,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
-      User Privacy Protection Cheat Sheet
+    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching" class="md-nav__link">
+      Virtual Patching
     </a>
   </li>
 
@@ -1138,8 +1168,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
-      Virtual Patching Cheat Sheet
+    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure" class="md-nav__link">
+      Vulnerability Disclosure
     </a>
   </li>
 
@@ -1150,8 +1180,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
-      Vulnerability Disclosure Cheat Sheet
+    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management" class="md-nav__link">
+      Vulnerable Dependency Management
     </a>
   </li>
 
@@ -1162,8 +1192,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
-      Vulnerable Dependency Management Cheat Sheet
+    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security" class="md-nav__link">
+      Web Service Security
     </a>
   </li>
 
@@ -1174,8 +1204,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
-      Web Service Security Cheat Sheet
+    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention" class="md-nav__link">
+      XML External Entity Prevention
     </a>
   </li>
 
@@ -1186,20 +1216,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
-      XML External Entity Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
-      XML Security Cheat Sheet
+    <a href="../XML_Security_Cheat_Sheet/" title="XML Security" class="md-nav__link">
+      XML Security
     </a>
   </li>
 
@@ -1235,6 +1253,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#client-side-javascript" class="md-nav__link">
     Client Side (JavaScript)
   </a>
@@ -1316,8 +1342,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#server-side" class="md-nav__link">
     Server Side
   </a>
@@ -1360,8 +1386,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#avoid-writing-serialization-code-remember-ref-vs-value-types" class="md-nav__link">
-    Avoid writing serialization code. Remember ref vs. value types!
+  <a href="#avoid-writing-serialization-code-server-side" class="md-nav__link">
+    Avoid writing serialization code Server Side
   </a>
   
 </li>
@@ -1391,6 +1417,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -1408,43 +1439,44 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                <h1 id="ajax-security-cheat-sheet">Ajax Security Cheat Sheet<a class="headerlink" href="#ajax-security-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This document will provide a starting point for AJAX security and will hopefully be updated and expanded reasonably often to provide more detailed information about specific frameworks and technologies.</p>
-<h2 id="client-side-javascript">Client Side (JavaScript)<a class="headerlink" href="#client-side-javascript" title="Permanent link">&para;</a></h2>
-<h3 id="use-innertext-instead-of-innerhtml">Use .innerText instead of .innerHtml<a class="headerlink" href="#use-innertext-instead-of-innerhtml" title="Permanent link">&para;</a></h3>
+<h3 id="client-side-javascript">Client Side (JavaScript)<a class="headerlink" href="#client-side-javascript" title="Permanent link">&para;</a></h3>
+<h4 id="use-innertext-instead-of-innerhtml">Use .innerText instead of .innerHtml<a class="headerlink" href="#use-innertext-instead-of-innerhtml" title="Permanent link">&para;</a></h4>
 <p>The use of <code>.innerText</code> will prevent most XSS problems as it will automatically encode the text.</p>
-<h3 id="dont-use-eval">Don't use eval<a class="headerlink" href="#dont-use-eval" title="Permanent link">&para;</a></h3>
+<h4 id="dont-use-eval">Don't use eval<a class="headerlink" href="#dont-use-eval" title="Permanent link">&para;</a></h4>
 <p><code>eval()</code> function is evil, never use it. Needing to use eval usually indicates a problem in your design.</p>
-<h3 id="canonicalize-data-to-consumer-read-encode-before-use">Canonicalize data to consumer (read: encode before use)<a class="headerlink" href="#canonicalize-data-to-consumer-read-encode-before-use" title="Permanent link">&para;</a></h3>
-<p>When using data to build HTML, script, CSS, XML, JSON, etc. make sure you take into account how that data must be presented in a literal sense to keep its logical meaning. </p>
+<h4 id="canonicalize-data-to-consumer-read-encode-before-use">Canonicalize data to consumer (read: encode before use)<a class="headerlink" href="#canonicalize-data-to-consumer-read-encode-before-use" title="Permanent link">&para;</a></h4>
+<p>When using data to build HTML, script, CSS, XML, JSON, etc. make sure you take into account how that data must be presented in a literal sense to keep its logical meaning.</p>
 <p>Data should be properly encoded before used in this manner to prevent injection style issues, and to make sure the logical meaning is preserved.</p>
 <p><a href="https://owasp.org/www-project-java-encoder/">Check out the OWASP Java Encoder Project.</a></p>
-<h3 id="dont-rely-on-client-logic-for-security">Don't rely on client logic for security<a class="headerlink" href="#dont-rely-on-client-logic-for-security" title="Permanent link">&para;</a></h3>
+<h4 id="dont-rely-on-client-logic-for-security">Don't rely on client logic for security<a class="headerlink" href="#dont-rely-on-client-logic-for-security" title="Permanent link">&para;</a></h4>
 <p>Least ye have forgotten the user controls the client side logic. I can use a number of browser plugging to set breakpoints, skip code, change values, etc. Never rely on client logic.</p>
-<h3 id="dont-rely-on-client-business-logic">Don't rely on client business logic<a class="headerlink" href="#dont-rely-on-client-business-logic" title="Permanent link">&para;</a></h3>
+<h4 id="dont-rely-on-client-business-logic">Don't rely on client business logic<a class="headerlink" href="#dont-rely-on-client-business-logic" title="Permanent link">&para;</a></h4>
 <p>Just like the security one, make sure any interesting business rules/logic is duplicated on the server side less a user bypass needed logic and do something silly, or worse, costly.</p>
-<h3 id="avoid-writing-serialization-code">Avoid writing serialization code<a class="headerlink" href="#avoid-writing-serialization-code" title="Permanent link">&para;</a></h3>
-<p>This is hard and even a small mistake can cause large security issues. There are already a lot of frameworks to provide this functionality. </p>
+<h4 id="avoid-writing-serialization-code">Avoid writing serialization code<a class="headerlink" href="#avoid-writing-serialization-code" title="Permanent link">&para;</a></h4>
+<p>This is hard and even a small mistake can cause large security issues. There are already a lot of frameworks to provide this functionality.</p>
 <p>Take a look at the <a href="http://www.json.org/">JSON page</a> for links.</p>
-<h3 id="avoid-building-xml-or-json-dynamically">Avoid building XML or JSON dynamically<a class="headerlink" href="#avoid-building-xml-or-json-dynamically" title="Permanent link">&para;</a></h3>
+<h4 id="avoid-building-xml-or-json-dynamically">Avoid building XML or JSON dynamically<a class="headerlink" href="#avoid-building-xml-or-json-dynamically" title="Permanent link">&para;</a></h4>
 <p>Just like building HTML or SQL you will cause XML injection bugs, so stay way from this or at least use an encoding library or safe JSON or XML library to make attributes and element data safe.</p>
 <ul>
 <li><a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/">XSS (Cross Site Scripting) Prevention</a></li>
 <li><a href="../SQL_Injection_Prevention_Cheat_Sheet/">SQL Injection Prevention</a></li>
 </ul>
-<h3 id="never-transmit-secrets-to-the-client">Never transmit secrets to the client<a class="headerlink" href="#never-transmit-secrets-to-the-client" title="Permanent link">&para;</a></h3>
+<h4 id="never-transmit-secrets-to-the-client">Never transmit secrets to the client<a class="headerlink" href="#never-transmit-secrets-to-the-client" title="Permanent link">&para;</a></h4>
 <p>Anything the client knows the user will also know, so keep all that secret stuff on the server please.</p>
-<h3 id="dont-perform-encryption-in-client-side-code">Don't perform encryption in client side code<a class="headerlink" href="#dont-perform-encryption-in-client-side-code" title="Permanent link">&para;</a></h3>
+<h4 id="dont-perform-encryption-in-client-side-code">Don't perform encryption in client side code<a class="headerlink" href="#dont-perform-encryption-in-client-side-code" title="Permanent link">&para;</a></h4>
 <p>Use TLS/SSL and encrypt on the server!</p>
-<h3 id="dont-perform-security-impacting-logic-on-client-side">Don't perform security impacting logic on client side<a class="headerlink" href="#dont-perform-security-impacting-logic-on-client-side" title="Permanent link">&para;</a></h3>
+<h4 id="dont-perform-security-impacting-logic-on-client-side">Don't perform security impacting logic on client side<a class="headerlink" href="#dont-perform-security-impacting-logic-on-client-side" title="Permanent link">&para;</a></h4>
 <p>This is the overall one that gets me out of trouble in case I missed something :)</p>
-<h2 id="server-side">Server Side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h2>
-<h3 id="use-csrf-protection">Use CSRF Protection<a class="headerlink" href="#use-csrf-protection" title="Permanent link">&para;</a></h3>
+<h3 id="server-side">Server Side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h3>
+<h4 id="use-csrf-protection">Use CSRF Protection<a class="headerlink" href="#use-csrf-protection" title="Permanent link">&para;</a></h4>
 <p>Take a look at the <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/">Cross-Site Request Forgery (CSRF) Prevention</a> cheat sheet.</p>
-<h3 id="protect-against-json-hijacking-for-older-browsers">Protect against JSON Hijacking for Older Browsers<a class="headerlink" href="#protect-against-json-hijacking-for-older-browsers" title="Permanent link">&para;</a></h3>
-<h4 id="review-angularjs-json-hijacking-defense-mechanism">Review AngularJS JSON Hijacking Defense Mechanism<a class="headerlink" href="#review-angularjs-json-hijacking-defense-mechanism" title="Permanent link">&para;</a></h4>
+<h4 id="protect-against-json-hijacking-for-older-browsers">Protect against JSON Hijacking for Older Browsers<a class="headerlink" href="#protect-against-json-hijacking-for-older-browsers" title="Permanent link">&para;</a></h4>
+<h5 id="review-angularjs-json-hijacking-defense-mechanism">Review AngularJS JSON Hijacking Defense Mechanism<a class="headerlink" href="#review-angularjs-json-hijacking-defense-mechanism" title="Permanent link">&para;</a></h5>
 <p>See the <a href="https://docs.angularjs.org/api/ng/service/$http#json-vulnerability-protection">JSON Vulnerability Protection</a> section of the AngularJS documentation.</p>
-<h4 id="always-return-json-with-an-object-on-the-outside">Always return JSON with an Object on the outside<a class="headerlink" href="#always-return-json-with-an-object-on-the-outside" title="Permanent link">&para;</a></h4>
+<h5 id="always-return-json-with-an-object-on-the-outside">Always return JSON with an Object on the outside<a class="headerlink" href="#always-return-json-with-an-object-on-the-outside" title="Permanent link">&para;</a></h5>
 <p>Always have the outside primitive be an object for JSON strings:</p>
 <p><strong>Exploitable:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">[{</span><span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="s2">&quot;inside an array&quot;</span><span class="p">}]</span>
@@ -1461,14 +1493,14 @@
 </code></pre></div>
 
 
-<h3 id="avoid-writing-serialization-code-remember-ref-vs-value-types">Avoid writing serialization code. Remember ref vs. value types!<a class="headerlink" href="#avoid-writing-serialization-code-remember-ref-vs-value-types" title="Permanent link">&para;</a></h3>
-<p>Look for an existing library that has been reviewed.</p>
-<h3 id="services-can-be-called-by-users-directly">Services can be called by users directly<a class="headerlink" href="#services-can-be-called-by-users-directly" title="Permanent link">&para;</a></h3>
-<p>Even though you only expect your AJAX client side code to call those services the users can too. </p>
+<h4 id="avoid-writing-serialization-code-server-side">Avoid writing serialization code Server Side<a class="headerlink" href="#avoid-writing-serialization-code-server-side" title="Permanent link">&para;</a></h4>
+<p>Remember ref vs. value types! Look for an existing library that has been reviewed.</p>
+<h4 id="services-can-be-called-by-users-directly">Services can be called by users directly<a class="headerlink" href="#services-can-be-called-by-users-directly" title="Permanent link">&para;</a></h4>
+<p>Even though you only expect your AJAX client side code to call those services the users can too.</p>
 <p>Make sure you validate inputs and treat them like they are under user control (because they are!).</p>
-<h3 id="avoid-building-xml-or-json-by-hand-use-the-framework">Avoid building XML or JSON by hand, use the framework<a class="headerlink" href="#avoid-building-xml-or-json-by-hand-use-the-framework" title="Permanent link">&para;</a></h3>
+<h4 id="avoid-building-xml-or-json-by-hand-use-the-framework">Avoid building XML or JSON by hand, use the framework<a class="headerlink" href="#avoid-building-xml-or-json-by-hand-use-the-framework" title="Permanent link">&para;</a></h4>
 <p>Use the framework and be safe, do it by hand and have security issues.</p>
-<h3 id="use-json-and-xml-schema-for-webservices">Use JSON And XML Schema for Webservices<a class="headerlink" href="#use-json-and-xml-schema-for-webservices" title="Permanent link">&para;</a></h3>
+<h4 id="use-json-and-xml-schema-for-webservices">Use JSON And XML Schema for Webservices<a class="headerlink" href="#use-json-and-xml-schema-for-webservices" title="Permanent link">&para;</a></h4>
 <p>You need to use a 3rd party library to validate web services.</p>
                 
                   
@@ -1505,13 +1537,13 @@
           </a>
         
         
-          <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Abuse Case Cheat Sheet
+                Abuse Case
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -1538,15 +1570,15 @@
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.a0c4167b.min.js"></script>
-      <script src="../../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

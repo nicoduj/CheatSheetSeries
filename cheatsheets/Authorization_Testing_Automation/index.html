@@ -13,15 +13,15 @@
       
       
       <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.1">
     
     
       
-        <title>Authorization Testing Automation</title>
+        <title>Authorization Testing Automation.md</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b9ffd7b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.71dfd922.min.css">
       
       
     
@@ -37,6 +37,11 @@
     
     
       
+        
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-4531126-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -50,7 +55,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#authorization-testing-automation" class="md-skip">
           Skip to content
         </a>
       
@@ -77,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Authorization Testing Automation
+              Authorization Testing Automation.md
             
           </span>
         </div>
@@ -225,8 +230,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security Cheat Sheet" class="md-nav__link">
-      AJAX Security Cheat Sheet
+    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security" class="md-nav__link">
+      AJAX Security
     </a>
   </li>
 
@@ -237,8 +242,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
-      Abuse Case Cheat Sheet
+    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case" class="md-nav__link">
+      Abuse Case
     </a>
   </li>
 
@@ -249,8 +254,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
-      Access Control Cheat Sheet
+    <a href="../Access_Control_Cheat_Sheet/" title="Access Control" class="md-nav__link">
+      Access Control
     </a>
   </li>
 
@@ -261,8 +266,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
-      Attack Surface Analysis Cheat Sheet
+    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis" class="md-nav__link">
+      Attack Surface Analysis
     </a>
   </li>
 
@@ -273,8 +278,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
-      Authentication Cheat Sheet
+    <a href="../Authentication_Cheat_Sheet/" title="Authentication" class="md-nav__link">
+      Authentication
     </a>
   </li>
 
@@ -293,9 +298,97 @@
       
     
     
-    <a href="./" title="Authorization Testing Automation" class="md-nav__link md-nav__link--active">
-      Authorization Testing Automation
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Authorization Testing Automation.md
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Authorization Testing Automation.md" class="md-nav__link md-nav__link--active">
+      Authorization Testing Automation.md
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposition" class="md-nav__link">
+    Proposition
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorization-matrix-pivot-file" class="md-nav__link">
+    Authorization matrix pivot file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-of-the-authorization-matrix-for-audit-review" class="md-nav__link">
+    Rendering of the authorization matrix for audit / review
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-the-prototype" class="md-nav__link">
+    Sources of the prototype
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -306,8 +399,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-nav__link">
-      Bean Validation Cheat Sheet
+    <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation" class="md-nav__link">
+      Bean Validation
     </a>
   </li>
 
@@ -318,7 +411,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-nav__link">
+    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening.md" class="md-nav__link">
+      C-Based Toolchain Hardening.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening" class="md-nav__link">
       C-Based Toolchain Hardening
     </a>
   </li>
@@ -330,8 +435,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
-      C-Based Toolchain Hardening Cheat Sheet
+    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions" class="md-nav__link">
+      Choosing and Using Security Questions
     </a>
   </li>
 
@@ -342,8 +447,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
-      Choosing and Using Security Questions Cheat Sheet
+    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense" class="md-nav__link">
+      Clickjacking Defense
     </a>
   </li>
 
@@ -354,8 +459,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
-      Clickjacking Defense Cheat Sheet
+    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy" class="md-nav__link">
+      Content Security Policy
     </a>
   </li>
 
@@ -366,8 +471,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
-      Content Security Policy Cheat Sheet
+    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention" class="md-nav__link">
+      Credential Stuffing Prevention
     </a>
   </li>
 
@@ -378,8 +483,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
-      Credential Stuffing Prevention Cheat Sheet
+    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention" class="md-nav__link">
+      Cross-Site Request Forgery Prevention
     </a>
   </li>
 
@@ -390,8 +495,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Cross-Site Request Forgery Prevention Cheat Sheet
+    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention" class="md-nav__link">
+      Cross Site Scripting Prevention
     </a>
   </li>
 
@@ -402,8 +507,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
-      Cross Site Scripting Prevention Cheat Sheet
+    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage" class="md-nav__link">
+      Cryptographic Storage
     </a>
   </li>
 
@@ -414,8 +519,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
-      Cryptographic Storage Cheat Sheet
+    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention" class="md-nav__link">
+      DOM based XSS Prevention
     </a>
   </li>
 
@@ -426,8 +531,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
-      DOM based XSS Prevention Cheat Sheet
+    <a href="../Database_Security_Cheat_Sheet/" title="Database Security" class="md-nav__link">
+      Database Security
     </a>
   </li>
 
@@ -438,8 +543,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
-      Database Security Cheat Sheet
+    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service" class="md-nav__link">
+      Denial of Service
     </a>
   </li>
 
@@ -450,8 +555,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
-      Denial of Service Cheat Sheet
+    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization" class="md-nav__link">
+      Deserialization
     </a>
   </li>
 
@@ -462,8 +567,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
-      Deserialization Cheat Sheet
+    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security" class="md-nav__link">
+      Docker Security
     </a>
   </li>
 
@@ -474,8 +579,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
-      Docker Security Cheat Sheet
+    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security" class="md-nav__link">
+      DotNet Security
     </a>
   </li>
 
@@ -486,8 +591,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security Cheat Sheet" class="md-nav__link">
-      DotNet Security Cheat Sheet
+    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling" class="md-nav__link">
+      Error Handling
     </a>
   </li>
 
@@ -498,8 +603,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
-      Error Handling Cheat Sheet
+    <a href="../File_Upload_Cheat_Sheet/" title="File Upload" class="md-nav__link">
+      File Upload
     </a>
   </li>
 
@@ -510,8 +615,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
-      File Upload Cheat Sheet
+    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password" class="md-nav__link">
+      Forgot Password
     </a>
   </li>
 
@@ -522,8 +627,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
-      Forgot Password Cheat Sheet
+    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security" class="md-nav__link">
+      HTML5 Security
     </a>
   </li>
 
@@ -534,8 +639,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
-      HTML5 Security Cheat Sheet
+    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security" class="md-nav__link">
+      HTTP Strict Transport Security
     </a>
   </li>
 
@@ -546,8 +651,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
-      HTTP Strict Transport Security Cheat Sheet
+    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention" class="md-nav__link">
+      Injection Prevention
     </a>
   </li>
 
@@ -558,8 +663,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
-      Injection Prevention Cheat Sheet
+    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java.md" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java.md
     </a>
   </li>
 
@@ -570,8 +675,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
-      Injection Prevention Cheat Sheet in Java
+    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation" class="md-nav__link">
+      Input Validation
     </a>
   </li>
 
@@ -582,8 +687,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
-      Input Validation Cheat Sheet
+    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention" class="md-nav__link">
+      Insecure Direct Object Reference Prevention
     </a>
   </li>
 
@@ -594,8 +699,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
-      Insecure Direct Object Reference Prevention Cheat Sheet
+    <a href="../JAAS_Cheat_Sheet/" title="JAAS" class="md-nav__link">
+      JAAS
     </a>
   </li>
 
@@ -606,8 +711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-nav__link">
-      JAAS Cheat Sheet
+    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java.md" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java.md
     </a>
   </li>
 
@@ -618,8 +723,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
-      JSON Web Token Cheat Sheet for Java
+    <a href="../Key_Management_Cheat_Sheet/" title="Key Management" class="md-nav__link">
+      Key Management
     </a>
   </li>
 
@@ -630,8 +735,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
-      Key Management Cheat Sheet
+    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention" class="md-nav__link">
+      LDAP Injection Prevention
     </a>
   </li>
 
@@ -642,8 +747,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
-      LDAP Injection Prevention Cheat Sheet
+    <a href="../Logging_Cheat_Sheet/" title="Logging" class="md-nav__link">
+      Logging
     </a>
   </li>
 
@@ -654,8 +759,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
-      Logging Cheat Sheet
+    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment" class="md-nav__link">
+      Mass Assignment
     </a>
   </li>
 
@@ -666,8 +771,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
-      Mass Assignment Cheat Sheet
+    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc" class="md-nav__link">
+      Microservices based Security Arch Doc
     </a>
   </li>
 
@@ -678,8 +783,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
-      Microservices based Security Arch Doc Cheat Sheet
+    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication" class="md-nav__link">
+      Multifactor Authentication
     </a>
   </li>
 
@@ -690,8 +795,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
-      Multifactor Authentication Cheat Sheet
+    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet.md" class="md-nav__link">
+      Nodejs security cheat sheet.md
     </a>
   </li>
 
@@ -702,8 +807,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
-      Nodejs security cheat sheet
+    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense" class="md-nav__link">
+      OS Command Injection Defense
     </a>
   </li>
 
@@ -714,8 +819,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
-      OS Command Injection Defense Cheat Sheet
+    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration" class="md-nav__link">
+      PHP Configuration
     </a>
   </li>
 
@@ -726,8 +831,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
-      PHP Configuration Cheat Sheet
+    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage" class="md-nav__link">
+      Password Storage
     </a>
   </li>
 
@@ -738,8 +843,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
-      Password Storage Cheat Sheet
+    <a href="../Pinning_Cheat_Sheet/" title="Pinning" class="md-nav__link">
+      Pinning
     </a>
   </li>
 
@@ -750,8 +855,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
-      Pinning Cheat Sheet
+    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization" class="md-nav__link">
+      Query Parameterization
     </a>
   </li>
 
@@ -762,8 +867,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
-      Query Parameterization Cheat Sheet
+    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment" class="md-nav__link">
+      REST Assessment
     </a>
   </li>
 
@@ -774,8 +879,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
-      REST Assessment Cheat Sheet
+    <a href="../REST_Security_Cheat_Sheet/" title="REST Security" class="md-nav__link">
+      REST Security
     </a>
   </li>
 
@@ -786,8 +891,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
-      REST Security Cheat Sheet
+    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet.md" class="md-nav__link">
+      Ruby on Rails Cheatsheet.md
     </a>
   </li>
 
@@ -798,8 +903,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
-      Ruby on Rails Cheatsheet
+    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security" class="md-nav__link">
+      SAML Security
     </a>
   </li>
 
@@ -810,8 +915,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
-      SAML Security Cheat Sheet
+    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention" class="md-nav__link">
+      SQL Injection Prevention
     </a>
   </li>
 
@@ -822,8 +927,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
-      SQL Injection Prevention Cheat Sheet
+    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets" class="md-nav__link">
+      Securing Cascading Style Sheets
     </a>
   </li>
 
@@ -834,8 +939,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
-      Securing Cascading Style Sheets Cheat Sheet
+    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention" class="md-nav__link">
+      Server Side Request Forgery Prevention
     </a>
   </li>
 
@@ -846,8 +951,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Server Side Request Forgery Prevention Cheat Sheet
+    <a href="../Session_Management_Cheat_Sheet/" title="Session Management" class="md-nav__link">
+      Session Management
     </a>
   </li>
 
@@ -858,8 +963,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
-      Session Management Cheat Sheet
+    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String" class="md-nav__link">
+      TLS Cipher String
     </a>
   </li>
 
@@ -870,8 +975,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
-      TLS Cipher String Cheat Sheet
+    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management" class="md-nav__link">
+      Third Party Javascript Management
     </a>
   </li>
 
@@ -882,8 +987,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
-      Third Party Javascript Management Cheat Sheet
+    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling" class="md-nav__link">
+      Threat Modeling
     </a>
   </li>
 
@@ -894,8 +999,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
-      Threat Modeling Cheat Sheet
+    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization" class="md-nav__link">
+      Transaction Authorization
     </a>
   </li>
 
@@ -906,8 +1011,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
-      Transaction Authorization Cheat Sheet
+    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection" class="md-nav__link">
+      Transport Layer Protection
     </a>
   </li>
 
@@ -918,8 +1023,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
-      Transport Layer Protection Cheat Sheet
+    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards" class="md-nav__link">
+      Unvalidated Redirects and Forwards
     </a>
   </li>
 
@@ -930,8 +1035,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
-      Unvalidated Redirects and Forwards Cheat Sheet
+    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection" class="md-nav__link">
+      User Privacy Protection
     </a>
   </li>
 
@@ -942,8 +1047,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
-      User Privacy Protection Cheat Sheet
+    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching" class="md-nav__link">
+      Virtual Patching
     </a>
   </li>
 
@@ -954,8 +1059,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
-      Virtual Patching Cheat Sheet
+    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure" class="md-nav__link">
+      Vulnerability Disclosure
     </a>
   </li>
 
@@ -966,8 +1071,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
-      Vulnerability Disclosure Cheat Sheet
+    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management" class="md-nav__link">
+      Vulnerable Dependency Management
     </a>
   </li>
 
@@ -978,8 +1083,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
-      Vulnerable Dependency Management Cheat Sheet
+    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security" class="md-nav__link">
+      Web Service Security
     </a>
   </li>
 
@@ -990,8 +1095,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
-      Web Service Security Cheat Sheet
+    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention" class="md-nav__link">
+      XML External Entity Prevention
     </a>
   </li>
 
@@ -1002,20 +1107,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
-      XML External Entity Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
-      XML Security Cheat Sheet
+    <a href="../XML_Security_Cheat_Sheet/" title="XML Security" class="md-nav__link">
+      XML Security
     </a>
   </li>
 
@@ -1042,6 +1135,78 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposition" class="md-nav__link">
+    Proposition
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorization-matrix-pivot-file" class="md-nav__link">
+    Authorization matrix pivot file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-of-the-authorization-matrix-for-audit-review" class="md-nav__link">
+    Rendering of the authorization matrix for audit / review
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-the-prototype" class="md-nav__link">
+    Sources of the prototype
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1056,19 +1221,20 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                <h1 id="authorization-testing-automation">Authorization Testing Automation<a class="headerlink" href="#authorization-testing-automation" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Authorizations definition and implementation is one of the important protection measure of an application. They are defined in the creation phase of the project and, even if authorization issues are found when the application is initially released and submitted to a security audit before to go live, the most significant number of issues related to authorization came in the maintenance lifetime of the application.</p>
 <p>This situation is often explained by the fact that features are added/modified and no review of the authorizations was performed on the application before the publishing of the new release, for cost or time issue reason.</p>
-<h1 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h1>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>In order to try to address this situation, it's can be interesting to automate the evaluation of the authorizations definition and implementation on the application. This, to constantly ensure that implementation of the authorizations in the application is consistent with the authorizations definition.</p>
 <p>An authorization is often composed by 2 elements (also named dimensions): The <strong>Feature</strong> and the <strong>Logical Role</strong> that can access it (sometime a third dimension named <strong>Data</strong> is added in order to define a access that include a filtering at business data level).</p>
 <p>The representation of the different combinations of these 2 dimensions is often named an <strong>Authorization matrix</strong> and is often formalized in an Microsoft Excel file.</p>
 <p>During a test of an authorization, a <strong>Logical Role</strong> is also called a <strong>Point Of View</strong>.</p>
-<h1 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h2>
 <p>This article describe a proposition of implementation in order to automate the tests of an <em>authorization matrix</em>.</p>
 <p>This article use the assumption that 2 dimensions are used to represents an authorization for the technical proposition described and take as example a application exposing REST services.</p>
 <p>The objective is to provide starting ideas/hints in order to create a tailored way of testing of the authorization matrix for the target application.</p>
-<h1 id="proposition">Proposition<a class="headerlink" href="#proposition" title="Permanent link">&para;</a></h1>
+<h2 id="proposition">Proposition<a class="headerlink" href="#proposition" title="Permanent link">&para;</a></h2>
 <p>In order to achieve the full automation of the evaluation of the <em>authorization matrix</em>, the following actions has been performed:</p>
 <ol>
 <li>
@@ -1088,7 +1254,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="authorization-matrix-pivot-file">Authorization matrix pivot file<a class="headerlink" href="#authorization-matrix-pivot-file" title="Permanent link">&para;</a></h2>
+<h3 id="authorization-matrix-pivot-file">Authorization matrix pivot file<a class="headerlink" href="#authorization-matrix-pivot-file" title="Permanent link">&para;</a></h3>
 <p>The XML format has been used to formalize the authorization matrix.</p>
 <p>The XML structure contains 3 main sections:</p>
 <ul>
@@ -1097,7 +1263,9 @@
 <li>Node <strong>services-testing</strong>: This node provide a test payload for each service if the service use input data other than coming from url or path.</li>
 </ul>
 <p>This is an example of the XML used to represents the authorization:</p>
-<p><em>Placeholders (values between {}) are used to mark location where test value must be placed by the integration tests if needed</em></p>
+<blockquote>
+<p>Placeholders (values between {}) are used to mark location where test value must be placed by the integration tests if needed</p>
+</blockquote>
 <div class="codehilite"><pre><span></span><code>  <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
   <span class="c">&lt;!--</span>
 <span class="c">      This file materialize the authorization matrix for the different </span>
@@ -1116,35 +1284,35 @@
 <span class="c">      provide a list+explanation</span>
 <span class="c">      of the different roles (authorization level) --&gt;</span>
       <span class="nt">&lt;roles&gt;</span>
-          <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ANONYMOUS&quot;</span> 
+          <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ANONYMOUS&quot;</span>
           <span class="na">description=</span><span class="s">&quot;Indicate that no authorization is needed&quot;</span><span class="nt">/&gt;</span>
-          <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;BASIC&quot;</span> 
+          <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;BASIC&quot;</span>
           <span class="na">description=</span><span class="s">&quot;Role affected to a standard user (lowest access right just above anonymous)&quot;</span><span class="nt">/&gt;</span>
-          <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span> 
+          <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span>
           <span class="na">description=</span><span class="s">&quot;Role affected to a administrator user (highest access right)&quot;</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;/roles&gt;</span>
 
       <span class="c">&lt;!-- List and describe the available services exposed by the system and the associated </span>
 <span class="c">      logical role(s) that can call them --&gt;</span>
       <span class="nt">&lt;services&gt;</span>
-          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;ReadSingleMessage&quot;</span> <span class="na">uri=</span><span class="s">&quot;/{messageId}&quot;</span> <span class="na">http-method=</span><span class="s">&quot;GET&quot;</span> 
+          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;ReadSingleMessage&quot;</span> <span class="na">uri=</span><span class="s">&quot;/{messageId}&quot;</span> <span class="na">http-method=</span><span class="s">&quot;GET&quot;</span>
           <span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span> <span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ANONYMOUS&quot;</span><span class="nt">/&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;BASIC&quot;</span><span class="nt">/&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;/service&gt;</span>
-          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;ReadAllMessages&quot;</span> <span class="na">uri=</span><span class="s">&quot;/&quot;</span> <span class="na">http-method=</span><span class="s">&quot;GET&quot;</span> 
+          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;ReadAllMessages&quot;</span> <span class="na">uri=</span><span class="s">&quot;/&quot;</span> <span class="na">http-method=</span><span class="s">&quot;GET&quot;</span>
           <span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span> <span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ANONYMOUS&quot;</span><span class="nt">/&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;BASIC&quot;</span><span class="nt">/&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;/service&gt;</span>
-          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;CreateMessage&quot;</span> <span class="na">uri=</span><span class="s">&quot;/&quot;</span> <span class="na">http-method=</span><span class="s">&quot;PUT&quot;</span> 
+          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;CreateMessage&quot;</span> <span class="na">uri=</span><span class="s">&quot;/&quot;</span> <span class="na">http-method=</span><span class="s">&quot;PUT&quot;</span>
           <span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span> <span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;BASIC&quot;</span><span class="nt">/&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;/service&gt;</span>
-          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;DeleteMessage&quot;</span> <span class="na">uri=</span><span class="s">&quot;/{messageId}&quot;</span> <span class="na">http-method=</span><span class="s">&quot;DELETE&quot;</span> 
+          <span class="nt">&lt;service</span> <span class="na">name=</span><span class="s">&quot;DeleteMessage&quot;</span> <span class="na">uri=</span><span class="s">&quot;/{messageId}&quot;</span> <span class="na">http-method=</span><span class="s">&quot;DELETE&quot;</span>
           <span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span> <span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
               <span class="nt">&lt;role</span> <span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;/service&gt;</span>
@@ -1172,7 +1340,7 @@
 </code></pre></div>
 
 
-<h2 id="integration-tests">Integration tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h2>
+<h3 id="integration-tests">Integration tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h3>
 <p>Integration tests are implemented using a maximum of factorized code and one test case by <strong>Point Of View (POV)</strong> has been created in order to group the verifications by profile of access level (logical role) and facilitate the rendering/identification of the errors.</p>
 <p>Parsing, object mapping and access to the authorization matrix information has been implemented using XML marshalling/unmarshalling built-in features provided by the technology used to implements the tests (JAXB here) in order to limit the code to the one in charge of performing the tests.</p>
 <p>This the implementation of the integration tests case class:</p>
@@ -1223,7 +1391,7 @@
 <span class="cm">       */</span>
       <span class="nd">@BeforeClass</span>
       <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">globalInit</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
-          <span class="k">try</span> <span class="p">(</span><span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;authorization-matrix.xml&quot;</span><span class="p">)))</span> <span class="p">{</span> 
+          <span class="k">try</span> <span class="p">(</span><span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;authorization-matrix.xml&quot;</span><span class="p">)))</span> <span class="p">{</span>
               <span class="n">SAXParserFactory</span> <span class="n">spf</span> <span class="o">=</span> <span class="n">SAXParserFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span>
               <span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">&quot;http://xml.org/sax/features/external-general-entities&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
               <span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">&quot;http://xml.org/sax/features/external-parameter-entities&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
@@ -1418,26 +1586,26 @@
 
 
 <p>In case of detection of a authorization issue(s) the output is the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">testAccessUsingAnonymousUserPointOfView</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="n">owasp</span><span class="p">.</span><span class="n">pocauthztesting</span><span class="p">.</span><span class="n">AuthorizationMatrixIT</span><span class="p">)</span>  
-<span class="k">Time</span> <span class="n">elapsed</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">009</span> <span class="n">s</span>  <span class="o">###</span> <span class="n">FAILURE</span>
-<span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">AssertionError</span><span class="p">:</span>
-<span class="k">Access</span> <span class="n">issues</span> <span class="n">detected</span> <span class="k">using</span> <span class="n">the</span> <span class="n">ANONYMOUS</span> <span class="k">USER</span> <span class="n">point</span> <span class="k">of</span> <span class="k">view</span><span class="p">:</span>
-    <span class="n">The</span> <span class="n">service</span> <span class="s1">&#39;DeleteMessage&#39;</span> <span class="k">when</span> <span class="k">called</span> <span class="k">with</span> <span class="n">POV</span> <span class="s1">&#39;ANONYMOUS&#39;</span> <span class="k">return</span> 
-    <span class="n">a</span> <span class="n">response</span> <span class="n">code</span> <span class="mi">200</span> <span class="n">that</span> <span class="k">is</span> <span class="k">not</span> <span class="n">the</span> <span class="n">expected</span> <span class="n">one</span> <span class="p">(</span><span class="mi">403</span> <span class="n">expected</span><span class="p">).</span>
+<div class="codehilite"><pre><span></span><code><span class="n">testAccessUsingAnonymousUserPointOfView</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="na">owasp</span><span class="p">.</span><span class="na">pocauthztesting</span><span class="p">.</span><span class="na">AuthorizationMatrixIT</span><span class="p">)</span>  
+<span class="n">Time</span> <span class="n">elapsed</span><span class="p">:</span> <span class="mf">1.009</span> <span class="n">s</span>  <span class="err">###</span> <span class="n">FAILURE</span>
+<span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">AssertionError</span><span class="p">:</span>
+<span class="n">Access</span> <span class="n">issues</span> <span class="n">detected</span> <span class="n">using</span> <span class="n">the</span> <span class="n">ANONYMOUS</span> <span class="n">USER</span> <span class="n">point</span> <span class="n">of</span> <span class="n">view</span><span class="p">:</span>
+    <span class="n">The</span> <span class="n">service</span> <span class="err">&#39;</span><span class="n">DeleteMessage</span><span class="err">&#39;</span> <span class="n">when</span> <span class="n">called</span> <span class="n">with</span> <span class="n">POV</span> <span class="err">&#39;</span><span class="n">ANONYMOUS</span><span class="err">&#39;</span> <span class="k">return</span>
+    <span class="n">a</span> <span class="n">response</span> <span class="n">code</span> <span class="mi">200</span> <span class="n">that</span> <span class="n">is</span> <span class="n">not</span> <span class="n">the</span> <span class="n">expected</span> <span class="nf">one</span> <span class="p">(</span><span class="mi">403</span> <span class="n">expected</span><span class="p">).</span>
 
-    <span class="n">The</span> <span class="n">service</span> <span class="s1">&#39;CreateMessage&#39;</span> <span class="k">when</span> <span class="k">called</span> <span class="k">with</span> <span class="n">POV</span> <span class="s1">&#39;ANONYMOUS&#39;</span> <span class="k">return</span> 
-    <span class="n">a</span> <span class="n">response</span> <span class="n">code</span> <span class="mi">200</span> <span class="n">that</span> <span class="k">is</span> <span class="k">not</span> <span class="n">the</span> <span class="n">expected</span> <span class="n">one</span> <span class="p">(</span><span class="mi">403</span> <span class="n">expected</span><span class="p">).</span>
+    <span class="n">The</span> <span class="n">service</span> <span class="err">&#39;</span><span class="n">CreateMessage</span><span class="err">&#39;</span> <span class="n">when</span> <span class="n">called</span> <span class="n">with</span> <span class="n">POV</span> <span class="err">&#39;</span><span class="n">ANONYMOUS</span><span class="err">&#39;</span> <span class="k">return</span>
+    <span class="n">a</span> <span class="n">response</span> <span class="n">code</span> <span class="mi">200</span> <span class="n">that</span> <span class="n">is</span> <span class="n">not</span> <span class="n">the</span> <span class="n">expected</span> <span class="nf">one</span> <span class="p">(</span><span class="mi">403</span> <span class="n">expected</span><span class="p">).</span>
 
-<span class="n">testAccessUsingBasicUserPointOfView</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="n">owasp</span><span class="p">.</span><span class="n">pocauthztesting</span><span class="p">.</span><span class="n">AuthorizationMatrixIT</span><span class="p">)</span>  
-<span class="k">Time</span> <span class="n">elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">05</span> <span class="n">s</span>  <span class="o">###</span> <span class="n">FAILURE</span><span class="o">!</span>
-<span class="n">java</span><span class="p">.</span><span class="n">lang</span><span class="p">.</span><span class="n">AssertionError</span><span class="p">:</span>
-<span class="k">Access</span> <span class="n">issues</span> <span class="n">detected</span> <span class="k">using</span> <span class="n">the</span> <span class="n">BASIC</span> <span class="k">USER</span> <span class="n">point</span> <span class="k">of</span> <span class="k">view</span><span class="p">:</span>
-    <span class="n">The</span> <span class="n">service</span> <span class="s1">&#39;DeleteMessage&#39;</span> <span class="k">when</span> <span class="k">called</span> <span class="k">with</span> <span class="n">POV</span> <span class="s1">&#39;BASIC&#39;</span> <span class="k">return</span> 
-    <span class="n">a</span> <span class="n">response</span> <span class="n">code</span> <span class="mi">200</span> <span class="n">that</span> <span class="k">is</span> <span class="k">not</span> <span class="n">the</span> <span class="n">expected</span> <span class="n">one</span> <span class="p">(</span><span class="mi">403</span> <span class="n">expected</span><span class="p">).</span>
+<span class="n">testAccessUsingBasicUserPointOfView</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="na">owasp</span><span class="p">.</span><span class="na">pocauthztesting</span><span class="p">.</span><span class="na">AuthorizationMatrixIT</span><span class="p">)</span>  
+<span class="n">Time</span> <span class="n">elapsed</span><span class="p">:</span> <span class="mf">0.05</span> <span class="n">s</span>  <span class="err">###</span> <span class="n">FAILURE</span><span class="o">!</span>
+<span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">AssertionError</span><span class="p">:</span>
+<span class="n">Access</span> <span class="n">issues</span> <span class="n">detected</span> <span class="n">using</span> <span class="n">the</span> <span class="n">BASIC</span> <span class="n">USER</span> <span class="n">point</span> <span class="n">of</span> <span class="n">view</span><span class="p">:</span>
+    <span class="n">The</span> <span class="n">service</span> <span class="err">&#39;</span><span class="n">DeleteMessage</span><span class="err">&#39;</span> <span class="n">when</span> <span class="n">called</span> <span class="n">with</span> <span class="n">POV</span> <span class="err">&#39;</span><span class="n">BASIC</span><span class="err">&#39;</span> <span class="k">return</span>
+    <span class="n">a</span> <span class="n">response</span> <span class="n">code</span> <span class="mi">200</span> <span class="n">that</span> <span class="n">is</span> <span class="n">not</span> <span class="n">the</span> <span class="n">expected</span> <span class="nf">one</span> <span class="p">(</span><span class="mi">403</span> <span class="n">expected</span><span class="p">).</span>
 </code></pre></div>
 
 
-<h1 id="rendering-of-the-authorization-matrix-for-audit-review">Rendering of the authorization matrix for audit / review<a class="headerlink" href="#rendering-of-the-authorization-matrix-for-audit-review" title="Permanent link">&para;</a></h1>
+<h2 id="rendering-of-the-authorization-matrix-for-audit-review">Rendering of the authorization matrix for audit / review<a class="headerlink" href="#rendering-of-the-authorization-matrix-for-audit-review" title="Permanent link">&para;</a></h2>
 <p>Even if the authorization matrix is stored in a human readable format (XML), it can be interesting to provide an on-the-fly rendering representation of the XML file in order to facilitate the review, audit and discussion about the authorization matrix in order to spot potential inconsistencies.</p>
 <p>The Following XSL stylesheet can be used:</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -1446,9 +1614,9 @@
     <span class="nt">&lt;html&gt;</span>
       <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;</span>Authorization Matrix<span class="nt">&lt;/title&gt;</span>
-        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> 
-        <span class="na">href=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css&quot;</span> 
-        <span class="na">integrity=</span><span class="s">&quot;sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ&quot;</span> 
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span>
+        <span class="na">href=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css&quot;</span>
+        <span class="na">integrity=</span><span class="s">&quot;sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ&quot;</span>
         <span class="na">crossorigin=</span><span class="s">&quot;anonymous&quot;</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;/head&gt;</span>
       <span class="nt">&lt;body&gt;</span>
@@ -1546,7 +1714,7 @@
 
 <p>Example of the rendering:</p>
 <p><img alt="RenderingExample" src="../../assets/Authorization_Testing_Automation_AutomationRendering.png" /></p>
-<h1 id="sources-of-the-prototype">Sources of the prototype<a class="headerlink" href="#sources-of-the-prototype" title="Permanent link">&para;</a></h1>
+<h2 id="sources-of-the-prototype">Sources of the prototype<a class="headerlink" href="#sources-of-the-prototype" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/righettod/poc-authz-testing">Github repository</a></p>
                 
                   
@@ -1568,7 +1736,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Authentication_Cheat_Sheet/" title="Authentication" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1577,19 +1745,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Authentication Cheat Sheet
+                Authentication
               </div>
             </div>
           </a>
         
         
-          <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation Cheat Sheet" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Bean_Validation_Cheat_Sheet/" title="Bean Validation" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Bean Validation Cheat Sheet
+                Bean Validation
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -1616,15 +1784,15 @@
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.a0c4167b.min.js"></script>
-      <script src="../../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

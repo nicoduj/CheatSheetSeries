@@ -13,15 +13,15 @@
       
       
       <link rel="shortcut icon" href="../../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.1">
     
     
       
-        <title>Bean Validation Cheat Sheet</title>
+        <title>Bean Validation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b9ffd7b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.71dfd922.min.css">
       
       
     
@@ -37,6 +37,11 @@
     
     
       
+        
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-4531126-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -50,7 +55,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#bean-validation-cheat-sheet" class="md-skip">
           Skip to content
         </a>
       
@@ -77,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Bean Validation Cheat Sheet
+              Bean Validation
             
           </span>
         </div>
@@ -225,8 +230,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security Cheat Sheet" class="md-nav__link">
-      AJAX Security Cheat Sheet
+    <a href="../AJAX_Security_Cheat_Sheet/" title="AJAX Security" class="md-nav__link">
+      AJAX Security
     </a>
   </li>
 
@@ -237,8 +242,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case Cheat Sheet" class="md-nav__link">
-      Abuse Case Cheat Sheet
+    <a href="../Abuse_Case_Cheat_Sheet/" title="Abuse Case" class="md-nav__link">
+      Abuse Case
     </a>
   </li>
 
@@ -249,8 +254,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Access_Control_Cheat_Sheet/" title="Access Control Cheat Sheet" class="md-nav__link">
-      Access Control Cheat Sheet
+    <a href="../Access_Control_Cheat_Sheet/" title="Access Control" class="md-nav__link">
+      Access Control
     </a>
   </li>
 
@@ -261,8 +266,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis Cheat Sheet" class="md-nav__link">
-      Attack Surface Analysis Cheat Sheet
+    <a href="../Attack_Surface_Analysis_Cheat_Sheet/" title="Attack Surface Analysis" class="md-nav__link">
+      Attack Surface Analysis
     </a>
   </li>
 
@@ -273,8 +278,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Authentication_Cheat_Sheet/" title="Authentication Cheat Sheet" class="md-nav__link">
-      Authentication Cheat Sheet
+    <a href="../Authentication_Cheat_Sheet/" title="Authentication" class="md-nav__link">
+      Authentication
     </a>
   </li>
 
@@ -285,8 +290,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-nav__link">
-      Authorization Testing Automation
+    <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation.md" class="md-nav__link">
+      Authorization Testing Automation.md
     </a>
   </li>
 
@@ -306,14 +311,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Bean Validation Cheat Sheet
+        Bean Validation
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Bean Validation Cheat Sheet" class="md-nav__link md-nav__link--active">
-      Bean Validation Cheat Sheet
+    <a href="./" title="Bean Validation" class="md-nav__link md-nav__link--active">
+      Bean Validation
     </a>
     
       
@@ -332,15 +337,118 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#typical-validation" class="md-nav__link">
     Typical Validation
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#bean-validation" class="md-nav__link">
     Bean Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-defined-constraints" class="md-nav__link">
+    Pre-defined Constraints
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-defined Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern" class="md-nav__link">
+    @Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digits" class="md-nav__link">
+    @Digits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" class="md-nav__link">
+    @Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-future" class="md-nav__link">
+    @Past / @Future
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-constraints" class="md-nav__link">
+    Combining Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cascading-constraints" class="md-nav__link">
+    Cascading Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-constraints" class="md-nav__link">
+    Additional Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-constraints" class="md-nav__link">
+    Custom Constraints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-messages" class="md-nav__link">
+    Error Messages
   </a>
   
 </li>
@@ -358,7 +466,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-nav__link">
+    <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening.md" class="md-nav__link">
+      C-Based Toolchain Hardening.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening" class="md-nav__link">
       C-Based Toolchain Hardening
     </a>
   </li>
@@ -370,8 +490,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../C-Based_Toolchain_Hardening_Cheat_Sheet/" title="C-Based Toolchain Hardening Cheat Sheet" class="md-nav__link">
-      C-Based Toolchain Hardening Cheat Sheet
+    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions" class="md-nav__link">
+      Choosing and Using Security Questions
     </a>
   </li>
 
@@ -382,8 +502,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Choosing_and_Using_Security_Questions_Cheat_Sheet/" title="Choosing and Using Security Questions Cheat Sheet" class="md-nav__link">
-      Choosing and Using Security Questions Cheat Sheet
+    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense" class="md-nav__link">
+      Clickjacking Defense
     </a>
   </li>
 
@@ -394,8 +514,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Clickjacking_Defense_Cheat_Sheet/" title="Clickjacking Defense Cheat Sheet" class="md-nav__link">
-      Clickjacking Defense Cheat Sheet
+    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy" class="md-nav__link">
+      Content Security Policy
     </a>
   </li>
 
@@ -406,8 +526,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Content_Security_Policy_Cheat_Sheet/" title="Content Security Policy Cheat Sheet" class="md-nav__link">
-      Content Security Policy Cheat Sheet
+    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention" class="md-nav__link">
+      Credential Stuffing Prevention
     </a>
   </li>
 
@@ -418,8 +538,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Credential_Stuffing_Prevention_Cheat_Sheet/" title="Credential Stuffing Prevention Cheat Sheet" class="md-nav__link">
-      Credential Stuffing Prevention Cheat Sheet
+    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention" class="md-nav__link">
+      Cross-Site Request Forgery Prevention
     </a>
   </li>
 
@@ -430,8 +550,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cross-Site_Request_Forgery_Prevention_Cheat_Sheet/" title="Cross-Site Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Cross-Site Request Forgery Prevention Cheat Sheet
+    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention" class="md-nav__link">
+      Cross Site Scripting Prevention
     </a>
   </li>
 
@@ -442,8 +562,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cross_Site_Scripting_Prevention_Cheat_Sheet/" title="Cross Site Scripting Prevention Cheat Sheet" class="md-nav__link">
-      Cross Site Scripting Prevention Cheat Sheet
+    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage" class="md-nav__link">
+      Cryptographic Storage
     </a>
   </li>
 
@@ -454,8 +574,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Cryptographic_Storage_Cheat_Sheet/" title="Cryptographic Storage Cheat Sheet" class="md-nav__link">
-      Cryptographic Storage Cheat Sheet
+    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention" class="md-nav__link">
+      DOM based XSS Prevention
     </a>
   </li>
 
@@ -466,8 +586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DOM_based_XSS_Prevention_Cheat_Sheet/" title="DOM based XSS Prevention Cheat Sheet" class="md-nav__link">
-      DOM based XSS Prevention Cheat Sheet
+    <a href="../Database_Security_Cheat_Sheet/" title="Database Security" class="md-nav__link">
+      Database Security
     </a>
   </li>
 
@@ -478,8 +598,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Database_Security_Cheat_Sheet/" title="Database Security Cheat Sheet" class="md-nav__link">
-      Database Security Cheat Sheet
+    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service" class="md-nav__link">
+      Denial of Service
     </a>
   </li>
 
@@ -490,8 +610,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Denial_of_Service_Cheat_Sheet/" title="Denial of Service Cheat Sheet" class="md-nav__link">
-      Denial of Service Cheat Sheet
+    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization" class="md-nav__link">
+      Deserialization
     </a>
   </li>
 
@@ -502,8 +622,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Deserialization_Cheat_Sheet/" title="Deserialization Cheat Sheet" class="md-nav__link">
-      Deserialization Cheat Sheet
+    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security" class="md-nav__link">
+      Docker Security
     </a>
   </li>
 
@@ -514,8 +634,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker_Security_Cheat_Sheet/" title="Docker Security Cheat Sheet" class="md-nav__link">
-      Docker Security Cheat Sheet
+    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security" class="md-nav__link">
+      DotNet Security
     </a>
   </li>
 
@@ -526,8 +646,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DotNet_Security_Cheat_Sheet/" title="DotNet Security Cheat Sheet" class="md-nav__link">
-      DotNet Security Cheat Sheet
+    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling" class="md-nav__link">
+      Error Handling
     </a>
   </li>
 
@@ -538,8 +658,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Error_Handling_Cheat_Sheet/" title="Error Handling Cheat Sheet" class="md-nav__link">
-      Error Handling Cheat Sheet
+    <a href="../File_Upload_Cheat_Sheet/" title="File Upload" class="md-nav__link">
+      File Upload
     </a>
   </li>
 
@@ -550,8 +670,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../File_Upload_Cheat_Sheet/" title="File Upload Cheat Sheet" class="md-nav__link">
-      File Upload Cheat Sheet
+    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password" class="md-nav__link">
+      Forgot Password
     </a>
   </li>
 
@@ -562,8 +682,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Forgot_Password_Cheat_Sheet/" title="Forgot Password Cheat Sheet" class="md-nav__link">
-      Forgot Password Cheat Sheet
+    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security" class="md-nav__link">
+      HTML5 Security
     </a>
   </li>
 
@@ -574,8 +694,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTML5_Security_Cheat_Sheet/" title="HTML5 Security Cheat Sheet" class="md-nav__link">
-      HTML5 Security Cheat Sheet
+    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security" class="md-nav__link">
+      HTTP Strict Transport Security
     </a>
   </li>
 
@@ -586,8 +706,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTP_Strict_Transport_Security_Cheat_Sheet/" title="HTTP Strict Transport Security Cheat Sheet" class="md-nav__link">
-      HTTP Strict Transport Security Cheat Sheet
+    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention" class="md-nav__link">
+      Injection Prevention
     </a>
   </li>
 
@@ -598,8 +718,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet/" title="Injection Prevention Cheat Sheet" class="md-nav__link">
-      Injection Prevention Cheat Sheet
+    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java.md" class="md-nav__link">
+      Injection Prevention Cheat Sheet in Java.md
     </a>
   </li>
 
@@ -610,8 +730,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Injection_Prevention_Cheat_Sheet_in_Java/" title="Injection Prevention Cheat Sheet in Java" class="md-nav__link">
-      Injection Prevention Cheat Sheet in Java
+    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation" class="md-nav__link">
+      Input Validation
     </a>
   </li>
 
@@ -622,8 +742,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Input_Validation_Cheat_Sheet/" title="Input Validation Cheat Sheet" class="md-nav__link">
-      Input Validation Cheat Sheet
+    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention" class="md-nav__link">
+      Insecure Direct Object Reference Prevention
     </a>
   </li>
 
@@ -634,8 +754,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet/" title="Insecure Direct Object Reference Prevention Cheat Sheet" class="md-nav__link">
-      Insecure Direct Object Reference Prevention Cheat Sheet
+    <a href="../JAAS_Cheat_Sheet/" title="JAAS" class="md-nav__link">
+      JAAS
     </a>
   </li>
 
@@ -646,8 +766,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../JAAS_Cheat_Sheet/" title="JAAS Cheat Sheet" class="md-nav__link">
-      JAAS Cheat Sheet
+    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java.md" class="md-nav__link">
+      JSON Web Token Cheat Sheet for Java.md
     </a>
   </li>
 
@@ -658,8 +778,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../JSON_Web_Token_Cheat_Sheet_for_Java/" title="JSON Web Token Cheat Sheet for Java" class="md-nav__link">
-      JSON Web Token Cheat Sheet for Java
+    <a href="../Key_Management_Cheat_Sheet/" title="Key Management" class="md-nav__link">
+      Key Management
     </a>
   </li>
 
@@ -670,8 +790,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Key_Management_Cheat_Sheet/" title="Key Management Cheat Sheet" class="md-nav__link">
-      Key Management Cheat Sheet
+    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention" class="md-nav__link">
+      LDAP Injection Prevention
     </a>
   </li>
 
@@ -682,8 +802,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LDAP_Injection_Prevention_Cheat_Sheet/" title="LDAP Injection Prevention Cheat Sheet" class="md-nav__link">
-      LDAP Injection Prevention Cheat Sheet
+    <a href="../Logging_Cheat_Sheet/" title="Logging" class="md-nav__link">
+      Logging
     </a>
   </li>
 
@@ -694,8 +814,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Logging_Cheat_Sheet/" title="Logging Cheat Sheet" class="md-nav__link">
-      Logging Cheat Sheet
+    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment" class="md-nav__link">
+      Mass Assignment
     </a>
   </li>
 
@@ -706,8 +826,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Mass_Assignment_Cheat_Sheet/" title="Mass Assignment Cheat Sheet" class="md-nav__link">
-      Mass Assignment Cheat Sheet
+    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc" class="md-nav__link">
+      Microservices based Security Arch Doc
     </a>
   </li>
 
@@ -718,8 +838,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Microservices_based_Security_Arch_Doc_Cheat_Sheet/" title="Microservices based Security Arch Doc Cheat Sheet" class="md-nav__link">
-      Microservices based Security Arch Doc Cheat Sheet
+    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication" class="md-nav__link">
+      Multifactor Authentication
     </a>
   </li>
 
@@ -730,8 +850,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Multifactor_Authentication_Cheat_Sheet/" title="Multifactor Authentication Cheat Sheet" class="md-nav__link">
-      Multifactor Authentication Cheat Sheet
+    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet.md" class="md-nav__link">
+      Nodejs security cheat sheet.md
     </a>
   </li>
 
@@ -742,8 +862,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nodejs_security_cheat_sheet/" title="Nodejs security cheat sheet" class="md-nav__link">
-      Nodejs security cheat sheet
+    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense" class="md-nav__link">
+      OS Command Injection Defense
     </a>
   </li>
 
@@ -754,8 +874,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../OS_Command_Injection_Defense_Cheat_Sheet/" title="OS Command Injection Defense Cheat Sheet" class="md-nav__link">
-      OS Command Injection Defense Cheat Sheet
+    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration" class="md-nav__link">
+      PHP Configuration
     </a>
   </li>
 
@@ -766,8 +886,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP_Configuration_Cheat_Sheet/" title="PHP Configuration Cheat Sheet" class="md-nav__link">
-      PHP Configuration Cheat Sheet
+    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage" class="md-nav__link">
+      Password Storage
     </a>
   </li>
 
@@ -778,8 +898,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Password_Storage_Cheat_Sheet/" title="Password Storage Cheat Sheet" class="md-nav__link">
-      Password Storage Cheat Sheet
+    <a href="../Pinning_Cheat_Sheet/" title="Pinning" class="md-nav__link">
+      Pinning
     </a>
   </li>
 
@@ -790,8 +910,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Pinning_Cheat_Sheet/" title="Pinning Cheat Sheet" class="md-nav__link">
-      Pinning Cheat Sheet
+    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization" class="md-nav__link">
+      Query Parameterization
     </a>
   </li>
 
@@ -802,8 +922,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Query_Parameterization_Cheat_Sheet/" title="Query Parameterization Cheat Sheet" class="md-nav__link">
-      Query Parameterization Cheat Sheet
+    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment" class="md-nav__link">
+      REST Assessment
     </a>
   </li>
 
@@ -814,8 +934,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../REST_Assessment_Cheat_Sheet/" title="REST Assessment Cheat Sheet" class="md-nav__link">
-      REST Assessment Cheat Sheet
+    <a href="../REST_Security_Cheat_Sheet/" title="REST Security" class="md-nav__link">
+      REST Security
     </a>
   </li>
 
@@ -826,8 +946,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../REST_Security_Cheat_Sheet/" title="REST Security Cheat Sheet" class="md-nav__link">
-      REST Security Cheat Sheet
+    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet.md" class="md-nav__link">
+      Ruby on Rails Cheatsheet.md
     </a>
   </li>
 
@@ -838,8 +958,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ruby_on_Rails_Cheatsheet/" title="Ruby on Rails Cheatsheet" class="md-nav__link">
-      Ruby on Rails Cheatsheet
+    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security" class="md-nav__link">
+      SAML Security
     </a>
   </li>
 
@@ -850,8 +970,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../SAML_Security_Cheat_Sheet/" title="SAML Security Cheat Sheet" class="md-nav__link">
-      SAML Security Cheat Sheet
+    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention" class="md-nav__link">
+      SQL Injection Prevention
     </a>
   </li>
 
@@ -862,8 +982,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../SQL_Injection_Prevention_Cheat_Sheet/" title="SQL Injection Prevention Cheat Sheet" class="md-nav__link">
-      SQL Injection Prevention Cheat Sheet
+    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets" class="md-nav__link">
+      Securing Cascading Style Sheets
     </a>
   </li>
 
@@ -874,8 +994,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Securing_Cascading_Style_Sheets_Cheat_Sheet/" title="Securing Cascading Style Sheets Cheat Sheet" class="md-nav__link">
-      Securing Cascading Style Sheets Cheat Sheet
+    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention" class="md-nav__link">
+      Server Side Request Forgery Prevention
     </a>
   </li>
 
@@ -886,8 +1006,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Server_Side_Request_Forgery_Prevention_Cheat_Sheet/" title="Server Side Request Forgery Prevention Cheat Sheet" class="md-nav__link">
-      Server Side Request Forgery Prevention Cheat Sheet
+    <a href="../Session_Management_Cheat_Sheet/" title="Session Management" class="md-nav__link">
+      Session Management
     </a>
   </li>
 
@@ -898,8 +1018,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Session_Management_Cheat_Sheet/" title="Session Management Cheat Sheet" class="md-nav__link">
-      Session Management Cheat Sheet
+    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String" class="md-nav__link">
+      TLS Cipher String
     </a>
   </li>
 
@@ -910,8 +1030,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../TLS_Cipher_String_Cheat_Sheet/" title="TLS Cipher String Cheat Sheet" class="md-nav__link">
-      TLS Cipher String Cheat Sheet
+    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management" class="md-nav__link">
+      Third Party Javascript Management
     </a>
   </li>
 
@@ -922,8 +1042,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Third_Party_Javascript_Management_Cheat_Sheet/" title="Third Party Javascript Management Cheat Sheet" class="md-nav__link">
-      Third Party Javascript Management Cheat Sheet
+    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling" class="md-nav__link">
+      Threat Modeling
     </a>
   </li>
 
@@ -934,8 +1054,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Threat_Modeling_Cheat_Sheet/" title="Threat Modeling Cheat Sheet" class="md-nav__link">
-      Threat Modeling Cheat Sheet
+    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization" class="md-nav__link">
+      Transaction Authorization
     </a>
   </li>
 
@@ -946,8 +1066,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Transaction_Authorization_Cheat_Sheet/" title="Transaction Authorization Cheat Sheet" class="md-nav__link">
-      Transaction Authorization Cheat Sheet
+    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection" class="md-nav__link">
+      Transport Layer Protection
     </a>
   </li>
 
@@ -958,8 +1078,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Transport_Layer_Protection_Cheat_Sheet/" title="Transport Layer Protection Cheat Sheet" class="md-nav__link">
-      Transport Layer Protection Cheat Sheet
+    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards" class="md-nav__link">
+      Unvalidated Redirects and Forwards
     </a>
   </li>
 
@@ -970,8 +1090,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Unvalidated_Redirects_and_Forwards_Cheat_Sheet/" title="Unvalidated Redirects and Forwards Cheat Sheet" class="md-nav__link">
-      Unvalidated Redirects and Forwards Cheat Sheet
+    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection" class="md-nav__link">
+      User Privacy Protection
     </a>
   </li>
 
@@ -982,8 +1102,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../User_Privacy_Protection_Cheat_Sheet/" title="User Privacy Protection Cheat Sheet" class="md-nav__link">
-      User Privacy Protection Cheat Sheet
+    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching" class="md-nav__link">
+      Virtual Patching
     </a>
   </li>
 
@@ -994,8 +1114,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Virtual_Patching_Cheat_Sheet/" title="Virtual Patching Cheat Sheet" class="md-nav__link">
-      Virtual Patching Cheat Sheet
+    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure" class="md-nav__link">
+      Vulnerability Disclosure
     </a>
   </li>
 
@@ -1006,8 +1126,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Vulnerability_Disclosure_Cheat_Sheet/" title="Vulnerability Disclosure Cheat Sheet" class="md-nav__link">
-      Vulnerability Disclosure Cheat Sheet
+    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management" class="md-nav__link">
+      Vulnerable Dependency Management
     </a>
   </li>
 
@@ -1018,8 +1138,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Vulnerable_Dependency_Management_Cheat_Sheet/" title="Vulnerable Dependency Management Cheat Sheet" class="md-nav__link">
-      Vulnerable Dependency Management Cheat Sheet
+    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security" class="md-nav__link">
+      Web Service Security
     </a>
   </li>
 
@@ -1030,8 +1150,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Web_Service_Security_Cheat_Sheet/" title="Web Service Security Cheat Sheet" class="md-nav__link">
-      Web Service Security Cheat Sheet
+    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention" class="md-nav__link">
+      XML External Entity Prevention
     </a>
   </li>
 
@@ -1042,20 +1162,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../XML_External_Entity_Prevention_Cheat_Sheet/" title="XML External Entity Prevention Cheat Sheet" class="md-nav__link">
-      XML External Entity Prevention Cheat Sheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../XML_Security_Cheat_Sheet/" title="XML Security Cheat Sheet" class="md-nav__link">
-      XML Security Cheat Sheet
+    <a href="../XML_Security_Cheat_Sheet/" title="XML Security" class="md-nav__link">
+      XML Security
     </a>
   </li>
 
@@ -1091,15 +1199,118 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#typical-validation" class="md-nav__link">
     Typical Validation
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#bean-validation" class="md-nav__link">
     Bean Validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-defined-constraints" class="md-nav__link">
+    Pre-defined Constraints
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-defined Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern" class="md-nav__link">
+    @Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digits" class="md-nav__link">
+    @Digits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" class="md-nav__link">
+    @Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-future" class="md-nav__link">
+    @Past / @Future
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-constraints" class="md-nav__link">
+    Combining Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cascading-constraints" class="md-nav__link">
+    Cascading Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-constraints" class="md-nav__link">
+    Additional Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-constraints" class="md-nav__link">
+    Custom Constraints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-messages" class="md-nav__link">
+    Error Messages
   </a>
   
 </li>
@@ -1120,15 +1331,16 @@
                   
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                <h1 id="bean-validation-cheat-sheet">Bean Validation Cheat Sheet<a class="headerlink" href="#bean-validation-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This article is focused on providing clear, simple, actionable guidance for providing Java Bean Validation security functionality in your applications.</p>
 <p>Bean validation (JSR303 aka <a href="https://beanvalidation.org/1.0/spec/">Bean Validation 1.0</a> /JSR349 aka <a href="https://beanvalidation.org/1.1/spec/">Bean Validation 1.1</a>) is one of the most common ways to perform <a href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html">input validation</a> in Java. It is an application layer agnostic validation spec which provides the developer with the means to define a set of validation constraints on a domain model and then perform validation of those constraints through out the various application tiers.</p>
 <p>One advantage of this approach is that the validation constraints and the corresponding validators are only written once, thus reducing duplication of effort and ensuring uniformity:</p>
-<h2 id="typical-validation">Typical Validation<a class="headerlink" href="#typical-validation" title="Permanent link">&para;</a></h2>
+<h3 id="typical-validation">Typical Validation<a class="headerlink" href="#typical-validation" title="Permanent link">&para;</a></h3>
 <p><img alt="Typical" src="../../assets/Bean_Validation_Cheat_Sheet_Typical.png" /></p>
-<h2 id="bean-validation">Bean Validation<a class="headerlink" href="#bean-validation" title="Permanent link">&para;</a></h2>
+<h3 id="bean-validation">Bean Validation<a class="headerlink" href="#bean-validation" title="Permanent link">&para;</a></h3>
 <p><img alt="JSR" src="../../assets/Bean_Validation_Cheat_Sheet_JSR.png" /></p>
-<h1 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h1>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <p>The examples in this guide use Hibernate Validator (the reference implementation for Bean Validation 1.1).</p>
 <p>Add Hibernate Validator to your <strong>pom.xml</strong>:</p>
 <div class="codehilite"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
@@ -1149,7 +1361,7 @@
 
 
 <p>For more info, please see the <a href="https://hibernate.org/validator/documentation/getting-started/">setup guide</a></p>
-<h1 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">&para;</a></h1>
+<h2 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">&para;</a></h2>
 <p>In order to get started using Bean Validation, you must add validation constraints (<code>@Pattern</code>, <code>@Digits</code>, <code>@Min</code>, <code>@Max</code>, <code>@Size</code>, <code>@Past</code>, <code>@Future</code>, <code>@CreditCardNumber</code>, <code>@Email</code>, <code>@URL</code>, etc.) to your model and then utilize the <code>@Valid</code> annotation when passing your model around in various application layers.</p>
 <p>Constraints can be applied in several places:</p>
 <ul>
@@ -1165,13 +1377,13 @@
 </ul>
 <p>For the sake of simplicity all the examples below feature field constraints and all validation is triggered by the controller. Refer to the Bean Validation documentation for a full list of examples.</p>
 <p>When it comes to error handling, the Hibernate Validator returns a <code>BindingResult</code> object which contains a <code>List&lt;ObjectError&gt;</code>. The examples below feature simplistic error handling, while a production ready application would have a more elaborate design that takes care of logging and error page redirection.</p>
-<h1 id="pre-defined-constraints">Pre-defined Constraints<a class="headerlink" href="#pre-defined-constraints" title="Permanent link">&para;</a></h1>
-<h2 id="pattern">@Pattern<a class="headerlink" href="#pattern" title="Permanent link">&para;</a></h2>
-<p><strong>Annotation</strong>: </p>
+<h2 id="pre-defined-constraints">Pre-defined Constraints<a class="headerlink" href="#pre-defined-constraints" title="Permanent link">&para;</a></h2>
+<h3 id="pattern">@Pattern<a class="headerlink" href="#pattern" title="Permanent link">&para;</a></h3>
+<p><strong>Annotation</strong>:</p>
 <p><code>@Pattern(regex=,flag=)</code></p>
-<p><strong>Data Type</strong>: </p>
+<p><strong>Data Type</strong>:</p>
 <p><code>CharSequence</code></p>
-<p><strong>Use</strong>: </p>
+<p><strong>Use</strong>:</p>
 <p>Checks if the annotated string matches the regular expression regex considering the given flag match. Please visit <a href="https://owasp.org/www-community/OWASP_Validation_Regex_Repository">OWASP Validation Regex Repository</a> for other useful regex's.</p>
 <p><strong>Reference</strong>:</p>
 <p><a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch02.html#section-builtin-constraints">Documentation</a></p>
@@ -1181,13 +1393,13 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Article</span>  <span class="p">{</span>  
  <span class="c1">//Constraint: Alpha Numeric article titles only using a regular expression</span>
  <span class="nd">@Pattern</span><span class="p">(</span><span class="n">regexp</span> <span class="o">=</span> <span class="s">&quot;[a-zA-Z0-9 ]&quot;</span><span class="p">)</span>
- <span class="kd">private</span> <span class="n">String</span> <span class="n">articleTitle</span><span class="p">;</span>     
+ <span class="kd">private</span> <span class="n">String</span> <span class="n">articleTitle</span><span class="p">;</span>
  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getArticleTitle</span><span class="p">()</span>  <span class="p">{</span>
   <span class="k">return</span>  <span class="n">articleTitle</span><span class="p">;</span>
  <span class="p">}</span>  
  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setArticleTitle</span><span class="p">(</span><span class="n">String</span>  <span class="n">articleTitle</span><span class="p">)</span>  <span class="p">{</span>
    <span class="k">this</span><span class="p">.</span><span class="na">articleTitle</span>  <span class="o">=</span>  <span class="n">articleTitle</span><span class="p">;</span>
-  <span class="p">}</span> 
+  <span class="p">}</span>
 
   <span class="p">...</span>
 
@@ -1206,11 +1418,11 @@
 
  <span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;/postArticle&quot;</span><span class="p">,</span>  <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">)</span>
  <span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">String</span> <span class="nf">postArticle</span><span class="p">(</span><span class="nd">@Valid</span>  <span class="n">Article</span>  <span class="n">article</span><span class="p">,</span>  <span class="n">BindingResult</span>  <span class="n">result</span><span class="p">,</span>  
- <span class="n">HttpServletResponse</span>  <span class="n">response</span><span class="p">)</span> <span class="p">{</span>     
+ <span class="n">HttpServletResponse</span>  <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">())</span> <span class="p">{</span>
    <span class="n">String</span> <span class="n">errorMessage</span>  <span class="o">=</span>  <span class="s">&quot;&quot;</span><span class="p">;</span>
    <span class="n">response</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">HttpServletResponse</span><span class="p">.</span><span class="na">SC_BAD_REQUEST</span><span class="p">);</span>
-   <span class="n">List</span><span class="o">&lt;</span><span class="n">ObjectError</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">getAllErrors</span><span class="p">();</span>        
+   <span class="n">List</span><span class="o">&lt;</span><span class="n">ObjectError</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">getAllErrors</span><span class="p">();</span>
    <span class="k">for</span><span class="p">(</span><span class="n">ObjectError</span>  <span class="n">e</span> <span class="p">:</span>  <span class="n">errors</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">errorMessage</span> <span class="o">+=</span> <span class="s">&quot;ERROR: &quot;</span> <span class="o">+</span>  <span class="n">e</span><span class="p">.</span><span class="na">getDefaultMessage</span><span class="p">();</span>
    <span class="p">}</span>
@@ -1223,19 +1435,19 @@
 </code></pre></div>
 
 
-<h2 id="digits">@Digits<a class="headerlink" href="#digits" title="Permanent link">&para;</a></h2>
-<p><strong>Annotation</strong>: </p>
+<h3 id="digits">@Digits<a class="headerlink" href="#digits" title="Permanent link">&para;</a></h3>
+<p><strong>Annotation</strong>:</p>
 <p><code>@Digits(integer=,fraction=)</code></p>
-<p><strong>Data Type</strong>: </p>
+<p><strong>Data Type</strong>:</p>
 <p><code>BigDecimal</code>, <code>BigInteger</code>, <code>CharSequence</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code> and the respective wrappers of the primitive types; Additionally supported by HV: any sub-type of Number</p>
-<p><strong>Use</strong>: </p>
+<p><strong>Use</strong>:</p>
 <p>Checks whether the annotated value is a number having up to integer digits and fraction fractional digits</p>
 <p><strong>Reference</strong>:</p>
 <p><a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch02.html#section-builtin-constraints">Documentation</a></p>
 <p><strong>Model</strong>:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.hibernate.validator.constraints.Digits</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="p">{</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="p">{</span>
   <span class="c1">//Constraint: Age can only be 3 digits long or less</span>
   <span class="nd">@Digits</span><span class="p">(</span><span class="n">integer</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">fraction</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
   <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
@@ -1283,12 +1495,12 @@
 </code></pre></div>
 
 
-<h2 id="size">@Size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h2>
-<p><strong>Annotation</strong>: </p>
+<h3 id="size">@Size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
+<p><strong>Annotation</strong>:</p>
 <p><code>@Size(min=,</code> <code>max=)</code></p>
-<p><strong>Data Type</strong>: </p>
+<p><strong>Data Type</strong>:</p>
 <p><code>CharSequence</code>, <code>Collection</code>, <code>Map</code> and <code>Arrays</code></p>
-<p><strong>Use</strong>: </p>
+<p><strong>Use</strong>:</p>
 <p>Checks if the annotated element's size is between min and max (inclusive)</p>
 <p><strong>Reference</strong>:</p>
 <p><a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch02.html#section-builtin-constraints">Documentation</a></p>
@@ -1324,9 +1536,9 @@
 <span class="p">...</span>
 
 <span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/sendMessage&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">)</span>
-<span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">String</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">Message</span> <span class="n">message</span><span class="p">,</span> <span class="n">BindingResult</span> <span class="n">result</span><span class="p">,</span> 
+<span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">String</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">Message</span> <span class="n">message</span><span class="p">,</span> <span class="n">BindingResult</span> <span class="n">result</span><span class="p">,</span>
 <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">){</span>
- 
+
    <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">()){</span>
       <span class="n">String</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
       <span class="n">response</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">HttpServletResponse</span><span class="p">.</span><span class="na">SC_BAD_REQUEST</span><span class="p">);</span>
@@ -1335,7 +1547,7 @@
          <span class="n">errorMessage</span><span class="o">+=</span> <span class="s">&quot;ERROR: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">getDefaultMessage</span><span class="p">();</span>
       <span class="p">}</span>
       <span class="k">return</span> <span class="n">errorMessage</span><span class="p">;</span>
-   <span class="p">}</span> 
+   <span class="p">}</span>
    <span class="k">else</span><span class="p">{</span>
       <span class="k">return</span> <span class="s">&quot;Validation Successful&quot;</span><span class="p">;</span>
    <span class="p">}</span>
@@ -1344,12 +1556,12 @@
 </code></pre></div>
 
 
-<h2 id="past-future">@Past / @Future<a class="headerlink" href="#past-future" title="Permanent link">&para;</a></h2>
-<p><strong>Annotation</strong>: </p>
+<h3 id="past-future">@Past / @Future<a class="headerlink" href="#past-future" title="Permanent link">&para;</a></h3>
+<p><strong>Annotation</strong>:</p>
 <p><code>@Past,</code> <code>@Future</code></p>
-<p><strong>Data Type</strong>: </p>
+<p><strong>Data Type</strong>:</p>
 <p><code>java.util.Date</code>, <code>java.util.Calendar</code>, <code>java.time.chrono.ChronoZonedDateTime</code>, <code>java.time.Instant</code>, <code>java.time.OffsetDateTime</code></p>
-<p><strong>Use</strong>: </p>
+<p><strong>Use</strong>:</p>
 <p>Checks whether the annotated date is in the past / future</p>
 <p><strong>Reference</strong>:</p>
 <p><a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch02.html#section-builtin-constraints">Documentation</a></p>
@@ -1358,7 +1570,7 @@
 <span class="kn">import</span> <span class="nn">org.hibernate.validator.constraints.Future</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DoctorVisit</span> <span class="p">{</span>
- 
+
    <span class="c1">//Constraint: Birthdate must be in the past</span>
    <span class="nd">@Past</span>
    <span class="kd">private</span> <span class="n">Date</span> <span class="n">birthDate</span><span class="p">;</span>
@@ -1366,11 +1578,11 @@
    <span class="kd">public</span> <span class="n">Date</span> <span class="nf">getBirthDate</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">birthDate</span><span class="p">;</span>
    <span class="p">}</span>
-    
+
    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBirthDate</span><span class="p">(</span><span class="n">Date</span> <span class="n">birthDate</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="na">birthDate</span> <span class="o">=</span> <span class="n">birthDate</span><span class="p">;</span>
    <span class="p">}</span>
-    
+
    <span class="c1">//Constraint: Schedule visit date must be in the future</span>
    <span class="nd">@Future</span>
    <span class="kd">private</span> <span class="n">String</span> <span class="n">scheduledVisitDate</span><span class="p">;</span>
@@ -1382,7 +1594,7 @@
    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setScheduledVisitDate</span><span class="p">(</span><span class="n">String</span> <span class="n">scheduledVisitDate</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="na">scheduledVisitDate</span> <span class="o">=</span> <span class="n">scheduledVisitDate</span><span class="p">;</span>
    <span class="p">}</span>
- 
+
 <span class="p">...</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1398,18 +1610,18 @@
    <span class="p">...</span>
 
    <span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/scheduleVisit&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">)</span>
-   <span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">String</span> <span class="nf">scheduleVisit</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">DoctorVisit</span> <span class="n">doctorvisit</span><span class="p">,</span> <span class="n">BindingResult</span> <span class="n">result</span><span class="p">,</span> 
+   <span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">String</span> <span class="nf">scheduleVisit</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">DoctorVisit</span> <span class="n">doctorvisit</span><span class="p">,</span> <span class="n">BindingResult</span> <span class="n">result</span><span class="p">,</span>
    <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">){</span>
-    
+
       <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">()){</span>
          <span class="n">String</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
          <span class="n">response</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">HttpServletResponse</span><span class="p">.</span><span class="na">SC_BAD_REQUEST</span><span class="p">);</span>
-         <span class="n">List</span><span class="o">&lt;</span><span class="n">ObjectError</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">getAllErrors</span><span class="p">();</span>    
+         <span class="n">List</span><span class="o">&lt;</span><span class="n">ObjectError</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">getAllErrors</span><span class="p">();</span>
          <span class="k">for</span><span class="p">(</span> <span class="n">ObjectError</span> <span class="n">e</span> <span class="p">:</span> <span class="n">errors</span><span class="p">){</span>
             <span class="n">errorMessage</span><span class="o">+=</span> <span class="s">&quot;ERROR: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">getDefaultMessage</span><span class="p">();</span>
          <span class="p">}</span>
          <span class="k">return</span> <span class="n">errorMessage</span><span class="p">;</span>
-      <span class="p">}</span> 
+      <span class="p">}</span>
       <span class="k">else</span><span class="p">{</span>
          <span class="k">return</span> <span class="s">&quot;Validation Successful&quot;</span><span class="p">;</span>
       <span class="p">}</span>
@@ -1418,13 +1630,13 @@
 </code></pre></div>
 
 
-<h2 id="combining-constraints">Combining Constraints<a class="headerlink" href="#combining-constraints" title="Permanent link">&para;</a></h2>
+<h3 id="combining-constraints">Combining Constraints<a class="headerlink" href="#combining-constraints" title="Permanent link">&para;</a></h3>
 <p>Validation annotations can be combined in any suitable way. For instance, to specify a valid reviewRating value between 1 and 5, specify the validation like this :</p>
-<p><strong>Annotation</strong>: </p>
+<p><strong>Annotation</strong>:</p>
 <p><code>@Min(value=),</code> <code>@Max(value=)</code></p>
-<p><strong>Data Type</strong>: </p>
+<p><strong>Data Type</strong>:</p>
 <p><code>BigDecimal</code>, <code>BigInteger</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code> and the respective wrappers of the primitive types; Additionally supported by HV: any sub-type of <code>CharSequence</code> (the numeric value represented by the character sequence is evaluated), any sub-type of Number</p>
-<p><strong>Use</strong>: </p>
+<p><strong>Use</strong>:</p>
 <p>Checks whether the annotated value is higher/lower than or equal to the specified minimum</p>
 <p><strong>Reference:</strong></p>
 <p><a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch02.html#section-builtin-constraints">Documentation</a></p>
@@ -1433,7 +1645,7 @@
 <span class="kn">import</span> <span class="nn">org.hibernate.validator.constraints.Max</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Review</span> <span class="p">{</span>
- 
+
  <span class="c1">//Constraint: Review rating must be between 1 and 5</span>
  <span class="nd">@Min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
  <span class="nd">@Max</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1445,7 +1657,7 @@
 
  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setReviewRating</span><span class="p">(</span><span class="kt">int</span> <span class="n">reviewRating</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">this</span><span class="p">.</span><span class="na">reviewRating</span> <span class="o">=</span> <span class="n">reviewRating</span><span class="p">;</span>
-<span class="p">}</span> 
+<span class="p">}</span>
  <span class="p">...</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1461,13 +1673,13 @@
    <span class="p">...</span>
 
    <span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/postReview&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">RequestMethod</span><span class="p">.</span><span class="na">POST</span><span class="p">)</span>
-   <span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">String</span> <span class="nf">postReview</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">Review</span> <span class="n">review</span><span class="p">,</span> <span class="n">BindingResult</span> <span class="n">result</span><span class="p">,</span> 
+   <span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">String</span> <span class="nf">postReview</span><span class="p">(</span><span class="nd">@Valid</span> <span class="n">Review</span> <span class="n">review</span><span class="p">,</span> <span class="n">BindingResult</span> <span class="n">result</span><span class="p">,</span>
    <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">){</span>
-    
+
       <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">()){</span>
          <span class="n">String</span> <span class="n">errorMessage</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
          <span class="n">response</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">HttpServletResponse</span><span class="p">.</span><span class="na">SC_BAD_REQUEST</span><span class="p">);</span>
-         <span class="n">List</span><span class="o">&lt;</span><span class="n">ObjectError</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">getAllErrors</span><span class="p">();</span> 
+         <span class="n">List</span><span class="o">&lt;</span><span class="n">ObjectError</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">getAllErrors</span><span class="p">();</span>
          <span class="k">for</span><span class="p">(</span> <span class="n">ObjectError</span> <span class="n">e</span> <span class="p">:</span> <span class="n">errors</span><span class="p">){</span>
             <span class="n">errorMessage</span><span class="o">+=</span> <span class="s">&quot;ERROR: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">getDefaultMessage</span><span class="p">();</span>
          <span class="p">}</span>
@@ -1481,9 +1693,9 @@
 </code></pre></div>
 
 
-<h2 id="cascading-constraints">Cascading Constraints<a class="headerlink" href="#cascading-constraints" title="Permanent link">&para;</a></h2>
+<h3 id="cascading-constraints">Cascading Constraints<a class="headerlink" href="#cascading-constraints" title="Permanent link">&para;</a></h3>
 <p>Validating one bean is a good start, but often, beans are nested or in a complete graph of beans. To validate that graph in one go, apply cascading validation with <a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch03.html#_cascaded_validation">@Valid</a></p>
-<h2 id="additional-constraints">Additional Constraints<a class="headerlink" href="#additional-constraints" title="Permanent link">&para;</a></h2>
+<h3 id="additional-constraints">Additional Constraints<a class="headerlink" href="#additional-constraints" title="Permanent link">&para;</a></h3>
 <p>In addition to providing the complete set of JSR303 constraints, Hibernate Validator also defines some additional constraints for convenience:</p>
 <ul>
 <li><code>@CreditCardNumber</code></li>
@@ -1496,10 +1708,10 @@
 <li><code>@URL</code></li>
 </ul>
 <p>Take a look at this <a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch02.html#table-custom-constraints">table</a> for the complete list.</p>
-<h1 id="custom-constraints">Custom Constraints<a class="headerlink" href="#custom-constraints" title="Permanent link">&para;</a></h1>
+<h2 id="custom-constraints">Custom Constraints<a class="headerlink" href="#custom-constraints" title="Permanent link">&para;</a></h2>
 <p>One of the most powerful features of bean validation is the ability to define your own constraints that go beyond the simple validation offered by built in constraints.</p>
 <p>Creating custom constraints is beyond the scope of this guide. Please see this <a href="https://docs.jboss.org/hibernate/validator/5.2/reference/en-US/html/ch06.html">documentation</a>.</p>
-<h1 id="error-messages">Error Messages<a class="headerlink" href="#error-messages" title="Permanent link">&para;</a></h1>
+<h2 id="error-messages">Error Messages<a class="headerlink" href="#error-messages" title="Permanent link">&para;</a></h2>
 <p>It is possible to specify a message ID with the validation annotation, so that error messages are customized :</p>
 <div class="codehilite"><pre><span></span><code><span class="nd">@Pattern</span><span class="p">(</span><span class="n">regexp</span> <span class="o">=</span> <span class="s">&quot;[a-zA-Z0-9 ]&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&quot;article.title.error&quot;</span><span class="p">)</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">articleTitle</span><span class="p">;</span>
@@ -1527,7 +1739,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Authorization_Testing_Automation/" title="Authorization Testing Automation.md" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1536,19 +1748,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Authorization Testing Automation
+                Authorization Testing Automation.md
               </div>
             </div>
           </a>
         
         
-          <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../C-Based_Toolchain_Hardening/" title="C-Based Toolchain Hardening.md" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                C-Based Toolchain Hardening
+                C-Based Toolchain Hardening.md
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -1575,15 +1787,15 @@
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.a0c4167b.min.js"></script>
-      <script src="../../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.37585f48.min.js"
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
