@@ -1567,27 +1567,37 @@
 <p>The impact of a successful CSRF attack is limited to the capabilities exposed by the vulnerable application and privileges of the user. For example, this attack could result in a transfer of funds, changing a password, or making a purchase with the user's credentials. In effect, CSRF attacks are used by an attacker to make a target system perform a function via the victim's browser, without the victim's knowledge, at least until the unauthorized transaction has been committed.</p>
 <p>In short, the following principles should be followed to defend against CSRF:</p>
 <ul>
-<li><strong>Check if your framework has <a href="#use-built-in-or-existing-csrf-implementations-for-csrf-protection">built-in CSRF protection</a> and use it</strong></li>
+<li><strong>Check if your framework has <a href="#use-built-in-or-existing-csrf-implementations-for-csrf-protection">built-in CSRF protection</a> and use it</strong><ul>
 <li><strong>If framework does not have built-in CSRF protection add <a href="#token-based-mitigation">CSRF tokens</a> to all state changing requests (requests that cause actions on the site) and validate them on backend</strong></li>
+</ul>
+</li>
 <li><strong>Always use <a href="#samesite-cookie-attribute">SameSite Cookie Attribute</a> for session cookies</strong></li>
-<li><strong>Implement at least one mitigation from <a href="#defense-in-depth-techniques">Defense in Depth Mitigations</a> section</strong></li>
+<li><strong>Implement at least one mitigation from <a href="#defense-in-depth-techniques">Defense in Depth Mitigations</a> section</strong><ul>
 <li><strong><a href="#use-of-custom-request-headers">Use custom request headers</a></strong></li>
 <li><strong><a href="#verifying-origin-with-standard-headers">Verify the origin with standard headers</a></strong></li>
 <li><strong><a href="#double-submit-cookie">Use double submit cookies</a></strong></li>
+</ul>
+</li>
 <li><strong>Consider implementing <a href="#user-interaction-based-csrf-defense">user interaction based protection</a> for highly sensitive operations</strong></li>
-<li><strong>Remember that any Cross-Site Scripting (XSS) can be used to defeat all CSRF mitigation techniques!</strong></li>
+<li><strong>Remember that any Cross-Site Scripting (XSS) can be used to defeat all CSRF mitigation techniques!</strong><ul>
 <li><strong>See the OWASP <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html">XSS Prevention Cheat Sheet</a> for detailed guidance on how to prevent XSS flaws.</strong></li>
-<li><strong>Do not use GET requests for state changing operations.</strong></li>
+</ul>
+</li>
+<li><strong>Do not use GET requests for state changing operations.</strong><ul>
 <li><strong>If for any reason you do it, you have to also protect those resources against CSRF</strong></li>
+</ul>
+</li>
 </ul>
 <h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#token-based-mitigation">Token Based Mitigation</a></li>
+<li><a href="#token-based-mitigation">Token Based Mitigation</a><ul>
 <li><a href="#use-built-in-or-existing-csrf-implementations-for-csrf-protection">Use Build-In Or Existing CSRF Implementations for CSRF Protection</a></li>
 <li><a href="#synchronizer-token-pattern">Synchronizer Token Pattern</a></li>
 <li><a href="#encryption-based-token-pattern">Encryption based Token Pattern</a></li>
 <li><a href="#hmac-based-token-pattern">HMAC Based Token Pattern</a></li>
-<li><a href="#defense-in-depth-techniques">Defense In Depth Techniques</a></li>
+</ul>
+</li>
+<li><a href="#defense-in-depth-techniques">Defense In Depth Techniques</a><ul>
 <li><a href="#samesite-cookie-attribute">SameSite Cookie Attribute</a></li>
 <li><a href="#verifying-origin-with-standard-headers">Verifying Origin With Standard Headers</a><ul>
 <li><a href="#identifying-source-origin--via-origin-referer-header-">Identifying Source Origin (via Origin/Referer header)</a></li>
@@ -1600,9 +1610,11 @@
 </li>
 <li><a href="#use-of-custom-request-headers">Use of Custom Request Headers</a></li>
 <li><a href="#user-interaction-based-csrf-defense">User Interaction Based CSRF Defense</a></li>
+</ul>
+</li>
 <li><a href="#login-csrf">Login CSRF</a></li>
 <li><a href="#java-reference-example">Java Reference Example</a></li>
-<li><a href="#javascript-guidance-for-auto-inclusion-of-csrf-tokens-as-an-ajax-request-header">JavaScript Guidance for Auto-inclusion of CSRF tokens as an AJAX Request header</a></li>
+<li><a href="#javascript-guidance-for-auto-inclusion-of-csrf-tokens-as-an-ajax-request-header">JavaScript Guidance for Auto-inclusion of CSRF tokens as an AJAX Request header</a><ul>
 <li><a href="#storing-the-csrf-token-value-in-the-dom">Storing the CSRF Token Value in the DOM</a></li>
 <li><a href="#overriding-defaults-to-set-custom-header">Overriding Defaults to Set Custom Header</a><ul>
 <li><a href="#xmlhttprequest--native-javascript-">XMLHttpRequest (Native JavaScript)</a></li>
@@ -1611,9 +1623,13 @@
 <li><a href="#jquery">JQuery</a></li>
 </ul>
 </li>
-<li><a href="#references">References</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a><ul>
 <li><a href="#csrf">CSRF</a></li>
 <li><a href="#cookie-prefixes">Cookie Prefixes</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="token-based-mitigation">Token Based Mitigation<a class="headerlink" href="#token-based-mitigation" title="Permanent link">&para;</a></h2>
 <p>This defense is one of the most popular and recommended methods to mitigate CSRF. It can be achieved either with state (<a href="#synchronizer-token-pattern">synchronizer token pattern</a>) or stateless (<a href="#encryption-based-token-pattern">encrypted</a> or <a href="#hmac-based-token-pattern">hashed</a> based token pattern).</p>

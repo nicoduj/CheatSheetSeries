@@ -1758,8 +1758,10 @@
 <ul>
 <li>Use <a href="https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.prepare?view=netframework-4.7.2">Parameterized SQL</a> commands for all data access, without exception.</li>
 <li>Do not use <a href="https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand">SqlCommand</a> with a string parameter made up of a <a href="https://docs.microsoft.com/en-gb/visualstudio/code-quality/ca2100-review-sql-queries-for-security-vulnerabilities?view=vs-2017">concatenated SQL String</a>.</li>
-<li>Whitelist allowable values coming from the user. Use enums, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32.tryparse#System_Int32_TryParse_System_String_System_Int32__">TryParse</a> or lookup values to assure that the data coming from the user is as expected.</li>
+<li>Whitelist allowable values coming from the user. Use enums, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32.tryparse#System_Int32_TryParse_System_String_System_Int32__">TryParse</a> or lookup values to assure that the data coming from the user is as expected.<ul>
 <li>Enums are still vulnerable to unexpected values because .NET only validates a successful cast to the underlying data type, integer by default. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.enum.isdefined">Enum.IsDefined</a> can validate whether the input value is valid within the list of defined constants.</li>
+</ul>
+</li>
 <li>Apply the principle of least privilege when setting up the Database User in your database of choice. The database user should only be able to access items that make sense for the use case.</li>
 <li>Use of the <a href="https://docs.microsoft.com/en-us/ef/">Entity Framework</a> is a very effective <a href="https://owasp.org/www-community/attacks/SQL_Injection">SQL injection</a> prevention mechanism. <strong>Remember that building your own ad hoc queries in Entity Framework is just as susceptible to SQLi as a plain SQL query</strong>.</li>
 <li>When using SQL Server, prefer <a href="https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/using-integrated-authentication?view=sql-server-2017">integrated authentication</a> over <a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/choose-an-authentication-mode?view=sql-server-2017#connecting-through-sql-server-authentication">SQL authentication</a>.</li>
@@ -1769,19 +1771,23 @@
 <ul>
 <li><strong>Never, ever write your own encryption.</strong></li>
 <li>Use the <a href="https://docs.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection">Windows Data Protection API (DPAPI)</a> for secure local storage of sensitive data.</li>
-<li>Use a strong hash algorithm.</li>
+<li>Use a strong hash algorithm.<ul>
 <li>In .NET (both Framework and Core) the strongest hashing algorithm for general hashing requirements is <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.sha512">System.Security.Cryptography.SHA512</a>.</li>
 <li>In the .NET framework the strongest algorithm for password hashing is PBKDF2, implemented as <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rfc2898derivebytes">System.Security.Cryptography.Rfc2898DeriveBytes</a>.</li>
 <li>In .NET Core the strongest algorithm for password hashing is PBKDF2, implemented as <a href="https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing">Microsoft.AspNetCore.Cryptography.KeyDerivation.Pbkdf2</a> which has several significant advantages over <code>Rfc2898DeriveBytes</code>.</li>
 <li>When using a hashing function to hash non-unique inputs such as passwords, use a salt value added to the original value before hashing.</li>
+</ul>
+</li>
 <li>Make sure your application or protocol can easily support a future change of cryptographic algorithms.</li>
 <li>Use <a href="https://docs.microsoft.com/en-us/nuget/">Nuget</a> to keep all of your packages up to date. Watch the updates on your development setup, and plan updates to your applications accordingly.</li>
 </ul>
 <h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Lock down the config file.</li>
+<li>Lock down the config file.<ul>
 <li>Remove all aspects of configuration that are not in use.</li>
 <li>Encrypt sensitive parts of the <code>web.config</code> using <code>aspnet_regiis -pe</code> (<a href="https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-2.0/k6h9cz8h(v=vs.80)">command line help</a>).</li>
+</ul>
+</li>
 <li>For Click Once applications the .Net Framework should be upgraded to use version <code>4.6.2</code> to ensure <code>TLS 1.1/1.2</code> support.</li>
 </ul>
 <h2 id="asp-net-web-forms-guidance">ASP NET Web Forms Guidance<a class="headerlink" href="#asp-net-web-forms-guidance" title="Permanent link">&para;</a></h2>
@@ -1938,9 +1944,11 @@
 <li>Don't trust the URI of the request for persistence of the session or authorization. It can be easily faked.</li>
 <li>Reduce the forms authentication timeout from the default of <em>20 minutes</em> to the shortest period appropriate for your application. If <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.security.formsauthentication.slidingexpiration?view=netframework-4.7.2">slidingExpiration</a> is used this timeout resets after each request, so active users won't be affected.</li>
 <li>If HTTPS is not used, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.security.formsauthentication.slidingexpiration?view=netframework-4.7.2">slidingExpiration</a> should be disabled. Consider disabling <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.security.formsauthentication.slidingexpiration?view=netframework-4.7.2">slidingExpiration</a> even with HTTPS.</li>
-<li>Always implement proper access controls.</li>
+<li>Always implement proper access controls.<ul>
 <li>Compare user provided username with <code>User.Identity.Name</code>.</li>
 <li>Check roles against <code>User.Identity.IsInRole</code>.</li>
+</ul>
+</li>
 <li>Use the <a href="https://docs.microsoft.com/en-us/dotnet/framework/wcf/samples/membership-and-role-provider">ASP.NET Membership provider and role provider</a>, but review the password storage. The default storage hashes the password with a single iteration of SHA-1 which is rather weak. The ASP.NET MVC4 template uses <a href="http://www.asp.net/identity/overview/getting-started/introduction-to-aspnet-identity">ASP.NET Identity</a> instead of ASP.NET Membership, and ASP.NET Identity uses PBKDF2 by default which is better. Review the OWASP <a href="Password_Storage_Cheat_Sheet.html">Password Storage Cheat Sheet</a> for more information.</li>
 <li>Explicitly authorize resource requests.</li>
 <li>Leverage role based authorization using <code>User.Identity.IsInRole</code>.</li>

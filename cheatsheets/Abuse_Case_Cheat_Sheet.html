@@ -1580,14 +1580,20 @@ projects should opportunistically build abuse-cases for established functionalit
 <p>First, even if it seems obvious, the key business people must be sure to know, understand and be able to explain the business features that will be processed during the workshop.</p>
 <p>Secondly, create a new Microsoft Excel file (you can also use Google Sheets or any other similar software) with the following sheets (or tabs):</p>
 <ul>
-<li><strong>FEATURES</strong></li>
+<li><strong>FEATURES</strong><ul>
 <li>Will contain a table with the list of business features planned for the workshop.</li>
-<li><strong>ABUSE CASES</strong></li>
+</ul>
+</li>
+<li><strong>ABUSE CASES</strong><ul>
 <li>Will contain a table with all abuse cases identified during the workshop.</li>
-<li><strong>COUNTERMEASURES</strong></li>
+</ul>
+</li>
+<li><strong>COUNTERMEASURES</strong><ul>
 <li>Will contain a table with the list of possible countermeasures (light description) imagined for the abuse cases identified.</li>
 <li>This sheet is not mandatory, but it can be useful (for an abuse case to know), if a fix is easy to implement and then can impact the risk rating.</li>
 <li>Countermeasures can be identified by the AppSec profile during the workshop, because an AppSec person must be able to perform attacks but also to build or identify defenses (it is not always the case for the Pentester profile because this person's focus is generally on the attack side only, so, the combination Pentester + AppSec is very efficient to have a 360 degree view).</li>
+</ul>
+</li>
 </ul>
 <p>This is the representation of each sheet along with an example of content that will be filled during the workshop:</p>
 <p><em>FEATURES</em> sheet:</p>
@@ -1703,11 +1709,15 @@ used during the next workshop in combination with input from offensives people.
 <p>In order to track the handling of all the abuse cases, the following approach can be used:</p>
 <p>If one or several abuse cases are handled at:</p>
 <ul>
-<li><strong>Design, Infrastructure or Network level</strong></li>
+<li><strong>Design, Infrastructure or Network level</strong><ul>
 <li>Make a note in the documentation or schema to indicate that <em>This design/network/infrastructure takes into account the abuse cases ABUSE_CASE_001, ABUSE_CASE_002, ABUSE_CASE_xxx</em>.</li>
-<li><strong>Code level</strong></li>
+</ul>
+</li>
+<li><strong>Code level</strong><ul>
 <li>Put a special comment in the classes/scripts/modules to indicate that <em>This class/module/script takes into account the abuse cases ABUSE_CASE_001, ABUSE_CASE_002, ABUSE_CASE_xxx</em>.</li>
 <li>Dedicated annotation like <code>@AbuseCase(ids={"ABUSE_CASE_001","ABUSE_CASE_002"})</code> can be used to facilitate tracking and allow identification into integrated development environment.</li>
+</ul>
+</li>
 </ul>
 <p>Using this way, it becomes possible (via some minor scripting) to identify where abuse cases are addressed.</p>
 <h4 id="step-5-during-implementation-abuse-cases-handling-validation">Step 5: During implementation - Abuse cases handling validation<a class="headerlink" href="#step-5-during-implementation-abuse-cases-handling-validation" title="Permanent link">&para;</a></h4>
@@ -1718,14 +1728,18 @@ used during the next workshop in combination with input from offensives people.
 </ul>
 <p>Validations can be of the following kinds:</p>
 <ul>
-<li>Automated (run regularly at commit, daily or weekly in the Continuous Integration Jobs of the project):</li>
+<li>Automated (run regularly at commit, daily or weekly in the Continuous Integration Jobs of the project):<ul>
 <li>Custom audit rules in Static Application Security Testing (SAST) or Dynamic Application Security Testing (DAST) tools.</li>
 <li>Dedicated unit, integration or functional security oriented tests.</li>
 <li>...</li>
-<li>Manual:</li>
+</ul>
+</li>
+<li>Manual:<ul>
 <li>Security code review between project's peers during the design or implementation.</li>
 <li>Provide the list of all abuse cases addressed to pentesters so that they may validate the protection efficiency for each abuse case during an intrusion test against the application (the pentester will validate that the attacks identified are no longer effective and will also try to find other possible attacks).</li>
 <li>...</li>
+</ul>
+</li>
 </ul>
 <p>Adding automated tests also allow teams to track that countermeasures against the abuse cases are still effective/in place during a maintenance or bug fixing phase of a project (to prevent accidental removal/disabling). It is also useful when a <a href="https://continuousdelivery.com/">Continuous Delivery</a> approach is used, to ensure that all abuse cases protections are in place before opening access to the application.</p>
 <h3 id="example-of-derivation-of-abuse-cases-as-user-stories">Example of derivation of Abuse Cases as User Stories<a class="headerlink" href="#example-of-derivation-of-abuse-cases-as-user-stories" title="Permanent link">&para;</a></h3>

@@ -1347,8 +1347,10 @@
 <h2 id="jwt">JWT<a class="headerlink" href="#jwt" title="Permanent link">&para;</a></h2>
 <p>There seems to be a convergence towards using <a href="https://tools.ietf.org/html/rfc7519">JSON Web Tokens</a> (JWT) as the format for security tokens. JWTs are JSON data structures containing a set of claims that can be used for access control decisions. A cryptographic signature or message authentication code (MAC) can be used to protect the integrity of the JWT.</p>
 <ul>
-<li>Ensure JWTs are integrity protected by either a signature or a MAC. Do not allow the unsecured JWTs: <code>{"alg":"none"}</code>.</li>
+<li>Ensure JWTs are integrity protected by either a signature or a MAC. Do not allow the unsecured JWTs: <code>{"alg":"none"}</code>.<ul>
 <li>See <a href="https://tools.ietf.org/html/rfc7519#section-6.1">here</a></li>
+</ul>
+</li>
 <li>In general, signatures should be preferred over MACs for integrity protection of JWTs.</li>
 </ul>
 <p>If MACs are used for integrity protection, every service that is able to validate JWTs can also create new JWTs using the same key. This means that all services using the same key have to mutually trust each other. Another consequence of this is that a compromise of any service also compromises all other services sharing the same key. See <a href="https://tools.ietf.org/html/rfc7515#section-10.5">here</a> for additional information.</p>

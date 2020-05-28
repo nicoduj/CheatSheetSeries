@@ -1425,9 +1425,11 @@
 <p>Web Messaging (also known as Cross Domain Messaging) provides a means of messaging between documents from different origins in a way that is generally safer than the multiple hacks used in the past to accomplish this task. However, there are still some recommendations to keep in mind:</p>
 <ul>
 <li>When posting a message, explicitly state the expected origin as the second argument to <code>postMessage</code> rather than <code>*</code> in order to prevent sending the message to an unknown origin after a redirect or some other means of the target window's origin changing.</li>
-<li>The receiving page should <strong>always</strong>:</li>
+<li>The receiving page should <strong>always</strong>:<ul>
 <li>Check the <code>origin</code> attribute of the sender to verify the data is originating from the expected location.</li>
 <li>Perform input validation on the <code>data</code> attribute of the event to ensure that it's in the desired format.</li>
+</ul>
+</li>
 <li>Don't assume you have control over the <code>data</code> attribute. A single <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html">Cross Site Scripting</a> flaw in the sending page allows an attacker to send messages of any given format.</li>
 <li>Both pages should only interpret the exchanged messages as <strong>data</strong>. Never evaluate passed messages as code (e.g. via <code>eval()</code>) or insert it to a page DOM (e.g. via <code>innerHTML</code>), as that would create a DOM-based XSS vulnerability. For more information see <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html">DOM based XSS Prevention Cheat Sheet</a>.</li>
 <li>To assign the data value to an element, instead of using a insecure method like <code>element.innerHTML=data;</code>, use the safer option: <code>element.textContent=data;</code></li>
@@ -1497,9 +1499,11 @@
 <p>To prevent this issue, the following actions are available:</p>
 <p>Cut the back link between the parent and the child pages:</p>
 <ul>
-<li>For html link:</li>
+<li>For html link:<ul>
 <li>To cut this back link, add the attribute <code>rel="noopener"</code> on the tag used to create the link from the parent page to the child page. This attribute value cuts the link, but depending on the browser, lets referrer information be present in the request to the child page.</li>
 <li>To also remove the referrer information use this attribute value: <code>rel="noopener noreferrer"</code>.</li>
+</ul>
+</li>
 <li>For javascript <code>window.open</code> function, add the values <code>noopener,noreferrer</code> in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open">windowFeatures</a> parameter of the <code>window.open</code> function.</li>
 </ul>
 <p>As the behavior using the elements above is different between the browsers, either use html link or javascript to open a window (or tab), then use this configuration to maximize the cross supports:</p>

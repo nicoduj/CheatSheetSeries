@@ -1458,37 +1458,66 @@
 <p>The objective of the cheat sheet is to provide advices regarding the protection against <a href="https://www.acunetix.com/blog/articles/server-side-request-forgery-vulnerability/">Server Side Request Forgery</a> (SSRF) attack.</p>
 <p>This cheat sheet will focus on the defensive point of view and will not explain how to perform this attack. This <a href="../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_Orange_Tsai_Talk.pdf">talk</a> from the security researcher <a href="https://twitter.com/orange_8361">Orange Tsai</a> as well as this <a href="../assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_SSRF_Bible.pdf">document</a> provide techniques on how to perform this kind of attack.</p>
 <h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="#server-side-request-forgery-prevention-cheat-sheet">Server-Side Request Forgery Prevention Cheat Sheet</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#contents">Contents</a></li>
-<li><a href="#context">Context</a></li>
-<li><a href="#overview-of-a-ssrf-common-flow">Overview of a SSRF common flow</a></li>
-<li><a href="#cases">Cases</a><ul>
-<li><a href="#case-1---application-can-send-request-only-to-identified-and-trusted-applications">Case 1 - Application can send request only to identified and trusted applications</a></li>
-<li><a href="#example">Example</a></li>
-<li><a href="#available-protections">Available protections</a><ul>
-<li><a href="#application-layer">Application layer</a></li>
-<li><a href="#string">String</a></li>
-<li><a href="#ip-address">IP address</a></li>
-<li><a href="#domain-name">Domain name</a></li>
-<li><a href="#url">URL</a></li>
-<li><a href="#network-layer">Network layer</a></li>
-</ul>
-</li>
-<li><a href="#case-2---application-can-send-requests-to-any-external-ip-address-or-domain-name">Case 2 - Application can send requests to ANY external IP address or domain name</a></li>
-<li><a href="#challenges-in-blocking-urls-at-application-layer">Challenges in blocking URLs at application layer</a></li>
-<li><a href="#available-protections-1">Available protections</a><ul>
-<li><a href="#application-layer-1">Application layer</a></li>
-<li><a href="#network-layer-1">Network layer</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#imdsv2-in-aws">IMDSv2 in AWS</a></li>
-<li><a href="#references">References</a></li>
-<li><a href="#tools-and-code-used-for-schemas">Tools and code used for schemas</a></li>
-</ul>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+- <a href="#server-side-request-forgery-prevention-cheat-sheet">Server-Side Request Forgery Prevention Cheat Sheet</a>
+  - <a href="#introduction">Introduction</a>
+  - <a href="#contents">Contents</a>
+  - <a href="#context">Context</a>
+  - <a href="#overview-of-a-ssrf-common-flow">Overview of a SSRF common flow</a>
+  - <a href="#cases">Cases</a>
+    - <a href="#case-1---application-can-send-request-only-to-identified-and-trusted-applications">Case 1 - Application can send request only to identified and trusted applications</a>
+      - <a href="#example">Example</a>
+      - <a href="#available-protections">Available protections</a>
+        - <a href="#application-layer">Application layer</a>
+          - <a href="#string">String</a>
+          - <a href="#ip-address">IP address</a>
+          - <a href="#domain-name">Domain name</a>
+          - <a href="#url">URL</a>
+        - <a href="#network-layer">Network layer</a>
+    - <a href="#case-2---application-can-send-requests-to-any-external-ip-address-or-domain-name">Case 2 - Application can send requests to ANY external IP address or domain name</a>
+      - <a href="#challenges-in-blocking-urls-at-application-layer">Challenges in blocking URLs at application layer</a>
+      - <a href="#available-protections-1">Available protections</a>
+        - <a href="#application-layer-1">Application layer</a>
+        - <a href="#network-layer-1">Network layer</a>
+  - <a href="#imdsv2-in-aws">IMDSv2 in AWS</a>
+  - <a href="#references">References</a>
+  - <a href="#tools-and-code-used-for-schemas">Tools and code used for schemas</a>
+=======
+- <a href="#context">Context</a>
+- <a href="#overview-of-a-ssrf-common-flow">Overview of a SSRF common flow</a>
+- <a href="#cases">Cases</a>
+    - <a href="#case-1---application-can-send-request-only-to-identified-and-trusted-applications">Case 1 - Application can send request only to identified and trusted applications</a>
+        - <a href="#example">Example</a>
+        - <a href="#available-protections">Available protections</a>
+            - <a href="#application-layer">Application layer</a>
+                - <a href="#string">String</a>
+                - <a href="#ip-address">IP address</a>
+                - <a href="#domain-name">Domain name</a>
+                - <a href="#url">URL</a>
+            - <a href="#network-layer">Network layer</a>
+    - <a href="#case-2---application-can-send-requests-to-any-external-ip-address-or-domain-name">Case 2 - Application can send requests to ANY external IP address or domain name</a>
+        - <a href="#challenges-in-blocking-urls-at-application-layer">Challenges in blocking URLs at application layer</a>
+        - <a href="#available-protections-1">Available protections</a>
+            - <a href="#application-layer-1">Application layer</a>
+            - <a href="#network-layer-1">Network layer</a>
+- <a href="#imdsv2-in-aws">IMDSv2 in AWS</a>
+- <a href="#references">References</a>
+- <a href="#tools-and-code-used-for-schemas">Tools and code used for schemas</a></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>444b3a26ba2ea1250be51f62e9b6d25c9c19c964</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>SSRF is an attack vector that abuses an application to interact with the internal/external network or the machine itself. One of the enablers for this vector is the mishandling of URLs, as showcased in the following examples:</p>
 <ul>
@@ -1558,17 +1587,27 @@ The user leverages the web application as a proxy to the HR system.</p>
 <p>Verification of the proposed libraries has been performed regarding the exposure to bypasses (Hex, Octal, Dword, URL and Mixed encoding) described in this <a href="https://medium.com/@vickieli/bypassing-ssrf-protection-e111ae70727b">article</a>.</p>
 </blockquote>
 <ul>
-<li><strong>JAVA:</strong> Method <a href="http://commons.apache.org/proper/commons-validator/apidocs/org/apache/commons/validator/routines/InetAddressValidator.html#isValid(java.lang.String)">InetAddressValidator.isValid</a> from the <a href="http://commons.apache.org/proper/commons-validator/">Apache Commons Validator</a> library.</li>
+<li><strong>JAVA:</strong> Method <a href="http://commons.apache.org/proper/commons-validator/apidocs/org/apache/commons/validator/routines/InetAddressValidator.html#isValid(java.lang.String)">InetAddressValidator.isValid</a> from the <a href="http://commons.apache.org/proper/commons-validator/">Apache Commons Validator</a> library.<ul>
 <li><strong>It is NOT exposed</strong> to bypass using Hex, Octal, Dword, URL and Mixed encoding.</li>
-<li><strong>.NET</strong>: Method <a href="https://docs.microsoft.com/en-us/dotnet/api/system.net.ipaddress.tryparse?view=netframework-4.8">IPAddress.TryParse</a> from the SDK.</li>
+</ul>
+</li>
+<li><strong>.NET</strong>: Method <a href="https://docs.microsoft.com/en-us/dotnet/api/system.net.ipaddress.tryparse?view=netframework-4.8">IPAddress.TryParse</a> from the SDK.<ul>
 <li><strong>It is exposed</strong> to bypass using Hex, Octal, Dword and Mixed encoding but <strong>NOT</strong> the URL encoding.</li>
 <li>As whitelisting is used here, any bypass tentative will be blocked during the comparison against the allowed list of IP addresses.</li>
-<li><strong>JavaScript</strong>: Library <a href="https://www.npmjs.com/package/ip-address">ip-address</a>.</li>
+</ul>
+</li>
+<li><strong>JavaScript</strong>: Library <a href="https://www.npmjs.com/package/ip-address">ip-address</a>.<ul>
 <li><strong>It is NOT exposed</strong> to bypass using Hex, Octal, Dword, URL and Mixed encoding.</li>
-<li><strong>Python</strong>: Module <a href="https://docs.python.org/3/library/ipaddress.html">ipaddress</a> from the SDK.</li>
+</ul>
+</li>
+<li><strong>Python</strong>: Module <a href="https://docs.python.org/3/library/ipaddress.html">ipaddress</a> from the SDK.<ul>
 <li><strong>It is NOT exposed</strong> to bypass using Hex, Octal, Dword, URL and Mixed encoding.</li>
-<li><strong>Ruby</strong>: Class <a href="https://ruby-doc.org/stdlib-2.0.0/libdoc/ipaddr/rdoc/IPAddr.html">IPAddr</a> from the SDK.</li>
+</ul>
+</li>
+<li><strong>Ruby</strong>: Class <a href="https://ruby-doc.org/stdlib-2.0.0/libdoc/ipaddr/rdoc/IPAddr.html">IPAddr</a> from the SDK.<ul>
 <li><strong>It is NOT exposed</strong> to bypass using Hex, Octal, Dword, URL and Mixed encoding.</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p><strong>Use the output value of the method/library as the IP address to compare against the whitelist.</strong></p>
@@ -1595,9 +1634,11 @@ The user leverages the web application as a proxy to the HR system.</p>
 <li><strong>.NET</strong>: Method <a href="https://docs.microsoft.com/en-us/dotnet/api/system.uri.checkhostname?view=netframework-4.8">Uri.CheckHostName</a> from the SDK.</li>
 <li><strong>JavaScript</strong>: Library <a href="https://www.npmjs.com/package/is-valid-domain">is-valid-domain</a>.</li>
 <li><strong>Python</strong>: Module <a href="https://validators.readthedocs.io/en/latest/#module-validators.domain">validators.domain</a>.</li>
-<li><strong>Ruby</strong>: No valid dedicated gem has been found.</li>
+<li><strong>Ruby</strong>: No valid dedicated gem has been found.<ul>
 <li><a href="https://github.com/mhuggins/domainator">domainator</a>, <a href="https://github.com/weppos/publicsuffix-ruby">public_suffix</a> and <a href="https://github.com/sporkmonger/addressable">addressable</a> has been tested but unfortunately they all consider <code>&lt;script&gt;alert(1)&lt;/script&gt;.owasp.org</code> as a valid domain name.</li>
 <li>This regex, taken from <a href="https://stackoverflow.com/a/26987741">here</a>, can be used: <code>^(((?!-))(xn--|_{1,1})?[a-z0-9-]{0,61}[a-z0-9]{1,1}\.)*(xn--)?([a-z0-9][a-z0-9\-]{0,60}|[a-z0-9-]{1,30}\.[a-z]{2,})$</code></li>
+</ul>
+</li>
 </ul>
 <p>Example of execution of the proposed regex for Ruby:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">domain_names</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;owasp.org&quot;</span><span class="p">,</span><span class="s2">&quot;owasp-test.org&quot;</span><span class="p">,</span><span class="s2">&quot;doc-test.owasp.org&quot;</span><span class="p">,</span><span class="s2">&quot;doc.owasp.org&quot;</span><span class="p">,</span>

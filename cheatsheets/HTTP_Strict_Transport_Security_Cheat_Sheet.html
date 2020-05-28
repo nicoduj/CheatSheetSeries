@@ -1164,12 +1164,18 @@
 <h2 id="threats">Threats<a class="headerlink" href="#threats" title="Permanent link">&para;</a></h2>
 <p>HSTS addresses the following threats:</p>
 <ul>
-<li>User bookmarks or manually types <code>http://example.com</code> and is subject to a man-in-the-middle attacker</li>
+<li>User bookmarks or manually types <code>http://example.com</code> and is subject to a man-in-the-middle attacker<ul>
 <li>HSTS automatically redirects HTTP requests to HTTPS for the target domain</li>
-<li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP</li>
+</ul>
+</li>
+<li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP<ul>
 <li>HSTS automatically redirects HTTP requests to HTTPS for the target domain</li>
-<li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate</li>
+</ul>
+</li>
+<li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate<ul>
 <li>HSTS does not allow a user to override the invalid certificate message</li>
+</ul>
+</li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>Simple example, using a long (1 year = 31536000 seconds) max-age. This example is dangerous since it lacks <code>includeSubDomains</code>:</p>

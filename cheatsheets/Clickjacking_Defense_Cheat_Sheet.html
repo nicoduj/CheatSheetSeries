@@ -1431,12 +1431,18 @@
 <h3 id="content-security-policy-frame-ancestors-examples">Content-Security-Policy: frame-ancestors Examples<a class="headerlink" href="#content-security-policy-frame-ancestors-examples" title="Permanent link">&para;</a></h3>
 <p>Common uses of CSP frame-ancestors:</p>
 <ul>
-<li><code>Content-Security-Policy: frame-ancestors 'none';</code></li>
+<li><code>Content-Security-Policy: frame-ancestors 'none';</code><ul>
 <li>This prevents any domain from framing the content. This setting is recommended unless a specific need has been identified for framing.</li>
-<li><code>Content-Security-Policy: frame-ancestors 'self';</code></li>
+</ul>
+</li>
+<li><code>Content-Security-Policy: frame-ancestors 'self';</code><ul>
 <li>This only allows the current site to frame the content.</li>
-<li><code>Content-Security-Policy: frame-ancestors 'self' *.somesite.com https://myfriend.site.com;</code></li>
+</ul>
+</li>
+<li><code>Content-Security-Policy: frame-ancestors 'self' *.somesite.com https://myfriend.site.com;</code><ul>
 <li>This allows the current site, as well as any page on <code>somesite.com</code> (using any protocol), and only the page <code>myfriend.site.com</code>, using HTTPS only on the default port (443).</li>
+</ul>
+</li>
 </ul>
 <p>Note that the single quotes are required around <code>self</code> and <code>none</code>, but may not occur around other source expressions.</p>
 <p>See the following documentation for further details and more complex examples:</p>
@@ -1456,9 +1462,11 @@
 <ul>
 <li><strong>DENY</strong>, which prevents any domain from framing the content. The "DENY" setting is recommended unless a specific need has been identified for framing.</li>
 <li><strong>SAMEORIGIN</strong>, which only allows the current site to frame the content.</li>
-<li><strong>ALLOW-FROM uri</strong>, which permits the specified 'uri' to frame this page. (e.g., <code>ALLOW-FROM http://www.example.com</code>).</li>
+<li><strong>ALLOW-FROM uri</strong>, which permits the specified 'uri' to frame this page. (e.g., <code>ALLOW-FROM http://www.example.com</code>).<ul>
 <li>Check limitations below because this will fail open if the browser does not support it.</li>
 <li>Other browsers support the new <a href="https://w3c.github.io/webappsec-csp/#directive-frame-ancestors">CSP frame-ancestors directive</a> instead. A few support both.</li>
+</ul>
+</li>
 </ul>
 <h3 id="browser-support">Browser Support<a class="headerlink" href="#browser-support" title="Permanent link">&para;</a></h3>
 <p>The following <a href="https://caniuse.com/#search=X-Frame-Options">browsers</a> support X-Frame-Options headers.</p>

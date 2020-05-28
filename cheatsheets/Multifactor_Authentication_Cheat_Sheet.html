@@ -2013,15 +2013,19 @@
 <li><a href="#advantages">Advantages</a></li>
 <li><a href="#disadvantages">Disadvantages</a></li>
 <li><a href="#quick-recommendations">Quick Recommendations</a></li>
-<li><a href="#implementing-mfa">Implementing MFA</a></li>
+<li><a href="#implementing-mfa">Implementing MFA</a><ul>
 <li><a href="#when-to-require-mfa">When to Require MFA</a></li>
 <li><a href="#improving-usability">Improving Usability</a></li>
 <li><a href="#failed-login-attempts">Failed Login Attempts</a></li>
 <li><a href="#resetting-mfa">Resetting MFA</a></li>
-<li><a href="#something-you-know">Something You Know</a></li>
+</ul>
+</li>
+<li><a href="#something-you-know">Something You Know</a><ul>
 <li><a href="#passwords-and-pins">Passwords and PINs</a></li>
 <li><a href="#security-questions">Security Questions</a></li>
-<li><a href="#something-you-have">Something You Have</a></li>
+</ul>
+</li>
+<li><a href="#something-you-have">Something You Have</a><ul>
 <li><a href="#hardware-otp-tokens">Hardware OTP Tokens</a></li>
 <li><a href="#software-totp-tokens">Software TOTP Tokens</a></li>
 <li><a href="#hardware-u2f-tokens">Hardware U2F Tokens</a></li>
@@ -2029,11 +2033,17 @@
 <li><a href="#smartcards">Smartcards</a></li>
 <li><a href="#sms-messages-and-phone-calls">SMS Messages and Phone Calls</a></li>
 <li><a href="#email">Email</a></li>
-<li><a href="#something-you-are">Something You Are</a></li>
+</ul>
+</li>
+<li><a href="#something-you-are">Something You Are</a><ul>
 <li><a href="#biometrics">Biometrics</a></li>
-<li><a href="#location">Location</a></li>
+</ul>
+</li>
+<li><a href="#location">Location</a><ul>
 <li><a href="#source-ip-ranges">Source IP Ranges</a></li>
 <li><a href="#geolocation">Geolocation</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="advantages">Advantages<a class="headerlink" href="#advantages" title="Permanent link">&para;</a></h2>
 <p>The most common way that user accounts get compromised on applications is through weak, re-used or stolen passwords. Despite any technical security controls implemented on the application, users are liable to choose weak passwords, or to use the same password on different applications. As developers or system administrators, it should be assumed that users' passwords will be compromised as some point, and the system should be designed in order to defend against this.</p>
@@ -2071,16 +2081,22 @@
 <h3 id="improving-usability">Improving Usability<a class="headerlink" href="#improving-usability" title="Permanent link">&para;</a></h3>
 <p>Having to frequently login with MFA creates an additional burden for users, and may cause them to disable MFA on the application. A number of mechanisms can be used to try and reduce the level of annoyance that MFA causes. However, these types of measures do decrease the security provided by MFA, so need to be risk assessed to find a reasonable balance of security and usability for the application.</p>
 <ul>
-<li>Remembering the user's browser so they don't need to use MFA every time.</li>
+<li>Remembering the user's browser so they don't need to use MFA every time.<ul>
 <li>This can either be permanent, or for a period of a few days.</li>
 <li>This needs to be done with more than just a cookie, which could be stolen by an attacker.<ul>
 <li>For example, a cookie matched to the previous IP address the cookie was issued for.</li>
 </ul>
 </li>
-<li>Whitelisting corporate IP ranges (or, more strictly, using location as a second factor).</li>
+</ul>
+</li>
+<li>Whitelisting corporate IP ranges (or, more strictly, using location as a second factor).<ul>
 <li>This doesn't protect against malicious insiders, or a user's workstation being compromised.</li>
-<li>Only requiring MFA for sensitive actions, not for the initial login.</li>
+</ul>
+</li>
+<li>Only requiring MFA for sensitive actions, not for the initial login.<ul>
 <li>This will depend heavily on the functionality in the application.</li>
+</ul>
+</li>
 </ul>
 <h3 id="failed-login-attempts">Failed Login Attempts<a class="headerlink" href="#failed-login-attempts" title="Permanent link">&para;</a></h3>
 <p>When a user enters their password, but fails to authenticate using a second factor, this could mean one of two things:</p>
@@ -2090,12 +2106,16 @@
 </ul>
 <p>There are a number of steps that should be taken when this occurs:</p>
 <ul>
-<li>Prompt the user to try another form of MFA</li>
+<li>Prompt the user to try another form of MFA<ul>
 <li>For example, an SMS code rather than using their hardware OTP token.</li>
+</ul>
+</li>
 <li>Allow the user to attempt to <a href="#resetting-mfa">reset their MFA</a>.</li>
-<li>Notify the user of the failed login attempt, and encourage them to change their password if they don't recognise it.</li>
+<li>Notify the user of the failed login attempt, and encourage them to change their password if they don't recognise it.<ul>
 <li>The notification should include the time, browser and geographic location of the login attempt.</li>
 <li>This should be displayed next time they login, and optionally emailed to them as well.</li>
+</ul>
+</li>
 </ul>
 <h3 id="resetting-mfa">Resetting MFA<a class="headerlink" href="#resetting-mfa" title="Permanent link">&para;</a></h3>
 <p>One of the biggest challenges with implementing MFA is handling users who forget or lose their second factors. There are many ways this could happen, such as:</p>

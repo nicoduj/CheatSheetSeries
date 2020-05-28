@@ -1150,19 +1150,23 @@
 <h2 id="key-relevant-properties-of-restful-web-services">Key relevant properties of RESTful web services<a class="headerlink" href="#key-relevant-properties-of-restful-web-services" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Use of HTTP methods (<code>GET</code>, <code>POST</code>, <code>PUT</code> and <code>DELETE</code>) as the primary verb for the requested operation.</li>
-<li>Non-standard parameters specifications:</li>
+<li>Non-standard parameters specifications:<ul>
 <li>As part of the URL.</li>
 <li>In headers.</li>
+</ul>
+</li>
 <li>Structured parameters and responses using JSON or XML in a parameter values, request body or response body. Those are required to communicate machine useful information.</li>
 <li>Custom authentication and session management, often utilizing custom security tokens: this is needed as machine to machine communication does not allow for login sequences.</li>
 <li>Lack of formal documentation. A <a href="http://www.w3.org/Submission/wadl/">proposed standard for describing RESTful web services called WADL</a> was submitted by Sun Microsystems but was never officially adapted.</li>
 </ul>
 <h2 id="the-challenge-of-security-testing-restful-web-services">The challenge of security testing RESTful web services<a class="headerlink" href="#the-challenge-of-security-testing-restful-web-services" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Inspecting the application does not reveal the attack surface, I.e. the URLs and parameter structure used by the RESTful web service. The reasons are:</li>
+<li>Inspecting the application does not reveal the attack surface, I.e. the URLs and parameter structure used by the RESTful web service. The reasons are:<ul>
 <li>No application utilizes all the available functions and parameters exposed by the service</li>
 <li>Those used are often activated dynamically by client side code and not as links in pages.</li>
 <li>The client application is often not a web application and does not allow inspection of the activating link or even relevant code.</li>
+</ul>
+</li>
 <li>The parameters are none standard making it hard to determine what is just part of the URL or a constant header and what is a parameter worth <a href="https://owasp.org/www-community/Fuzzing">fuzzing</a>.</li>
 <li>As a machine interface the number of parameters used can be very large, for example a JSON structure may include dozens of parameters. <a href="https://owasp.org/www-community/Fuzzing">fuzzing</a> each one significantly lengthen the time required for testing.</li>
 <li>Custom authentication mechanisms require reverse engineering and make popular tools not useful as they cannot track a login session.</li>
@@ -1179,7 +1183,7 @@
 <p>Note that the proxy must be able to collect full requests and not just URLs as REST services utilize more than just GET parameters.</p>
 <p>Analyze collected requests to determine the attack surface:</p>
 <ul>
-<li>Look for non-standard parameters:</li>
+<li>Look for non-standard parameters:<ul>
 <li>Look for abnormal HTTP headers - those would many times be header based parameters.</li>
 <li>Determine if a URL segment has a repeating pattern across URLs. Such patterns can include a date, a number or an ID like string and indicate that the URL segment is a URL embedded parameter.<ul>
 <li>For example: <code>http://server/srv/2013-10-21/use.php</code></li>
@@ -1195,11 +1199,15 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <p>Verify non-standard parameters: in some cases (but not all), setting the value of a URL segment suspected of being a parameter to a value expected to be invalid can help determine if it is a path elements of a parameter. If a path element, the web server will return a <em>404</em> message, while for an invalid value to a parameter the answer would be an application level message as the value is legal at the web server level.</p>
 <p>Analyzing collected requests to optimize <a href="https://owasp.org/www-community/Fuzzing">fuzzing</a> - after identifying potential parameters to fuzz, analyze the collected values for each to determine:</p>
 <ul>
-<li>Valid vs. invalid values, so that <a href="https://owasp.org/www-community/Fuzzing">fuzzing</a> can focus on marginal invalid values.</li>
+<li>Valid vs. invalid values, so that <a href="https://owasp.org/www-community/Fuzzing">fuzzing</a> can focus on marginal invalid values.<ul>
 <li>For example sending <em>0</em> for a value found to be always a positive integer.</li>
+</ul>
+</li>
 <li>Sequences allowing to fuzz beyond the range presumably allocated to the current user.</li>
 </ul>
 <p>Lastly, when <a href="https://owasp.org/www-community/Fuzzing">fuzzing</a>, don't forget to emulate the authentication mechanism used.</p>

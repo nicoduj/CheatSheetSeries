@@ -1404,10 +1404,12 @@
 <p>Fetch directives tell the browser the locations to trust and load resources from.</p>
 <p>Most fetch directives have a certain <a href="https://www.w3.org/TR/CSP3/#directive-fallback-list">fallback list specified in w3</a>. This list allows for granular control of the source of scripts, images, files, etc.</p>
 <ul>
-<li><code>child-src</code> allows the developer to control nested browsing contexts and worker execution contexts.</li>
+<li><code>child-src</code> allows the developer to control nested browsing contexts and worker execution contexts.<ul>
 <li>According to <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#Fetch_directives">MDN</a>, the below 2 directives should be used to regulate nested browsing context and workers as <code>child-src</code> will be deprecated in the coming versions.</li>
 <li><code>frame-src</code> specifies the URLs which can be loaded into nested browsing contexts (<em>e.g.</em> <code>&lt;iframe&gt;</code>).</li>
 <li><code>worker-src</code> specifies the URLs which can be loaded as worker, sharedworker, or serviceworker. Fallback's on <code>script-src</code> too.</li>
+</ul>
+</li>
 <li><code>connect-src</code> provides control over fetch requests, XHR, eventsource, beacon and websockets connections.</li>
 <li><code>font-src</code> specifies which URLs to load fonts from.</li>
 <li><code>img-src</code> specifies the URLs that images can be loaded from.</li>
@@ -1415,44 +1417,58 @@
 <li><code>media-src</code> specifies the URLs from which video, audio and text track resources can be loaded from.</li>
 <li><code>prefetch-src</code> specifies the URLs from which resources can be prefetched from.</li>
 <li><code>object-src</code> specifies the URLs from which plugins can be loaded from.</li>
-<li><code>script-src</code> specifies the locations from which a script can be executed from. It is a fallback directive for other script-like directives.</li>
+<li><code>script-src</code> specifies the locations from which a script can be executed from. It is a fallback directive for other script-like directives.<ul>
 <li><code>script-src-elem</code> controls the location from which execution of script requests and blocks can occur.</li>
 <li><code>script-src-attr</code> controls the execution of event handlers.</li>
-<li><code>style-src</code> controls from where styles get applied to a document. This includes <code>&lt;link&gt;</code> elements, <code>@import</code> rules, and requests originating from a <code>Link</code> HTTP response header field.</li>
+</ul>
+</li>
+<li><code>style-src</code> controls from where styles get applied to a document. This includes <code>&lt;link&gt;</code> elements, <code>@import</code> rules, and requests originating from a <code>Link</code> HTTP response header field.<ul>
 <li><code>style-src-elem</code> controls styles except for inline attributes.</li>
 <li><code>style-src-attr</code> controls styles attributes.</li>
+</ul>
+</li>
 <li><code>default-src</code> is a fallback directive for the other fetch directives. Directives that are specified have no inheritance, yet directives that are not specified will fall back to the value of <code>default-src</code>.</li>
 </ul>
 <h3 id="document-directives">Document Directives<a class="headerlink" href="#document-directives" title="Permanent link">&para;</a></h3>
 <p>Document directives instruct the browser about the properties of the document to which the policies will apply to.</p>
 <ul>
 <li><code>base-uri</code> specifies the possible URLs that the <code>&lt;base&gt;</code> element can use.</li>
-<li><code>plugin-types</code> limits the types of resources that can be loaded into the document (<em>e.g.</em> application/pdf). 3 rules apply to the affected elements, <code>&lt;embed&gt;</code> and <code>&lt;object&gt;</code>:</li>
+<li><code>plugin-types</code> limits the types of resources that can be loaded into the document (<em>e.g.</em> application/pdf). 3 rules apply to the affected elements, <code>&lt;embed&gt;</code> and <code>&lt;object&gt;</code>:<ul>
 <li>The element needs to explicitly declare its type.</li>
 <li>The element's type needs to match the declared type.</li>
 <li>The element's resource need to match the declared type.</li>
-<li><code>sandbox</code> restricts a page's actions such as submitting forms.</li>
+</ul>
+</li>
+<li><code>sandbox</code> restricts a page's actions such as submitting forms.<ul>
 <li>Only applies when used with the request header <code>Content-Security-Policy</code>.</li>
 <li>Not specifying a value for the directive activates all of the sandbox restrictions. <code>Content-Security-Policy: sandbox;</code></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox#Syntax">Sandbox syntax</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="navigation-directives">Navigation Directives<a class="headerlink" href="#navigation-directives" title="Permanent link">&para;</a></h3>
 <p>Navigation directives instruct the browser about the locations that the document can navigate to.</p>
 <ul>
 <li><code>navigate-to</code> restricts the URLs which a document can navigate to by any mean.</li>
 <li><code>form-action</code> restricts the URLs which the forms can submit to.</li>
-<li><code>frame-ancestors</code> restricts the URLs that can embed the requested resource inside of  <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, or <code>&lt;applet&gt;</code> elements.</li>
+<li><code>frame-ancestors</code> restricts the URLs that can embed the requested resource inside of  <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, or <code>&lt;applet&gt;</code> elements.<ul>
 <li>If this directive is specified in a <code>&lt;meta&gt;</code> tag, the directive is ignored.</li>
 <li>This directive doesn't fallback to <code>default-src</code> directive.</li>
 <li><code>X-Frame-Options</code> is rendered obsolete by this directive and is ignored by the user agents.</li>
 </ul>
+</li>
+</ul>
 <h3 id="reporting-directives">Reporting Directives<a class="headerlink" href="#reporting-directives" title="Permanent link">&para;</a></h3>
 <p>Reporting directives deliver violations of prevented behaviors to specified locations. These directives serve no purpose on their own and are dependent on other directives.</p>
 <ul>
-<li><code>report-to</code> which is a groupname defined in the header in a json formatted header value.</li>
+<li><code>report-to</code> which is a groupname defined in the header in a json formatted header value.<ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/report-to">MDN report-to documentation</a></li>
-<li><code>report-uri</code> directive is deprecated by <code>report-to</code>, which is a URI that the reports are sent to.</li>
+</ul>
+</li>
+<li><code>report-uri</code> directive is deprecated by <code>report-to</code>, which is a URI that the reports are sent to.<ul>
 <li>Goes by the format of: <code>Content-Security-Policy: report-uri https://example.com/csp-reports</code></li>
+</ul>
+</li>
 </ul>
 <p>In order to ensure backward compatibility, use the 2 directives in conjunction. Whenever a browser supports <code>report-to</code>, it will ignore <code>report-uri</code>. Otherwise, <code>report-uri</code> will be used.</p>
 <h3 id="special-directive-sources">Special Directive Sources<a class="headerlink" href="#special-directive-sources" title="Permanent link">&para;</a></h3>
@@ -1514,26 +1530,32 @@
 <ul>
 <li>
 <p>In order to prevent mixed content (resources being loaded over http, from a document loaded over https), one can use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content">block-all-mixed-content</a> directive to block mixed content.</p>
-</li>
-<li>
-<p><code>Content-Security-Policy: block-all-mixed-content;</code></p>
+<ul>
+<li><code>Content-Security-Policy: block-all-mixed-content;</code></li>
+</ul>
 </li>
 <li>
 <p>On the other hand, if the developer is migrating from HTTP to HTTPS, the following directive will ensure that all requests will be sent over HTTPS with no fallback to HTTP:</p>
-</li>
-<li>
-<p><code>Content-Security-Policy: upgrade-insecure-requests;</code></p>
+<ul>
+<li><code>Content-Security-Policy: upgrade-insecure-requests;</code></li>
+</ul>
 </li>
 </ul>
 <p>If the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests">upgrade-insecure-requests</a> is set, the <code>block-all-mixed-content</code> is rendered meaningless and should be removed.</p>
 <h3 id="preventing-clickjacking">Preventing ClickJacking<a class="headerlink" href="#preventing-clickjacking" title="Permanent link">&para;</a></h3>
 <ul>
-<li>To prevent all framing of your content use:</li>
+<li>To prevent all framing of your content use:<ul>
 <li><code>Content-Security-Policy: frame-ancestors 'none';</code></li>
-<li>To allow for the site itself, use:</li>
+</ul>
+</li>
+<li>To allow for the site itself, use:<ul>
 <li><code>Content-Security-Policy: frame-ancestors 'self';</code></li>
-<li>To allow for trusted domain, do the following:</li>
+</ul>
+</li>
+<li>To allow for trusted domain, do the following:<ul>
 <li><code>Content-Security-Policy: frame-ancestors trusted.com;</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="strict-policy">Strict Policy<a class="headerlink" href="#strict-policy" title="Permanent link">&para;</a></h3>
 <p>A strict policy's role is to protect against classical stored, reflected, and some of the DOM XSS attacks and should be the optimal goal of any team trying to implement CSP.</p>

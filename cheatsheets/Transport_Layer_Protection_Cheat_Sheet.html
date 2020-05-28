@@ -1566,21 +1566,27 @@
 <li>Consider whether the "www" subdomain should also be included.</li>
 <li>Do not include non-qualified hostnames.</li>
 <li>Do not include IP addresses.</li>
-<li>Do not include internal domain names on externally facing certificates.</li>
+<li>Do not include internal domain names on externally facing certificates.<ul>
 <li>If a server is accessible using both internal and external FQDNs, configure it with multiple certificates.</li>
+</ul>
+</li>
 </ul>
 <h3 id="carefully-consider-the-use-of-wildcard-certificates">Carefully Consider the use of Wildcard Certificates<a class="headerlink" href="#carefully-consider-the-use-of-wildcard-certificates" title="Permanent link">&para;</a></h3>
 <p>Wildcard certificates can be convenient, however they violate <a href="https://wiki.owasp.org/index.php/Least_privilege">the principal of least privilege</a>, as a single certificate is valid for all subdomains of a domain (such as *.example.org). Where multiple systems are sharing a wildcard certificate, the likelihood that the private key for the certificate is compromised increases, as the key may be present on multiple systems. Additionally, the value of this key is significantly increased, making it a more attractive target for attackers.</p>
 <p>The issues around the use of wildcard certificates are complicated, and there are <a href="https://blog.sean-wright.com/wildcard-certs-not-quite-the-star/">various</a> other <a href="https://gist.github.com/joepie91/7e5cad8c0726fd6a5e90360a754fc568">discussions</a> of them online.</p>
 <p>When risk assessing the use of wildcard certificates, the following areas should be considered:</p>
 <ul>
-<li>Only use wildcard certificates where there is a genuine need, rather than for convenience.</li>
+<li>Only use wildcard certificates where there is a genuine need, rather than for convenience.<ul>
 <li>Consider the use of the <a href="https://en.wikipedia.org/wiki/Automated_Certificate_Management_Environment">ACME</a> to allow systems to automatically request and update their own certificates instead.</li>
-<li>Never use a wildcard certificates for systems at different trust levels.</li>
+</ul>
+</li>
+<li>Never use a wildcard certificates for systems at different trust levels.<ul>
 <li>Two VPN gateways could use a shared wildcard certificate.</li>
 <li>Multiple instances of a web application could share a certificate.</li>
 <li>A VPN gateway and a public webserver <strong>should not</strong> share a wildcard certificate.</li>
 <li>A public webserver and an internal server <strong>should not</strong> share a wildcard certificate.</li>
+</ul>
+</li>
 <li>Consider the use of a reverse proxy server which performs TLS termination, so that the wildcard private key is only present on one system.</li>
 <li>A list of all systems sharing a certificate should be maintained to allow them all to be updated if the certificate expires or is compromised.</li>
 <li>Limit the scope of a wildcard certificate by issuing it for a subdomain (such as <code>*.foo.example.org</code>), or a for a separate domain.</li>
@@ -1624,8 +1630,10 @@ Expires: 0
 <p>In a typical configuration, TLS is used with a certificate on the server so that the client is able to verify the identity of the server, and to provide an encrypted connection between them. However, there are two main weaknesses with this approach:</p>
 <ul>
 <li>The server does not have any mechanism to verify the identity of the client</li>
-<li>The connection can be intercepted by an attacker who is able to obtain a valid certificate for the domain.</li>
+<li>The connection can be intercepted by an attacker who is able to obtain a valid certificate for the domain.<ul>
 <li>This is most commonly used by businesses to carry out inspection of TLS traffic by installing a trusted CA certificate on there client systems.</li>
+</ul>
+</li>
 </ul>
 <p>Client certificates address both of these issues by requiring that the client proves their identity to the server with their own certificate. This not only provides strong authentication of the identity of the client, but also prevents an intermediate party from performing TLS decryption, even if they have trusted CA certificate on the client system.</p>
 <p>Client certificates are rarely used on public systems due to a number of issues:</p>

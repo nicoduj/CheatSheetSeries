@@ -1391,25 +1391,35 @@
 <p>Passwords should not be stored using reversible encryption - secure password hashing algorithms should be used instead. The <a href="Password_Storage_Cheat_Sheet.html">Password Storage Cheat Sheet</a> contains further guidance on storing passwords.</p>
 <h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#cryptographic-storage-cheat-sheet">Cryptographic Storage Cheat Sheet</a>
-  -<a href="#introduction">Introduction</a>
-  -<a href="#contents">Contents</a>
-  -<a href="#architectural-design">Architectural Design</a>
-    -<a href="#where-to-perform-encryption">Where to Perform Encryption</a>
-    -<a href="#minimise-the-storage-of-sensitive-information">Minimise the Storage of Sensitive Information</a>
-  -<a href="#algorithms">Algorithms</a>
-    -<a href="#custom-algorithms">Custom Algorithms</a>
-    -<a href="#cipher-modes">Cipher Modes</a>
-    -<a href="#secure-random-number-generation">Secure Random Number Generation</a><ul>
-<li><a href="#uuids-and-guids">UUIDs and GUIDs</a>
--<a href="#defence-in-depth">Defence in Depth</a>
-  -<a href="#key-management">Key Management</a>
--<a href="#processes">Processes</a>
--<a href="#key-generation">Key Generation</a>
--<a href="#key-lifetimes-and-rotation">Key Lifetimes and Rotation</a>
-  -<a href="#key-storage">Key Storage</a>
--<a href="#separation-of-keys-and-data">Separation of Keys and Data</a>
--<a href="#encrypting-stored-keys">Encrypting Stored Keys</a></li>
+<li><a href="#cryptographic-storage-cheat-sheet">Cryptographic Storage Cheat Sheet</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#architectural-design">Architectural Design</a><ul>
+<li><a href="#where-to-perform-encryption">Where to Perform Encryption</a></li>
+<li><a href="#minimise-the-storage-of-sensitive-information">Minimise the Storage of Sensitive Information</a></li>
+</ul>
+</li>
+<li><a href="#algorithms">Algorithms</a><ul>
+<li><a href="#custom-algorithms">Custom Algorithms</a></li>
+<li><a href="#cipher-modes">Cipher Modes</a></li>
+<li><a href="#secure-random-number-generation">Secure Random Number Generation</a><ul>
+<li><a href="#uuids-and-guids">UUIDs and GUIDs</a></li>
+</ul>
+</li>
+<li><a href="#defence-in-depth">Defence in Depth</a></li>
+</ul>
+</li>
+<li><a href="#key-management">Key Management</a><ul>
+<li><a href="#processes">Processes</a></li>
+<li><a href="#key-generation">Key Generation</a></li>
+<li><a href="#key-lifetimes-and-rotation">Key Lifetimes and Rotation</a></li>
+</ul>
+</li>
+<li><a href="#key-storage">Key Storage</a><ul>
+<li><a href="#separation-of-keys-and-data">Separation of Keys and Data</a></li>
+<li><a href="#encrypting-stored-keys">Encrypting Stored Keys</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1532,12 +1542,18 @@
 <h3 id="key-lifetimes-and-rotation">Key Lifetimes and Rotation<a class="headerlink" href="#key-lifetimes-and-rotation" title="Permanent link">&para;</a></h3>
 <p>Encryption keys should be changed (or rotated) based on a number of different criteria:</p>
 <ul>
-<li>If the previous key is known (or suspected) to have been compromised.</li>
+<li>If the previous key is known (or suspected) to have been compromised.<ul>
 <li>This could also be caused by a someone who had access to the key leaving the organisation.</li>
-<li>After a specified period of time has elapsed (known as the cryptoperiod).</li>
+</ul>
+</li>
+<li>After a specified period of time has elapsed (known as the cryptoperiod).<ul>
 <li>There are many factors that could affect what an appropriate cryptoperiod is, including the size of the key, the sensitivity of the data, and the threat model of the system. See section 5.3 of <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf">NIST SP 800-57</a> for further guidance.</li>
-<li>After the key has been used to encrypt a specific amount of data.</li>
+</ul>
+</li>
+<li>After the key has been used to encrypt a specific amount of data.<ul>
 <li>This would typically be <code>2^35</code> bytes (~34GB) for 64-bit keys and <code>2^68</code> bytes (~295 exabytes) for 128 bit keys.</li>
+</ul>
+</li>
 <li>If there is a significant change to the security provided by the algorithm (such as a new attack being announced).</li>
 </ul>
 <p>Once one of these criteria have been met, a new key should be generated and used for encrypting any new data. There are two main approaches for how existing data that was encrypted with the old key(s) should be handled:</p>

@@ -2035,8 +2035,10 @@
 <p>Additionally, the <code>Secure</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies">cookie attribute</a> must be used to ensure the session ID is only exchanged through an encrypted channel. The usage of an encrypted communication channel also protects the session against some session fixation attacks where the attacker is able to intercept and manipulate the web traffic to inject (or fix) the session ID on the victim's web browser (see <a href="https://media.blackhat.com/bh-eu-11/Raul_Siles/BlackHat_EU_2011_Siles_SAP_Session-Slides.pdf">here</a> and <a href="https://media.blackhat.com/bh-eu-11/Raul_Siles/BlackHat_EU_2011_Siles_SAP_Session-WP.pdf">here</a>).</p>
 <p>The following set of best practices are focused on protecting the session ID (specifically when cookies are used) and helping with the integration of HTTPS within the web application:</p>
 <ul>
-<li>Do not switch a given session from HTTP to HTTPS, or vice-versa, as this will disclose the session ID in the clear through the network.</li>
+<li>Do not switch a given session from HTTP to HTTPS, or vice-versa, as this will disclose the session ID in the clear through the network.<ul>
 <li>When redirecting to HTTPS, ensure that the cookie is set or regenerated <strong>after</strong> the redirect has occurred.</li>
+</ul>
+</li>
 <li>Do not mix encrypted and unencrypted contents (HTML pages, images, CSS, JavaScript files, etc) in the same page, or from the same domain.</li>
 <li>Where possible, avoid offering public unencrypted contents and private encrypted contents from the same host. Where insecure content is required, consider hosting this on a separate insecure domain.</li>
 <li>Implement <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html">HTTP Strict Transport Security (HSTS)</a> to enforce HTTPS connections.</li>

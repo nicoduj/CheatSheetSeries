@@ -1532,12 +1532,12 @@
 <p>Prior to running the tests, 2 output paths are possible:</p>
 <ul>
 <li>All tests succeed, and thus the update can be pushed to production.</li>
-<li>One or several tests failed, several output paths are possible:</li>
+<li>One or several tests failed, several output paths are possible:<ul>
 <li>Failure is due to change in some function calls (<em>e.g.</em> signature, argument, package, etc.). The development team must update their code to fit the new library. Once that is done, re-run the tests.</li>
-<li>Technical incompatibility of the released dependency (<em>e.g.</em> require a more recent runtime version) which leads to the following actions:<ol>
+<li>Technical incompatibility of the released dependency (<em>e.g.</em> require a more recent runtime version) which leads to the following actions:</li>
 <li>Raise the issue to the provider.</li>
 <li>Apply <a href="#case-2">Case 2</a> while waiting for the provider's feedback.</li>
-</ol>
+</ul>
 </li>
 </ul>
 <h3 id="case-2">Case 2<a class="headerlink" href="#case-2" title="Permanent link">&para;</a></h3>
@@ -1636,7 +1636,7 @@
 </li>
 <li>
 <p>Free</p>
-</li>
+<ul>
 <li><a href="https://owasp.org/www-project-dependency-check/">OWASP Dependency Check</a>:<ul>
 <li>Full support: Java, .Net.</li>
 <li>Experimental support: Python, Ruby, PHP (composer), NodeJS, C, C++.</li>
@@ -1648,7 +1648,9 @@
 </ul>
 </li>
 <li><a href="https://dependencytrack.org/">OWASP Dependency Track</a> can be used to manage vulnerable dependencies across an organization.</li>
-<li>Commercial</li>
+</ul>
+</li>
+<li>Commercial<ul>
 <li><a href="https://snyk.io/">Snyk</a> (open source and free option available):<ul>
 <li><a href="https://snyk.io/docs/">Full support</a> for many languages and package manager.</li>
 </ul>
@@ -1663,6 +1665,8 @@
 </li>
 <li><a href="https://requires.io/">Requires.io</a> (allow to detect old dependencies - open source and free option available):<ul>
 <li><a href="https://requires.io/features/">Full support</a>: Python only.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

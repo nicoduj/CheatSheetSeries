@@ -1570,12 +1570,16 @@ TX|UT|VT|VI|VA|WA|WV|WI|WY)$
 <p>As such, the best way to validate email addresses is to perform some basic initial validation, and then pass the address to the mail server and catch the exception if it rejects it. This means that any the application can be confident that its mail server can send emails to any addresses it accepts. The initial validation could be as simple as:</p>
 <ul>
 <li>The email address contains two parts, separated with an <code>@</code> symbol.</li>
-<li>The email address does not contain dangerous characters (such as backticks, single or double quotes, or null bytes).</li>
+<li>The email address does not contain dangerous characters (such as backticks, single or double quotes, or null bytes).<ul>
 <li>Exactly which characters are dangerous will depend on how the address is going to be used (echoed in page, inserted into database, etc).</li>
+</ul>
+</li>
 <li>The domain part contains only letters, numbers, hyphens (<code>-</code>) and periods (<code>.</code>).</li>
-<li>The email address is a reasonable length:</li>
+<li>The email address is a reasonable length:<ul>
 <li>The local part (before the <code>@</code>) should be no more than 63 characters.</li>
 <li>The total length should be no more than 254 characters.</li>
+</ul>
+</li>
 </ul>
 <h3 id="semantic-validation">Semantic Validation<a class="headerlink" href="#semantic-validation" title="Permanent link">&para;</a></h3>
 <p>Semantic validation is about determining whether the email address is correct and legitimate. The most common way to do this is to send an email to the user, and require that they click a link in the email, or enter a code that has been sent to them. This provides a basic level of assurance that:</p>

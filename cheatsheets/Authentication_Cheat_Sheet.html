@@ -1660,15 +1660,19 @@
 <h3 id="implement-proper-password-strength-controls">Implement Proper Password Strength Controls<a class="headerlink" href="#implement-proper-password-strength-controls" title="Permanent link">&para;</a></h3>
 <p>A key concern when using passwords for authentication is password strength. A "strong" password policy makes it difficult or even improbable for one to guess the password through either manual or automated means. The following characteristics define a strong password:</p>
 <ul>
-<li>Password Length</li>
+<li>Password Length<ul>
 <li><strong>Minimum</strong> length of the passwords should be <strong>enforced</strong> by the application. Passwords <strong>shorter than 8 characters</strong> are considered to be weak (<a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST SP800-63B</a>).</li>
 <li><strong>Maximum</strong> password length should not be set <strong>too low</strong>, as it will prevent users from creating passphrases. A common maximum length is 64 characters due to limitations in certain hashing algorithms, as discussed in the <a href="Password_Storage_Cheat_Sheet.html#maximum-password-lengths">Password Storage Cheat Sheet</a>. It is important to set a maximum password length to prevent <a href="https://www.acunetix.com/vulnerabilities/web/long-password-denial-of-service/">long password Denial of Service attacks</a>.</li>
+</ul>
+</li>
 <li>Do not silently truncate passwords. The <a href="Password_Storage_Cheat_Sheet.html#maximum-password-lengths">Password Storage Cheat Sheet</a> provides further guidance on how to handle passwords that are longer than the maximum length.</li>
 <li>Allow usage of <strong>all</strong> characters including unicode and whitespace. There should be no password composition rules limiting the type of characters permitted.</li>
 <li>Ensure credential rotation when a password leak, or at the time of compromise identification.</li>
-<li>Include password strength meter to help users create a more complex password and block common and previously breached passwords</li>
+<li>Include password strength meter to help users create a more complex password and block common and previously breached passwords<ul>
 <li><a href="https://github.com/dropbox/zxcvbn">zxcvbn library</a> can be used for this purpose. (Note that this library is no longer maintained)</li>
 <li><a href="https://haveibeenpwned.com/Passwords">Pwned Passwords</a> is a service where passwords can be checked against previously breached passwords. You can host it yourself or use <a href="https://haveibeenpwned.com/API/v2#PwnedPasswords">API</a>.</li>
+</ul>
+</li>
 </ul>
 <h4 id="for-more-detailed-information-check">For more detailed information check<a class="headerlink" href="#for-more-detailed-information-check" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1858,8 +1862,10 @@ ENDIF
 <p>Password managers are programs, browser plugins or web services that automate management of large number of different credentials. Most password managers have functionality to allow users to easily use them on websites, either by pasting the passwords into the login form, or by simulating the user typing them in.</p>
 <p>Web applications should at least not make password managers job more difficult than necessary by observing the following recommendations:</p>
 <ul>
-<li>Use standard HTML forms for username and password input with appropriate <code>type</code> attributes.</li>
+<li>Use standard HTML forms for username and password input with appropriate <code>type</code> attributes.<ul>
 <li>Avoid plugin-based login pages (such as Flash or Silverlight).</li>
+</ul>
+</li>
 <li>Implement a reasonable maximum password length, such as 64 characters, as discussed in the <a href="Password_Storage_Cheat_Sheet.html#maximum-password-lengths">Password Storage Cheat Sheet</a>.</li>
 <li>Allow any printable characters to be used in passwords.</li>
 <li>Allow users to paste into the username and password fields.</li>

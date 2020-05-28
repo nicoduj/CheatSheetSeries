@@ -1297,10 +1297,14 @@ Where:
 
 <ul>
 <li>When executed, the 1st command line argument is the stanza from the config file. The Stanza names the <code>LoginModule</code> to be used. The 2nd argument is the <code>CallbackHandler</code>.</li>
-<li>Create a new <code>LoginContext</code> with the arguments passed to <code>Main.java</code>.</li>
+<li>Create a new <code>LoginContext</code> with the arguments passed to <code>Main.java</code>.<ul>
 <li><code>loginContext = new LoginContext (args[0], new AppCallbackHandler());</code></li>
-<li>Call the LoginContext.Login Module:</li>
+</ul>
+</li>
+<li>Call the LoginContext.Login Module:<ul>
 <li><code>loginContext.login();</code></li>
+</ul>
+</li>
 <li>The value in succeeded Option is returned from <code>loginContext.login()</code>.</li>
 <li>If the login was successful, a subject was created.</li>
 </ul>
@@ -1316,18 +1320,24 @@ Where:
 <h3 id="initialize">initialize()<a class="headerlink" href="#initialize" title="Permanent link">&para;</a></h3>
 <p>In <code>Main()</code>, after the <code>LoginContext</code> reads the correct stanza from the config file, the <code>LoginContext</code> instantiates the <code>LoginModule</code> specified in the stanza.</p>
 <ul>
-<li><code>initialize()</code> methods signature:</li>
+<li><code>initialize()</code> methods signature:<ul>
 <li><code>Public void initialize (Subject subject, CallbackHandler callbackHandler, Map sharedState, Map options)</code></li>
-<li>The arguments above should be saved as follows:</li>
+</ul>
+</li>
+<li>The arguments above should be saved as follows:<ul>
 <li><code>this.subject = subject;</code></li>
 <li><code>this.callbackHandler = callbackHandler;</code></li>
 <li><code>this.sharedState = sharedState;</code></li>
 <li><code>this.options = options;</code></li>
-<li>What the <code>initialize()</code> method does:</li>
+</ul>
+</li>
+<li>What the <code>initialize()</code> method does:<ul>
 <li>Builds a subject object of the <code>Subject</code> class contingent on a successful <code>login()</code>.</li>
 <li>Sets the <code>CallbackHandler</code> which interacts with the user to gather login information.</li>
 <li>If a <code>LoginContext</code> specifies 2 or more LoginModules, which is legal, they can share information via a <code>sharedState</code> map.</li>
 <li>Saves state information such as debug and succeeded in an options Map.</li>
+</ul>
+</li>
 </ul>
 <h3 id="login">login()<a class="headerlink" href="#login" title="Permanent link">&para;</a></h3>
 <p>Captures user supplied login information. The code snippet below declares an array of two callback objects which, when passed to the <code>callbackHandler.handle</code> method in the <code>callbackHandler.java</code> program, will be loaded with a user name and password provided interactively by the user:</p>
@@ -1340,9 +1350,11 @@ Where:
 
 <ul>
 <li>Authenticates the user</li>
-<li>Retrieves the user supplied information from the callback objects:</li>
+<li>Retrieves the user supplied information from the callback objects:<ul>
 <li><code>String ID = nameCallback.getName ();</code></li>
 <li><code>char[] tempPW = passwordCallback.getPassword ();</code></li>
+</ul>
+</li>
 <li>Compare <code>name</code> and <code>tempPW</code> to values stored in a repository such as LDAP.</li>
 <li>Set the value of the variable succeeded and return to <code>Main()</code>.</li>
 </ul>

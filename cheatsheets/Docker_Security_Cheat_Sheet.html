@@ -1458,15 +1458,19 @@ It can be done by appending <code>:ro</code> to the <code>-v</code> like this:</
 <h3 id="rule-9-use-static-analysis-tools">RULE #9 - Use static analysis tools<a class="headerlink" href="#rule-9-use-static-analysis-tools" title="Permanent link">&para;</a></h3>
 <p>To detect containers with known vulnerabilities - scan images using static analysis tools.</p>
 <ul>
-<li>Free</li>
+<li>Free<ul>
 <li><a href="https://github.com/coreos/clair">Clair</a></li>
 <li><a href="https://github.com/knqyf263/trivy">Trivy</a></li>
-<li>Commercial</li>
+</ul>
+</li>
+<li>Commercial<ul>
 <li><a href="https://snyk.io/">Snyk</a> <strong>(open source and free option available)</strong></li>
 <li><a href="https://anchore.com/opensource/">anchore</a> <strong>(open source and free option available)</strong></li>
 <li><a href="https://github.com/aquasecurity/microscanner">Aqua Security's MicroScanner</a> <strong>(free option available for rate-limited number of scans)</strong></li>
 <li><a href="https://jfrog.com/xray/">JFrog XRay</a></li>
 <li><a href="https://www.qualys.com/apps/container-security/">Qualys</a></li>
+</ul>
+</li>
 </ul>
 <p>To detect misconfigurations in Kubernetes:</p>
 <ul>
