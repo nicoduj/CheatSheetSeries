@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://cheatsheetseries.owasp.org/index.html</loc>
+     <loc>https://cheatsheetseries.owasp.org/Glossary.html</loc>
+     <lastmod>2020-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://cheatsheetseries.owasp.org/Index.html</loc>
      <lastmod>2020-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -9,10 +13,6 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://cheatsheetseries.owasp.org/IndexProactiveControls.html</loc>
-     <lastmod>2020-05-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://cheatsheetseries.owasp.org/glossary.html</loc>
      <lastmod>2020-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
