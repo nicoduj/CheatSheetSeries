@@ -14,7 +14,6 @@ rm -rf $WORK 1>/dev/null 2>&1
 mkdir $WORK
 mkdir $WORK/cheatsheets
 mkdir $WORK/custom_theme
-mkdir $WORK/custom_theme/img
 
 echo "Step 2/7: Generate the summary markdown page "
 python Update_CheatSheets_Index.py
@@ -37,9 +36,6 @@ cp ../CONTRIBUTING.md $WORK/cheatsheets/CONTRIBUTING.md
 cp ../CONTRIBUTOR-V1.md $WORK/cheatsheets/CONTRIBUTOR-V1.md
 cp ../Excluded.md $WORK/cheatsheets/Excluded.md
 cp ../LICENSE.md $WORK/cheatsheets/LICENSE.md
-
-cp ../assets/WebSite_Favicon.ico $WORK/custom_theme/img/favicon.ico
-cp ../assets/WebSite_Favicon.png $WORK/custom_theme/img/apple-touch-icon-precomposed-152.png
 
 cp -r ../custom_theme/* $WORK/custom_theme/
 
