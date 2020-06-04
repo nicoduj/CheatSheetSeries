@@ -19,18 +19,12 @@
     
     
       
-        <title>Home - OWASP Cheat Sheet Series</title>
+        <title>Introduction</title>
       
     
     
       <link rel="stylesheet" href="assets/stylesheets/main.a2408e81.min.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/palette.a46bcfb3.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="">
       
     
     
@@ -55,10 +49,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -88,7 +79,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Home
+              Introduction
             
           </span>
         </div>
@@ -147,232 +138,8 @@
         
       
       
-    
-        
-          
-
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  <li class="md-tabs__item">
-    
-      <a href="index.html" class="md-tabs__link md-tabs__link--active">
-        Home
-      </a>
-    
-  </li>
-
-      
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="Glossary.html" class="md-tabs__link">
-          Indexes
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="cheatsheets/AJAX_Security_Cheat_Sheet.html" class="md-tabs__link">
-          CheatSheets
-        </a>
-      
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-        
-      
-
-    
-    <!-- Additional styles for landing page -->
-    <style>
-
-      /* Application header should be static for the landing page */
-      .md-header {
-        position: initial;
-      }
-
-      /* Remove spacing, as we cannot hide it completely */
-      .md-main__inner {
-        margin: 0;
-      }
-
-      /* Hide main content for now */
-      .md-content {
-        display: none;
-      }
-
-      /* Gradient background + blob */
-      .tx-container {
-        padding-top: 1rem;
-        background:
-          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 250'><path d='M 0 50 Q 100 150 200 150 Q 800 150 1000 150 Q 1200 150 1300 250 L 0 250 Z' style='fill: white' /></svg>") no-repeat bottom,
-          linear-gradient(
-            to bottom,
-            var(--md-primary-fg-color),
-            rgb(129, 129, 129) 99%,
-            var(--md-default-bg-color)
-          );
-      }
-
-      /* Set inverted text color on hero */
-      .tx-hero {
-        margin: 0 .8rem;
-        color: var(--md-primary-bg-color);
-      }
-
-      /* Make main headline thicker */
-      .tx-hero h1 {
-        margin-bottom: 1rem;
-        color: currentColor;
-        font-weight: 700;
-      }
-
-      /* Ensure that blob doesn't overlap buttons */
-      .tx-hero__content {
-        padding-bottom: 6rem;
-      }
-
-      /* Adjust spacing of buttons and invert them */
-      .tx-hero .md-button {
-        margin-top: .5rem;
-        margin-right: .5rem;
-        color: var(--md-primary-bg-color);
-      }
-
-      /* Invert primary button */
-      .tx-hero .md-button--primary {
-        background-color: var(--md-primary-bg-color);
-        color: var(--md-primary-fg-color);
-        border-color: var(--md-primary-bg-color);
-      }
-
-      /* Invert hover and focus button states */
-      .tx-hero .md-button:hover,
-      .tx-hero .md-button:focus {
-        background-color: var(--md-accent-fg-color);
-        color: var(--md-default-bg-color);
-        border-color: var(--md-accent-fg-color);
-      }
-
-      /* [mobile portrait -]: Adjust headline */
-      @media screen and (max-width: 30em) {
-
-        /* Make main headline smaller */
-        .tx-hero h1 {
-          font-size: 1.4rem;
-        }
-      }
-
-      /* [tablet landscape +]: Display content and image next to each other */
-      @media screen and (min-width: 60em) {
-
-        /* Hide table of contents */
-        .md-sidebar--secondary {
-          display: none;
-        }
-
-        /* Use flex layout to align items */
-        .tx-hero {
-          display: flex;
-          align-items: stretch;
-        }
-
-        /* Increase bottom spacing and set dimensions */
-        .tx-hero__content {
-          max-width: 19rem;
-          margin-top: 3.5rem;
-          padding-bottom: 14vw;
-        }
-
-        /* Swap with teaser and set dimensions */
-        .tx-hero__image {
-          width: 38rem;
-          order: 1;
-          transform: translateX(4rem);
-        }
-      }
-
-      /* [screen +]: Adjust spacing */
-      @media screen and (min-width: 76.25em) {
-
-        /* Hide navigation */
-        .md-sidebar--primary {
-          display: none;
-        }
-
-        /* Ensure the image aligns with the repository information */
-        .tx-hero__image {
-          transform: translateX(8rem);
-        }
-      }
-    </style>
-
-    <!-- Hero for landing page -->
-    <section class="tx-container">
-      <div class="md-grid md-typeset">
-        <div class="tx-hero">
-
-          <!-- Hero image -->
-          <div class="tx-hero__image">
-            <img
-              src="assets/Preface_Cheatsheet_Logo.png"
-              alt=""
-              width="1280"
-              height="853"
-              draggable="false"
-            >
-          </div>
-
-          <!-- Hero content -->
-          <div class="tx-hero__content">
-            <h1>A concise collection of high value information on specific applicaton security topics</h1>
-            <p>Website with the collection of all the cheat sheets of the project.. All at your fingertips.</p>
-            <a
-              href="Preface.html"
-              title="Preface"
-              class="md-button md-button--primary"
-            >
-              Enter WebSite
-            </a>
-            <a
-              href="https://github.com/OWASP/CheatSheetSeries"
-              title="Go to repository"
-              class="md-button"
-            >
-              Go to GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-  
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
@@ -417,8 +184,8 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-    <a href="index.html" title="Home" class="md-nav__link md-nav__link--active">
-      Home
+    <a href="index.html" title="Introduction" class="md-nav__link md-nav__link--active">
+      Introduction
     </a>
     
   </li>
@@ -430,8 +197,8 @@
 
 
   <li class="md-nav__item">
-    <a href="Preface.html" title="Preface" class="md-nav__link">
-      Preface
+    <a href="Excluded.html" title="Index of Excluded Cheat Sheets" class="md-nav__link">
+      Index of Excluded Cheat Sheets
     </a>
   </li>
 
@@ -439,79 +206,6 @@
       
       
       
-
-
-  <li class="md-nav__item">
-    <a href="CONTRIBUTING.html" title="Contributing" class="md-nav__link">
-      Contributing
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="CONTRIBUTOR-V1.html" title="Contributors" class="md-nav__link">
-      Contributors
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="LICENSE.html" title="Licence" class="md-nav__link">
-      Licence
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="Excluded.html" title="Excluded cheat Sheets" class="md-nav__link">
-      Excluded cheat Sheets
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Indexes
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Indexes" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Indexes
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
 
 
   <li class="md-nav__item">
@@ -520,10 +214,10 @@
     </a>
   </li>
 
-        
-          
-          
-          
+    
+      
+      
+      
 
 
   <li class="md-nav__item">
@@ -532,21 +226,16 @@
     </a>
   </li>
 
-        
-          
-          
-          
+    
+      
+      
+      
 
 
   <li class="md-nav__item">
-    <a href="IndexProactiveControls.html" title="Index Proactive" class="md-nav__link">
-      Index Proactive
+    <a href="IndexProactiveControls.html" title="Index Proactive Controls" class="md-nav__link">
+      Index Proactive Controls
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -557,20 +246,20 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-8">
-      CheatSheets
+    <label class="md-nav__link" for="nav-6">
+      Cheatsheets
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="CheatSheets" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+    <nav class="md-nav" aria-label="Cheatsheets" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        CheatSheets
+        Cheatsheets
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1359,8 +1048,41 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-      
-  
+                
+                
+                  
+                
+                
+                  <h1>Introduction</h1>
+                
+                <p><img alt="ProjectLogoOfficial" src="assets/Preface_Cheatsheet_Logo.png" /></p>
+<p>The <strong>OWASP Cheat Sheet Series</strong> was created to provide a concise collection of high value information on specific application security topics. These cheat sheets were created by various application security professionals who have expertise in specific topics.</p>
+<p>We hope that this project provides you with excellent security guidance in an easy to read format. <img alt="😄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f604.svg" title=":smile:" /></p>
+<p>You can download this site <a href="bundle.zip">here</a>.</p>
+<p>An ATOM feed is available <a href="News.xml">here</a> with the latest updates.</p>
+<p>Project leaders:</p>
+<ul>
+<li><a href="https://github.com/jmanico">Jim Manico</a></li>
+<li><a href="https://github.com/ThunderSon">Elie Saad</a></li>
+</ul>
+<p>Core team:</p>
+<ul>
+<li><a href="https://github.com/ThunderSon">Elie Saad</a></li>
+<li><a href="https://github.com/mackowski">Jakub Maćkowski</a></li>
+<li><a href="https://github.com/rbsec">Robin Bailey</a></li>
+<li><a href="https://github.com/jmanico">Jim Manico</a></li>
+</ul>
+<p>Project links:</p>
+<ul>
+<li><a href="https://owasp.org/www-project-cheat-sheets/">Homepage</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries">GitHub repository</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/CONTRIBUTING.md">How to contribute?</a></li>
+<li><a href="https://github.com/OWASP/owasp-swag/tree/master/projects/cheat-sheet-series">Logo</a></li>
+</ul>
+                
+                  
+                
+              
               
                 
 
@@ -1371,9 +1093,48 @@
         </div>
       </main>
       
+        
+<footer class="md-footer">
   
-
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+        
+          <a href="Excluded.html" title="Index of Excluded Cheat Sheets" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Index of Excluded Cheat Sheets
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © Copyright 2020 - CheatSheets Series Team
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
     </div>
     
       <script src="assets/javascripts/vendor.d710d30a.min.js"></script>
@@ -1382,7 +1143,7 @@
       <script>
         app = initialize({
           base: ".",
-          features: ["tabs"],
+          features: [],
           search: Object.assign({
             worker: "assets/javascripts/worker/search.27c6a5e6.min.js"
           }, typeof search !== "undefined" && search)
